@@ -3,7 +3,7 @@
 
 # SITE SPECIFIC: The following fields are typically changed for each site
 name: ITM 352
-baseurl: /ITM352_moreaV3
+baseurl: /ITM352
 morea_theme: spacelab
 timezone: Pacific/Honolulu
 morea_navbar_items:
