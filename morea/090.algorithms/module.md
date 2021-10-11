@@ -22,7 +22,7 @@ morea_assessments:
 morea_type: module
 morea_icon_url: /morea/090.algorithms/alg.png
 morea_labels:
-morea_sort_order: 10
+morea_sort_order: 11
 ---
 
 What is a program, program logic and solving problems with algorithms.

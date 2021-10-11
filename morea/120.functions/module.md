@@ -21,7 +21,7 @@ morea_experiences:
 morea_assessments:
 # - assessment-Invoice7
 
-morea_sort_order: 11
+morea_sort_order: 10
 morea_icon_url: /morea/120.functions/function2.png
 morea_labels: 
 ---
