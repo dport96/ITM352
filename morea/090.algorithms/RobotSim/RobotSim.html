@@ -1,0 +1,75 @@
+<head>
+    <script src="Robot.Sim.js"></script>
+    <link rel="stylesheet" type="text/css" href="RobotSim.css">
+</head>
+<h2>JavaScript Robot Simulator (Updated)</h2>
+<p id="command_instructions">
+The application can read commands in following format (case insensitive):
+    <ul>
+        <li>PLACE X,Y,F</li>
+        <li>BLOCK X,Y</li>
+        <li>MOVE</li>
+        <li>LEFT</li>
+        <li>RIGHT</li>
+        <li>REPORT</li>
+    </ul>
+</p>
+<main>
+    <div class="input-area">
+        <label for="command">Enter Command:</label>
+        <input type="text" id="command" onfocusout="inputView.processCommand(this.value)"
+            onkeydown="if (event.keyCode == 13) inputView.processCommand(this.value);" autofocus>
+<button id="send" onclick="inputView.processCommand(command.value);">Send Command</button>
+            <button id="restart">Reset</button>
+    </div>
+    <div class="content">
+        <h4>Current Status:</h4>
+
+        <p id="report"></p>
+    
+    </div>
+    <br>
+    <div id="program_instructions">
+            Put the robot code in the yellow textarea. <code>controller.move();</code> will move the robot forward. Returns <code>true</code> if robot moves. <code>controller.rotate();</code> will rotate the robot clockwise. Use <code>await sleep(200);</code> to slow down the command processing if needed. <code>if(){}</code> and <code>while(){}</code> may be used. Press the Execute button to execute the code.
+                </div>
+    <div>
+        <canvas id="c" width="551" height="580">
+            <img id="robot_north_img" src="robot_north.png">
+            <img id="robot_south_img" src="robot_south.png">
+            <img id="robot_east_img" src="robot_east.png">
+            <img id="robot_west_img" src="robot_west.png">
+        </canvas>
+    </div>
+    <div>
+            <input id="execute_button" type="button" value="Execute" onclick="program();">
+<textarea id="program_textarea">
+controller.move();
+controller.move();
+controller.rotate();
+controller.move();
+spin_count=1;
+while(spin_count++ < 10) {
+    controller.rotate();
+}
+alert('done!');
+    </textarea>
+    </div>
+</main>
+<script>
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function program() {
+        var program_text = document.getElementById("program_textarea").value;
+        // add delays for move and rotate
+        program_text = program_text.replace(/controller\.move\(\);/g, 'controller.move();await sleep(200);');
+        program_text = program_text.replace(/controller\.rotate\(\);/g, 'controller.rotate();await sleep(200);');
+        eval(` 
+            (async function() {
+            ${program_text}
+        })();
+        `);
+    }
+
+</script>

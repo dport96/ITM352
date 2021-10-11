@@ -2,9 +2,8 @@
 title: "Footer"
 morea_id: footer
 morea_type: footer
+published: true
 ---
 
-Philip Johnson | Information and Computer Sciences | University of Hawaii <br>
-johnson@hawaii.edu<br>
-
-
+Dan Port | Information Technology Management | University of Hawaii, Manoa <br>
+dport@hawaii.edu<br>
