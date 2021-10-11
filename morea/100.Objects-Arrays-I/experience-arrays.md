@@ -177,7 +177,7 @@ Put your code or a link to the code in your repo here:
 ```
 
 #### EXTRA CREDIT EXERCISE: 
-a. Create an indexed array or an indexed array with an indexed array called TicTacToe and assign either "X" or "O" to each of the 9 elements. Now print out an HTML table that displays the contents of TicTacToe. You must use a "for" loop (or loops) to traverse the array. The final product should look like:
+a. Create 3x3 indexed array `TicTacToe` (an array with 3 arrays as values where each array has 3 elements) with "X" or "O" to each of the 9 elements. Now print out an HTML table that displays the contents of TicTacToe. You must use two "for" loops. One loop to index the rows and another inside this look to index the columns. The final product should look like:
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -203,5 +203,17 @@ a. Create an indexed array or an indexed array with an indexed array called TicT
   </tr>
 </table>  
 
-b. Now start the array(s) off empty. Now make it so when you hover over a cell it is highlighted. If clicked it cycles `"X","O",""`. Use the array to keep track of what is in the cells and display. Do not directly change the cell. Have fun playing tic-tac-toe!
-test
+b. Now start the array(s) off with the `-` string. Add the following styles 
+```
+    td:hover {
+        background-color: chartreuse;
+    }
+    td {
+        height:25px;width:20px;text-align:center;cursor:cell;
+    }
+```
+Add a `div` under the table with `id=status_div` and the innerHTML `X goes first`. Define an array `marks =["X","O"]` and a variable `move_num = 0`. In the `onclick` for each `<td>` add code that first checks that `this.innerHTML` is `-`. If so, set `this.innerHTML` to `marks[move_num%2]`. Set `status_div.innerHTML = marks[(++move_num)%2] + ' goes'`. Have fun playing Tic Tac Toe!
+
+c (HARD!). When you set the mark in the table ceell, also set the `TicTacToe` array for the element at the current row and column to `marks[move_num%2]` to keep track of what is in the cells. play. You can "flatten" the `TicTacToe` array into a strting using `board_str = TicTacToe.map(e => e.join('')).join('')`. Now define a regular expression `const re = /^(?:(?:...){0,2}([OX])\1\1|.{0,2}([OX])..\2..\2|([OX])...\3...\3|..([OX]).\4.\4)/g` which will match if there is a win in `board_str` (i.e. three in a row for either X or O). You can use `win = re.exec(str)` to check for a match. If there is no match, `win` will be `null`. If there is a match, `win` will be an array with the matching string in the first element and if it matched with "X" or "O" in one of the other elements. Use this and an if-else-if to determine if the game was won or a draw (use `(move_num + 1) == 9` to determine that all moves have been made). If no win or draw, display who's move it is as you did in (b).
+
+d (SUPER HARD!!). Make the computer play "O" by modifing the `onclick` so that after a move is made with "X", determine the best place to put an "O" and put it there (in the array and table). You will need to check if there is a win as you did in (c). To determine the best move, you look at each open cell, put an "O" there and check if it would win. If there no win, check if it could block "X" from winning (see if putting an "O" in this cell would be a win). If there is no block, count how many possible wins there would be if there is an "O" in this cell and you could put another "O" on the board. While counting this, also count how many blocks there could be by putting another "X"'s on the board and count wins).

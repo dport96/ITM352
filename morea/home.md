@@ -21,7 +21,7 @@ valuable in developing your programming skills.
 
 There are four skill levels of software development:
 
-![software development cog skill levels]({{ site.baseurl }}/morea/cog_skill_levels.png)
+![software development cog skill levels](./morea/cog_skill_levels.png)
 
 Each level involves fundamentally different cognitive skill (that is, "ways or thinking"). Acquiring these skill levels are not easy and will require sustained effort and determination. You cannot "study" your way to these skills. They can only be acquired though experience. However the rewards for acquiring these skills are huge! See the Future Benefits section for details. This course is very ambitious and explicitly designed to rapidly get you to the "Application" level of programming skill. 
 
