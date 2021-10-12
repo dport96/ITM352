@@ -152,7 +152,7 @@ Put your code or a link to the code in your repo here:
 #### Exercise 4. Using DOM objects dynamically
 Sometime you will need to create and add DOM objects after the page is loaded. When you create a DOM object it will need to be added to the document `node` by inserting or appending (which is the same as adding it to the HTML hierarchy)
 
-a. Modify your problem in Exercise 3 to append a new row to the table when the table is clicked on. Start by getting the `<tbody>` object of the table. Then use `document.createElement('tr')` to create a new table row object which you will use the `appendChild()` method of the `<tbody>` object to add to the table. After this, use a loop to add the same number of`<td>` objects to the new row object as the first row in the table (use can get this number from the table object  using `.rows[0].cells.length`). 
+a. Modify your problem in Exercise 3 to append a new row to the table when the table is clicked on. Start by putting `onclick="new_row = this.appendChild(document.createElement('tr'));` in the `<tbody>` element of the table to create and add a new row element to the table. After this, add `new_cell = this.appendChild(document.createElement('trd'));`  to add a cell element to the new row. Use the `new_cell` reference to set the `innerHTML` of the cell to `xxx`. Check that this works by clicking the table a few times. Now use a loop to add the same number of`<td>` objects to the new row object as the first row in the table (you can get this number from the tbody object using `.rows[0].cells.length`). 
 
 Put your code or a link to the code in your repo here:
 ```
@@ -160,7 +160,7 @@ Put your code or a link to the code in your repo here:
 
 ```
 
-b. Now add `<input type="button" value="Delete Last Row">` after the table. Write code in the `onclick` event attribute for this to delete 
+b. Now add `<input type="button" value="Delete Last Row">` after the table. Write code in the `onclick` event attribute for this to delete the last row. Start by giving the tbody an id. Then use this id and `.rows.length` to get the number of rows. Use this value and the `.deleteRow()` method of the tbody object to delete the row.  
 
 Put your code or a link to the code in your repo here:
 ```
