@@ -11,6 +11,7 @@ GEM
     ethon (0.14.0)
       ffi (>= 1.15.0)
     eventmachine (1.2.7)
+    eventmachine (1.2.7-x64-mingw32)
     faraday (1.5.1)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -29,6 +30,7 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     ffi (1.15.3)
+    ffi (1.15.3-x64-mingw32)
     forwardable-extended (2.6.0)
     html-proofer (3.19.2)
       addressable (~> 2.3)
@@ -72,6 +74,8 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
     multipart-post (2.1.1)
+    nokogiri (1.11.7-x64-mingw32)
+      racc (~> 1.4)
     nokogiri (1.11.7-x86_64-darwin)
       racc (~> 1.4)
     nokogumbo (2.0.5)
@@ -94,18 +98,27 @@ GEM
     safe_yaml (1.0.5)
     sassc (2.4.0)
       ffi (~> 1.9)
+    sassc (2.4.0-x64-mingw32)
+      ffi (~> 1.9)
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
+    thread_safe (0.3.6)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
+    tzinfo (1.2.9)
+      thread_safe (~> 0.1)
+    tzinfo-data (1.2021.3)
+      tzinfo (>= 1.0.0)
     unicode-display_width (1.7.0)
+    wdm (0.1.1)
     webrick (1.7.0)
     yell (2.2.2)
 
 PLATFORMS
+  x64-mingw32
   x86_64-darwin-18
   x86_64-darwin-19
 
