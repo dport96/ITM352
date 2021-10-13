@@ -19,7 +19,7 @@ Note: Whenever you see something like \<Your Name\> and it's not obviously an HT
 
 For exercises that do not ask specific questions but have you perform tasks, copy any code you created and the output as your answer to the exercise. Some exercises ask for explanations. Make notes for your answer and complete these after class before submitting. Do not try to make complete answers if it keeps you from progressing!
 
-Do all your code work in VS Code. Copy and paste from there. Please ask the instructor for help if you get stuck this is **NOT** a test.
+Do all your code work in VS Code. Copy and paste from there. Please ask the instructor for help if you get stuck; this is **NOT** a test.
 
 # Submission
 When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to [Laulima Assignments](https://laulima.hawaii.edu). If you do not submit something to Laulima you will not get credit.
