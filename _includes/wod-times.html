@@ -1,22 +1,22 @@
 <style>
-.label-success {
+#wod-times .label-success {
     background-color: #3cb521
 }
 
-.label-info {
+#wod-times .label-info {
     background-color: #3399f3
 }
 
-.label-warning {
+#wod-times .label-warning {
     background-color: #d47500
 }
 
-.label-danger {
+#wod-times .label-danger {
     background-color: #cd0200
 }
 </style>
 
-<span class="h4">
+<span class="h4" id="wod-times">
   <span style="padding: 2px" class="label label-success">Rx: {{ include.Rx }}</span>
   <span style="padding: 2px" class="label label-info">Av: {{ include.Av }}</span>
   <span style="padding: 2px" class="label label-warning">Sd: {{ include.Sd }}</span>

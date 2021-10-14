@@ -152,9 +152,16 @@ Put your code or a link to the code in your repo here:
 #### Exercise 4. Using DOM objects dynamically
 Sometimes you will need to create and add DOM objects after the page is loaded. When you create a DOM object it will need to be added to the document `node` by inserting or appending (which is the same as adding it to the HTML hierarchy)
 
-a. Modify your problem in Exercise 3 to append a new row to the table when the table is clicked on. Start by putting `onclick="new_row = this.appendChild(document.createElement('tr'));` in the `<tbody>` element of the table to create and add a new row element to the table. After this, add `new_cell = this.appendChild(document.createElement('td'));`  to add a cell element to the new row. Use the `new_cell` reference to set the `innerHTML` of the cell to `xxx`. Check that this works by clicking the table a few times. Now use a loop to add the same number of`<td>` objects to the new row object as the first row in the table (you can get this number from the tbody object using `.rows[0].cells.length`). 
+a. Modify your problem in Exercise 3 to append a new row to the table when the table is clicked on. Start by putting `onclick="new_row = this.appendChild(document.createElement('tr'));` in the `<tbody>` element of the table to create and add a new row element to the table. After this, add `new_cell = new_row.appendChild(document.createElement('td'));`  to add a cell element to the new row. Use the `new_cell` reference to set the `innerHTML` of the cell to `xxx`. Check that this works by clicking the table a few times. Now use a loop to add the same number of`<td>` objects to the new row object as the first row in the table (you can get this number from the tbody object using `.rows[0].cells.length`). 
 
 Put your code or a link to the code in your repo here:
+```
+
+
+```
+
+Explain why you must work with the DOM objects rather than `document.write()` to change the page after it has been loaded:
+*Hint: The page is the `document` DOM object which is a kind of a collection (like an array) of DOM objects. When the HTML is loaded, the HTML entities become DOM objects that are added to `document`.*
 ```
 
 
