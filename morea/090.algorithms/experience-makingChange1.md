@@ -1,14 +1,14 @@
 ---
 title: "MakingChange1"
-published: false
+published: true
 morea_id: experience-makingChange1
 morea_type: experience
 morea_summary: "Implement a change making algorithm"
 morea_sort_order: 2
 morea_labels:
  - WOD
-morea_start_date: "2020-03-03" 
-morea_end_date: "2020-03-05"
+morea_start_date: "2021-10-20" 
+morea_end_date: "2021-10-26"
 ---
 
 # Write a program to make change for a given amount using the modulus operator
@@ -32,6 +32,9 @@ Suggestions:
  - Start by writing out comments outlining the steps of your algorithm. Then implement each step one at a time and test at each step
  
 If you get stuck you can view a [screencast solution](https://www.youtube.com/watch?v=UQptiNrXX-E&feature=youtu.be)
+
+###### This screencast shows a solution using PHP. Even though the code is a bit different, the algorithm is the same and would be implemented similarly in Javascript. See if you understand enough to translate!
+
 **OOPS... there's a rather nasty error in the screencast solution. See if you can spot it and fix it!**
 
 {% include wod-times.html Rx="<10 min" Av="15 min" Sd="20 min" DNF="20+ min" %}

@@ -13,7 +13,7 @@ morea_experiences:
  - experience-intro-algorithms
 # - experience-simple-algorithm
  - experience-dayOfTheWeek-algorithm
-# - experience-makingChange1
+ - experience-makingChange1
 # - experience-makingChange2
  - experience-Invoice3
 morea_assessments: 

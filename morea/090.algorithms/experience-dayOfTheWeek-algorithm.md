@@ -7,8 +7,8 @@ morea_summary: "Check your understanding of algorithms."
 morea_sort_order: 1
 morea_labels:
  - WOD
-morea_start_date: "2021-03-05"
-morea_end_date: "2021-03-10"
+morea_start_date: "2021-10-20"
+morea_end_date: "2021-10-26"
 ---
 
 # Implementing an algorithm to determine the day of the week from a date

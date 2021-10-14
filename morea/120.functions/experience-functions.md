@@ -7,7 +7,7 @@ morea_summary: "JAVASCRIPT functions"
 morea_sort_order: 4
 morea_labels:
  - Lab
-morea_start_date: "2021-10-12"
+morea_start_date: "2021-10-14"
 ---
 # Lab objectives
 
