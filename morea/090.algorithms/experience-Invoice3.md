@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Implement a running subtotal for Invoice1."
 morea_sort_order: 2
 morea_start_date: "2021-10-20"
-morea_end_date: "2021-10-26"
+morea_end_date: "2021-10-23"
 morea_labels:
  - WOD
 ---
@@ -14,7 +14,7 @@ morea_labels:
 ### Modify Invoice2 to compute the running subtotal 
 
 
-For this WOD start with Invoice2. You will be changing the way the subtotal is computed for the extended prices. Rather than compute all the extended prices and store them in variables and then sum all these variables, you will compute and use the extended price and add this to a "running total" at the time when an invoice item row is printed. The problem you are addressing is removing the hard-coded redundant variables and redundant code in outputting the invoice rows and this more general rather than hard-coded.
+For this WOD start with [Invoice2](../070.flow-control-I/experience-Invoice2.html). You will be changing the way the subtotal is computed for the extended prices. Rather than compute all the extended prices and store them in variables and then sum all these variables, you will compute and use the extended price and add this to a "running total" at the time when an invoice item row is printed. The problem you are addressing is removing the hard-coded redundant variables and redundant code in outputting the invoice rows and this more general rather than hard-coded.
 
 You **must** use expressions and variables to compute the various needed values dynamically. 
 That is, do not "hard code" the computations. You should be able to change

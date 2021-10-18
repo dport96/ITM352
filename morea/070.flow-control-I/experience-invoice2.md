@@ -11,7 +11,7 @@ morea_start_date: "2021-09-24"
 morea_end_date: "2021-09-30"
 ---
 
-For this WOD you will modify the [sales receipt WOD](../060.expressions-operators/experience-invoice1.html) with an algorithm to determine shipping cost. Here are the the requirements: 
+For this WOD you will modify the [Invoice1](../060.expressions-operators/experience-invoice1.html) with an algorithm to determine shipping cost. Here are the the requirements: 
 
 1. Be sure to fix any problems from Invoice1 before continuing! 
 2. Add a new line in the receipt for shipping. 
