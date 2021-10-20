@@ -35,7 +35,7 @@ Let’s try seeing an algorithm from the computer’s perspective to get a bette
 <img src="day-of-week-flowchart.jpg" alt="" style="max-width: 100%;max-height: 100%;" height="700px" width="800px">
 
 <div>
-<img src="mod-7-calendartable.jpg" alt="" style="max-width: 100%;max-height: 100%;" height="200px" width="150px">
+<img src="mod-7-calendartable.jpg" alt="" style="max-width: 100%;max-height: 100%;" height="200px" width="200px">
 <img src="Leap Year Flowchart.png" alt="" style="max-width: 100%;max-height: 100%;" height="200px" width="200px">
 <img src="keysToDays.png" alt="" style="max-width: 100%;max-height: 100%;" height="150px" width="150px">
 </div>
