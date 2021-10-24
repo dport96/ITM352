@@ -94,21 +94,10 @@ Continuing with cell phone example, you would make a JSON array that holds all o
 
 (3) Create a server to serve your application. This includes serving your products data (in whatever manner you choose), display products page, validating purchase data, and providing an invoice for a purchase. Your server *MUST* be named `server.js`. This is needed for when you deploy your application on the ITM-VM server.
 
-Add this to your `server.js` file:
+Use this for a start on your `server.js` file:
 ```Javascript
 var express = require('express');
 var app = express();
-
-var myParser = require("body-parser");
-app.use(myParser.urlencoded({ extended: true }));
-
-// load product info
-var products_array = require('./products.json');
-
-app.get("/public/product_data.js", function (request, response, next) {
-   var products_str = `var products = ${JSON.stringify(products)};`;
-   response.send(products_str);
-});
 
 // Routing 
 
@@ -118,39 +107,14 @@ app.all('*', function (request, response, next) {
    next();
 });
 
-// Serve up products_array in memory as JS for loading in client script
-app.get("/products.js", function (request, response, next) {
-   var products_str = `var products_array = ${JSON.stringify(products_array)};`;
-   response.send(products_str);
-});
-
-// Process POST request from purchase form. Form element name is assumed to be quantity_textbox 
-app.post("/purchase", function (request, response) {
-   let POST = request.body;
-   if (typeof POST['quantity_textbox'] != 'undefined') {
-       q = POST['quantity_textbox'];
-       if(isNonNegInt(q)) {
-         response.send(`Thank you for purchasing ${q} things!`);
-       } else {
-         response.send(`${q} is not a quantity!`);
-       }
-   }; 
-   response.end();
-});
+// process purchase request (validate quantities, check quantity available)
+<** your code here ***>
 
 // route all other GET requests to files in public 
 app.use(express.static('./public'));
 
 // start server
 app.listen(8080, () => console.log(`listening on port 8080`));
-
-function isNonNegInt(q, returnErrors = false) {
-  errors = []; // assume no errors at first
-  if (Number(q) != q) errors.push('Not a number!'); // Check if string is a number value
-  if (q < 0) errors.push('Negative value!'); // Check if it is non-negative
-  if (parseInt(q) != q) errors.push('Not an integer!'); // Check that it is an integer
-  return returnErrors ? errors : (errors.length == 0);
-}
 ```
 
 Note: this means that all of your HTML files must live in a folder called "public" in your assignment directory.
