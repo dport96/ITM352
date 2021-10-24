@@ -46,16 +46,16 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   color: yellow;
   text-align: right;
   width: 160px;
   position: absolute;
   right: 4%;
-  z-index: 2200;
+  z-index: 22000;
   text-shadow: 2px 2px 1px black;
-  line-height: 2rem;
-  padding-top: 0.3rem;
+  line-height: 3rem;
+  padding-top: 0.5rem;
 }
 
 p {
