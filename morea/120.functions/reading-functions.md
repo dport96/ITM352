@@ -15,6 +15,9 @@ morea_start_date: "2021-10-12T10:30"
 <a href="https://www.w3schools.com/js/js_functions.asp"><i><b><big>*JS Functions*</big></b></i></a>
 <br>
 <a href="https://www.w3schools.com/js/js_function_definition.asp"><i><b><big>*Function Definitions*</big></b></i></a>
+<br>
+<a href="https://www.freecodecamp.org/news/javascript-callback-functions-what-are-callbacks-in-js-and-how-to-use-them/"><i><b><big>*Callback and Anonymous Functions*</big></b></i></a>
+
 
 [Click here for a short video covering most of the material in the readings](https://www.youtube.com/watch?v=Tvu1FqhOUrQ) 
 
