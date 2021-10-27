@@ -149,8 +149,8 @@ Task 1: Make `order_page_Ex5.html` display inputs for all products in `product_d
                 document.write(`<h3>${products[i]["model"]} at \$${products[i]["price"]}</h3>`);
                 document.write(`
         <label for="quantity_textbox">quantity desired:</label>
-        <input type="text" name="quantity_textbox${i}" onkeyup="checkQuantityTextbox(this);">
-        <span id="quantity_textbox${i}_message">Enter a quantity</span>
+        <input type="text" name="quantity_textbox[${i}]" onkeyup="checkQuantityTextbox(this);">
+        <span id="quantity_textbox[${i}]_message">Enter a quantity</span>
         `);
             }
         </script>
@@ -169,22 +169,23 @@ Make sure you understand what changes were made and why!
 
 Task 2: Process multiple quantities of products from the submitted form. In `info_server_Ex5.js` replace `process_quantity_form()` with
 ```Javascript
- function process_quantity_form (POST, response) {
-   if (typeof POST['purchase_submit_button'] != 'undefined') {
-      receipt = '';
-      for(i in products) { 
-       let q = POST[`quantity_textbox${i}`];
-       let model = products[i]['model'];
-       let model_price = products[i]['price'];
-       if (isNonNegInt(q)) {
-         receipt += `<h3>Thank you for purchasing: ${q} ${model}. Your total is \$${q * model_price}!</h3>`; // render template string
-       } else {
-         receipt += `<h3><font color="red">${q} is not a valid quantity for ${model}!</font></h3>`;
-       }
-     }
-     response.send(receipt);
-     response.end();
-   }
+function process_quantity_form(POST, response) {
+    if (typeof POST['purchase_submit_button'] != 'undefined') {
+        receipt = '';
+        let qtys = POST[`quantity_textbox`];
+        for (i in qtys) {
+            q=qtys[i];
+            let model = products[i]['model'];
+            let model_price = products[i]['price'];
+            if (isNonNegInt(q)) {
+                receipt += `<h3>Thank you for purchasing: ${q} ${model}. Your total is \$${q * model_price}!</h3>`; // render template string
+            } else {
+                receipt += `<h3><font color="red">${q} is not a valid quantity for ${model}!</font></h3>`;
+            }
+        }
+        response.send(receipt);
+        response.end();
+    }
 }
 ```
-Run `info_server_Ex5.js` and try entering quantities for the products displayed! Do you see how things are connected through the shared data in `product_data.json`?
+Run `info_server_Ex5.js` and try entering quantities for the products displayed! Do you see how things are connected through the shared data in `product_data.json`? Did you see how naming your form elements with `[]`'s puts all the form data into an array? By the way, you can use this to create objects. Just use strings rather than numbers in `[]`.
