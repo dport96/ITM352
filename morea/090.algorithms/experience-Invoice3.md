@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Implement a running subtotal for Invoice1."
 morea_sort_order: 2
 morea_start_date: "2021-10-20"
-morea_end_date: "2021-10-23"
+morea_end_date: "2021-10-28"
 morea_labels:
  - WOD
 ---
