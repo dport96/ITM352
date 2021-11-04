@@ -47,9 +47,11 @@ Open a terminal and run it using node.js. Open a browser and make a request to l
 
 a) Why is this a "dynamic" web page? What is processed on the client and what is processed on the server? Why are the dates different even though they are obtained from the same clock (on the same machine)? What would happen if the server was run on a different machine than the browser?
 
-b) Does the request matter? How is the route for the HTTP request handled?
+b) Does the request matter? How is the route for the HTTP request handled? Explain the the output you see in the terminal. Where does this output come form? Why doesn't `console.log()` in the server output to the browser console? Explain what the `req` and `res` objects are and where they come from.
 
-c) When you do a "view source" in the browser, where did the Javascript code executed on the server go ? Why isn't it inside a `<script>` tag?
+c) When you do a "view source" in the browser, where did the Javascript code executed on the server go ? Why isn't it inside a `<script>` tag? Can you use DOM objects on the server?
+
+d) Change `Date.now()` to `Date()`. Save the file and refresh the browser. Why didn't you see the changes? Stop and restart the server. Why didn't you see the changes? Now refresh the browser page and explain why you now see the changes.
 
 **NOTE** You may wish to install and use the npm application `nodemon` to automatically restart node after changes are saved in a file.
 
@@ -62,27 +64,27 @@ var app = express();
 app.all('*', function (request, response, next) {
     response.send(request.method + ' to path ' + request.path);
 });
-app.listen(8080, () => console.log(`listening on port 8080`)); // note the use of an anonymous function here
+app.listen(8080, () => console.log(`listening on port 8080`)); // note the use of an anonymous function here to do a callback
 ```
-In the terminal, start the server `node info_server_Ex2a.js` and then in a browser try various URLs such as `localhost:8080` and `localhost:8080/xxx/yyy`. What is the response you get and why? Explain how express handles routing an HTTP request on the port it is listening to.
+In the terminal, start the server `node info_server_Ex2a.js` and then in a browser try various URLs such as `localhost:8080` and `localhost:8080/xxx/yyy`. What is the response you get and why? Explain how express generally handles an HTTP request (discuss routing via `app.<HTTP request>()`, middleware via `app.use()`).
 
-b. Add a route to match with a `GET` request to the path `test`.  Put this above the `app.all()` route. Test it with and without `test`.Explain why the `app.all()` route does not get handled anymore. Now move it below `app.all()` to and verify you get the expected response. Now add `next();` after the response in `app.all()` and explain why you get an error in the console output. Now change the `response.send()` to `console.log()` in `app.all()` and explain why this no longer throws an error. It is recommended that you put this `app.all()` code in when you are developing a web app to see what requestes the server is receiving. 
+b. Add a route to match with a `GET` request to the path `test`.  Put this above the `app.all()` route. Test it with and without `test`.Explain why the `app.all()` route does not get handled anymore. Now move it below `app.all()` to and verify you get the expected response. Now add `next();` after the response in `app.all()` and explain why you get an error in the console output. Now change the `response.send()` to `console.log()` in `app.all()` and explain why this no longer throws an error. It is recommended that you put this `app.all()` code in when you are developing a web app to see what requests the server is receiving. 
 
 
-c. [Using middleware] Now we will enable the server to respond to request for static files (files that are not intended to have any server-side processing) that are located in a directory called `public` (this is often called the "document root" directory). We will do this by making use of Express `static` middle Make a copy of `info_server_Ex2a.js` and name it `info_server_Ex2c.js` 
+c. [Using middleware] Now we will enable the server to respond to request for static files (files that are not intended to have any server-side processing) that are located in a directory called `public` (this is often called the "document root" directory). We will do this by making use of Express `static` middleware component. Make a copy of `info_server_Ex2a.js` and name it `info_server_Ex2c.js` 
 
 Before the app.listen add the following add the following:
 ```Javascript
 app.use(express.static('./public'));
 ```
-Terminate the previously running server (with ctrl-C) and run `info_server_Ex2c.js`. Create a simple html file `hello.html` that outputs `<h1>Hello from <your name>!<h1>` and save it in the `public` directory. Use a browser with the following URL `http://localhost:8080/hello.html` and see what response you get. Try `localhost:8080/xxx` and explain what response you get. Make a copy of `hello.html` and rename it `hello.txt`. Now try `localhost:8080/hello.txt` and explain the response. Do you think the `app.use()` middleweare must be placed at the bottom of the routing functions?
+Terminate the previously running server (with ctrl-C) and run `info_server_Ex2c.js`. Create a simple html file `hello.html` that outputs `<h1>Hello from <your name>!</h1>` and save it in the `public` directory. Use a browser with the following URL `http://localhost:8080/hello.html` and see what response you get. Try `localhost:8080/xxx` and explain what response you get. Make a copy of `hello.html` and rename it `hello.txt`. Now try `localhost:8080/hello.txt` and explain the response. Change `<your name>` to your full name in `hello.html`. Save the file and reload the page. Why didn't you have to stop and start the server to see the changes? Do you think the `app.use()` middleware must be placed at the bottom of the routing functions?
 
-d. Copy your `order_page.html` from Exercise 4 in Lab 12 to the `public` directory. Change the `action` attribute of the form to `localhost:8080/process_form`. Make sure `method="POST"` in the form tag. Try `http://localhost:8080/order_page.html` in your browser and submit the form. Look at the console.log output and the response you get and explain.
+d. Copy your `order_page.html` from Exercise 6 in Lab 12 to the `public` directory. Change the `action` attribute of the form to `./process_form` (why use `.` instead of `localhost:8080` here?). Make sure `method="POST"` is in the form tag. Try `http://localhost:8080/order_page.html` in your browser and submit the form. Look at the `console.log` output and the response you get and explain.
 
 
 #### Exercise 3: Server Side Processing of Form Action
 
-a. Make a copy of `info_server_Ex2c.js` and name it `info_server_Ex3.js` and add the following code after the `app.all()` statement:
+a. Make a copy of `info_server_Ex2c.js` and name it `info_server_Ex3.js` and add the following code after the `app.all()` statement (why after and not before?):
 ```Javascript
 app.use(myParser.urlencoded({ extended: true }));
 app.post("/process_form", function (request, response) {

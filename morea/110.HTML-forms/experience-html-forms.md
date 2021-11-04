@@ -65,7 +65,7 @@ if (params.has('quantity_textbox')) {
     quantity_form["quantity_textbox"].value = params.get('quantity_textbox');
     checkQuantityTextbox(quantity_form["quantity_textbox"]);
 }
-
+```
 
 #### Exercise 5: Page redirection and passing data (total 8 minutes)
 
