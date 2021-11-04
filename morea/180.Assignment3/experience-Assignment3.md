@@ -7,8 +7,8 @@ morea_summary: "Build an eComm site"
 morea_sort_order: 3 
 morea_labels:
  - Assignment
-morea_start_date: "2021-04-14"
-morea_end_date: "2021-05-14"
+morea_start_date: "2021-12-01"
+morea_end_date: "2021-12-14"
 ---
 
 # Assignment 3: Adding Sessions to your e-Commerce Web-site
@@ -16,7 +16,8 @@ morea_end_date: "2021-05-14"
 
 ### Scenario: 
 
-The director was pleased with your past project, but she says that a friend of hers, who is involved in a similar project used "sessions and cookies" to secure and personalize the website for each user. She asks **you and your partner(s)** to 
+The director was pleased with your past project, but she says that
+ a friend of hers, who is involved in a similar project used "sessions and cookies" to secure and personalize the website for each user. She asks **you and your partner(s)** to 
 
 1) add a shopping cart feature to the website so that users can shop at their leisure, 
 2) enable arbitrary navigation of multiple product pages, 

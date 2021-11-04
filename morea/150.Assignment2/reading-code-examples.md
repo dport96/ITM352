@@ -7,7 +7,7 @@ morea_type: reading
 morea_sort_order: 3
 morea_labels:
 - Examples
-morea_start_date: "2020-04-23"
+morea_start_date: "2021-11-18"
 ---
 # Some examples useful for Assignment 2. 
 You can copy and paste the code in to VS Code to try these. You are welcome to use this code

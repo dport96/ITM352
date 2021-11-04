@@ -7,7 +7,7 @@ morea_summary: "Learn About File I/O"
 morea_sort_order: 1 
 morea_labels:
  - "Lecture Lab"
-morea_start_date: "2021-04-06"
+morea_start_date: "2021-11-16"
 ---
 
 ### Instructions: 
