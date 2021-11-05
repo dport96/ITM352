@@ -192,7 +192,7 @@ c.  Execute `junk3()` then `i3` explain why you get `Uncaught ReferenceError: i3
 ```
 
 
-#### Exercise 6: Callback functions, anonymous functions
+#### Exercise 6: Callback functions, anonymous functions (do this on your own)
 A callback function is when you give a function as a parameter to a function call. The idea here is that the function being called will use (invoke) this function inside itself to perform some action or routine and then "call back" to the caller when it's done (although in some situations this is not done). In Javascript functions are "asynchronous" meaning that when they are called they execute in a separate "thread" which runs at the same time as the thread that called the function. This means that the function does not have to complete executing its code before continuing to execute code after the function is called. This is both useful and troublesome. Useful since you can execute multiple things at the same time (in parallel). Troublesome in that you cannot rely on using the result of a function call in subsequent code (or in other functions).  A callback function is useful here, particularly in Javascript, for addressing these issues:
 
 - You want to ensure that some code runs only after something else happened (synchronous). DOM events are a good example of this. e.g. `document.onload = "function doStuff(){ ... }"` 
@@ -213,6 +213,35 @@ b. Do the same as above but define an **anonymous** function for the callback di
 
 
 ```
+
+c. [using callback to deal with asynchronous operation] Asynchronicity means that if JavaScript has to wait for an operation to complete, it will execute the rest of the code while waiting. JavaScript is a *single-threaded* programming language. It carries asynchronous operations via the *callback queue* and *event loop*. Let's look at how this works and how it affects how you write your code. Suppose that you need to develop a script that downloads a picture from a remote server and process it after the download completes. Copy the code below which simulates this:
+```Javascript
+function download(url) {
+    setTimeout(() => {
+        // script to download the picture here
+        console.log(`Downloading ${url} ...`);
+        picture_data = "image data:XOXOXO";
+    }, 3* 1000);
+    return picture_data;
+}
+
+function process(picture) {
+    console.log(`Processing ${picture}`);
+}
+
+let url = 'https://www.example.comt/big_pic.jpg';
+process( download(url) );
+```
+Run this code and explain why it tries to process the image before downloading it and why `picture` is undefined:
+```
+
+
+
+
+```
+Now add `callback` as a second parameter to `download` then replace `return picture_data;` with `callback(picture_data);` Change `process( download(url) );` to `download(url, process);` (note that we are passing the fucntion `process` as the `callBack` paramater to `download`). Now check that the image now processes after the download as desired. 
+
+
 
 #### BONUS: 
 Create a function that takes an array of numbers, called `monthly_sales` (a list of monthly sales amounts), and a tax rate (`tax_rate`) as inputs. The function must return an array called `tax_owing`, which consists of one entry for every entry in `monthly_sales` indicating the tax owing for that entry.

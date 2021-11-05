@@ -143,7 +143,7 @@ app.get("/product_data.js", function (request, response, next) {
 });
 ``` 
 
-and in the dunction for the post route for `process_form` add to the top
+and in the function for the post route for `process_form` add to the top
 ```Javascript
 let model = products[0]['model'];
 let model_price = products[0]['price'];
@@ -183,11 +183,11 @@ This code will read the query string and place the keys and values into a URLSea
 On your server, replace the `response.send()` with `response.redirect('receipt.html?quantity=' + q);`. This will tell the browser (the client) to do a GET request for the file `receipt.html` with a query string with key `quantity` and value whatever is in the variable `q` (which is the quantity purchased). Quit and restart the server, reload `order_page.html` to test.
 
 
-d. Modify the response on the server to redirect back to `order_page.html` when there is an error with the query string generated from `request.body`. 
+d. Modify the response on the server to redirect back to `order_page.html` when there is an error with the query string `?error=Invalid%20Quantity&quantity_textbox=' + q`. In  `order_page.html` where you check if the query string has `quantity_textbox`, also check if the query string has key `error` and put its value in an alert panel (i.e. "Invalid Quantity").
 
 (**Extra Credit**) Create a micro-service to validate a quantity and respond an invoice. Have `order_page.html` fetch the invoice and display it after the purchase button is pressed. This should be done without leaving (or reloading) `order_page.html`. Hint: do not have an action for the the form or change it so that it does the fetch to the micro-service rather than POST to the server.
 
-#### Extra Credit Exercise 5: Processing multiple inputs 
+#### Extra Credit: Processing multiple inputs 
 Let's make it possible to select quantities of a product from the shared products data. Copy `info_server_Ex4.js` and name it `info_server_Ex5.js`. Copy `order_page.html` and rename it `order_page_Ex5.html`. 
 
 Task 1: Make `order_page_Ex5.html` display inputs for all products in `product_data.js`. Replace the `<form>` element with
