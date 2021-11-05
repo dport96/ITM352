@@ -1,6 +1,6 @@
 ---
 title: "Master Schedule"
-published: false
+published: true
 morea_id: reading-schedule
 morea_summary: "The overall schedule for this class"
 morea_type: reading
