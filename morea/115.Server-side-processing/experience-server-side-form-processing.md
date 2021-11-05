@@ -86,14 +86,32 @@ d. Copy your `order_page.html` from Exercise 6 in Lab 12 to the `public` directo
 
 a. Make a copy of `info_server_Ex2c.js` and name it `info_server_Ex3.js` and add the following code after the `app.all()` statement (why after and not before?):
 ```Javascript
-app.use(myParser.urlencoded({ extended: true }));
 app.post("/process_form", function (request, response) {
    response.send(request.body); 
 });
 ```
-Unfortunately Express does not provide functions to decode the body of an HTTP request so you will need to write this yourself or add one. Fortunately there's a good one available! In your terminal (and be sure you are in the directory where `info_server_Ex3.js` is located), type `npm install body-parser`. After the installation is complete, in `info_server_Ex3.js` add the statement `var myParser = require("body-parser");` after the `var app = express();` statement. Now run `info_server_Ex3.js`. Try `localhost:8080/order_page.html` and verify that that you get the post data from the what you typed into the textbox after submitting the form. If this works, you have just done server-side processing of a POST from a web form. Congratulations!
+Now run `info_server_Ex3.js`. Try `localhost:8080/order_page.html`.
 
-b. In `order_page.html` cut the code that checks query string for `quantity_textbox` into `info_server_Ex3.js` (the `if (typeof GET['quantity_textbox'] != 'undefined'))` statement) and paste it **over** the `response.send(POST);` statement (i.e. delete the statement) in `app.post()` and change `GET` to `POST`. Copy the function `isNonNegInt()` from `order_page.html` and paste it into the top or bottom of `app.post()`. Change the ``document.write(`Thank you for purchasing ${q} things!`)`` to ``response.send(`Thank you for purchasing ${q} things!`);`` and delete `window.stop();` and an ``else response.send(`${q} is not a quantity! Press the back button and try again.`);`` to the if-statement. Try `localhost:8080/order_page.html` with valid and invalid quantites and verify that it works as expected. 
+You will notice that the `request.body` is empty. Unfortunately Express does not decode the body of an HTTP request by default so you will need to write this yourself or add the express `urlencoded` middleware with the code below: 
+```Javascript
+app.use(express.urlencoded({ extended: true }));
+```
+
+Now restart `info_server_Ex3.js` and try `localhost:8080/order_page.html` and verify that that you get the post data from the what you typed into the textbox after submitting the form. 
+
+Congratulations! You have just done server-side processing of a POST from a web form.
+
+b. In `info_server_Ex3.js` delete the `response.send(request.body);` statement and replace with:
+```Javascript
+    var q = request.body['quantity_textbox'];
+    if (typeof q != 'undefined') {
+    response.send(`Thank you for purchasing ${q} things!`);
+    } 
+```
+
+Try `localhost:8080/order_page.html` with valid and invalid quantities and verify that it works as expected. How can you test that the check for `quantity_textbox` in the POST request works as expected?
+
+c. How could we validate the data from the POST on the server? Copy the function `isNonNegInt()` from `order_page.html` and paste it into the top or bottom of `app.post()`. Use this function in an if-statement to check if `q` is a non-negative integer. If not, respond with `Error: ${q} is not a quantity. Hit the back button to fix.`.
 
 
 #### Exercise 4: Micro-services and web applications 
@@ -101,9 +119,7 @@ Often you need to do complex processing and responses on the server. A good desi
 
 Make a copy of `info_server_Ex3.js` and name it `info_server_Ex4.js`. 
 
-a. [Separating functionality] It's best not to clutter up the server code with the details of responding to requests. We can always create functions and move the code out of the way or put them in a file and load it in as a library. In `info_server_Ex4.js` cut and paste all the code and move it into a function called `process_quantity_form (POST, response)`. replace all the code in `app.post()` with `process_quantity_form(request.body, response);`
-
-b. [Shared data micro-service] You often have to use the same data in multiple places. It's always best to have one central source for shared data rather than duplicate sources, especially if this data is dynamic (changes frequently). For web applications, the common way to handle this is providing a data service on the server (sometimes called a *&**micro-service**). The data source can be a code, a file, accessing a database or more generally another server (such as a directory server). Let's implement a basic data service for our web application that shares product information for use in a form and the processing the form. For JSON data an easy way to do this is put the JSON into a file as a variable and load it in as a module. In your directory with `info_server_Ex4.js`, create a file called `product_data.json` and put the following data in it:
+a. [Shared data micro-service] You often have to use the same data in multiple places. It's always best to have one central source for shared data rather than duplicate sources, especially if this data is dynamic (changes frequently). For web applications, the common way to handle this is providing a data service on the server (sometimes called a **micro-service**). The data source can be a code, a file, accessing a database or more generally another server (such as a directory server). Let's implement a basic data service for our web application that shares product information for use in a form and the processing the form. For JSON data an easy way to do this is put the JSON into a file as a variable and load it in as a module. In your directory with `info_server_Ex4.js`, create a file called `product_data.json` and put the following data in it:
 ```JSON
 [
   {  
@@ -114,9 +130,9 @@ b. [Shared data micro-service] You often have to use the same data in multiple p
   "model":"Samsung Galaxy",  
   "price": 240.00  
   }
-];
+]
 ```
-At the top of `info_server_Ex4.js` put 
+After `app.all()` in `info_server_Ex4.js` put 
 ```Javascript
 var products = require('./product_data.json');
 
@@ -127,7 +143,7 @@ app.get("/product_data.js", function (request, response, next) {
 });
 ``` 
 
-and in the `process_quantity_form()` function add to the top
+and in the dunction for the post route for `process_form` add to the top
 ```Javascript
 let model = products[0]['model'];
 let model_price = products[0]['price'];
@@ -140,29 +156,36 @@ In the head tag of `order_page.html` add the line `<script src="./product_data.j
 ```Javascript
 document.write(`<h3>${products[0]["model"]} at \$${products[0]["price"]}</h3>`);
 ````
-Reload  `order_page.html` and verify that the Apple iPhone XS product is used in both the form and response to processing that form. Now change some of the information for the 0th element in `product_data.json` and verify that both `order_page.html` and `info_server_Ex4.js` use the updated information. How would you change the product being used here?
+Reload  `order_page.html` and verify that the Apple iPhone XS product is used in both the form and response to processing that form. Now change some of the information for the 0th element in `product_data.json` and verify that both `order_page.html` and `info_server_Ex4.js` use the updated information. How would you change which product in the JSON data is being used here?
 
 c. [Shared dynamic data micro-service] Let's say you want to keep track of how many of each item have been purchased and display this on the `order_page.html`. Rather than create a new micro-service for this, we will use the existing `product_data.js` micro-service by noting that the `products` array variable is loaded into memory when the server starts. If it is modified, the modified array is what is provided by the `product_data.js` micro-service and not the original `product_data.json` file (why?).
 
-Start by adding `products.forEach( (prod,i) => {prod.total_sold = 0});` to add a `total_sold` property to each product object after the `products` is defined. Now, in `process_quantity_form()`, before you generate the receipt, add the quantity purchased to the `total_sold` property for that product. Make sure you cast or convert the quantity purchased to a `Number` (why?). Stop and restart your server (why?).
+In `info_server_Ex4.js` start by adding `products.forEach( (prod,i) => {prod.total_sold = 0});` to add a `total_sold` property to each product object after the `products` is defined. Now, in the route for `process_form`, before you generate the receipt, add the quantity purchased to the `total_sold` property for that product. Make sure you cast or convert the quantity purchased to a `Number` (why?). Stop and restart your server (why?).
 
-Lastly, add `<h4>${products[i]["total_sold"]} ${products[i]["model"]} have been sold!</h4>` to `order_page.html` after the quantity textbox. Reload `order_page.html` and test that the total sold values change after every purchase.
+Lastly, add 
+```Javascript
+    for (i in products) {
+        document.write(`<h4>${products[i]["total_sold"]} ${products[i]["model"]} have been sold!</h4>`);
+    }
+```
+to `order_page.html` above the quantity textbox. Reload `order_page.html` and test that the total sold values change after every purchase.
 
 #### Exercise 5: Passing data to client from a server
 There are often times you will want to pass data from the server to a client. Unfortunately, HTTP does not support "push" data from the server (at least HTTP/1 does not). That is, you cannot just send data to the client, even if you have an open connection from the server to the client. Because of this, data can only be passed from the server to the client in response to a request. There are generally two ways to do this. One way is to put the data into a query string and have the server re-direct to the page that needs the data adding this query string. Another way is to have the page *fetch* the data from a micro-service. The difference is that the first way will leave the page (the current document will be overwritten) while the second will stay on the page (the current document remains). We will try the query-string approach since it is simpler.
 
-Start by copying the code that generates the receipt into a new file `receipt.html` and put this in the `public` directory. At the top of this file load the `products` data as done in `order_page.html` and also add the code:
+Make a copy of `info_server_Ex4.js` and name it `info_server_Ex5.js`. Start by copying the code in the route for `process_form` on your server that generates the receipt (including the `isNonNegInt` function) into a new file `receipt.html` and put this in the `public` directory. At the top of this file load the `products` data as done in `order_page.html` and also add the code:
 ```Javascript
         let params = (new URL(document.location)).searchParams;
         var q = params.get('quantity');
 ```
-This code will read the query string and place the keys and values into a URLSearchParams object (`params`) for easy access to the data in the query string.
+This code will read the query string and place the keys and values into a URLSearchParams object (`params`) for easy access to the data in the query string. Now remove any use of `request` (you are on the client now so this is not defined) and replace all uses of `response` with `document.write` (again, you are on the client which is the receiver of a response). Remove the code that increases the `total_sold` (yup, this is a server side thing and cannot be done in the client).
 
-On your server, in `process_quantity_form()` replace the `response.send()` with `response.redirect('receipt.html?quantity=' + q);`. This will tell the browser (the client) to do a GET request for the file `receipt.html` with a query string with key `quantity` and value whatever is in the variable `q` (which is the quantity purchased). Quit and restart the server, reload `order_page.html` to test.
+On your server, replace the `response.send()` with `response.redirect('receipt.html?quantity=' + q);`. This will tell the browser (the client) to do a GET request for the file `receipt.html` with a query string with key `quantity` and value whatever is in the variable `q` (which is the quantity purchased). Quit and restart the server, reload `order_page.html` to test.
 
 
+d. Modify the response on the server to redirect back to `order_page.html` when there is an error with the query string generated from `request.body`. 
 
-d. (**Extra Credit**) Create a micro-service to validate a quantity and respond an invoice. Have `order_page.html` fetch the invoice and display it after the purchase button is pressed. This should be done without leaving (or reloading) `order_page.html`. Hint: do not have an action for the the form or change it so that it does the fetch to the micro-service rather than POST to the server.
+(**Extra Credit**) Create a micro-service to validate a quantity and respond an invoice. Have `order_page.html` fetch the invoice and display it after the purchase button is pressed. This should be done without leaving (or reloading) `order_page.html`. Hint: do not have an action for the the form or change it so that it does the fetch to the micro-service rather than POST to the server.
 
 #### Extra Credit Exercise 5: Processing multiple inputs 
 Let's make it possible to select quantities of a product from the shared products data. Copy `info_server_Ex4.js` and name it `info_server_Ex5.js`. Copy `order_page.html` and rename it `order_page_Ex5.html`. 
