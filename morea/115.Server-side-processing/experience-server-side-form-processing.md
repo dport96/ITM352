@@ -119,19 +119,8 @@ Often you need to do complex processing and responses on the server. A good desi
 
 Make a copy of `info_server_Ex3.js` and name it `info_server_Ex4.js`. 
 
-a. [Shared data micro-service] You often have to use the same data in multiple places. It's always best to have one central source for shared data rather than duplicate sources, especially if this data is dynamic (changes frequently). For web applications, the common way to handle this is providing a data service on the server (sometimes called a **micro-service**). The data source can be a code, a file, accessing a database or more generally another server (such as a directory server). Let's implement a basic data service for our web application that shares product information for use in a form and the processing the form. For JSON data an easy way to do this is put the JSON into a file as a variable and load it in as a module. In your directory with `info_server_Ex4.js`, create a file called `product_data.json` and put the following data in it:
-```JSON
-[
-  {  
-  "model":"Apple iPhone XS",  
-  "price": 990.00
-  },
-  {  
-  "model":"Samsung Galaxy",  
-  "price": 240.00  
-  }
-]
-```
+a. [Shared data micro-service] You often have to use the same data in multiple places. It's always best to have one central source for shared data rather than duplicate sources, especially if this data is dynamic (changes frequently). For web applications, the common way to handle this is providing a data service on the server (sometimes called a **micro-service**). The data source can be a code, a file, accessing a database or more generally another server (such as a directory server). Let's implement a basic data service for our web application that shares product information for use in a form and the processing the form. For JSON data an easy way to do this is put the JSON into a file as a variable and load it in as a module. Get the `products_data.js` file you used in [SmartPhoneProducts3](../100.Objects-Arrays-I/experience-SmartPhoneProducts3.html) and copy it in your directory with `info_server_Ex4.js`. Change the name of this file to `product_data.json` and remove all Javascript (leave only the JSON).
+
 After `app.all()` in `info_server_Ex4.js` put 
 ```Javascript
 var products = require('./product_data.json');
@@ -145,16 +134,16 @@ app.get("/product_data.js", function (request, response, next) {
 
 and in the function for the post route for `process_form` add to the top
 ```Javascript
-let model = products[0]['model'];
-let model_price = products[0]['price'];
+let brand = products[0]['brand'];
+let brand_price = products[0]['price'];
 ``` 
 
 
-Replace the response with `<h2>Thank you for purchasing ${q} ${model}. Your total is \$${q * model_price}!</h2>` and now try out different quantities.
+Replace the response with `<h2>Thank you for purchasing ${q} ${brand}. Your total is \$${q * brand_price}!</h2>` and now try out different quantities.
 
 In the head tag of `order_page.html` add the line `<script src="./product_data.js"></script>`. Note that the path does NOT include the `public` directory. Why is this? Before the form (or in the top of the form) add 
 ```Javascript
-document.write(`<h3>${products[0]["model"]} at \$${products[0]["price"]}</h3>`);
+document.write(`<h3>${products[0]["brand"]} at \$${products[0]["price"]}</h3>`);
 ````
 Reload  `order_page.html` and verify that the Apple iPhone XS product is used in both the form and response to processing that form. Now change some of the information for the 0th element in `product_data.json` and verify that both `order_page.html` and `info_server_Ex4.js` use the updated information. How would you change which product in the JSON data is being used here?
 
@@ -165,7 +154,7 @@ In `info_server_Ex4.js` start by adding `products.forEach( (prod,i) => {prod.tot
 Lastly, add 
 ```Javascript
     for (i in products) {
-        document.write(`<h4>${products[i]["total_sold"]} ${products[i]["model"]} have been sold!</h4>`);
+        document.write(`<h4>${products[i]["total_sold"]} ${products[i]["brand"]} have been sold!</h4>`);
     }
 ```
 to `order_page.html` above the quantity textbox. Reload `order_page.html` and test that the total sold values change after every purchase.
@@ -188,14 +177,14 @@ d. Modify the response on the server to redirect back to `order_page.html` when 
 (**Extra Credit**) Create a micro-service to validate a quantity and respond an invoice. Have `order_page.html` fetch the invoice and display it after the purchase button is pressed. This should be done without leaving (or reloading) `order_page.html`. Hint: do not have an action for the the form or change it so that it does the fetch to the micro-service rather than POST to the server.
 
 #### Extra Credit: Processing multiple inputs 
-Let's make it possible to select quantities of a product from the shared products data. Copy `info_server_Ex4.js` and name it `info_server_Ex5.js`. Copy `order_page.html` and rename it `order_page_Ex5.html`. 
+Let's make it possible to select quantities of a product from the shared products data. Copy `info_server_Ex5.js` and name it `info_server_EC.js`. Copy `order_page.html` and rename it `order_page_multiple.html`. 
 
-Task 1: Make `order_page_Ex5.html` display inputs for all products in `product_data.js`. Replace the `<form>` element with
+Task 1: Make `order_page_multiple.html` display inputs for all products in `product_data.json`. Replace the `<form>` element with
 ```HTML
     <form name='quantity_form' action="process_form" method="POST">
         <script>
             for (i in products) {
-                document.write(`<h3>${products[i]["model"]} at \$${products[i]["price"]}</h3>`);
+                document.write(`<h3>${products[i]["brand"]} at \$${products[i]["price"]} (${products[i]["total_sold"]} sold)</h3>`);
                 document.write(`
         <label for="quantity_textbox">quantity desired:</label>
         <input type="text" name="quantity_textbox[${i}]" onkeyup="checkQuantityTextbox(this);">
@@ -204,7 +193,7 @@ Task 1: Make `order_page_Ex5.html` display inputs for all products in `product_d
             }
         </script>
         <br>
-        <input type="submit" value='Purchase' name="purchase_submit_button">
+        <input type="submit" value='Purchase'>
     </form>
 ```
 Now replace the `checkQuantityTextbox()` with
@@ -214,27 +203,28 @@ Now replace the `checkQuantityTextbox()` with
             document.getElementById(theTextbox.name + '_message').innerHTML = errs.join(", ");
         }
 ```
-Make sure you understand what changes were made and why!
+Run `info_server_EC.js` and request `order_page_multiple.html` and verify that all the products in `products.json` display. Test the `checkQuantityTextbox` function by trying vaid and invalid quantities. Review the changes made in the code and make sure you understand why were made and how they work!
 
-Task 2: Process multiple quantities of products from the submitted form. In `info_server_Ex5.js` replace `process_quantity_form()` with
+Task 2: Process multiple quantities of products from the submitted form. In `info_server_EC.js` replace the code in the callback function in the route for post to `/process_form` (i.e. in the `{}`'s for `app.post("/process_form", function (request, response)` with
 ```Javascript
-function process_quantity_form(POST, response) {
-    if (typeof POST['purchase_submit_button'] != 'undefined') {
-        receipt = '';
-        let qtys = POST[`quantity_textbox`];
-        for (i in qtys) {
-            q=qtys[i];
-            let model = products[i]['model'];
-            let model_price = products[i]['price'];
-            if (isNonNegInt(q)) {
-                receipt += `<h3>Thank you for purchasing: ${q} ${model}. Your total is \$${q * model_price}!</h3>`; // render template string
-            } else {
-                receipt += `<h3><font color="red">${q} is not a valid quantity for ${model}!</font></h3>`;
-            }
+    receipt = '';
+    let qtys = request.body[`quantity_textbox`];
+    for (i in qtys) {
+        q = qtys[i];
+        let brand = products[i]['brand'];
+        let brand_price = products[i]['price'];
+        if (isNonNegInt(q)) {
+            products[i]['total_sold'] += Number(q);
+            receipt += `<h3>Thank you for purchasing: ${q} ${brand}. Your total is \$${q * brand_price}!</h3>`; // render template string
+        } else {
+            receipt += `<h3><font color="red">${q} is not a valid quantity for ${brand}!</font></h3>`;
         }
-        response.send(receipt);
-        response.end();
     }
-}
+    response.send(receipt);
+    response.end();
 ```
-Run `info_server_Ex5.js` and try entering quantities for the products displayed! Do you see how things are connected through the shared data in `product_data.json`? Did you see how naming your form elements with `[]`'s puts all the form data into an array? By the way, you can use this to create objects. Just use strings rather than numbers in `[]`.
+**Note: do not delete the isNonNegInt function definition if you put it here.**
+
+Run `info_server_EC.js` and try entering quantities for the products displayed! Do you see how things are connected through the shared data in `product_data.json`? Did you see how naming your form elements with `[]`'s puts all the form data into an array? By the way, you can use this to create objects. Just use strings rather than numbers in `[]`.
+
+**More extra credit** When there are errors, see if you can pass the data and errors back to `order_page_multiple.html` to display problems and allow the user to fix and resubmit the form. You can do this by making a copy of the products array, adding an `errors` property for each product with values the errors (if any), then generating a query string from this new array (you can use a `URLSearchParams` to conveniently create a query string from the new array).
