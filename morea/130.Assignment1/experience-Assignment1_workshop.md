@@ -29,5 +29,5 @@ This workshop will discuss three architectural designs for Assignment #1:
 
 Miscellaneous other useful things for Assignment #1 will also be discussed.
 
-`server.js` for the workshop is Lab 13 Exercise 5
+`server.js` for the workshop is Lab 13 Exercise 5.
 ```
