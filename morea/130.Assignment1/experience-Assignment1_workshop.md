@@ -21,9 +21,9 @@ Before this workshop you should have started Assignment1 and have at minimum:
 
 Download and open the [Assignment 1 Workshop slides](A1_Workshop_ITM352.ppt).
 
-You may wish to download, unzip, and copy into your project folder the [Design examples for Assignment1](Assignment1_Design_Examples.zip) 
+You may wish to download, unzip, and copy into your project folder the [Design examples for Assignment1](Assignment1_Design_Examples.zip). Note: these examples do not exactly meet the requirements for Assignment 1. They are examples of different ways you can implement Assignment 1. 
 
-This workshop will discuss three architectural designs for Assignment #1:
+This workshop will discuss architectural designs for Assignment #1 such as:
 
 ![architectural designs](architectures.png)
 
