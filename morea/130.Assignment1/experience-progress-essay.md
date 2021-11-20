@@ -7,7 +7,7 @@ morea_summary: "Write a technical essay summarizing your progress in programming
 morea_sort_order: 3
 morea_labels:
  - BLOG 
-morea_start_date: "2020-11-10T10:30"
+morea_start_date: "2021-11-25T10:30"
 ---
 
 # E4: Progress in Programming Report
@@ -24,12 +24,12 @@ Respond in the order listed (include this outline) to the following statements. 
 
 2. I need to work on the following to improve my programming skills:
 
-3. I can do the WODs without looking at the screencast solutions first.
+3. I have learned a lot from doing WODs and I can do them without copying the screencast: 
 
-4. The labs have helped me to learn and I am able to complete them with confidence.
+4. The labs have help me learn and I am able to complete them with confidence:
 
-5. I feel ready I am ready to work on the next stage of complexity in programming (building small web applications like Assignment 1).
+5. I learned a lot from my experience doing Assignment 1 and feel ready to work on Assignment 2:
 
 6. I think the class can be improved to help my learning in the following ways:
 
-7. These are things that work really well for my learning in this class:
+7. What helps me the most in class are (WODs, Labs, class website, screencasts, readings, quizzes, one on one help, working with classmates, etc.):
