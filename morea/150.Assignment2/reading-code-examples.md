@@ -17,119 +17,110 @@ in your assignment but please do give a reference to what you use.
 
 ### A simple login processing example. 
 
-#### The login information is taken from $_GET which mean it could have come form a query string or a FORM post. User data is simply stored as arrays in $users using the usernames converted to lowercase as keys. This example also illustrates one way to do a case-insensitive check of the username for logging in.   
+#### This is an example server that produces a login form and when submitted check if the password for username matches. The login information is taken from `request.body` which mean it could have come form a FORM post. User data is simply stored as an object the usernames converted to lowercase as keys. This example also illustrates one way to do a case-insensitive check of the username for logging in.   
 
-{% highlight php %}
-<?php
-// a user record is an array with all the info we want to know about the user
-$user1 = array('username' => 'dport', 'password' => 'something');
-$user2 = array('username' => 'itm352', 'password' => 'grader');
-// put all the users on an array with usernames as the keys so we ensure they are unique and it's easy to get a user record 
-// (just use their usename to access this array). The keys are converted to lowercase so we can check the username independent of 
-// case when enterd by the user duing login
-$users[strtolower($user1['username'])] = $user1;
-$users[strtolower($user2['username'])] = $user2;
+{% highlight javascript %}
+var express = require('express');
+var app = express();
 
-// Only check login when the login button was pressed
-if (array_key_exists('login_submit', $_GET)) {
-    // ok, user pressed login submit button so see if the username exists before checking the password. We change the 
-    // username entered to lowecase ($_GET['username']) to eliminate differeces in case (and this matches the keys in $users)
-    if (array_key_exists(strtolower($_GET['username']), $users)) {
-        // ok, found the username, get the password for thei user from their user record and see if it matches
+var users_reg_data = 
+{
+"dport": {"password": "portpass"},
+"kazman": {"password": "kazpass"}
+};
 
-        if ($_GET['password'] == $users[strtolower($_GET['username'])]['password']) {
-            echo "correct!! {$_GET['username']} logged in.";
-            die;
-        } else {
-            echo 'wrong password, try again';
-        }
-    }
-    // The username was not found so have the user try again
-    else {
-        print "User {$_GET['username']} not found. Try again!<br>";
-    }
-}
-?>
-<form action = '<?php echo $_SERVER['JAVASCRIPT_SELF'] ?>' method= 'get'>
-    Username: <br>
-    <INPUT TYPE="TEXT"  name="username" value = "<?php if (isset($_GET['username'])) echo $_GET['username'] ?>"><br>
-    Password: <br>
-    <INPUT TYPE="password" name = 'password'><br><br>
-    <INPUT TYPE="SUBMIT" name = 'login_submit' value="Login">
+app.get("/login", function (request, response) {
+
+// Give a simple login form
+str = `
+<body>
+<form action="" method="POST">
+<input type="text" name="username" size="40" placeholder="enter username" ><br />
+<input type="password" name="password" size="40" placeholder="enter password"><br />
+<input type="submit" value="Submit" id="submit">
 </form>
+</body>
+    `;
+response.send(str);
+});
+
+app.post("/login", function (request, response) {
+    // Process login form POST and redirect to logged in page if ok, back to login page if not
+    the_username = request.body['username'].toLowerCase();
+    the_password = request.body['password'];
+    if (typeof users_reg_data[the_username] != 'undefined') {
+        if (users_reg_data[the_username].password == the_password) {
+            user_quantity_data['username'] = the_username;
+            response.send(`User ${the_username} is logged in`);
+        } else {
+            response.send(`Wrong password!`);
+        }
+        return;
+    }
+    response.send(`${the_username} does not exist`);
+});
+
+var listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
+
 {% endhighlight %}
 
-### Reading and writing user info to a file using serialized arrays (FileIO example1).
+### Reading and writing user info to a JSON file (FileIO example1).
 
 #### It will create a new user data file if one doesn't exist and add "Joe Newguy". If there is a userdata file it will print out what users are there and add a new Joe Newguy with the next available number. The data file is not easily edited by humans. Also all the user data must be loaded or written at once which could be slow if you have a lot of users!
 
-{% highlight php %}
-<?php
-set_time_limit(5);
-/*
- * File I/O Example 1
- * This file contains two functions for reading data from a file into an array and writing data to a file from an array.  The format does
- * not matter since the functions simply read and write a serialized array and so as long as you are reading the file from which
- * an array was serialized the array will have the same format.
- *
- */
+{% highlight javascript %}
+var express = require('express');
+var app = express();
+var fs = require('fs');
 
- $reg_data_file = "./serialized_registration_data.dat"; 	//  location and name of the data file
- // call the read file fucntion  which will return an array of user info that was serialized previously
- $my_users = arrayfile_to_array( $reg_data_file);
- // now print out all the users and their info by looping through the array
- if(!empty($my_users)) {
-	 foreach($my_users as $username => $user_info_array) {
-	 	printf('%s  has username <b>%s</b> and password <i>%s</i> <br>',
-	 	                              $user_info_array['name'], $username, $user_info_array['password']);
-	 }
- }
-// now lets add a new user to $my_users and then save it using the write file function (the information could have easily
-// come from an HTML form post). Note how the new user array has to have exactly the same keys as each array in $my_users
-$new_user = array('name'=>'Joe Newguy', 'password'=>'easytoguess');
-// we add the new user by adding the $new_user array to $my_users with a unique username for the key
-// we make the username unqique by adding one more than the total number of users in $my_users. If it were not unique it
-// would just replace the old array entry with the same key
-$user_num = count($my_users); // why do we not have to +1 here?
-$my_users['joenew'.$user_num] = $new_user;
-// ok, got the new user in $my_users, so must update the registration data file to make the change persistant
-// this is done by calling the array_to_arrayfile() function and passing it the $users array (the data it will write to the file)
-array_to_arrayfile($my_users,  $reg_data_file);
+// user info JSON file
+var filename = "./user_info.json";
 
-print "New user joenew$user_num added to registration file";
 
-// DONE!
-
-function arrayfile_to_array($filepath) {
-// This function reads the file at $filepath and returns an
-// array. It is assumed that the file being read is a
-// serialized array (created using array_to_arrayfile)
-	  $fsize = @filesize($filepath);
-	  if ($fsize > 0) {
-	    $fp = fopen($filepath, "r");
-	    $encoded = fread($fp, $fsize);
-	    fclose($fp);
-	    return unserialize($encoded);
-	  }
-	  else
-	      echo "$filepath does not exist!";
+if (fs.existsSync(filename)) {
+    var stats = fs.statSync(filename);
+    data = fs.readFileSync(filename, 'utf-8');
+    users_reg_data = JSON.parse(data);
+} else {
+    console.log(filename + ' does not exist!');
 }
 
-function array_to_arrayfile($theArray, $filepath) {
-// This function serializes an array in $theArray and saves it
-// in the file at $filepath. The file may then be converted
-// back into an array using the arrayfile_to_array() function)
+app.get("/register", function (request, response) {
 
-	  if($fp = fopen($filepath, "w+")) {
-	    $encoded = serialize($theArray);
-	    fwrite($fp, $encoded);
-	    fclose($fp);
-	  }
-	  else
-	    echo "Unable to write array to $filepath";
-}
+// Give a simple register form
+        str = `
+<body>
+<form action="" method="POST">
+<input type="text" name="username" size="40" placeholder="enter username" ><br />
+<input type="password" name="password" size="40" placeholder="enter password"><br />
+<input type="password" name="repeat_password" size="40" placeholder="enter password again"><br />
+<input type="email" name="email" size="40" placeholder="enter email"><br />
+<input type="submit" value="Submit" id="submit">
+</form>
+</body>
+    `;
+    response.send(str);
+    
+});
 
-?>
+app.post("/register", function (request, response) {
+    // process a simple register form
+    username = request.body.username.toLowerCase();
+
+    // check is username taken
+    if(typeof sers_reg_data[username] != 'undefined') {
+        response.send(`Hey! ${username} is already reguistered!`);
+        return;
+    }
+    users_reg_data[username] = {};
+    users_reg_data[username].password = request.body.password;
+    users_reg_data[username].email = request.body.email;
+    fs.writeFileSync(filename, JSON.stringify(users_reg_data));
+    console.log("Saved: " + users_reg_data);
+
+    response.send(`${username} has been registered.`);
+});
+
 {% endhighlight %}
 
 
