@@ -29,6 +29,8 @@ var users_reg_data =
 "kazman": {"password": "kazpass"}
 };
 
+app.use(express.urlencoded({extended:true}));
+
 app.get("/login", function (request, response) {
 
 // Give a simple login form
@@ -50,7 +52,6 @@ app.post("/login", function (request, response) {
     the_password = request.body['password'];
     if (typeof users_reg_data[the_username] != 'undefined') {
         if (users_reg_data[the_username].password == the_password) {
-            user_quantity_data['username'] = the_username;
             response.send(`User ${the_username} is logged in`);
         } else {
             response.send(`Wrong password!`);
@@ -61,17 +62,20 @@ app.post("/login", function (request, response) {
 });
 
 var listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
-
 {% endhighlight %}
 
 ### Reading and writing user info to a JSON file (FileIO example1).
 
-#### It will create a new user data file if one doesn't exist and add "Joe Newguy". If there is a userdata file it will print out what users are there and add a new Joe Newguy with the next available number. The data file is not easily edited by humans. Also all the user data must be loaded or written at once which could be slow if you have a lot of users!
+#### It will create a new user data file if one doesn't exist. If there is a userdata file, it will a new user information object so long as the username is not already registered (case insensitive). It will also check if a username was entered and if the password and password repeat entered are the same. If there are errors, it will go back to the register page and show the errors where they occur. The data file is not easily edited by humans because it is in JSON. Also all the user data must be loaded or written at once which could be slow if you have a lot of users!
 
 {% highlight javascript %}
 var express = require('express');
 var app = express();
 var fs = require('fs');
+
+var errors = {}; // keep errors on server to share with registration page
+
+app.use(express.urlencoded({extended:true}));
 
 // user info JSON file
 var filename = "./user_info.json";
@@ -83,17 +87,22 @@ if (fs.existsSync(filename)) {
     users_reg_data = JSON.parse(data);
 } else {
     console.log(filename + ' does not exist!');
+    users_reg_data = {};
 }
 
 app.get("/register", function (request, response) {
-
 // Give a simple register form
         str = `
 <body>
 <form action="" method="POST">
-<input type="text" name="username" size="40" placeholder="enter username" ><br />
+<input type="text" name="username" size="40" placeholder="enter username" > 
+${ (typeof errors['no_username'] != 'undefined')?errors['no_username']:''}
+${ (typeof errors['username_taken'] != 'undefined')?errors['username_taken']:''}
+<br />
 <input type="password" name="password" size="40" placeholder="enter password"><br />
-<input type="password" name="repeat_password" size="40" placeholder="enter password again"><br />
+<input type="password" name="repeat_password" size="40" placeholder="enter password again">
+${ (typeof errors['password_mismatch'] != 'undefined')?errors['password_mismatch']:''}
+<br />
 <input type="email" name="email" size="40" placeholder="enter email"><br />
 <input type="submit" value="Submit" id="submit">
 </form>
@@ -108,98 +117,38 @@ app.post("/register", function (request, response) {
     username = request.body.username.toLowerCase();
 
     // check is username taken
-    if(typeof sers_reg_data[username] != 'undefined') {
-        response.send(`Hey! ${username} is already reguistered!`);
-        return;
+    if(typeof users_reg_data[username] != 'undefined') {
+        errors['username_taken'] = `Hey! ${username} is already registered!`;
     }
-    users_reg_data[username] = {};
-    users_reg_data[username].password = request.body.password;
-    users_reg_data[username].email = request.body.email;
-    fs.writeFileSync(filename, JSON.stringify(users_reg_data));
-    console.log("Saved: " + users_reg_data);
-
-    response.send(`${username} has been registered.`);
+    if(request.body.password != request.body.repeat_password) {
+        errors['password_mismatch'] = `Repeat password not the same as password!`;
+    } 
+    if(request.body.username == '') {
+        errors['no_username'] = `You need to select a username!`;
+    }
+    if(Object.keys(errors).length == 0) {
+        users_reg_data[username] = {};
+        users_reg_data[username].password = request.body.password;
+        users_reg_data[username].email = request.body.email;
+        fs.writeFileSync(filename, JSON.stringify(users_reg_data));
+        console.log("Saved: " + users_reg_data);
+        response.send(`${username} has been registered.`);
+    } else {
+        response.redirect("./register");
+    }
 });
+
+var listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
 
 {% endhighlight %}
 
 
 ### Reading and writing user info to a file using flat files (FileIO example2).
 
-#### This is pretty much the same as FileIO example1 excpet the file format is simple and easily editable by humans. Even though all the data is loaded or written from an array, it's done line by line which offers the possibility for searching for a particular user or appending (or editing) a single user without having to process the entire file into an array (thus is more efficient for large data files).
+#### This is pretty much the same as FileIO example as above except the file format is simple and easily editable by humans. It defines a function get_user_info() which returns a user info object if found in the file, undefined if not in the file. It's done line by line and quits when username is found. This is more efficient for large data files. 
 
 {% highlight php %}
-<?php
 
-set_time_limit(5);
-/*
- * File I/O Example 1
- * This file contains two functions for reading data from a file into an array and writing data to a file from an array.  The format
- * matters since the functions implode the array with a given seperator in the array element order
- *
- */
-
-$reg_data_file = "./registration_data.dat";  //  location and name of the data file
-// call the read file fucntion  which will return an array of user info that was serialized previously
-$my_users = get_users_array($reg_data_file);
-// now print out all the users and their info by looping through the array
-if (!empty($my_users)) {
-    foreach ($my_users as $username => $user_info_array) {
-        printf('%s  has username <b>%s</b> and password <i>%s</i> <br>', $user_info_array['name'], $username, $user_info_array['password']);
-    }
-}
-// now lets add a new user to the registration file (the information could have easily
-// come from an HTML form post). Note how the new user array has to have exactly the same keys as 
-// each array in $my_users.
-$new_user = array('password' => 'easytoguess', 'name' => 'Joe Newguy',);
-// we make a unique username by adding one more than the total number of users in $my_users. 
-// If it were not unique when we load the array from the registration data file
-// it would just replace the old array entry with the same key
-$user_num = count($my_users); // why do we not have to +1 here?
-$new_username = 'joenew' . $user_num;
-// ok, got the new username, so must add $new_user to the registration data file to make the change persistant
-// this is done by calling the add_new_user() function and passing it the $new_user array
-// and $new_username (the data it will write to the file)
-add_new_user($new_username, $new_user, $reg_data_file);
-
-print "New user $new_username added to registration file";
-
-// DONE!
-
-function get_users_array($filepath) {
-// This function reads the file at $filepath and returns an
-// array. It is assumed that the file being read is in the format created by
-// the add_new_user() function
-    if (file_exists($filepath)) {
-        $fp = fopen($filepath, 'r');
-        $users_array = array();
-        while (!feof($fp)) {
-            $data_line = trim(fgets($fp));
-            if (!empty($data_line)) {
-                $parts = explode(';', $data_line);
-                // add line of user data to the $users_arrey with username as the key
-                $users_array[$parts[0]] = array('password' => $parts[1], 'name' => $parts[2]);
-            }
-        }
-        fclose($fp);
-        return $users_array;
-    }
-    return array();
-}
-
-function add_new_user($username, $user_info_array, $filepath) {
-// This function adds $username to an imploded $user_info_array then appends it
-// to the file at $filepath. The file may then be converted
-// into an array using the get_users_array() function    
-
-    $fp = fopen($filepath, 'a'); // need to open for appending to add new user at the end
-    if (!empty($user_info_array)) {
-        fwrite($fp, "$username;{$user_info_array['password']};{$user_info_array['name']}\n"); // this assumes a data format of username;password;name but user data must not contain a semicolon ';' because it is the field seperator 
-    }
-    fclose($fp);
-}
-
-?>
 {% endhighlight %}
 
 ##### Here is a sample registration data that might be created with the above functions. You can also edit or create this kind of file easily in Excel or a simple text editor.
@@ -210,92 +159,88 @@ itm352;graderpass;ITM352 Grader
 psud;ppass;Perfect Student
 {% endhighlight %}
 
-### Reading and writing individual user info to a file using flat files (FileIO example3).
-
-#### This is a variation on FileIO example2 searching for a particular user or appending (or editing) a single user without having to process the entire file into an array (thus is more efficient for large data files).
-
-{% highlight php %}
-<?php
-
-set_time_limit(5);
-/*
- * File I/O Example 3
- * This file contains two functions for finding user information given a username and editing or adding a new user.  The  of the
- * data file is assumed to be:
- *
- * username;password;name
- *
- */
-
-$reg_data_file = "./registration_data.dat";  //  location and name of the data file. File must be readable and writable to web server!
-// call the get user info function  which will read the data file looking for a given username and return a userdaa array if found
-$username = 'itm352'; // the username to look for
-$user_info_array = get_user_info($username, $reg_data_file);
-// now print out all the user info given in the array if found
-if (!empty($user_info_array)) {
-    printf('%s  has username <b>%s</b> and password <i>%s</i> <br>', $user_info_array['name'], $username, $user_info_array['password']);
-} else {
-    print "No user $username found";
-}
-
-// now lets add a new user by creating a new unser info array and then save it using the edit_user_info file function (the information could have easily
-// come from an HTML form post). Note how the new user array has to have exactly the same keys as the $user_info_array
-$new_user_array = array('username' => 'joenew', 'name' => 'Joe Newguy', 'password' => 'easytoguess');
-// we add the new user by first checking if this username exists. If so, we add a number to the end and check if this new name 
-// exists. We repeat this until we find a username that doesn't already exist.
-$user_num = 0;
-while (!empty(get_user_info($new_user_array['username'], $reg_data_file))) {
-    $new_user_array['username'] = 'joenew' . $user_num++;
-}
-// ok, got the new user name, so must update the registration data file to make the change persistant
-// this is done by calling the edit_user_info() function and passing it the $users array (the data it will write to the file)
-// because this is a new username the function will just append it to the end of the file
-add_new_user($new_user_array, $reg_data_file);
-
-print "New user joenew$user_num added to registration file";
-
-// DONE!
-
-function get_user_info($the_username, $filepath) {
-    /*
-     * comments left out out purposefully
-     */
-    if (file_exists($filepath)) {
-        $fp = fopen($filepath, 'r');
-        while (!feof($fp)) {
-            $data_line = trim(fgets($fp));
-            if (!empty($data_line)) {
-                $parts = explode(';', $data_line);
-                if ($parts[0] == $the_username) {
-                    // Found $the_username as a username in the file! So return an array with the name and password
-                    // Note that we don't really need the username in $parts[0] since it's passed in to the function
-                    // but this may be useful if you are doing a case insensitive serach and want to get the username 
-                    // exactly as it is stored in the data file
-					fclose($fp);
-                    return array('username' => $parts[0], 'password' => $parts[1], 'name' => $parts[2]);
-                }
-            }
-        }
-		fclose($fp);
-        return array(); // if we get here the we checked though the entire file and did not find $the_username so we return an empty array
-    }
-    die("Filename $filepath does not exist! Exiting.");
-}
-
-function add_new_user($the_user_info_array, $filepath) {
-    /*
-     * comments left out out purposefully
-     */
-    $fp = fopen($filepath, 'a'); // need to open for appending to add new user at the end
-    if (!empty($the_user_info_array)) {
-        fwrite($fp, implode(';', $the_user_info_array) . "\n"); // this assumes the order of the data in $the_user_info_array is username;password;name
-    }
-    fclose($fp);
-}
-
-?>
-
-{% endhighlight %}
-
 ### Putting errors from the server on the client
 As you might expect, the advice is always to think through carefully what you want, try to do something as simple as possible first to get tt started, test that, then make expand on it. So actually there are three general ways to handle displaying errors on the page. One is just sending the data back (as you already had) and have the page (client) re-do the validations and put the errors in when you re-input the data into the form (i.e. making it sticky). Second is to have the server send back the errors in addition to the data from the server (as you are doing now) and then put the errors in when you re-input the data into the form (so when you are making an input sticky you just add the error if there is one for it). Third, is you generate the page entirely on the server and as you do this you just add the errors when as the page is generated (this is much easier than it sounds).
+
+### Passing transient data through login or registration pages to invoice
+One problem in Assignment 2 is that you have form data in the products page that needs to be held until you get to the invoice page while you post form data from login or registration. There are two methods for passing transient data from one page to another. The first is to keep the data in a query string and pass the query string from one page to another. The second is to hold the data on the server until it's needed. 
+
+Here is an example of using a query string:
+```Javascript
+
+```
+
+Here is an example of using a variable on the server. This is a very simple approach but has the problem that it does not associate the quantity form data with a particular user so it's possible that the invoice for a given user will not match with the quantity form that user posted. It could be overwritten if another quantity form is submitted before the user logs in and goes to the invoice. This problem is solved by using sessions which will be discussed in a upcoming Lab.
+
+```Javascript
+var express = require('express');
+var app = express();
+
+app.use(express.urlencoded({extended:true}));
+
+var users_reg_data = 
+{
+"dport": {"password": "portpass"},
+"kazman": {"password": "kazpass"}
+};
+
+var quantity_form_data;
+
+app.get("/invoice", function (request, response) {
+    // Give a simple invoice using query string data
+    console.log(request);
+    response.send(`You want ${quantity_form_data['quantity']} items`);
+    });
+
+app.get("/select_quantity", function (request, response) {
+
+    // Give a simple quantity form
+    str = `
+    <body>
+    <form action="" method="POST">
+    <input type="text" name="quantity" size="40" placeholder="enter quantity desired" ><br />
+    <input type="submit" value="Submit" id="submit">
+    </form>
+    </body>
+        `;
+    response.send(str);
+    });
+
+app.post("/select_quantity", function (request, response) {
+    // Redirect to login page with form data in query string
+    quantity_form_data = request.body;
+    response.redirect('./login');
+});
+
+app.get("/login", function (request, response) {
+
+// Give a simple login form
+str = `
+<body>
+<form action="?${request.query}" method="POST">
+<input type="text" name="username" size="40" placeholder="enter username" ><br />
+<input type="password" name="password" size="40" placeholder="enter password"><br />
+<input type="submit" value="Submit" id="submit">
+</form>
+</body>
+    `;
+response.send(str);
+});
+
+app.post("/login", function (request, response) {
+    // Process login form POST and redirect to logged in page if ok, back to login page if not
+    the_username = request.body['username'].toLowerCase();
+    the_password = request.body['password'];
+    if (typeof users_reg_data[the_username] != 'undefined') {
+        if (users_reg_data[the_username].password == the_password) {
+            response.redirect('./invoice');
+        } else {
+            response.send(`Wrong password!`);
+        }
+        return;
+    }
+    response.send(`${the_username} does not exist`);
+});
+
+var listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
+```
