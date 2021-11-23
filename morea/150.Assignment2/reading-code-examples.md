@@ -147,9 +147,75 @@ var listener = app.listen(8080, () => { console.log('server started listening on
 
 #### This is pretty much the same as FileIO example as above except the file format is simple and easily editable by humans. It defines a function get_user_info() which returns a user info object if found in the file, undefined if not in the file. It's done line by line and quits when username is found. This is more efficient for large data files. 
 
-{% highlight php %}
+```Javascript
+const fs = require('fs');
+var express = require('express');
+var app = express();
 
-{% endhighlight %}
+// get entire file as array of lines of user info data
+var filename = "./user_info.dat";
+if (fs.existsSync(filename)) {
+    data = fs.readFileSync(filename, 'utf-8');
+    // split data by new line
+    var lines = data.split(/\r?\n/);
+
+} else {
+    console.log(filename + ' does not exist!');
+    const lines = [];
+}
+
+app.use(express.urlencoded({extended:true}));
+
+app.get("/login", function (request, response) {
+
+// Give a simple login form
+str = `
+<body>
+<form action="" method="POST">
+<input type="text" name="username" size="40" placeholder="enter username" ><br />
+<input type="password" name="password" size="40" placeholder="enter password"><br />
+<input type="submit" value="Submit" id="submit">
+</form>
+</body>
+    `;
+response.send(str);
+});
+
+app.post("/login", function (request, response) {
+    // Process login form POST and redirect to logged in page if ok, back to login page if not
+    the_username = request.body['username'].toLowerCase();
+    the_password = request.body['password'];
+    var user_info = get_user_info(the_username);
+    console.log(user_info);
+    if (typeof user_info != 'undefined') {
+        if (
+            
+            user_info.password == the_password) {
+            response.send(`User ${the_username} is logged in`);
+        } else {
+            response.send(`Wrong password!`);
+        }
+        return;
+    }
+    response.send(`${the_username} does not exist`);
+});
+
+var listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
+
+function get_user_info(a_username) {
+    // go through lines and look for username. If found, returns object with user data, otherwise returns undefined.
+    // Format is assumed to be username;password;fullname
+    var user_data = undefined;
+    for(i in lines) {
+        let user_data_array = lines[i].split(';');
+        if(user_data_array[0] == a_username) { // found it!
+            user_data = {'password': user_data_array[1], 'name': user_data_array[2]};
+            break; 
+        }
+    }
+    return user_data;
+}
+```
 
 ##### Here is a sample registration data that might be created with the above functions. You can also edit or create this kind of file easily in Excel or a simple text editor.
 
@@ -167,7 +233,76 @@ One problem in Assignment 2 is that you have form data in the products page that
 
 Here is an example of using a query string:
 ```Javascript
+const { concatSeries } = require('async');
+var express = require('express');
+var app = express();
 
+app.use(express.urlencoded({extended:true}));
+
+var users_reg_data = 
+{
+"dport": {"password": "portpass"},
+"kazman": {"password": "kazpass"}
+};
+
+app.get("/invoice", function (request, response) {
+    // Give a simple invoice using query string data
+    response.send(`You want ${request.query['quantity']} items`);
+    });
+
+app.get("/select_quantity", function (request, response) {
+
+    // Give a simple quantity form
+    str = `
+    <body>
+    <form action="" method="POST">
+    <input type="text" name="quantity" size="40" placeholder="enter quantity desired" ><br />
+    <input type="submit" value="Submit" id="submit">
+    </form>
+    </body>
+        `;
+    response.send(str);
+    });
+
+app.post("/select_quantity", function (request, response) {
+    // Redirect to login page with form data in query string
+    let params = new URLSearchParams(request.body);
+    response.redirect('./login?'+ params.toString());
+});
+
+app.get("/login", function (request, response) {
+    console.log(request.params.toString());
+// Give a simple login form
+let params = new URLSearchParams(request.query);
+str = `
+<body>
+<form action="?${params.toString()}" method="POST">
+<input type="text" name="username" size="40" placeholder="enter username" ><br />
+<input type="password" name="password" size="40" placeholder="enter password"><br />
+<input type="submit" value="Submit" id="submit">
+</form>
+</body>
+    `;
+response.send(str);
+});
+
+app.post("/login", function (request, response) {
+    let params = new URLSearchParams(request.query);
+    // Process login form POST and redirect to logged in page if ok, back to login page if not
+    the_username = request.body['username'].toLowerCase();
+    the_password = request.body['password'];
+    if (typeof users_reg_data[the_username] != 'undefined') {
+        if (users_reg_data[the_username].password == the_password) {
+            response.redirect('./invoice?'+ params.toString());
+        } else {
+            response.send(`Wrong password!`);
+        }
+        return;
+    }
+    response.send(`${the_username} does not exist`);
+});
+
+var listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
 ```
 
 Here is an example of using a variable on the server. This is a very simple approach but has the problem that it does not associate the quantity form data with a particular user so it's possible that the invoice for a given user will not match with the quantity form that user posted. It could be overwritten if another quantity form is submitted before the user logs in and goes to the invoice. This problem is solved by using sessions which will be discussed in a upcoming Lab.
