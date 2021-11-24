@@ -245,11 +245,11 @@ var this_product_key = ''
 {% highlight javascript %}
 var express = require('express');
 var app = express();
-var myParser = require("body-parser");
+
 var session = require('express-session');
 var products_data = require('./products.json');
 
-app.use(myParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(session({secret: "MySecretKey", resave: true, saveUninitialized: true}));
 
 app.all('*', function (request, response, next) {

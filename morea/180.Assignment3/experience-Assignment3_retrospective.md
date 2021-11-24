@@ -7,7 +7,7 @@ morea_summary: "E6: essay reflecting on Assignment 3"
 morea_sort_order: 4
 morea_labels:
  - BLOG
-morea_start_date: "2021-05-17"
+morea_start_date: "2021-12-17"
 ---
 
 # E6: Evaluation Guidelines and Class Retrospective BLOG
