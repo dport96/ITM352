@@ -45,9 +45,9 @@ a) Add the following to your program from #3
 ```Javascript
 var express = require('express');
 var app = express();
-var myParser = require("body-parser");
 
-app.use(myParser.urlencoded({ extended: true }));
+
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/login", function (request, response) {
     // Give a simple login form

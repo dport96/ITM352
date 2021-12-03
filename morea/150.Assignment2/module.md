@@ -7,7 +7,7 @@ published: true
 morea_outcomes:
  - outcome-assignment2
 morea_readings:
-# - reading-code-examplesA2
+ - reading-code-examplesA2
 morea_experiences:
 # - experience-SmartPhoneProducts6
  - experience-Assignment2
