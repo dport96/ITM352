@@ -247,7 +247,7 @@ var express = require('express');
 var app = express();
 
 var session = require('express-session');
-var products_data = require('./products.json');
+var products_data = require(__dirname + '/products.json');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(session({secret: "MySecretKey", resave: true, saveUninitialized: true}));
@@ -275,7 +275,7 @@ app.get("/get_cart", function (request, response) {
     response.json(request.session.cart);
 });
 
-app.use(express.static('./public'));
+app.use(express.static(__dirname + '/public'));
 app.listen(8080, () => console.log(`listening on port 8080`));
 {% endhighlight %}
 

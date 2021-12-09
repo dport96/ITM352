@@ -75,7 +75,7 @@ c. [Using middleware] Now we will enable the server to respond to request for st
 
 Before the app.listen add the following add the following:
 ```Javascript
-app.use(express.static('./public'));
+app.use(express.static(__dirname + '/public'));
 ```
 Terminate the previously running server (with ctrl-C) and run `info_server_Ex2c.js`. Create a simple html file `hello.html` that outputs `<h1>Hello from <your name>!</h1>` and save it in the `public` directory. Use a browser with the following URL `http://localhost:8080/hello.html` and see what response you get. Try `localhost:8080/xxx` and explain what response you get. Make a copy of `hello.html` and rename it `hello.txt`. Now try `localhost:8080/hello.txt` and explain the response. Change `<your name>` to your full name in `hello.html`. Save the file and reload the page. Why didn't you have to stop and start the server to see the changes? Do you think the `app.use()` middleware must be placed at the bottom of the routing functions?
 
@@ -123,7 +123,7 @@ a. [Shared data micro-service] You often have to use the same data in multiple p
 
 After `app.all()` in `info_server_Ex4.js` put 
 ```Javascript
-var products = require('./product_data.json');
+var products = require(__dirname + '/product_data.json');
 
 app.get("/product_data.js", function (request, response, next) {
    response.type('.js');

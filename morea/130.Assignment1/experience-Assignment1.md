@@ -78,7 +78,7 @@ Continuing with cell phone example, you would make a JSON array that holds all o
   }
 ]
 ```
- Save the JSON array in a file, say `products.json` and then load it at the top of `server.js`  using `var products_array = require('./product_data.json');` 
+ Save the JSON array in a file, say `products.json` and then load it at the top of `server.js`  using `var products_array = require(__dirname + '/product_data.json');` 
  
  This will load your products information into the server memory and you can use it in your client requests for validating data and sharing products information between pages.
 
@@ -111,7 +111,7 @@ app.all('*', function (request, response, next) {
 <** your code here ***>
 
 // route all other GET requests to files in public 
-app.use(express.static('./public'));
+app.use(express.static(__dirname + '/public'));
 
 // start server
 app.listen(8080, () => console.log(`listening on port 8080`));
