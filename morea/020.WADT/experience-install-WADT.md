@@ -1,5 +1,5 @@
 ---
-title: "Lab1: GitHub, VS Code, web pages, web servers, local/global servers"
+title: "Lab: GitHub, VS Code, web pages, web servers, local/global servers"
 published: true
 morea_id: experience-install-WADT
 morea_type: experience

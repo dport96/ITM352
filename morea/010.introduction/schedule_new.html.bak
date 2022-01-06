@@ -161,7 +161,7 @@
             <p><u><a href="http://dport96.github.io/ITM352/morea/050.variables_data_types/reading-variables-data-types-in-JS.html">JS
                   Data Types and Variables</a></u></p>
           </td>
-          <td data-sheets-value="[null,2,&quot;Lab1: Data Types and Variables&quot;]">
+          <td data-sheets-value="[null,2,&quot;Lab: Data Types and Variables&quot;]">
             <p><u><a href="http://dport96.github.io/ITM352/morea/050.variables_data_types/experience-data-types-variables.html">Lab:
                   Data Types and Variables</a></u></p>
           </td>
@@ -186,7 +186,7 @@
             <p><u><a href="http://dport96.github.io/ITM352/morea/060.expressions-operators/reading-expressions-operators.html">Javascript
                   Expressions and Operations</a></u></p>
           </td>
-          <td data-sheets-value="[null,2,&quot;Lab2: Expressions and Operators&quot;]">
+          <td data-sheets-value="[null,2,&quot;Lab: Expressions and Operators&quot;]">
             <p><u><a href="http://dport96.github.io/ITM352/morea/060.expressions-operators/experience-expressions-operators.html">Lab:
                   Expressions and Operators</a></u></p>
           </td>
@@ -209,7 +209,7 @@
           <td data-sheets-value="[null,2,&quot;Algorithms&quot;]">
             <p><u><a href="http://www.webopedia.com/TERM/A/algorithm.html">Algorithms</a></u></p>
           </td>
-          <td data-sheets-value="[null,2,&quot;Lab3: Algorithms and Program Logic&quot;]">
+          <td data-sheets-value="[null,2,&quot;Lab: Algorithms and Program Logic&quot;]">
             <p><u><a href="http://dport96.github.io/ITM352/morea/070.algorithms/experience-algorithms-program-logic.html">Lab:
                   Algorithms and Program Logic</a></u></p>
           </td>
@@ -235,7 +235,7 @@
             <p><u><a href="http://dport96.github.io/ITM352/morea/080.flow-control-I/reading-branching.html">Javascript
                   Branching</a></u></p>
           </td>
-          <td data-sheets-value="[null,2,&quot;Lab4: Conditionals and Branching&quot;]">
+          <td data-sheets-value="[null,2,&quot;Lab: Conditionals and Branching&quot;]">
             <p><u><a href="http://dport96.github.io/ITM352/morea/080.flow-control-I/experience-conditionals-branching.html">Lab:
                   Conditionals and Branching</a></u></p>
           </td>
@@ -263,7 +263,7 @@
             <p><u><a href="http://dport96.github.io/ITM352/morea/090.flow-control-II/reading-var-var.html">Javascript
                   Variable Variables</a></u></p>
           </td>
-          <td data-sheets-value="[null,2,&quot;Lab5: Conditionals and Loops&quot;]">
+          <td data-sheets-value="[null,2,&quot;Lab: Conditionals and Loops&quot;]">
             <p><u><a href="http://dport96.github.io/ITM352/morea/090.flow-control-II/experience-conditionals-loops.html">Lab:
                   Conditionals and Loops</a></u></p>
           </td>
@@ -288,7 +288,7 @@
             <p><u><a href="http://dport96.github.io/ITM352/morea/100.Arrays-I/reading-arrays.html">Simple
                   Arrays</a></u></p>
           </td>
-          <td data-sheets-value="[null,2,&quot;Lab6: Arrays I&quot;]">
+          <td data-sheets-value="[null,2,&quot;Lab: Arrays I&quot;]">
             <p><u><a href="http://dport96.github.io/ITM352/morea/100.Arrays-I/experience-arrays.html">Lab:
                   Arrays I</a></u></p>
           </td>
@@ -311,7 +311,7 @@
             <p><u><a href="http://dport96.github.io/ITM352/morea/100.Arrays-I/reading-processing-arrays.html">Processing
                   Arrays</a></u></p>
           </td>
-          <td data-sheets-value="[null,2,&quot;Lab7: Arrays II&quot;]">
+          <td data-sheets-value="[null,2,&quot;Lab: Arrays II&quot;]">
             <p><u><a href="http://dport96.github.io/ITM352/morea/100.Arrays-I/experience-processing-arrays.html">Lab:
                   Arrays II</a></u></p>
           </td>
@@ -439,7 +439,7 @@
             <p><u><a href="http://dport96.github.io/ITM352/morea/140.FileIO/reading-FileIO.html">Javascript
                   File I/O</a></u></p>
           </td>
-          <td data-sheets-value="[null,2,&quot;Lab11: File I/O&quot;]">
+          <td data-sheets-value="[null,2,&quot;Lab: File I/O&quot;]">
             <p><u><a href="http://dport96.github.io/ITM352/morea/140.FileIO/experience-FileIO.html">Lab:
                   File I/O</a></u></p>
           </td>

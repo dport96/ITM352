@@ -424,7 +424,7 @@ to
                 <u><span style="font-size: 11pt; font-family: Calibri; color: black;"><o:p></o:p></span></u></p>
             </td>
             <td style="border-style: none solid solid none; border-color: -moz-use-text-color black rgb(204, 204, 204) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 2.25pt; height: 15pt;"
-              data-sheets-value="[null,2,&quot;Lab1: Data Types and Variables&quot;]">
+              data-sheets-value="[null,2,&quot;Lab: Data Types and Variables&quot;]">
               <p class="MsoNormal"><u><span style="font-size: 11pt; font-family: Calibri; color: black;"><a
                       href="./morea/050.variables_data_types/experience-data-types-variables.html"
                       target="_blank">Lab:
@@ -476,7 +476,7 @@ to
                         style="color: #0433ff;"></span></u><o:p></o:p></span></a></p>
             </td>
             <td style="border-style: none solid solid none; border-color: -moz-use-text-color black rgb(204, 204, 204) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 2.25pt; height: 30pt;"
-              data-sheets-value="[null,2,&quot;Lab2: Expressions and Operators&quot;]">
+              data-sheets-value="[null,2,&quot;Lab: Expressions and Operators&quot;]">
               <p class="MsoNormal"><u><span style="font-size: 11pt; font-family: Calibri; color: black;"><a
                       href="./morea/060.expressions-operators/experience-expressions-operators.html"
                       target="_blank">Lab:
@@ -522,7 +522,7 @@ to
                       target="_blank">Algorithms</a><o:p></o:p></span></u></p>
             </td>
             <td style="border-style: none solid solid none; border-color: -moz-use-text-color black rgb(204, 204, 204) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 2.25pt; height: 15pt;"
-              data-sheets-value="[null,2,&quot;Lab3: Algorithms and Program Logic&quot;]"
+              data-sheets-value="[null,2,&quot;Lab: Algorithms and Program Logic&quot;]"
               nowrap="nowrap">
               <p class="MsoNormal"><u><span style="font-size: 11pt; font-family: Calibri; color: black;"><a
                       href="./morea/070.algorithms/experience-algorithms-program-logic.html"
@@ -574,7 +574,7 @@ to
                       Branching</a><o:p></o:p></span></u></p>
             </td>
             <td style="border-style: none solid solid none; border-color: -moz-use-text-color black rgb(204, 204, 204) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 2.25pt; height: 14.25pt;"
-              data-sheets-value="[null,2,&quot;Lab4: Conditionals and Branching&quot;]">
+              data-sheets-value="[null,2,&quot;Lab: Conditionals and Branching&quot;]">
               <p class="MsoNormal"><u><span style="font-size: 11pt; font-family: Calibri; color: black;"><a
                       href="./morea/080.flow-control-I/experience-conditionals-branching.html"
                       target="_blank">Lab:
@@ -629,7 +629,7 @@ to
                       Variable Variables</a></span></u></p>
             </td>
             <td style="border-style: none solid solid none; border-color: -moz-use-text-color black rgb(204, 204, 204) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 2.25pt; height: 30pt;"
-              data-sheets-value="[null,2,&quot;Lab5: Conditionals and Loops&quot;]">
+              data-sheets-value="[null,2,&quot;Lab: Conditionals and Loops&quot;]">
               <p class="MsoNormal"><u><span style="font-size: 11pt; font-family: Calibri; color: black;"><a
                       href="./morea/090.flow-control-II/experience-conditionals-loops.html"
                       target="_blank">Lab:
@@ -677,7 +677,7 @@ to
                 <u><span style="font-size: 11pt; font-family: Calibri; color: black;"><o:p></o:p></span></u></p>
             </td>
             <td style="border-style: none solid solid none; border-color: -moz-use-text-color black rgb(204, 204, 204) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 2.25pt; height: 15pt;"
-              data-sheets-value="[null,2,&quot;Lab6: Arrays I&quot;]">
+              data-sheets-value="[null,2,&quot;Lab: Arrays I&quot;]">
               <p class="MsoNormal"><u><span style="font-size: 11pt; font-family: Calibri; color: black;"><a
                       href="./morea/100.Arrays-I/experience-arrays.html"
                       target="_blank">Lab:
@@ -720,7 +720,7 @@ to
                       Arrays</a><o:p></o:p></span></u></p>
             </td>
             <td style="border-style: none solid solid none; border-color: -moz-use-text-color black rgb(204, 204, 204) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 2.25pt; height: 15pt;"
-              data-sheets-value="[null,2,&quot;Lab7: Arrays II&quot;]">
+              data-sheets-value="[null,2,&quot;Lab: Arrays II&quot;]">
               <p class="MsoNormal"><u><span style="font-size: 11pt; font-family: Calibri; color: black;"><a
                       href="./morea/100.Arrays-I/experience-processing-arrays.html"
                       target="_blank">Lab:
@@ -972,7 +972,7 @@ to
                       File I/O</a><o:p></o:p></span></u></p>
             </td>
             <td style="border-style: none solid solid none; border-color: -moz-use-text-color black black -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 2.25pt; height: 15pt;"
-              data-sheets-value="[null,2,&quot;Lab11: File I/O&quot;]">
+              data-sheets-value="[null,2,&quot;Lab: File I/O&quot;]">
               <p class="MsoNormal"><u><span style="font-size: 10pt; font-family: Arial; color: black;"><a
                       href="./morea/140.FileIO/experience-FileIO.html"
                       target="_blank">Lab:
