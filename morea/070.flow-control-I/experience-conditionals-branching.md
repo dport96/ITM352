@@ -1,5 +1,5 @@
 --- 
-title: "Lab 7: Conditionals and Branching" 
+title: "Lab: Conditionals and Branching" 
 published: true 
 morea_id: experience-conditionals-branching
 morea_type: experience 

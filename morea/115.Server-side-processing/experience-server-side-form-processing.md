@@ -1,5 +1,5 @@
 ---
-title: "Lab 13: Server Side Form Processing and Web Applications"
+title: "Lab: Server Side Form Processing and Web Applications"
 published: true
 morea_id: experience-server-side-form-processing
 morea_type: experience
@@ -79,7 +79,7 @@ app.use(express.static(__dirname + '/public'));
 ```
 Terminate the previously running server (with ctrl-C) and run `info_server_Ex2c.js`. Create a simple html file `hello.html` that outputs `<h1>Hello from <your name>!</h1>` and save it in the `public` directory. Use a browser with the following URL `http://localhost:8080/hello.html` and see what response you get. Try `localhost:8080/xxx` and explain what response you get. Make a copy of `hello.html` and rename it `hello.txt`. Now try `localhost:8080/hello.txt` and explain the response. Change `<your name>` to your full name in `hello.html`. Save the file and reload the page. Why didn't you have to stop and start the server to see the changes? Do you think the `app.use()` middleware must be placed at the bottom of the routing functions?
 
-d. Copy your `order_page.html` from Exercise 6 in Lab 12 to the `public` directory. Change the `action` attribute of the form to `./process_form` (why use `.` instead of `localhost:8080` here?). Make sure `method="POST"` is in the form tag. Try `http://localhost:8080/order_page.html` in your browser and submit the form. Look at the `console.log` output and the response you get and explain.
+d. Copy your `order_page.html` from Exercise 6 in Lab:8080/order_page.html` in your browser and submit the form. Look at the `console.log` output and the response you get and explain.
 
 
 #### Exercise 3: Server Side Processing of Form Action

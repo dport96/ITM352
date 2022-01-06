@@ -1,5 +1,5 @@
 --- 
-title: "Lab 10: Object and Arrays I" 
+title: "Lab: Object and Arrays I" 
 published: true 
 morea_id: experience-objects-arrays
 morea_type: experience 

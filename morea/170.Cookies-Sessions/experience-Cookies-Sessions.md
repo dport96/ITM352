@@ -1,5 +1,5 @@
 --- 
-title: "Lab 15: Cookies and Sessions" 
+title: "Lab: Cookies and Sessions" 
 published: true 
 morea_id: experience-Cookies-Sessions
 morea_type: experience 

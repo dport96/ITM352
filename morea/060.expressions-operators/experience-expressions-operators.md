@@ -1,5 +1,5 @@
 --- 
-title: "Lab 6: Expressions and Operators" 
+title: "Lab: Expressions and Operators" 
 published: true 
 morea_id: experience-expressions-operators
 morea_type: experience 
@@ -25,7 +25,7 @@ For exercises that do not ask specific questions but have you perform tasks, cop
 Do all your code work in VS Code. Copy and paste from there. Please ask the instructor for help if you get stuck this is **NOT** a test.
 
 # Submission
-When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to [Laulima Assignment Lab 6](https://laulima.hawaii.edu). If you do not submit something to Laulima you will not get credit.
+When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to [Laulima Assignment Lab://laulima.hawaii.edu). If you do not submit something to Laulima you will not get credit.
 
 In this lab we will use expressions to keep score and present game information.
 

@@ -1,5 +1,5 @@
 --- 
-title: "Lab 8: Loops" 
+title: "Lab: Loops" 
 published: true 
 morea_id: experience-conditionals-loops
 morea_type: experience 

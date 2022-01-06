@@ -1,5 +1,5 @@
 --- 
-title: "Lab 14: File I/O" 
+title: "Lab: File I/O" 
 published: true 
 morea_id: experience-FileIO
 morea_type: experience 

@@ -1,5 +1,5 @@
 ---
-title: "Lab 3: Introducing Client Side Processing using Javascript"
+title: "Lab: Introducing Client Side Processing using Javascript"
 published: true
 morea_id: experience-client-side-processing-javascript
 morea_summary: "Examples of using Javascript to post-process a webpage."
@@ -27,7 +27,7 @@ For exercises that do not ask specific questions but have you perform tasks, cop
 Do all your code work in VS Code. Copy and paste from there. Please ask the instructor for help if you get stuck this is **NOT** a test.
 
 # Submission
-When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to [Laulima Assignment Lab 3: Client-side Dynamic Web Pages ](https://laulima.hawaii.edu). If you do not submit something to Laulima you will not get credit.
+When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to [Laulima Assignment Lab://laulima.hawaii.edu). If you do not submit something to Laulima you will not get credit.
 
 **COPY this entire page and paste into the Laulima assignment submission box for this assignment**
 

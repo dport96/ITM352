@@ -1,5 +1,5 @@
 --- 
-title: "Lab 9: Algorithms and Program Logic" 
+title: "Lab: Algorithms and Program Logic" 
 published: true 
 morea_id: experience-algorithms-program-logic
 morea_type: experience 

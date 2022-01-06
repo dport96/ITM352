@@ -1,5 +1,5 @@
 ---
-title: "Lab 12: HTML Forms and Javascript"
+title: "Lab: HTML Forms and Javascript"
 published: true
 morea_id: experience-html-forms
 morea_type: experience

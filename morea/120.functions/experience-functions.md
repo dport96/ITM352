@@ -1,5 +1,5 @@
 ---
-title: "Lab 11: Using and Creating Functions"
+title: "Lab: Using and Creating Functions"
 published: true
 morea_id: experience-functions
 morea_type: experience
