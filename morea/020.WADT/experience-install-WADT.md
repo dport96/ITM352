@@ -80,26 +80,51 @@ VS Code is a file editor designed to help build applications (code). Web applica
   *Explain why you **do** get the Intellisense help for HTML now and why you **do not** see the html in the browser window:* 
 
 
-###  3. Installing and using http-server as a local web server
-For convenience and speed we will test applications on our own machine before deploying to a server. Applications that need only serve static pages can use a simple web server that accesses the static pages (documents) from a single directory (the document root). The http-server package will do this for us without any configuration or coding.  
+###  3. Installing and using an http-server as a local web server
+For convenience and speed we will test applications on our own machine before deploying to a server. Web applications that need only provide web pages to a web browser from files (sometimes called *static pages*) can use a simple web server that accesses the static page files (or documents) from a single directory (the document root). Web browsers typically communicate with web servers using the *HTTP protocol* (there are many other network communication protocols) which is why a basic web server is often called an *http server*. Node has many ready to use http server packages (such as the http-server package) that will work as a local web server without any configuration or coding. We will be learning how to build web applications that will not have just static pages. So in preparation for this, we will build our own simple http-server using the Node Express framework. You do not need to understand this framework or how the code works at this point. For now, just understand what this code does and how to use it to serve static pages. 
 
   - Open a terminal in VS Code, check that you have node.js `node --version`
-  - Add the http-server package `npm install http-server -g` *Note for Mac users: you may need to add `sudo` to the front of this to override file permissions.*
-  - Check the run options with `http-server --help`
-  - Start the local http-server and use the current directory as the document root by typing `http-server .`
+  - Add the express package `npm install express` *Note for Mac users: you may need to add `sudo` to the front of this to override file permission restrictions.*
+  - Create a new file in VS Code, name it "server.js" and add the following code
+  ```Javascript
+var express = require('express');
+var app = express();
+app.all('*', function (request, response, next) {
+    response.send(request.method + ' to path ' + request.path);
+});
+app.use(express.static(__dirname + '/static'));
+app.listen(8080, () => console.log(`listening on port 8080`));
+```
+  - Start you local http-server by typing `node server.js`
+  - Move your `<your Last_First name>_hello.html` file from (2) above into the `static` directory.
   - Open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and verify it is served rather than loaded directly into the browser (you should see `http://localhost:8080/<your Last_First name>_hello.html` rather than the file path)
 
 **NOTE:** If the server fails to run and you get a `port already in use` error you may have another process using port 8080. Try changing the port to something else like 8081 and try running again. ** 
 
   *Go to the terminal window in VS Code and copy and paste here the output after you started http-server. Explain what this output is:*
+```
 
+
+```
   *Explain how the page in the browser window was loaded. Why is the URL path not the same as the filepath for the file in your Lab1 directory?*
+```
+
+```
+  *What would happen if you did not have  `<your Last_First name>_hello.html` in the `static` directory? Use this to explain why you cannot request `server.js` from a browser.*
+```
+
+```
 
   - Hit ctrl-c to stop http-server. Reload or refresh the page in your browser. 
 
   *Explain why you do not see the page anymore:*
+```
 
+```
   *Explain here how this is different than what you did previously. Is your file now a web page?*
+```
+
+```
 
 ### 4. Local vs Global web servers
 There really is no difference between the web server such as you installed on your laptop for class and any other web server on the internet. It's really a matter of accessibility. A local web server is accessed though the URL `http://localhost` where localhost is always set to the IP address `10.0.0.1` or `127.0.0.1` (which is also known as the "local loopback"). Anytime you try to connect to localhost you will always be connecting to your own machine. So if you set your web server's address to be localhost it then can only be accessed from your machine regardless if it is connected to the internet (or any network). A global web server simply has it's address set to some globally accessible IP address (and possibly an internet registered domain name).
@@ -127,7 +152,14 @@ Locate the file you created to test your local web server from exercise 3 above.
 #### Answer the following questions:
 
 *How do you make websites?*
+```
 
+```
 *What's the difference between a local and global webserver?*
+```
 
+```
 *How do webservers, local or global, work with VS Code?*
+```
+
+```
