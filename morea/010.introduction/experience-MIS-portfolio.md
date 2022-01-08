@@ -58,38 +58,9 @@ This assignment must be completed by the *first week of class*. To submit and re
 
 **B.** Scroll down to the folder named _data and click on it. Then scroll to the file "members.yml". Click on that file name to display its contents. Click on the pencil button on the top right of the screen to bring up a browser-based editor with the contents of the file. The top section will look like this:
 
-{% capture boxText %}
----
-# URL to techfolio with JSON resume bio
-#
-# Instructors here
-Instructors:
-  - dport96.github.io
-  - rnkazman.github.io
-# TA's here
-TAs:
-  - https://dieckgra.github.io
-  - https://kterayama.github.io
-  - https://lailaaa.github.io
-# Students here
-{% endcapture %}
-{% assign month =  "now" | date: "%-m" | times: 1 %}
-{% if month <= 5 %}
-{% assign semester = "Spring " %}
-{% elsif month <= 7 %}
-{% assign semester = "Summer " %}
-{% else %}
-{% assign semester = "Fall " %}
-{% endif %}
-{% assign year = "now" | date: "%Y" %}
 ```yaml
-{{ boxText | rstrip }}
-{{ semester | append: year | append: " Students:" }} 
-  - yoshimura123.github.io
-  - brandon-chun.github.io
-  - maiabe.github.io
-```
 <div id='members_div'></div>
+```
 <script>
   async function getMembers() { 
     const url1 = 'https://raw.githubusercontent.com/dport96/mis-portfolios/master/_data/members.yml'
