@@ -90,10 +90,13 @@ TAs:
   - maiabe.github.io
 ```
 <script>
-  const url1 = 'https://raw.githubusercontent.com/dport96/mis-portfolios/master/_data/members.yml'
-const response = await fetch(url1);
-const data = await response.text();
-console.log(data);
+  async function getMembers() { 
+    const url1 = 'https://raw.githubusercontent.com/dport96/mis-portfolios/master/_data/members.yml'
+    const response = await fetch(url1);
+    const data = await response.text();
+    console.log(data);
+  }
+  getMembers();
 </script>
 
 
