@@ -89,6 +89,12 @@ TAs:
   - brandon-chun.github.io
   - maiabe.github.io
 ```
+<script>
+  const url1 = 'https://raw.githubusercontent.com/dport96/mis-portfolios/master/_data/members.yml'
+const response = await fetch(url1);
+const data = await response.text();
+console.log(data);
+</script>
 
 
 Insert a new line at the end to include your own url that points to your portfolio. Be sure to start the new line with a - and then a space. Take care not change any other lines. 
