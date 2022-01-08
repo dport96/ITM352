@@ -60,16 +60,14 @@ This assignment must be completed by the *first week of class*. To submit and re
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight">
 <code>
----<br>
 <div id="members_div" class="s">xxx</div>
-<br>---
 </code></pre></div></div>
 <script>
   async function getMembers() { 
     const url1 = 'https://raw.githubusercontent.com/dport96/mis-portfolios/master/_data/members.yml'
     const response = await fetch(url1);
     const data = await response.text();
-    members_div.innerHTML = data.substring(0,255).replace(/\n/g, "<br />");
+    members_div.innerHTML = data.substring(0,260).replace(/\n/g, "<br />");
   }
   getMembers();
 </script>
@@ -84,7 +82,7 @@ This assignment must be completed by the *first week of class*. To submit and re
 {% endif %}
 {% assign year = "now" | date: "%Y" %}
 
-Insert a new line in the appropriate section (e.g. {{ semester | append: year | append: " Students:" }} ) the end to include your own url that points to your portfolio. Be sure to start the new line with a - and then a space. Take care not change any other lines. 
+Insert a new line at the **end** of the appropriate section (e.g. &quot;{{ semester | append: year | append: " Students:&quot;" }} ) to include your own url that points to your portfolio. Be sure to start the new line with a - and then a space. Take care not change any other lines. 
 
 **C.** When you are done, scroll to the bottom and click the "Propose file change" button. In the next window, press the "Create pull request" button (optionally you can add a little request note). On the next window *DO NOT DO ANYTHING*. Your request to add your portfolio has been submitted and the instructor or TA will review and approve your request (and give you credit for this assignment). These requests must be manually reviewed and processed by me or the TA. Don't expect this to happen immediately! You will be notified if there is a problem or if your portfolio has been added to the gallery.
 
