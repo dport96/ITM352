@@ -59,8 +59,9 @@ This assignment must be completed by the *first week of class*. To submit and re
 **B.** Scroll down to the folder named _data and click on it. Then scroll to the file "members.yml". Click on that file name to display its contents. Click on the pencil button on the top right of the screen to bring up a browser-based editor with the contents of the file. The top section will look like this:
 
 ```yaml
-<div id='members_div'></div>
+xxx
 ```
+<div id='members_div'></div>
 <script>
   async function getMembers() { 
     const url1 = 'https://raw.githubusercontent.com/dport96/mis-portfolios/master/_data/members.yml'
