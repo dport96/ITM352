@@ -27,7 +27,6 @@ Open the [WADT presentation slides](ITM352_WADT.pptx).
 
 In class we will see examples, answer questions, and discuss what's on for next class. 
 
-Open the [WADT screencast](https://) *NOT AVAILABLE YET*
 
 # Lab objectives
 After completing this lab you should be set up with and understand how to make use of the web application development tools we will be using. In particular:
@@ -79,13 +78,67 @@ VS Code is a file editor designed to help build applications (code). Web applica
 
   *Explain why you **do** get the Intellisense help for HTML now and why you **do not** see the html in the browser window:* 
 
+###  3. Using a terminal (or command line) to access the operating system
+Sometimes you will need to do more specific or detailed tasks that would be difficult or inconvenient to do through a GUI. A terminal window provides a command line interface to your operating system. There are many different types of *shell environments* such as `sh`, `csh`,`bash`, `zsh`,`cmd`, `powershell` that run in a terminal. These all have similar functionality and similar commands, but they may vary in the particular command language and syntax they use. You will find it very useful to be familiar with the basic shell commands. We will explore a few basic file system commands here needed for this class.
+  a) Open a terminal in VS Code (go to the Terminal menu -> New Terminal). Identify what shell is being used:
+  ```
 
-###  3. Installing and using an http-server as a local web server
+  ```
+
+  b) Try each of the commands below, copy the result you get and explain what the command does:
+  ```
+pwd
+
+ls
+
+mkdir newdir
+
+cd new*
+
+touch test
+
+mv test test.txt
+
+rm test.txt
+
+echo hello > hello.txt
+
+cat h*.txt
+
+cd ..
+
+rmdir -p newdir
+
+history
+  ```
+
+  c) Most shells support command history. What happens if you press the upparrow key? downarrow key?
+
+  d) Most shells support file name expansion. Try `touch xxxx.txt` then `rm xx` then hit the TAB key. What happened?
+
+###  4. Javascript browser console, JSON
+Most browsers will have a Javascript console. Right-click --> Inspect then try the and explain the following:
+```
+1+1
+
+2/3
+
+'hello' + "there"
+
+{"a":1, "b":2}
+
+[1,2,3]
+
+console.log('hello')
+```
+
+###  5. Installing and using an http-server as a local web server
 For convenience and speed we will test applications on our own machine before deploying to a server. Web applications that need only provide web pages to a web browser from files (sometimes called *static pages*) can use a simple web server that accesses the static page files (or documents) from a single directory (the document root). Web browsers typically communicate with web servers using the *HTTP protocol* (there are many other network communication protocols) which is why a basic web server is often called an *http server*. Node has many ready to use http server packages (such as the http-server package) that will work as a local web server without any configuration or coding. We will be learning how to build web applications that will not have just static pages. So in preparation for this, we will build our own simple http-server using the Node Express framework. You do not need to understand this framework or how the code works at this point. For now, just understand what this code does and how to use it to serve static pages. 
 
   - Open a terminal in VS Code, check that you have node.js `node --version`
   - Add the express package `npm install express` *Note for Mac users: you may need to add `sudo` to the front of this to override file permission restrictions.*
   - Create a new file in VS Code, name it "server.js" and add the following code
+  
   ```Javascript
 var express = require('express');
 var app = express();
@@ -95,6 +148,7 @@ app.all('*', function (request, response, next) {
 app.use(express.static(__dirname + '/static'));
 app.listen(8080, () => console.log(`listening on port 8080`));
 ```
+
   - Start you local http-server by typing `node server.js`
   - Move your `<your Last_First name>_hello.html` file from (2) above into the `static` directory.
   - Open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and verify it is served rather than loaded directly into the browser (you should see `http://localhost:8080/<your Last_First name>_hello.html` rather than the file path)
@@ -126,7 +180,7 @@ app.listen(8080, () => console.log(`listening on port 8080`));
 
 ```
 
-### 4. Local vs Global web servers
+### 6. Local vs Global web servers
 There really is no difference between the web server such as you installed on your laptop for class and any other web server on the internet. It's really a matter of accessibility. A local web server is accessed though the URL `http://localhost` where localhost is always set to the IP address `10.0.0.1` or `127.0.0.1` (which is also known as the "local loopback"). Anytime you try to connect to localhost you will always be connecting to your own machine. So if you set your web server's address to be localhost it then can only be accessed from your machine regardless if it is connected to the internet (or any network). A global web server simply has it's address set to some globally accessible IP address (and possibly an internet registered domain name).
 
 You should always develop your web applications locally and then "publish" them--after careful testing--to a global web server (that is if you want the outside world to be able to access it). For our class we have made available to you the global web server [http://itm-vm.shidler.hawaii.edu/itm352student](http://itm-vm.shidler.hawaii.edu/itm352student) and this is where you should test all your applications if they are intended to be used non-locally.
