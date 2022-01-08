@@ -89,12 +89,13 @@ TAs:
   - brandon-chun.github.io
   - maiabe.github.io
 ```
+<div id='members_div'></div>
 <script>
   async function getMembers() { 
     const url1 = 'https://raw.githubusercontent.com/dport96/mis-portfolios/master/_data/members.yml'
     const response = await fetch(url1);
     const data = await response.text();
-    console.log(data);
+    members_div.innerHTML = data.substring(0,255);
   }
   getMembers();
 </script>
