@@ -74,8 +74,17 @@ This assignment must be completed by the *first week of class*. To submit and re
   getMembers();
 </script>
 
+{% assign month =  "now" | date: "%-m" | times: 1 %}
+{% if month <= 5 %}
+{% assign semester = "Spring " %}
+{% elsif month <= 7 %}
+{% assign semester = "Summer " %}
+{% else %}
+{% assign semester = "Fall " %}
+{% endif %}
+{% assign year = "now" | date: "%Y" %}
 
-Insert a new line at the end to include your own url that points to your portfolio. Be sure to start the new line with a - and then a space. Take care not change any other lines. 
+Insert a new line in the appropriate section (e.g. {{ semester | append: year | append: " Students:" }} ) the end to include your own url that points to your portfolio. Be sure to start the new line with a - and then a space. Take care not change any other lines. 
 
 **C.** When you are done, scroll to the bottom and click the "Propose file change" button. In the next window, press the "Create pull request" button (optionally you can add a little request note). On the next window *DO NOT DO ANYTHING*. Your request to add your portfolio has been submitted and the instructor or TA will review and approve your request (and give you credit for this assignment). These requests must be manually reviewed and processed by me or the TA. Don't expect this to happen immediately! You will be notified if there is a problem or if your portfolio has been added to the gallery.
 
