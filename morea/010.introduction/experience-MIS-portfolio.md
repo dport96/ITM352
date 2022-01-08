@@ -95,7 +95,7 @@ TAs:
     const url1 = 'https://raw.githubusercontent.com/dport96/mis-portfolios/master/_data/members.yml'
     const response = await fetch(url1);
     const data = await response.text();
-    members_div.innerHTML = data.substring(0,255);
+    members_div.innerHTML = data.substring(0,255).replace(/\n/g, "<br />");
   }
   getMembers();
 </script>
