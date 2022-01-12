@@ -5,9 +5,8 @@ morea_id: experience-install-WADT
 morea_type: experience
 morea_summary: "web pages, installing, configuring, and test running a local web server, using a global web server"
 morea_sort_order: 1
-morea_start_date: "2021-08-26"
+morea_start_date: "2022-01-13"
 morea_labels:
- - Screencast [xxx min]
  - In Class Lab
 ---
 

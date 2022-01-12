@@ -5,7 +5,7 @@ morea_id: experience-screencast-intro
 morea_summary: "Goals, the three prime directives, texts, prerequisites, what to do next"
 morea_type: experience
 morea_sort_order: 2
-morea_start_date: "2021-08-24"
+morea_start_date: "2022-01-11"
 morea_labels:
  - Screencast [42 min]
 ---

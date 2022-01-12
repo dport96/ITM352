@@ -5,8 +5,8 @@ morea_id: experience-MIS-portfolio
 morea_type: experience 
 morea_summary: "Create a professional portfolio for yourself"
 morea_sort_order: 1 
-morea_start_date: "2021-08-24"
-morea_end_date: "2021-08-31"
+morea_start_date: "2022-01-11"
+morea_end_date: "2022-01-18"
 morea_labels: 
 - Essay
 ---
