@@ -7,8 +7,8 @@ morea_summary: "Write a technical blog summarizing your experience doing the UI 
 morea_sort_order: 4
 morea_labels:
  - BLOG
-morea_start_date: "2021-09-14"
-morea_end_date: "2021-09-17"
+morea_start_date: "2022-01-25"
+morea_end_date: "2022-02-01"
 ---
 
 # E1: UI Basics Technical Essay

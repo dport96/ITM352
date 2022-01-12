@@ -5,7 +5,7 @@ morea_id: experience-severs-UIBasics
 morea_type: experience
 morea_summary: "Learn details of web servers and web pages, build simple e-comm web page"
 morea_sort_order: 1
-morea_start_date: "2021-08-31"
+morea_start_date: "2022-01-18"
 morea_labels:
  - In Class Lab
 ---

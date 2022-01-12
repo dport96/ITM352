@@ -7,8 +7,8 @@ morea_summary: "Develop a web page using Chrome Developer Tools."
 morea_sort_order: 3
 morea_labels:
  -  WOD 
-morea_start_date: "2021-09-01"
-morea_end_date: "2021-09-14"
+morea_start_date: "2022-01-13"
+morea_end_date: "2021-01-25"
 ---
 
 # Get ready for the BrowserHistory3 WOD: 

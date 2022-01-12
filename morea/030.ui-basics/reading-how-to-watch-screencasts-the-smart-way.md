@@ -5,7 +5,7 @@ morea_id: reading-how-to-watch-screencasts-the-smart-way
 morea_summary: "There is an art to watching screencasts effectively. Here are some heuristics."
 morea_type: reading
 morea_sort_order: 7
-morea_start_date: "2021-08-31T10:30"
+morea_start_date: "2022-01-18T12:00"
 ---
 
 # How to watch screencasts the smart way

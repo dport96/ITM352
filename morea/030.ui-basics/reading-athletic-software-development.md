@@ -5,7 +5,7 @@ morea_id: reading-athletic-software-development
 morea_summary: "An 'athletic' approach to software development education using Workouts of the Day."
 morea_type: reading
 morea_sort_order: 3
-morea_start_date: "2021-08-31T10:30"
+morea_start_date: "2022-01-18T12:00"
 ---
 
 # An athletic approach to software development
