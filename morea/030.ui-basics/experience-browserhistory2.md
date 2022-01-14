@@ -7,8 +7,8 @@ morea_summary: "Develop a web page using basic CSS and Google Web Fonts."
 morea_sort_order: 2
 morea_labels:
  -  WOD 
-morea_start_date: "2022-01-13"
-morea_end_date: "2021-01-25"
+morea_start_date: "2022-01-19"
+morea_end_date: "2022-01-25"
 ---
 
 # Get ready for the BrowserHistory2 WOD: 

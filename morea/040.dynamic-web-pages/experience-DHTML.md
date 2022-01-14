@@ -7,7 +7,7 @@ morea_type: experience
 morea_sort_order: 1
 morea_labels:
   - Screencast Lecture [21 min]
-morea_start_date: "2021-01-28T12:00"
+morea_start_date: "2022-01-25T12:00"
 ---
 # Client Side Dynamic Web Pages
 This lecture will show you how DHTML is used to process dynamic web pages (at least partially) after the page is received by the client (browser) and how client side processing can be used to create dynamic web pages and interface with the user.
