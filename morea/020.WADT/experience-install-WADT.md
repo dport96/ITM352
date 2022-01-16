@@ -111,7 +111,7 @@ rmdir -p newdir
 history
   ```
 
-  c) Most shells support command history. What happens if you press the upparrow key? downarrow key?
+  c) Most shells support command history. What happens if you press the uparrow key? downarrow key?
 
   d) Most shells support file name expansion. Try `touch xxxx.txt` then `rm xx` then hit the TAB key. What happened?
 
