@@ -138,11 +138,12 @@ For convenience and speed we will test applications on our own machine before de
   - Add the express package `npm install express` *Note for Mac users: you may need to add `sudo` to the front of this to override file permission restrictions.*
   - Create a new file in VS Code, name it "server.js" and add the following code
   
-  ```Javascript
+  ```javascript
 var express = require('express');
 var app = express();
 app.all('*', function (request, response, next) {
-    response.send(request.method + ' to path ' + request.path);
+    console.log(request.method + ' to path ' + request.path);
+    next();
 });
 app.use(express.static(__dirname + '/static'));
 app.listen(8080, () => console.log(`listening on port 8080`));
