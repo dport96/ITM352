@@ -190,7 +190,7 @@ You should always develop your web applications locally and then "publish" them-
 
 Locate the file you created to test your local web server from exercise 3 above.
 
-  1. Use SFTP or SSH or a file transfer tool such as [CyberDuck](https://cyberduck.io/?l=en) to upload it to the ITM 352 student class webserver at itm-vm.shidler.hawaii.edu/itm352student/<your class section>. The "htdocs" or document root folder to store your web files on the class server is actually called `public_html`, but when you log in it will take you directly to this location so you won't see it. You cannot write files to this directory so you will need to go to `Section_Port` or `Section_Kazman` depending on which class section you are in. Make a note of this as you will need to add this to URL to access your file.
+  1. Use SFTP or SSH or a file transfer tool such as [CyberDuck](https://cyberduck.io/?l=en) to upload it to the ITM 352 student class webserver at itm-vm.shidler.hawaii.edu/itm352student/<your class section>. The "htdocs" or document root folder to store your web files on the class server is actually called "public_html", but when you log in it will take you directly to this location so you won't see it. You cannot write files to this directory so you will need to go to "Section_Port" or "Section_Kazman" depending on which class section you are in. Make a note of this as you will need to add this to URL to access your file.
     
    - username is `<ask instructor>` with password `<ask instructor>` you must use port 8615  You can try this link or copy and paste it into the Server textbox [sftp://itm352student@itm-vm.shidler.hawaii.edu:8615/](sftp://itm352student@itm-vm.shidler.hawaii.edu:8615/)
 
