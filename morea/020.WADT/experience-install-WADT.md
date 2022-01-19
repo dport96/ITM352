@@ -106,10 +106,12 @@ cat h*.txt
 
 cd ..
 
-rmdir -p newdir
+rm -r newdir
 
 history
   ```
+
+_**NOTE: if a command doesn't work for your particular shell, look up (or guess) what the command is supposed to do and then do a Google search to find out how to do it in your shell.**_
 
   c) Most shells support command history. What happens if you press the uparrow key? downarrow key?
 
@@ -138,7 +140,7 @@ For convenience and speed we will test applications on our own machine before de
   - Add the express package `npm install express` *Note for Mac users: you may need to add `sudo` to the front of this to override file permission restrictions.*
   - Create a new file in VS Code, name it "server.js" and add the following code
   
-  ```javascript
+```javascript
 var express = require('express');
 var app = express();
 app.all('*', function (request, response, next) {
