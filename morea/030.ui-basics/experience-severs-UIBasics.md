@@ -35,17 +35,17 @@ Task 1: Open your workspace in VS Code and create a folder `Lab2`. In this folde
 ```HTML
 <h1>Hello World!</h1>
 ```
-Task 2: Open a terminal in the `Lab2` director and start an http-server (installed in Lab 1) `http-server .` Remember that the `.` means the "web server document root will be in the current directory". 
+Task 2: Open a terminal in the `Lab2` director and start an http-server (installed in Lab 1) `node ../server.js` Remember that if you do not specify `--rootdir` then it will default to `.` means the "web server document root will be in the current directory". 
 
 Task 3: Open a browser and make a request to `localhost` port `8080` with the `HTTP` protocol and no path. What do you see and where did this come from? Now copy and paste the console output (IN VS Code) here. Explain what this is and where it came from. 
 
 Task 4: Now click on `hello-world.text` or type `http://localhost:8080/hello-world.text`. Explain what this is and where this came from. Is this HTML? Explain why or why not. Again, look at the console output and explain.
 
-Task 5: Exit your hello-HTTP-server process (by hitting ctrl-c usually). Refresh your webpage or retype your request. Explain why the page does not load. Now change the file extension from `.text` to `.html`. 
+Task 5: Exit your http-server process (by hitting ctrl-c usually). Refresh your webpage or retype your request. Explain why the page does not load. Now change the file extension from `.text` to `.html`. 
 
-Go to the terminal and re-run `http-server .` and refresh the web-page. Why do you **not** see the HTML code and now the page renders as you expected?  
+Go to the terminal re-run your http-server and refresh the web-page. Why do you **not** see the HTML code and now the page renders as you expected?  
 
-Task 6: Exit your hello-HTTP-server process again. Make sure it has stopped and you are at the command prompt!
+Task 6: Exit your http-server process again. Make sure it has stopped and you are at the command prompt!
 
 
 #### Exercise #2: HTTP-Server as a web page file server

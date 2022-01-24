@@ -45,4 +45,6 @@ When finished, stop your timer, and record how many minutes it took you to compl
 
 Once you've finished doing the WOD a single time, watch a screencast example of doing it [HERE](https://youtu.be/gThYPqpENdU)
 
+**NOTE:** *This example may use different tools (such as the editor and web server) than used in class. You should not try to copy  this example exactly. Use it to see how to do the WOD efficiently and get hints on areas you may be having trouble with.*
+
 {% include wod-warning.html %}

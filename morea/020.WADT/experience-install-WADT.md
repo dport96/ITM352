@@ -141,19 +141,24 @@ For convenience and speed we will test applications on our own machine before de
   - Create a new file in VS Code, name it "server.js" and add the following code
   
 ```javascript
+var argv = require('minimist')(process.argv.slice(2));
 var express = require('express');
 var app = express();
 app.all('*', function (request, response, next) {
     console.log(request.method + ' to path ' + request.path);
     next();
 });
-app.use(express.static(__dirname + '/static'));
+app.use(express.static( (typeof argv["rootdir"] != "undefined")?argv["rootdir"] : "." ) );
 app.listen(8080, () => console.log(`listening on port 8080`));
 ```
 
-  - Start you local http-server by typing `node server.js`
-  - Move your `<your Last_First name>_hello.html` file from (2) above into the `static` directory.
+  - Start your local http-server by typing `node server.js`
   - Open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and verify it is served rather than loaded directly into the browser (you should see `http://localhost:8080/<your Last_First name>_hello.html` rather than the file path)
+  - Make a new directory called `static` and move your `<your Last_First name>_hello.html` file into the `static` directory.
+  -  Open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and explain why the server cannot GET the file
+  -  Open a browser to `http://localhost:8080/static/<your Last_First name>_hello.html` and explain why the file now appears in the browser
+  -  Now hit ctrl-c in the terminal to quit your server. Start your local http-server by typing `node server.js --rootdir ./static` open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and explain why the file now appears in the browser but you no longer need `static` in the path
+  -  Now hit ctrl-c in the terminal to quit your server. Move `server.js` to the top of your repo (should be the directory above this lab directory). Start your local http-server by typing `node ../server.js --rootdir ./static` open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and explain why the file now appears in the browser and you do not need the Lab directory in the path
 
 **NOTE:** If the server fails to run and you get a `port already in use` error you may have another process using port 8080. Try changing the port to something else like 8081 and try running again. ** 
 
