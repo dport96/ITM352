@@ -7,7 +7,7 @@ morea_summary: "Learn About Data, Variables, and Simple Expressions"
 morea_sort_order: 1 
 morea_labels:
  - "Lecture Lab"
-morea_start_date: "2021-09-14"
+morea_start_date: "2022-01-27"
 ---
 # Lab objectives
 - Understand data is managed and the role of data types
@@ -30,7 +30,7 @@ When we are done, submit work before the next class. If you cannot submit by th
 
 In this lab we will use data types and variables to customize the game and present scoring information.
 
-Start by creating a `Lab5` directory in your repo and add a copy of your `SmartPhoneProducts1_1` project from Lab3 and rename it  `SmartPhoneProducts1_2`. Start your http-server and load the `products_display.html` page then open the JS console in your browser. 
+Start by creating a `Lab4` directory in your repo and add a copy of your `SmartPhoneProducts1_1` project from Lab3 and rename it  `SmartPhoneProducts1_2`. Start your http-server and load the `products_display.html` page then open the JS console in your browser. 
 
 #### Exercise 1: Data types 
 For each kind of data presented state what data type it is and an example of using it in `SmartPhoneProducts1_2`. Note that in the console everything will automatically be put into `console.log()` to output, so you can just type the expression in the console. 
