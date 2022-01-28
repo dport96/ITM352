@@ -7,7 +7,7 @@ morea_type: experience
 morea_sort_order: 1
 morea_labels:
   - Screencast Lecture [37 min]
-morea_start_date: "2022-01-27T12:00"
+morea_start_date: "2022-03-01T12:00"
 ---
 # Introducing Data types and Variables
 This lecture will introduce you to the basics of Javascript Data Types, simple expressions, and working with Variables
