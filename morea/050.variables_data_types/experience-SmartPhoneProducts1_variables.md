@@ -7,8 +7,8 @@ morea_summary: "Use variables to display information about Smartphone products"
 morea_sort_order: 2 
 morea_labels:
  - "WOD"
-morea_start_date: "2022-03-02"
-morea_end_date: "2022-02-08"
+morea_start_date: "2022-02-02"
+morea_end_date: "2022-02-09"
 ---
 
 # Use variables to output Smart Phone products
