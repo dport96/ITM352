@@ -7,7 +7,7 @@ morea_summary: "Learn About Expressions and Operators"
 morea_sort_order: 1 
 morea_labels:
  - "Lecture Lab"
-morea_start_date: "2021-09-21"
+morea_start_date: "2022-02-03"
 ---
 # Lab objectives
 - Know what expressions are and how they are evaluated in JS
