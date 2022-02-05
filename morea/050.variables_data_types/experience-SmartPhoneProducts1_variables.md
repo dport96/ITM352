@@ -48,7 +48,7 @@ The goal of the WOD is to use variables to eliminate hard-coding the information
 
 4. Now starting at the second `<section>`, change the variables from `name1` to `name2`, `price1` to `price2`, `image1` to `image2`. Do the same for the subsequent sections but using the respective section number for the change e.g. in section 3 change the 1's to 3's.
 
-5. Create a file `products_data.js` in the same directory as `products_display.html` and add the line `console.log("Product variables loaded...");`. Cut and paste all the variable declarations from the `<head>` into this file. To load and execute the javascript in `products_data.js` change the empty `<script></script>` in the `<head>` to `<script src="./products_data.js></script>"`
+5. Create a file `products_data.js` in the same directory as `products_display.html` and add the line `console.log("Product variables loaded...");`. Cut and paste all the variable declarations from the `<head>` into this file. To load and execute the javascript in `products_data.js` change the empty `<script></script>` in the `<head>` to `<script src="./products_data.js>"</script>`
 
 6. Verify that your display looks exactly like SmartPhoneProducts1 and that "Product variables loaded... appears in the console when the page loads.
 
