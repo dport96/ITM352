@@ -7,7 +7,7 @@ morea_summary: "Learn about conditional expressions and looping screencast"
 morea_sort_order: 1 
 morea_labels:
   - Screencast Lecture [30 min]
-morea_start_date: "2021-09-28T10:30"
+morea_start_date: "2022-02-17T12:00"
 ---
 # Introduction to Conditionals and Loops
 This lecture will introduce you to the basics of using conditional statements to do repetition.
