@@ -29,7 +29,7 @@ When we are done, submit work before the next class. If you cannot submit by th
  
 In this lab we will use conditional (boolean) expressions and conditional statements (if-statements) to keep score and present game information.
 
-Start by creating a `Lab7` directory in your repo and add a copy of your `SmartPhoneProducts1_3` project from Lab3 and rename it  `SmartPhoneProducts1_4`. Start your http-server and load the `products_display.html` page then open the JS console in your browser. 
+Start by creating a `Lab6` directory in your repo and add a copy of your `SmartPhoneProducts1_3` project from Lab3 and rename it  `SmartPhoneProducts1_4`. Start your http-server and load the `products_display.html` page then open the JS console in your browser. 
 
 
 #### Exercise #1: Conditional Expressions (total 6 minutes)

@@ -30,7 +30,7 @@ When we are done, submit work before the next class. If you cannot submit by th
 
 ### *Do all your code in Node.js unless otherwise specified*
 
-Start by creating a `Lab8` directory in your repo and create a file `products_data.js` and add the following variables:
+Start by creating a `Lab7` directory in your repo and create a file `products_data.js` and add the following variables:
 ```Javascript
  name1 = "HTC";
  price1 = 40.00;
