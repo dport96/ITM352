@@ -7,7 +7,7 @@ morea_summary: "Learn About Collections and Simple Objects and Arrays"
 morea_sort_order: 1 
 morea_labels:
  - "Lecture Lab"
-morea_start_date: "2021-10-05"
+morea_start_date: "2022-02-22"
 ---
 
 # Instructions

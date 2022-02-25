@@ -7,7 +7,7 @@ morea_summary: "Learn about creating and using objects and arrays"
 morea_sort_order: 1 
 morea_labels:
   - Screencast Lecture [34 min]
-morea_start_date: "2021-10-05T10:30"
+morea_start_date: "2022-02-22T12:00"
 ---
 # Simple Objects and Arrays
 This lecture will introduce you using objects for unordered collections and arrays for ordered collections.

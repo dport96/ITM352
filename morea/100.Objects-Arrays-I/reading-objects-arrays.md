@@ -7,7 +7,7 @@ morea_type: reading
 morea_sort_order: 2
 morea_labels:
  - Short Tutorials 
-morea_start_date: "2021-10-05T10:30"
+morea_start_date: "2022-02-22T12:00"
 ---
 # Read the short tutorials in the following:
 
