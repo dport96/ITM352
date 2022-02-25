@@ -30,6 +30,6 @@ morea_labels:
 
 The final display should look identical to SmartPhoneProducts2 and have **no** product `evals()` and no product information variables.
 
-You can view the [screencast solution here](https://youtu.be/NTfqWoMJIk0) if you get stuck.  
+If you get stuck, ask the TA or Instructor for the screencast solution. 
 
 {% include wod-times.html Rx="<7 min" Av="7-14 min" Sd="14-20 min" DNF="20+ min" %}

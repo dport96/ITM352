@@ -31,10 +31,7 @@ Suggestions:
   - You want the fewest coins so you will start by finding the largest number of quarters you can give. This is the same as keeping the quotient from dividing the amount by 25 and dropping the remainder. The remainder dropped (which is just the amount % 25) will be the the new amount. For this amount repeat the previous steps except use 10 (for dimes). Then repeat again with the remainder using 5 (nickels) and then after this the remainder will  
  - Start by writing out comments outlining the steps of your algorithm. Then implement each step one at a time and test at each step
  
-If you get stuck you can view a [screencast solution](https://www.youtube.com/watch?v=UQptiNrXX-E&feature=youtu.be)
+If you get stuck, ask the TA or Instructor for the screencast solution.
 
-###### This screencast shows a solution using PHP. Even though the code is a bit different, the algorithm is the same and would be implemented similarly in Javascript. See if you understand enough to translate!
-
-**OOPS... there's a rather nasty error in the screencast solution. See if you can spot it and fix it!**
 
 {% include wod-times.html Rx="<10 min" Av="15 min" Sd="20 min" DNF="20+ min" %}

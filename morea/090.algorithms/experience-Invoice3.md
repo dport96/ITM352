@@ -49,6 +49,6 @@ the variable values and new values will be computed. Some steps may use results 
  
  - After each change, run the application to see if it works as expected (up to what you have done). Do not try to do everything at first! Multiple mistakes will be slow and difficult to find and fix!
  
-You can view the [screencast solution here](https://youtu.be/CSrt7vtnqLY) if you get stuck.  
+If you get stuck, ask the TA or Instructor for the screencast solution.
 
 {% include wod-times.html Rx="< 7 min" Av="7-15 min" Sd="15-25 min" DNF="25+ min" %}
