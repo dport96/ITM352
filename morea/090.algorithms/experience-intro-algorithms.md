@@ -7,7 +7,7 @@ morea_summary: "Learn about conditional expressions and looping screencast"
 morea_sort_order: 1 
 morea_labels:
   - Screencast Lecture [24 min]
-morea_start_date: "2020-10-01T10:30"
+morea_start_date: "2022-03-08T12:00"
 ---
 # Introduction to programming logic algorithms
 This lecture will introduce you to the thinking process underlying programming and the fundamental idea of an algorithm. 

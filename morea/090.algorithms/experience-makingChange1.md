@@ -7,8 +7,8 @@ morea_summary: "Implement a change making algorithm"
 morea_sort_order: 2
 morea_labels:
  - WOD
-morea_start_date: "2021-10-20" 
-morea_end_date: "2021-11-02"
+morea_start_date: "2022-03-09"
+morea_end_date: "2022-03-14"
 ---
 
 # Write a program to make change for a given amount using the modulus operator

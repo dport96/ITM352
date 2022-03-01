@@ -7,7 +7,7 @@ morea_type: reading
 morea_sort_order: 2
 morea_labels:
  - Short Article
-morea_start_date: "2021-10-19T10:30"
+morea_start_date: "2022-03-08T12:00"
 ---
 ### Read the short article on algorithms at
 

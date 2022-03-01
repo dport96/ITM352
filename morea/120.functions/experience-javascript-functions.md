@@ -7,7 +7,7 @@ morea_summary: "Learn about creating and using Javascript functions"
 morea_sort_order: 1 
 morea_labels:
   - Screencast Lecture [55 min]
-morea_start_date: "2021-10-12T10:30"
+morea_start_date: "2022-03-01T12:00"
 ---
 # Javascript Functions
 This lecture will introduce you using and defining functions in Javascript
