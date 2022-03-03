@@ -15,7 +15,6 @@ morea_experiences:
  - experience-dayOfTheWeek-algorithm
  - experience-makingChange1
 # - experience-makingChange2
- - experience-Invoice3
 morea_assessments: 
 # - assessment-algorithms
 # - assessment-makingChange2
