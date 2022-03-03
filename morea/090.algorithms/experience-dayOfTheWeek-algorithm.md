@@ -118,4 +118,4 @@ This last bit of code generates a select box of months using the `monthKey` obje
   
 {% include wod-times.html Rx="<22 min" Av="22-30 min" Sd="30-35 min" DNF="35+ min" %}
 
-You can view the [screencast solution here](https://youtu.be/DzS9HG0ez0g) if you get stuck.  
+If you get stuck you can ask the instructor or TA for a screencast solution.  

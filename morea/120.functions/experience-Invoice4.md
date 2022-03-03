@@ -14,19 +14,25 @@ morea_end_date: "2022-03-08"
 # Use functions to generate an invoice
 In this WOD you want enable the invoice to generate the table of items from an array of product objects from SmartPhoneProducts3 and an array of quantities for those products. The quantities data may not be good and must be validated before used and feedback given if invalid.
 
-1. Start with a copy of [Invoice3](../090.algorithms/experience-Invoice3.html) and rename it "Invoice4". Check that the table displays properly. Fix any problems present.
+1. Start with a copy of [Invoice2](../070.flow-control-I/experience-invoice2.html) and rename it "Invoice3". Check that the table displays properly. Fix any problems present.
 
-2. Define an array `quantities` and initialize it with some example product quantities. The index of a product object in `products` should be used as the index in `quantities` for that products quantity. e.g. `quantities[i]` represents the quantity of the product `products[i]`. Replace all the quantity variables with this array e.g. replace `quantity1` with `quantities[0]`.
-   
-3. Now get the `product_data.js` file from `SmartPhoneProducts3` and save it here. Load this file in the HEAD (as in `SmartPhoneProducts3`) then use this product data object for the invoice and delete products data variables used previously. Convert all the product variables to use the `products` object (as in `SmartPhoneProducts3`).
+2. Now get the `product_data.js` file from `SmartPhoneProducts3` and save it here. Delete the product data variables at the top if the file and replace it with `<script src="./product_data.js"></script>` then use the `products` array of product objects for the invoice (as in `SmartPhoneProducts3`). Note: you will not be using the image property for anything in this WOD. Hint: Use the regular expression `item([0-9]+)` to find all uses of the variables `item1`,`item2`, ... and replace with `products[$1-1].brand` to change them into `products[1-1].brand`,`products[2-1].brand`, ... The reason we use `$1 -1` is that the variables numbering starts with 1 whereas the array first element is index 0. You can use a similar regEx to find and replace the other variables. For `price` you may want to use `(?<!_)price([0-9]+)` to avoid matching with `extended_price`
 
-5. Create a function with **interface** `void generate_item_rows(array product_quantities_array)`. Copy the code that produces the first row in the table and copy it into this function. Make a loop for this code that goes through `product_quantities_array`. This loop should produce all the rows of items for the table. Delete all the invoice rows and call this function using `quantities` as the parameter. Be sure that you leave the initialization of `subtotal` above the function call (it should be a global variable). `extended_price` can be local to the function. The table should look the same as it did previously.
+3. Define an array `quantities` and initialize it with some example product quantities. The index of a product object in `products` should be used as the index in `quantities` for that products quantity. e.g. `quantities[0]` represents the quantity of the product `products[0]`. Replace all the quantity variables with this array e.g. replace `quantity1` with `quantities[0]`. Check that the table looks the same as Invoice2 but with smartphone products and quantities from the `quantities` array. Hint: use a regEx like you did in (2).
    
-6.  Add a conditional to the `generate_item_rows()` function to skip calculating `extended_price` and printing the table row if the quantity is 0.
+4. Move the tax, shipping, and grand total calculations to just after the **last** product row is output. Leave the extended price and subtotal calculation where they are. Check that the table looks the same. 
+
+5. Delete the extended price calculations. Replace the subtotal calculation with `var subtotal = 0`.
+
+6. At the **top** of the file, create a function with **interface** `void generate_item_rows(array product_quantities_array)`. Copy the code that produces the first row in the invoice table and copy it into this function. Put this code in a loop, `for(let i in array product_quantities_array)`, that goes through `product_quantities_array` (not `quantities`) to produce all the rows of items for the table. Add above the `document.write()` for the row, `let extended_price = product_quantities_array[i] * products[i].price` and use this where you output the extended price in the row. Below the `document.write()` add the code `subtotal += extended_price`. Be sure to change the `extended_price1` with `extended_price1` and change the indices for `products` and `quantities` to `i`
+
+7. Delete all the invoice rows and in its place, call this function using `quantities` as the parameter. Check that the table displays as expected. Note that your extended prices, tax, shipping, and total should work.
    
-7. Copy the function `isNonNegInt()` from Lab11 and use it in `generate_item_rows()` to check that a quantity is valid before writing the table row. If a value is invalid, have it skip the calculation and printing the table row. Test that this function performs as expected by putting various invalid quantities in `quantities`. 
+8.  Add a conditional inside the loop of the `generate_item_rows()` function to `continue` if the product quantity is 0. This should skip printing out a row that has no quantity. Put some 0's in your `quantities` array and check that these products do not appear on the invoice.
    
-8. Rather than skipping printing item rows with bad quantities, modify what is printed to output the specific errors in the quantity table cell corresponding to that product. Errors should use <span style="color:red;">red</span> text and all errors should be displayed. When there is an error, the `extended_price` should be set to `""` to avoid fouling up the subsequent invoice calculations.
+9. Copy the function `isNonNegInt()` from the Functions lab and use it in `generate_item_rows()` to check that a quantity is valid before writing the table row. If a value is invalid, have it skip the calculation and printing the table row. Test that this function performs as expected by putting various invalid quantities in `quantities`. For this, use a separate conditional statement form the one you used above.
+   
+10. Rather than skipping printing item rows with bad quantities, modify what is printed to output the specific errors in the quantity table cell corresponding to that product. Errors should use <div style="color:red;">red</div> text and all errors should be displayed. When there is an error, the `extended_price` should be set to `0` to avoid fouling up the subsequent invoice calculations.
 
 The final display of the invoice should look like Invoice3 except the item table rows have SmartPhoneProducts. For example:
 
@@ -183,6 +189,6 @@ Here is an example of the invoice with quantity errors:
       Subtotals over $100 will be charged 5% of the subtotal amount
     </b> </div>
 
-If you get stuck you can view a [screencast solution](https://youtu.be/S-cOOAH3CtI)
+If you get stuck you can ask the instructor or TA for a screencast solution.
 
 {% include wod-times.html Rx="<25 min" Av="25-30 min" Sd="35-40 min" DNF="40+ min" %}
