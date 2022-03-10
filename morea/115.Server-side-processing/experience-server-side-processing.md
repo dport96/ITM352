@@ -9,7 +9,7 @@ morea_labels:
   - Follow Along
 morea_sort_order: 2
 
-morea_start_date: "2021-03-25"
+morea_start_date: "2022-03-29"
 ---
 # Lab objectives
 - Understand how web pages are requested from a server

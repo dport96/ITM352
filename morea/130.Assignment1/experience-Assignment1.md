@@ -7,8 +7,8 @@ morea_summary: "Build a Simple Product Selection Application"
 morea_sort_order: 3 
 morea_labels:
  - Assignment
-morea_start_date: "2021-11-04"
-morea_end_date: "2021-11-16"
+morea_start_date: "2022-03-11"
+morea_end_date: "2022-03-29"
 ---
  
 
@@ -127,7 +127,7 @@ The cell phone display may look something like this (you should always include "
 
 See [SmartPhoneProducts3](../100.Objects-Arrays-I/experience-SmartPhoneProducts3.html) or right-click on the above frame and view it's source for an example of generating a page from a JSON array of product data. 
 
-See [Lab 13 Exercise 3c](../115.Server-side-processing/experience-server-side-form-processing.html) for an example.
+See [Server-side Processing Lab Exercise 3c](../115.Server-side-processing/experience-server-side-form-processing.html) for an example.
 
 **Part (B)**
 
@@ -144,7 +144,7 @@ For the cell phone example, we might change the display to allow for customer in
 
  <iframe src="SmartPhoneProductsA1_Example/products_display.html" style="height:375px;width:320px;" scrolling="no" frameBorder="0"></iframe> 
 
-See [Lab 13 Ex. 4 for an example of multiple form inputs and processing](../115.Server-side-processing/experience-server-side-form-processing.html) or right-click on the above frame and view it's source for an example of getting and processing form data. 
+See [Server-side Processing Lab Ex. 4 for an example of multiple form inputs and processing](../115.Server-side-processing/experience-server-side-form-processing.html) or right-click on the above frame and view it's source for an example of getting and processing form data. 
 
 (5) You **must use data validation** on the **server** to ensure the customer entered valid data.  Note: if valid data is not entered, display a specific error message and direct the user to enter valid data. And you must do this validation in your Javascript code **on the server**. For this assignment you can not, for example, use a drop-down list to constrain a user to enter only integer quantities. The data must be validated _before_ it is used for the invoice. You cannot just validate the data on the client unless you can guarantee your data comes from that client.
 

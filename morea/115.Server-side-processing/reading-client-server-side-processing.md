@@ -9,7 +9,7 @@ morea_labels:
   - Screencast [1 hr]
   - Tutorial
 morea_sort_order: 2
-morea_start_date: "2021-11-02T10:30"
+morea_start_date: "2022-03-29T12:00"
 ---
 # Read the following articles
 [Client vs. Server side processing](https://www.cloudflare.com/learning/serverless/glossary/client-side-vs-server-side/)
