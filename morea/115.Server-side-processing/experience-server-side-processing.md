@@ -1,7 +1,7 @@
 ---
 title: "Lab: Introducing Server Side Processing using Node.js"
 published: true
-morea_id: experience-server-side-processing
+morea_id: introducing-server-side-processing
 morea_summary: "Examples of using Javascript and Node.js to pre-process a webpage."
 morea_type: experience
 morea_url: 
