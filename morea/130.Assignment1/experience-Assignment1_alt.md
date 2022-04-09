@@ -1,7 +1,7 @@
 --- 
 title: "Assignment 1" 
-published: true 
-morea_id: experience-Assignment1
+published: false 
+morea_id: experience-Assignment1_alt
 morea_type: experience 
 morea_summary: "Build a Simple Product Selection Application"
 morea_sort_order: 3 
@@ -32,6 +32,7 @@ _The main requirements for this assignment are the following:_
 *  Use arrays (of objects) to display items and quantities available in a table.
 *  Use forms to process information on a server. 
 *  Allow users to select and process multiple products/services.
+*  Using a server to provide and manage shared dynamic products/services information 
 
 **Getting Started:** You can either choose to create a project on your own that meets the above requirements or you can follow the step-by-step guide below to help you create the project.
 
@@ -41,7 +42,7 @@ _**VERY IMPORTANT:**_ _You must comment all of your code!_  You may even want to
 
 (0) Create a directory for your application. You *MUST* name it `<your lastname>_<your firstname>_Assignment1`. This is needed for when you deploy your application on the ITM-VM server.
 
-(1) Make a JSON object for each of your products and include the relevant details for the product such as `name, price, description`, etc. You must include a `quantity_available` attribute to each product.  You will need to identify each item you are offering by a unique name or number.  
+(1) Make a JSON object for each of your products and include the relevant details for the product such as `name, price, description`, etc. You must include a `total_sold` attribute to each product.  You will need to identify each item you are offering by a unique name or number.  
 
 _ Example_ :
 
@@ -52,7 +53,7 @@ If you were selling cell phones, for each phone you would make an array containi
   "model":"Apple iPhone XS",  
   "price": 990.00,  
   "image": 'AppleXS.jpg',
-  "quantity_available": 4
+  "total_sold": 4
 } 
 ```
 
@@ -68,13 +69,13 @@ Continuing with cell phone example, you would make a JSON array that holds all o
   "model":"Apple iPhone XS",  
   "price": 990.00,  
   "image": 'AppleXS.jpg',
-  "quantity_available": 4
+  "total_sold": 4
   },
   {  
   "model":"Samsung Galaxy",  
   "price": 240.00,  
   "image": 'Samsung_Galaxy.jpg',
-  "quantity_available": 5
+  "total_sold": 5
   }
 ]
 ```
@@ -107,7 +108,7 @@ app.all('*', function (request, response, next) {
    next();
 });
 
-// process purchase request (validate quantities, check quantity available)
+// process purchase request (validate quantities, check total sold)
 <** your code here ***>
 
 // route all other GET requests to files in public 
@@ -135,7 +136,7 @@ See [Server-side Processing Lab Exercise 3c](../115.Server-side-processing/exper
 
 (2) The form displayed will allow customers to select the item that they want and the quantity they want in an `<input type="text">` with no HTML validations or other client side data guards or validation. You will also need a submit button on this form.  
 
-(3) Displaying the information for each item (e.g. model, price, image, quantity available). The quantity available must be dynamic and reflect the current inventory of the items available. This information must come from the server.
+(3) Displaying the information for each item (e.g. model, price, image, total sold). The total sold must be dynamic and reflect the current number of the items sold to date. This information must come from the server since it changes whenever a user successfully purchases.
 
 (4) **The form must be submitted to the server as a POST.** While it is possible, and maybe even convenient to use a GET, for this assignment, you must process the form data on the server though a POST request to `./purchase`. 
   
@@ -152,14 +153,14 @@ See [Server-side Processing Lab Ex. 4 for an example of multiple form inputs and
 
 a. No quantities were selected (i.e. all quantities are 0)
 b. A non-negative integer is input as a quantity
-c. A quantity input for an item exceeds the quantity available for that item
+c. A quantity input for an item exceeds the total sold for that item
 
 
 _Example_ :
 
 For the cell phone example, you should make sure that the customer entered valid quantities in the quantity boxes for each item # (1 to 5) or anything at all. If the customer entered -2.3 for item #1, you might display "Please input a non-negative integer" and enable the customer to re-enter number.
 
-(6) Once you have ensured the customer has entered valid data on the server, you then update the inventory (quantity available) for the items purchased and display the purchase information in an invoice. Don't forget to include tax and shipping if necessary. But specify that the tax and/or shipping are unique to the order (don't just use a fixed shipping cost for any purchase). All output should be properly formatted (e.g. if there was a dollar amount such as $125.39 it should have two decimal points and a dollar sign).  
+(6) Once you have ensured the customer has entered valid data on the server, you then update the total sold for the items purchased and display the purchase information in an invoice. Don't forget to include tax and shipping if necessary. But specify that the tax and/or shipping are unique to the order (don't just use a fixed shipping cost for any purchase). All output should be properly formatted (e.g. if there was a dollar amount such as $125.39 it should have two decimal points and a dollar sign).  
   
 
 _Example_ :
@@ -185,7 +186,7 @@ After completing the assignment make sure that you have addressed all of the bel
 *   Commented--get in the habit now!  Put author's name and program description as comments in files. Credit given to original author when using "borrowed" code.
 *   Used descriptive file names and meaningful variable names.
 *   Employs good code formatting.
-*   Defined and used arrays and objects for your item inventory.
+*   Defined and used arrays and objects for your item total sold.
 *   Created tables via array data and loops.
 *   Good data validation (does not allow invalid choices, responds appropriately to invalid data). Be sure to test with invalid data.
 *   Good user interface design (easy to use and intuitive)
@@ -193,7 +194,7 @@ After completing the assignment make sure that you have addressed all of the bel
 *   Correct output. No parse errors or warnings.
 *   Tested on the class server, using the itm352student account, saved in a folder with your name in the Assignment1 sub-folder
 *   Use a website HTML template to make your site look attractive and flexible. 
-*   Manages inventory. Items purchased are removed from inventory. Does not allow purchases of more than is available.  
+*   Manages total sold. Items purchased are added to the total sold.  
     
 
 **_ONE LAST TIME:_** You _must_ comment all of your code (you may even want to create a comment on what you are trying to do before you code). The comments are for explaining what your code is used for in the program. That way when we help you, we will know what is going on. Not only because this is required, this will also help you later on when working in group projects because it may be hard for others to understand your code. _Also remember to put your name (as the author of the code) and program description in the first part of your comments._
