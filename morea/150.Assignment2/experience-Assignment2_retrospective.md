@@ -7,7 +7,8 @@ morea_summary: "E5: essay reflecting on Assignment 2"
 morea_sort_order: 4
 morea_labels:
  - BLOG
-morea_start_date: "2022-04-18"
+morea_start_date: "2022-04-15"
+morea_end_date: "2022-04-18"
 ---
 
 # E5: Reflecting on Assignment 2 Technical Essay
