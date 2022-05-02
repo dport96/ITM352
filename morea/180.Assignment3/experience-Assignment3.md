@@ -158,6 +158,7 @@ _**Checklist:**_
 *   Displays a check out and purchase option when viewing cart (which may be the same as product pages)
 *   Displays the contents of the cart along with the tax in an invoice page and ask the customer if they accept
 *   Displays the invoice and ask to accept terms before final checkout and email of invoice
+*   Handles inventory update after adding to cart/checkout
 *   Email order confirmation page with complete invoice information
 *   Clear cart data in the session after purchase so that when the user returns (logs in) the cart is empty
 *   Update of authorship from previous assignments
