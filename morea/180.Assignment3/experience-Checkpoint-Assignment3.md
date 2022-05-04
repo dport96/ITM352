@@ -7,7 +7,7 @@ morea_summary: "Progress check for Assignment 3"
 morea_sort_order: 3 
 morea_labels:
  - BLOG Entry
-morea_start_date: "2021-12-07"
+morea_start_date: "2022-05-05"
 ---
 ## Checkpoint Assignment #3
 
