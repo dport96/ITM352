@@ -4,7 +4,7 @@ published: true
 morea_id: reading-Cyberduck-doc
 morea_summary: "Download and install Cyberduck"
 morea_type: reading
-morea_sort_order: 4
+morea_sort_order: 6
 morea_start_date: "2022-08-25T10:30"
 ---
 # About

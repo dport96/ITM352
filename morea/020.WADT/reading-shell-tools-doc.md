@@ -4,7 +4,7 @@ published: true
 morea_id: reading-shellToools-doc
 morea_summary: "GitHub Tools"
 morea_type: reading
-morea_sort_order: 1
+morea_sort_order: 2
 morea_start_date: "2022-08-25T10:30"
 ---
 # About
@@ -14,6 +14,7 @@ Watch the tutorial appropriate for your computer:
 
 [Mac OS Terminal Beginners Guide](https://www.youtube.com/watch?v=aKRYQsKR46I)
 
-[GitBash Basics (Mac or PC)](https://www.youtube.com/watch?v=oQc-2gsjgDg)
-
 [Basic Powershell Commands For Beginners (Windows)](https://www.youtube.com/watch?v=j9wtAezZ9x0)
+
+#### If you installed the Git tools aleday, watch this
+[GitBash Basics (Mac or PC)](https://www.youtube.com/watch?v=oQc-2gsjgDg)
