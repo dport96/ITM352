@@ -10,7 +10,7 @@ morea_readings:
  - reading-VSCode-install-doc
  - reading-Nodejs-install-doc
  - reading-Cyberduck-doc
- - reading-GitHubTools-doc
+# - reading-GitHubTools-doc
  - reading-GitHub-doc
  - reading-IntroJSON
  - reading-shellToools-doc

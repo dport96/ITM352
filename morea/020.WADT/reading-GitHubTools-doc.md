@@ -5,7 +5,7 @@ morea_id: reading-GitHubTools-doc
 morea_summary: "GitHub Tools"
 morea_type: reading
 morea_sort_order: 1
-morea_start_date: "2022-01-13T12:00"
+morea_start_date: "2022-08-25T10:30"
 ---
 # About
 GitHub has desktop and command line (terminal) tools you will need to manage your class repository and use in VS Code

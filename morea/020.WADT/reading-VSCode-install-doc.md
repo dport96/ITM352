@@ -5,7 +5,7 @@ morea_id: reading-VSCode-install-doc
 morea_summary: "Introduces the VS Code Integrated Development Environment"
 morea_type: reading
 morea_sort_order: 2
-morea_start_date: "2022-01-13T12:00"
+morea_start_date: "2022-08-25T10:30"
 ---
 # About
 VS Code will be the Integrated Development Environment (IDE) we will use to develop web applications. It is a sophisticated collection of development tools for:

@@ -5,7 +5,7 @@ morea_id: reading-IntroJSON
 morea_summary: "Introduces Javascript Object Notation"
 morea_type: reading
 morea_sort_order: 2
-morea_start_date: "2022-01-13T12:00"
+morea_start_date: "2022-08-25T10:30"
 ---
 # About
 We will be using JSON throughout the class so you will need to be familiar with it. 
