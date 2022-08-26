@@ -138,6 +138,7 @@ For convenience and speed we will test applications on our own machine before de
 
   - Open a terminal in VS Code, check that you have node.js `node --version`
   - Add the express package `npm install express` *Note for Mac users: you may need to add `sudo` to the front of this to override file permission restrictions.*
+  - Add the minimist package `npm install minimist` *Note for Mac users: you may need to add `sudo` to the front of this to override file permission restrictions.*
   - Create a new file in VS Code, name it "server.js" and add the following code
   
 ```javascript
