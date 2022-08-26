@@ -10,11 +10,9 @@ morea_readings:
  - reading-policy-grading
  - reading-references
 # - reading-schedule
- - reading-GitHub-doc
 morea_experiences:
  - experience-screencast-intro
 # - experience-introduce-yourself
- - experience-MIS-portfolio
  
 morea_type: module
 morea_icon_url: /morea/010.introduction/introduction.jpg

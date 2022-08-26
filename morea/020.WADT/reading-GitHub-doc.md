@@ -1,16 +1,24 @@
 ---
-title: "Getting GitHub Tools"
+title: "About GitHub"
 published: true
-morea_id: reading-GitHubTools-doc
-morea_summary: "GitHub Tools"
+morea_id: reading-GitHub-doc
+morea_summary: "Introduces GitHub"
 morea_type: reading
 morea_sort_order: 1
 morea_start_date: "2022-08-25T10:30"
 ---
 # About
-GitHub has desktop and command line (terminal) tools you will need to manage your class repository and use in VS Code
+GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+
+# Read about GitHub, create a GitHub account, make a simple repository
+
+- Go through the [Hello World GitHub guide](https://guides.github.com/activities/hello-world/)
+
+After going though this introduction you should have a GitHub account which you will use to host repositories for classwork, assignments and your MIS portfolio (see the E0 Experience).
 
 # Get Git tools
+GitHub has desktop and command line (terminal) tools you will need to manage your class repository and use in VS Code
+
 - Go to the [Git download page](https://git-scm.com/downloads) and download the Git install file for  your system (you should probably get the installer binaries rather than any other method such as homebrew or Xcode). 
 
 When installing *if* it asks about `Adjusting your PATH environment` select the `Use Git and optional tool from the Command Prompt` option. Use the defaults for everything else. 

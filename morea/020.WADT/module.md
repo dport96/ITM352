@@ -10,11 +10,13 @@ morea_readings:
  - reading-VSCode-install-doc
  - reading-Nodejs-install-doc
  - reading-Cyberduck-doc
- - reading-GitHubTools-doc
+# - reading-GitHubTools-doc
+ - reading-GitHub-doc
  - reading-IntroJSON
  - reading-shellToools-doc
 morea_experiences:
  - experience-install-WADT
+ - experience-MIS-portfolio
 # - experience-class-www
 morea_assessments:
 # - assessment-about-WODT

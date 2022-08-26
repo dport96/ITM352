@@ -5,7 +5,7 @@ morea_id: experience-install-WADT
 morea_type: experience
 morea_summary: "web pages, installing, configuring, and test running a local web server, using a global web server"
 morea_sort_order: 1
-morea_start_date: "2022-01-13"
+morea_start_date: "2022-08-25"
 morea_labels:
  - In Class Lab
 ---
@@ -46,7 +46,7 @@ For exercises that do not ask specific questions but have you perform tasks, cop
 ###  1. Creating and using a local repository
 **If you have not installed the git tools or GitHub Desktop skip this exercise. Just create a folder on your desktop called  `{{ repo }}`**
 
-  - Go to GitHub.com, sign in using your github account and select your `hello-world` repo (that you created from the [Hello World GitHub guide](https://guides.github.com/activities/hello-world/)). Go to Settings and change the repo name to `{{ repo }}`. Change the README.md if you wish.
+  - Go to GitHub.com, sign in using your github account and select your `hello-world` repo (that you created from the [Hello World GitHub guide](https://guides.github.com/activities/hello-world/)). Go to Settings and change the repo name to `{{ repo }}`. Change the README.md if you wish. Also in the Settings page, go to the "Danger Zone" and change the repo "Make private" if it is not alreday set this way. Add the instructor and TA as contributors.
   - Clone this repo and open it in VS Code. You can clone it in GitHub or use GitHub desktop (or any other way you wish that works). 
 
 *What is the URL for your GitHub `{{ repo }}`?*
