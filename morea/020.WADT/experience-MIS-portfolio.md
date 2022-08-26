@@ -36,9 +36,9 @@ Before continuing, take a look at the [MIS Portfolios gallery](https://dport96.g
 
 When you are done, your portfolio **MUST** at minimum have the following:
 
- 1. Your full name ("name" in bio.json) and title ("label" in bio.jason, something like "Shidler Undergraduate" is fine)
+ 1. Your full name ("name" in bio.json) and title ("label" in bio.json, something like "Shidler Undergraduate" is fine)
  2. What your major is and when you expect to graduate (put this in "summary" in bio.json)
- 3. A picture of yourself so people can recognize you in class! ("picture" in bio.json, upload your image to the images folder in your MIS Portfolio repo or if you want to be extra fancy, encode your image to base64 and store it as a data:image in "picture" in bio.jason. You can use an online tool like [hotjar](https://www.base64-image.de/) for this if you like.)
+ 3. A picture of yourself so people can recognize you in class! ("picture" in bio.json, upload your image to the images folder in your MIS Portfolio repo or if you want to be extra fancy, encode your image to base64 and store it as a data:image in "picture" in bio.json. You can use an online tool like [hotjar](https://www.base64-image.de/) for this if you like.)
  4. <mark>An essay</mark> on why you decided to major in MIS or take ITM 352 (for example "My friend is an MIS major and suggested it." or "I went to the MIS Splash event and found MIS might be a good major for me." (You should have done this in Task 2 above.). <mark>NOTE:</mark> You need to add this as an additional file under essays. See Step 7 in the [Techfolio Quick Start](http://techfolios.github.io/quickstart.html). It is suggested you modify one of the example essays rather than create a new one. 
  5. Clean up your portfolio by removing any of the examples such as example essays and projects.
 
