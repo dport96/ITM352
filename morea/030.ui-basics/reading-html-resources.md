@@ -5,7 +5,7 @@ morea_id: reading-html-resources
 morea_summary: "Links providing tutorials and reference material for: HTML, CSS, Google Web Fonts, Chrome Developer Tools and CSS Colors."
 morea_type: reading
 morea_sort_order: 1
-morea_start_date: "2022-01-18T12:00"
+morea_start_date: "2022-08-30T10:30"
 ---
 
 # HTML and CSS Resources

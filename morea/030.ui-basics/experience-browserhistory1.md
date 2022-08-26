@@ -7,8 +7,8 @@ morea_summary: "Develop a web page using basic HTML."
 morea_sort_order: 1
 morea_labels:
  -  WOD 
-morea_start_date: "2022-01-19"
-morea_end_date: "2022-01-25"
+morea_start_date: "2022-09-02"
+morea_end_date: "2022-09-06"
 ---
 # Get ready for the BrowserHistory1 WOD:
 
