@@ -75,7 +75,7 @@ Task 5: Add CSS to the HEAD element that styles the BODY element with `text-alig
 
 **Note:** You may find it more convenient to use an auto-refresh server such as live-server, fast-live-reload, or reload. Install this now if you wish. 
 
-#### On Your Own Exercise: A simple products display page
+#### Exercise #4 (On Your Own): A simple products display page
 
 Going back to your products_display.html file. Build page sections as follows:
 
