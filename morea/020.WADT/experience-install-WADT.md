@@ -56,7 +56,7 @@ For exercises that do not ask specific questions but have you perform tasks, cop
 ###  2. Using VS Code to create a web page
 VS Code is a file editor designed to help build applications (code). Web applications are built from files with instructions that the server and browser process. Let try making a web page and viewing it in a browser.
 
-  - In the repo folder, create a new folder inside called "Lab1", create file in this folder `<your Last_First name>_hello.html`. Edit this file "Hello from `<your first name>`!". **Don't forget to save this file after you make changes!**
+  - In the repo folder, create a new folder inside called `Lab1`, create file in this folder `<your Last_First name>_hello.html`. Edit this file "Hello from `<your first name>`!". **Don't forget to save this file after you make changes!**
   - Open a browser, navigate to the file you created or drag and drop it into the browser from a file explorer (you may find it easier to right-click on the file in VS Code and Open in Finder/Explorer). 
   
   *Explain here why you see text in the browser window. Is this a web page?*
@@ -78,7 +78,8 @@ VS Code is a file editor designed to help build applications (code). Web applica
   *Explain why you **do** get the Intellisense help for HTML now and why you **do not** see the html in the browser window:* 
 
 ###  3. Using a terminal (or command line) to access the operating system
-Sometimes you will need to do more specific or detailed tasks that would be difficult or inconvenient to do through a GUI. A terminal window provides a command line interface to your operating system. There are many different types of *shell environments* such as `sh`, `csh`,`bash`, `zsh`,`cmd`, `powershell` that run in a terminal. These all have similar functionality and similar commands, but they may vary in the particular command language and syntax they use. You will find it very useful to be familiar with the basic shell commands. We will explore a few basic file system commands here needed for this class.
+Sometimes you will need to do more specific or detailed tasks that would be difficult or inconvenient to do through a GUI. A terminal window provides a command line interface to your operating system. There are many different types of *shell environments* such as `sh`, `csh`,`bash`, `zsh`,`cmd`, `powershell` that run in a terminal. These all have similar functionality and similar commands, but they may vary in the particular command language and syntax they use. You will find it very useful to be familiar with the basic shell commands. We will explore a few basic file system commands here needed for this class. make sure you are in the `Lab1` folder.
+
   a) Open a terminal in VS Code (go to the Terminal menu -> New Terminal). Identify what shell is being used:
   ```
 
@@ -137,12 +138,12 @@ console.log('hello')
 For convenience and speed we will test applications on our own machine before deploying to a server. Web applications that need only provide web pages to a web browser from files (sometimes called *static pages*) can use a simple web server that accesses the static page files (or documents) from a single directory (the document root). Web browsers typically communicate with web servers using the *HTTP protocol* (there are many other network communication protocols) which is why a basic web server is often called an *http server*. Node has many ready to use http server packages (such as the http-server package) that will work as a local web server without any configuration or coding. We will be learning how to build web applications that will not have just static pages. So in preparation for this, we will build our own simple http-server using the Node Express framework. You do not need to understand this framework or how the code works at this point. For now, just understand what this code does and how to use it to serve static pages. 
 
   - Open a terminal in VS Code, check that you have node.js `node --version`
-  - Check that you are in your top directory in your repo and not in the `Lab1` folder. If you are in `Lab1` then `cd ..` to be in the parent folder.
+  - Check that you are in your top directory in your repo and **not** in the `Lab1` folder. If you are in `Lab1` then `cd ..` to be in the parent folder.
   - Add the express package `npm install express` *Note for Mac users: you may need to add `sudo` to the front of this to override file permission restrictions.*
   - Add the minimist package `npm install minimist` *Note for Mac users: you may need to add `sudo` to the front of this to override file permission restrictions.*
   - Create a new file in VS Code, name it "server.js" and add the following code
   
-```javascript
+```Javascript
 var argv = require('minimist')(process.argv.slice(2));
 var express = require('express');
 var app = express();
@@ -154,13 +155,14 @@ app.use(express.static( (typeof argv["rootdir"] != "undefined")?argv["rootdir"] 
 app.listen(8080, () => console.log(`listening on port 8080`));
 ```
 
-  - Start your local http-server by typing `node server.js`
-  - Open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and verify it is served rather than loaded directly into the browser (you should see `http://localhost:8080/<your Last_First name>_hello.html` rather than the file path)
+  - Make sure you are in the `Lab1` folder. Start your local http-server by typing `node ../server.js`.
+  - Open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and verify it is *served* rather than loaded directly into the browser (you should see `http://localhost:8080/<your Last_First name>_hello.html` rather than the file path in the browser address box)
   - Make a new directory called `static` and move your `<your Last_First name>_hello.html` file into the `static` directory.
-  -  Open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and explain why the server cannot GET the file
+  -  Open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and explain why the server cannot `GET` the file
   -  Open a browser to `http://localhost:8080/static/<your Last_First name>_hello.html` and explain why the file now appears in the browser
   -  Now hit ctrl-c in the terminal to quit your server. Start your local http-server by typing `node server.js --rootdir ./static` open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and explain why the file now appears in the browser but you no longer need `static` in the path
-  -  Now hit ctrl-c in the terminal to quit your server. Move `server.js` to the top of your repo (should be the directory above this lab directory). Start your local http-server by typing `node ../server.js --rootdir ./static` open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and explain why the file now appears in the browser and you do not need the Lab directory in the path
+  -  Now hit ctrl-c in the terminal to quit your server. Type `cd ..` to move to the top of your repo (should be the directory above the `Lab1` directory). Start your local http-server by typing `node ./server.js --rootdir ./Lab1/static` open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and explain why the file now appears in the browser and you do not need the `Lab1/static` in the URL path. 
+  -  Now hit ctrl-c in the terminal to quit your server. Start your local http-server by typing `node server.js` open a browser to `http://localhost:8080/Lab1/static/<your Last_First name>_hello.html` and explain why the file now appears in the browser and you **do need** the `Lab1/static` in the URL path. 
 
 **NOTE:** If the server fails to run and you get a `port already in use` error you may have another process using port 8080. Try changing the port to something else like 8081 and try running again. ** 
 
