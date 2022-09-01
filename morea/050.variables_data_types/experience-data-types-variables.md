@@ -53,7 +53,7 @@ Can you name one data type that is not in the above?
 #### Exercise 2: Variables 
 How and where you declare a variable will affect 'scope' which is something we will explore in more detail later. For now we are interested mostly in when you can use a variable.
 
-## Replace this with SmartPhoneProducts1_variables?
+##### Using SmartPhoneProducts1_2
 
 a. In the `<head>` define a constant `store_name` and assign the string \<your full name\>. Load the page and explain what you get when you `typeof store_name` in the console. Explain why you get an error when you try `store_name = "xxx";`. What about `var store_name = "xxx";`? Explain why this is useful.
 ```
@@ -75,7 +75,9 @@ d. In the console, assign the boolean `true` to the variable `is_game_over` and 
 
 ```
 
-#### Exercise 3: Using variables for output in an HTML page 
+#### Exercise 3 (on your own): Using variables for output in an HTML page 
+
+##### Using SmartPhoneProducts1_2
 
 a. Use the variable and `document.write(store_name)` to display your name in the `<header>`. For example
 
