@@ -7,7 +7,7 @@ morea_summary: "Learn About Data, Variables, and Simple Expressions"
 morea_sort_order: 1 
 morea_labels:
  - "Lecture Lab"
-morea_start_date: "2022-02-01"
+morea_start_date: "2022-09-08"
 ---
 # Lab objectives
 - Understand data is managed and the role of data types
