@@ -35,7 +35,7 @@ Task 1: Open your workspace in VS Code and create a folder `Lab2`. In this folde
 ```HTML
 <h1>Hello World!</h1>
 ```
-Task 2: Open a terminal in the `Lab2` director and start an http-server (installed in Lab 1) `node ../server.js` Remember that if you do not specify `--rootdir` then it will default to `.` means the "web server document root will be in the current directory". 
+Task 2: Open a terminal in the `Lab2` director and start an http-server (installed in Lab 1) `node ../Lab1/server.js` Remember that if you do not specify `--rootdir` then it will default to `.` means the "web server document root will be in the current directory". 
 
 Task 3: Open a browser and make a request to `localhost` port `8080` with the `HTTP` protocol and no path. What do you see and where did this come from? Now copy and paste the console output (IN VS Code) here. Explain what this is and where it came from. 
 
