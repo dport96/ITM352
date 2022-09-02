@@ -114,8 +114,14 @@ a)  Write a Javascript statement that assigns the expression `hits_span.innerHTM
 
 ```
 
+#### Exercise 6: Formatting floats 
 
-#### Exercise 6:    String expressions 
+Use the `toFixed()` method for a `Number` to format the `hits`/`spins` for `hit_spin_span` to 2 decimal points. You can use this on the expression directly and do not need to create a new variable. Explain why the result is a `String` and put your code here:
+```
+
+```
+
+#### Exercise 7 (on your own):    String expressions 
 a. Create variables `first_name` and `last_name` and assign your first and last name to these. Create a string expression via concatenation where your first name is **Bold** and your last name is in *italics* and both are in a <font size="200%">VERY LARGE</font> font. Use this expression where you display your name in the `<header>`. For example:
 <center>
 <span style="font-size: 600%;"> 
@@ -150,9 +156,3 @@ On the third table row, replace `11:15 AM` with a string template expression usi
 
 
 
-#### Exercise 7: Formatting floats 
-
-Use the `toFixed()` method for a `Number` to format the `hits`/`spins` for `hit_spin_span` to 2 decimal points. You can use this on the expression directly and do not need to create a new variable. Explain why the result is a `String` and put your code here:
-```
-
-```

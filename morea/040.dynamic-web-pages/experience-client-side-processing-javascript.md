@@ -60,7 +60,7 @@ c) Close the page source page and on the `hello.html` page right-click and selec
 
 
 
-### Exercise #4: SmartPhoneProducts1_1 "whirling dervish image game"
+### Exercise #4 (on your own): SmartPhoneProducts1_1 "whirling dervish image game"
 Using Javascript and the DOM, make a little image game that has the images rotate for an `onmouseover` event and stop on an `onclick` event. 
 
 

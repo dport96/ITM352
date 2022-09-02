@@ -35,7 +35,7 @@ Task 1: Open your workspace in VS Code and create a folder `Lab2`. In this folde
 ```HTML
 <h1>Hello World!</h1>
 ```
-Task 2: Open a terminal in the `Lab2` director and start an http-server (installed in Lab 1) `node ../server.js` Remember that if you do not specify `--rootdir` then it will default to `.` means the "web server document root will be in the current directory". 
+Task 2: Open a terminal in the `Lab2` director and start an http-server (installed in Lab 1) `node ../Lab1/server.js` Remember that if you do not specify `--rootdir` then it will default to `.` means the "web server document root will be in the current directory". 
 
 Task 3: Open a browser and make a request to `localhost` port `8080` with the `HTTP` protocol and no path. What do you see and where did this come from? Now copy and paste the console output (IN VS Code) here. Explain what this is and where it came from. 
 
@@ -49,9 +49,9 @@ Task 6: Exit your http-server process again. Make sure it has stopped and you ar
 
 
 #### Exercise #2: HTTP-Server as a web page file server
-Task 1: In your terminal cd to the parent directory of Lab2. Start http-server let `.` be the root directory.
+Task 1: In your terminal cd to the parent directory of Lab2. Start http-server and let `.` be the root directory.
 
-Task 2: Create a directory `SmartPhoneProducts1` and an empty file in it `store.html`. In the file use the [Emmet "doc" abbreviation](https://code.visualstudio.com/docs/editor/emmet) to add an HTML document boilerplate. Now change the file name to `store.text`
+Task 2: Create a sub-directory `SmartPhoneProducts1` and create an empty file in it called `store.html`. In the file use the [Emmet "doc" abbreviation](https://code.visualstudio.com/docs/editor/emmet) to add an HTML document boilerplate. Now change the file name to `store.text`
 
 Taks 3. Add a title `Smartphone Store Home` and a top-level heading in the body `<your name> Used Smart Phone Store`. Go to the URL `localhost:8080/SmartPhoneProducts1/store.text` to view the page. What did you see in the console output? What do you see in the browsers address bar? Explain this! Why is the web page not rendering? (i.e. the HTML is shown, not the web page it is supposed to create). Change the filename extension from .text to .html, page-back, refresh the page , click the renamed link and check that the web page looks as expected. Explain this. 
 
@@ -75,7 +75,7 @@ Task 5: Add CSS to the HEAD element that styles the BODY element with `text-alig
 
 **Note:** You may find it more convenient to use an auto-refresh server such as live-server, fast-live-reload, or reload. Install this now if you wish. 
 
-#### On Your Own Exercise: A simple products display page
+#### Exercise #4 (On Your Own): A simple products display page
 
 Going back to your products_display.html file. Build page sections as follows:
 
