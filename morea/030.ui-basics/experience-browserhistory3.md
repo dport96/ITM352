@@ -8,7 +8,7 @@ morea_sort_order: 3
 morea_labels:
  -  WOD 
 morea_start_date: "2022-09-02"
-morea_end_date: "2022-09-06"
+morea_end_date: "2022-09-08"
 ---
 
 # Get ready for the BrowserHistory3 WOD: 
