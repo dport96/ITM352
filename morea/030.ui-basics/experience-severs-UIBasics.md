@@ -35,7 +35,7 @@ Task 1: Open your workspace in VS Code and create a folder `Lab2`. In this folde
 ```HTML
 <h1>Hello World!</h1>
 ```
-Task 2: Open a terminal in the `Lab2` director and start an http-server (installed in Lab 1) `node ../Lab1/server.js` Remember that if you do not specify `--rootdir` then it will default to `.` means the "web server document root will be in the current directory". 
+Task 2: Open a terminal in the `Lab2` directory (or `cd` to this directory) and start an http-server (that one you installed in Lab 1) `node ../server.js` Remember that if you do not specify `--rootdir` then it will default to `.` means the "web server document root will be in the current directory". 
 
 Task 3: Open a browser and make a request to `localhost` port `8080` with the `HTTP` protocol and no path. What do you see and where did this come from? Now copy and paste the console output (IN VS Code) here. Explain what this is and where it came from. 
 
@@ -49,19 +49,19 @@ Task 6: Exit your http-server process again. Make sure it has stopped and you ar
 
 
 #### Exercise #2: HTTP-Server as a web page file server
-Task 1: In your terminal cd to the parent directory of Lab2. Start http-server and let `.` be the root directory.
+Task 1: In your terminal `cd` to the parent directory of Lab2. Start an http-server and make `Lab2` be the root directory.
 
-Task 2: Create a sub-directory `SmartPhoneProducts1` and create an empty file in it called `store.html`. In the file use the [Emmet "doc" abbreviation](https://code.visualstudio.com/docs/editor/emmet) to add an HTML document boilerplate. Now change the file name to `store.text`
+Task 2: Create a sub-directory in Lab2 `SmartPhoneProducts1` and create an empty file in it called `store.html`. In the file use the [Emmet "doc" abbreviation](https://code.visualstudio.com/docs/editor/emmet) to add an HTML document boilerplate. Now change the file name to `store.text`
 
 Taks 3. Add a title `Smartphone Store Home` and a top-level heading in the body `<your name> Used Smart Phone Store`. Go to the URL `localhost:8080/SmartPhoneProducts1/store.text` to view the page. What did you see in the console output? What do you see in the browsers address bar? Explain this! Why is the web page not rendering? (i.e. the HTML is shown, not the web page it is supposed to create). Change the filename extension from .text to .html, page-back, refresh the page , click the renamed link and check that the web page looks as expected. Explain this. 
 
 Task 4. Create a new file in SmartPhoneProducts1 "products_display.html", add an HTML document boilerplate (EMMET doc), title it "Smartphone Products", add a top-level heading "<your name> Used Smart Phone Store". 
 
-Task 5. In your browser, page-back and click on the products_display.html link. Note the GET request in the console output and the address in the browser address box. Check that the page is as expected. 
+Task 5. In your browser, page-back and type in the URL needed to get products_display.html. Note the GET request in the console output and the address in the browser address box. Check that the page displays as expected. 
 
 #### Exercise #3: A simple home page for a web application
 
-Task 1. Rename store.html "index.html", page-back, refresh the page. Explain what happened and why this is expected and useful.
+Task 1. Rename store.html to "index.html", type `localhost:8080/SmartPhoneProducts1/` into the address bar of your browser. Explain what happened and why this is expected and useful.
 
 Task 2: Create a folder "Images" in your SmartPhoneProducts1 folder and right-click on the following image and "save image as" into this new folder:
 
