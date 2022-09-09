@@ -8,7 +8,7 @@ morea_sort_order: 3
 morea_labels:
 - Screencast 
 - 56 mins
-morea_start_date: "2022-02-08T12:00"
+morea_start_date: "2022-09-13T10:30"
 ---
 
 Open the [presentation slides](ITM352_expressions_operators.pptx)
