@@ -79,69 +79,68 @@ d. In the console, assign the boolean `true` to the variable `is_game_over` and 
 
 ##### Using SmartPhoneProducts1_2
 
-a. Use the variable and `document.write(store_name)` to display your name in the `<header>`. For example
+a. Use the `store_name` __constant__ you defined in Exercise 2 and `document.write(store_name)` to display your name in the `<header>`. For example if `const store_name = "Rick Kazman;"` the header will display:
 
-<font style="font-family:times;font-weight: bold; font-size=32px;">Dan's Used Smart Phone Store</font>
+<font style="font-family:times;font-weight: bold; font-size=32px;">Rick Kazman's Used Smart Phone Store</font>
 <br>
 
-Reload the page and explain how this dynamically changes the page. Note: you may need to "force reload" the page if caching is enabled.
+Experiment 1: Reload the page and explain how this dynamically changes the page. Note: you may need to "force reload" the page if caching is enabled.
 ```
 
 ```
-Change the declaration of `store_name` to `var` and reload the page. Now in the console, assign `xxx` to the `store_name` variable. Explain why this did not change the name on the page.
+Experiment 2: Change the declaration of `store_name` from `const` to `var` and reload the page. Now in the console, assign `xxx` to the `store_name` variable. Explain why this did not change the name on the page.
 ```
 
 ```
- Then move the declaration and assignment of `store_name` from the `<head>` to the bottom of the file and reload the page. Does your name still appear? Explain:
+
+Experiment 3: Move the declaration and assignment of `store_name` from the `<head>` to the __bottom__ of the file and reload the page. Explain why your name does not appear in the header anymore:
  ```
 
  ```
 
-Move the assignment of `store_name` back to the `<head>` but leave the declaration. Reload the page and explain why your name now appears:
+Experiment 4: Move the **assignment** of `store_name` back to the `<head>` but leave the **declaration** `var store_name;` at the bottom. Reload the page and in the console type `window.store_name`. Explain why your name now appears and why `store_name` is a global variable:
 ```
 
 ```
 
-Now `document.write(store_name)` to display your name in the `<footer>`. For example
+Experiment 5: Now use `document.write(store_name)` to display your name in the `<footer>`. For example
 
-<font style="font-family:times;font-weight: bold; font-size=32px;">Your One Stop For Used Phones - Dan's</font>
+<font style="font-family:times;font-weight: bold; font-size=32px;">Your One Stop For Used Phones - Rick Kazman's</font>
 <br>
 
-Explain why it's better to define the variable `store_name` then write it into the document rather than 'hard code' the name directly into the document:
+Explain why it's better to define the variable `store_name` and use `document.write()` to write it into the document rather than 'hard code' the name (in two places) directly into the document:
 ```
 
 ```
 
-b. At the bottom of the file, define variables `hits`, `spins` and initialize them with positive integers where `hits` is less than `spins`. Reload the page and use the console to report the variables are set to the expected values data types:
+b. At the **bottom** of the file, define variables `hits`, `spins` and initialize them with `0` and `1` respectively. Reload the page and use the console to report the variables are set to the expected values and data types:
 ```
 
 ```
 
-In your `<header>` after the `<h1>` title add 
+Experiment 1: In your `<header>` after the `<h1>` title add 
 ```
 <p style="text-align: center; font-weight: bold;">
 Hits:<span id="hits_span">0</span>
 Spins:<span id="spins_span">0</span>
 </p>
 ```
-Reload the page and in the console and set the `innerHTML` of the `<span>`'s to the respective `hits` and `spins` variables and verify the changes to the page. Now in the `<head>` set the `innerHTML` of the `<span>`'s to the respective `hits` and `spins` variables. Reload the page, look at the console and explain the errors you see and why the page did not change. 
+Reload the page and in the **console** type `hits_span.innerHTML = hits; spins_span.innerHTML = spins;` and verify you see the expected changes to the page. This code assigns hits and spins variables to the `innerHTML` property of the `hits_span` and `spins_span` DOM objects. Now add this assignment code to the `<head>`. Reload the page, look at the console and explain the errors you see and why the page did not change:
 ```
 
 ```
 
-Now move the assignments to the `<span>`'s above the variable assignments at the bottom of the file. Reload the page and explain why the hits and spins show `undefined`:
+Experiment 2: Now move the assignment code from the `<head>` to just **below** the variable assignments you have at at the **bottom** of the file. Reload the page and explain why the hits and spins show in the `<span>`'s as desired and why you had to put the assignments **below** the variable declarations:
 ```
 
 ```
-Now move the assignments below the variable assignments and explain why the values show in the `<span>`'s as desired:
+
+Experiment 3: Now **delete** the assignments and replace the `<body>` tag (near the top of the file) with `<body onload="hits_span.innerHTML = hits; spins_span.innerHTML = spins;">`. Explain why this works even though the assignments are **above** the variable declarations (Hint: `onload` is an event that occurs after the page is rendered from the HTML):
 ```
 
 ```
-Now move the assignments to be the value of the `onload` event attribute for the `<body>` element (at the top of the file). Explain why this works even though the assignments come before the `<span>`'s and variables are defined:
-```
 
-```
-Lastly, move the assignment of the `innerHTML` for `hits_span` to be executed in the `onclick` event attribute and similarly for the `spins_span` for the `onmouseover` event attribute for all the `<sections>` Reload the page and try clicking and mouseover the images. In the console, try setting different values of `hits` and `spins` and try clicking and mouseover the images (do not reload the page!). Put an example of the `onclick` and `onmouseover` code here:
+Experiment 4: Lastly, move the assignment of the `innerHTML` for `hits_span` to be executed in the `onclick` event attribute and similarly for the `spins_span` for the `onmouseover` event attribute for all the `<sections>` Reload the page and try clicking and mouseover the images. In the console, try setting different values of `hits` and `spins` and try clicking and mouseover the images (do not reload the page!). Put an example of the `onclick` and `onmouseover` code here:
 ```
 
 ```
