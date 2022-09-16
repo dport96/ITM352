@@ -104,9 +104,9 @@ Revert your code to use the variables `hits` and `spins` to keep track of the cl
 
 #### Exercise 5:    Assigning variables with expressions 
 
-Add the following spans to the Hits and Spins `<p>`:
+Add the following spans to the Hits and Spins:
 ```
-Hit/Spin:<span id="hit_spin_span">0</span>
+`<p>Hit/Spin:<span id="hit_spin_span">0</span></p>
 ```
 
 a)  Write a Javascript statement that assigns the expression `hits_span.innerHTML/spins_span.innerHTML` to the `innerHTML` of the `hit_spin_span` whenever `<section>` is clicked or mouseover. Should you explicitly cast things to `Number` data? Would it be better to use the variables `hits` and `spins`? Reload the page and try clicking and mouseover the `<sections>` Put your new code here and explain what the data types are and discuss the questions:
