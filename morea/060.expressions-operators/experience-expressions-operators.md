@@ -104,7 +104,7 @@ Revert your code to use the variables `hits` and `spins` to keep track of the cl
 
 #### Exercise 5:    Assigning variables with expressions 
 
-Add the following spans to the Hits and Spins:
+Add the following paragraph after the the Hits and Spins spans:
 ```
 <p>Hit/Spin:<span id="hit_spin_span">0</span></p>
 ```
