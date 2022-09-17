@@ -7,8 +7,8 @@ morea_summary: "A WOD using expressions to generate a sales receipt."
 morea_sort_order: 3
 morea_labels:
  - WOD 
-morea_start_date: "2022-02-16"
-morea_end_date: "2022-02-22"
+morea_start_date: "2022-09-20"
+morea_end_date: "2022-09-27"
 ---
 
 For this WOD you will modify the [Invoice1](../060.expressions-operators/experience-invoice1.html) with an algorithm to determine shipping cost. Here are the the requirements: 
