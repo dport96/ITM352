@@ -71,7 +71,7 @@ c. What is the problem if you use `this.className='item'` rather than `if(this.c
 ```
 
 
-#### Exercise #3: if-else if (5 minutes)
+#### Exercise #3: if-else if (On Your Own)
 
 A product that you are selling is discounted depending on the number purchased. Try out the following “nested if-statement” code that sets the `win_span` to indicate progress towards winning:
 

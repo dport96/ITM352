@@ -7,7 +7,7 @@ morea_summary: "Learn about conditional expressions and loop statements"
 morea_sort_order: 1 
 morea_labels:
  - "Lecture Lab"
-morea_start_date: "2021-09-30"
+morea_start_date: "2022-09-22"
 ---
 # Lab objectives
 - Understand how to conditionally repeatedly execute statements
@@ -147,7 +147,7 @@ Paste source code here:
 ```
 
 
-#### Exercise 5: Using loops to repeat code
+#### Exercise 5: Using loops to repeat code (On Your Own)
 For this Exercise you will do everything in a web page. 
 Create a file `products_display.html` add the following to the `<head>`:
 ```HTML

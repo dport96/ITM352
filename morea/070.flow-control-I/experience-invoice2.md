@@ -7,7 +7,7 @@ morea_summary: "A WOD using expressions to generate a sales receipt."
 morea_sort_order: 3
 morea_labels:
  - WOD 
-morea_start_date: "2022-09-20"
+morea_start_date: "2022-09-21"
 morea_end_date: "2022-09-27"
 ---
 
