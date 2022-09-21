@@ -38,7 +38,7 @@ Add the following spans to the Hits and Spins `<p>`:
 You win:<span id="win_span">pending...</span>
 ```
 
-a) Write a Javascript statement that sets the `innerHTML` of the `win_span` whenever `<section>` is clicked or mouseover to `true` whenever there `spins`  is less than **twice** the `hits` and `false` otherwise. Do you need to convert the value of the expression to a `String`? Reload the page and try clicking and mouseover the images. Put your new code here:
+a) Write a Javascript statement that sets the `innerHTML` of the `win_span` whenever `spins`  is less than **twice** the `hits` and `false` otherwise. Do you need to convert the value of the expression to a `String`? Reload the page and try clicking and mouseover the images. Put your new code here:
 ```
 
 ```
