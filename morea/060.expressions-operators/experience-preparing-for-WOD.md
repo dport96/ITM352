@@ -11,7 +11,7 @@ morea_labels:
  - BLOG
 ---
 
-# E3: Performing WODs Technical Essay
+# E3: Preparing for WODs Technical Essay
 
 By the date and time indicated on the Schedule page, 
 write a technical essay (blog entry) that summarizes your experiences 
