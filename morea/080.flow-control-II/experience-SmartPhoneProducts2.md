@@ -17,7 +17,7 @@ morea_end_date: "2022-09-30"
 
 The goal of the WOD is to use a loop and a generic `<section>` to eliminate the redundant code for displaying the products. We also wish to generate the product display from the data rather than hard code each section.
 
-#### If you did [SmartPhoneProducts1 with Variables](http://localhost:4000/morea/050.variables_data_types/experience-SmartPhoneProducts1_variables.html) make a copy of this, rename it SmartPhoneProducts2 and skip to step 3
+#### If you did [SmartPhoneProducts1 with Variables](../050.variables_data_types/experience-SmartPhoneProducts1_variables.html) make a copy of this, rename it SmartPhoneProducts2 and skip to step 3
 
 1. Start by copying SmartPhoneProducts1. If you don't have a working version of SmartPhoneProducts1 you can get a zip file with a copy [here](../040.dynamic-web-pages/SmartPhoneProducts1.zip). You may also use any of the SmartPhoneProducts1 variants but you may find the spinning images annoying! Rename the folder SmartPhoneProducts2, load the products_display.html page and check that the  display is as in SmartPhoneProducts1. You may also use SmartphoneProducts1_1 if you prefer. **NOTE** If your images do not appear note that The image sources have moved to `http://dport96.github.io/ITM352/morea/080.flow-control-II` (you may have 090 and now it's 080)
 
