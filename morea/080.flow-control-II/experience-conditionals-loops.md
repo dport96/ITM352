@@ -131,7 +131,7 @@ Paste source code here
 
 #### Exercise 3: for-loop (5 minutes)
 
-a. Rewrite your program in #2 using a for-loop instead of a while-loop.
+a. Rewrite your program in #2 using a **for-loop** instead of a while-loop.
 
 Paste source code here
 ```
@@ -139,7 +139,7 @@ Paste source code here
 
 ```
 
-b. Rewrite the program from part (a) using the condition `eval("typeof name"+i) != 'undefined'` to enable outputting products so long as there is a sequence of variables `name1, name2, name3, ...`. Try adding a new product. Did it display? Try removing the last two products. Explain the benefits of this loop over setting the condition on `num_products`/
+b. Rewrite the program from part (a) using the condition `eval("typeof name"+i) != 'undefined'` This enables you to print products for a sequence of variables `name1, name2, name3, ...`. Try adding a new product to `products_data.js` with variables `name6`,`price6`,`image6`. Did it display? Try removing the last **two** products. Explain the benefits of using this loop over setting the condition on `num_products`. Do you need the variable `num_products` anymore? 
 
 Paste source code here:
 ```
@@ -147,15 +147,22 @@ Paste source code here:
 ```
 
 
-#### Exercise 5: Using loops to repeat code (On Your Own)
-For this Exercise you will do everything in a web page. 
-Create a file `products_display.html` add the following to the `<head>`:
+#### Exercise 4: Using loops to repeat code (On Your Own)
+__*For this Exercise you will do everything in a web page.*__
+
+The objective of this exercise is to dynamically generate a products page from the variables defined in `products_data.js`. 
+
+a. Create a file `products_display.html` add the following to the `<head>`:
 ```HTML
 <script src="./products_data.js"></script>
 ```
-Start http-server and verify that there is a `GET products_data.js` in the terminal window when `products_display.html` is loaded. Inspect the page and verify that the product data variables are defined and the `Product variables loaded...` message appears in the console. Make sure you understand why this message appears here and not in the terminal window.
+Start http-server and verify that there is a `GET products_data.js` in the terminal window when `products_display.html` is loaded. Inspect the page and verify that the product data variables are defined and the `Product variables loaded...` message appears in the browser console. Explain why this message appears here and not in the terminal window:
+```
 
-a. Make an `<table border="1">` and a header row with **Number** and use a loop and a string template with `document.write()` to output rows of product names and number. Your table should look like this:
+
+```
+
+b. Make an `<table border="1">` and a header row with **Number** and **Item**. Use a loop and a string template with `document.write()` to output rows of product names and product number. Your table should look like this:
 <table border="1">
     <tr><th>Number</th><th>Item</th></tr> 
     <tr><td>1</td><td>HTC</td></tr>
@@ -164,6 +171,8 @@ a. Make an `<table border="1">` and a header row with **Number** and use a loop 
     <tr><td>4</td><td>Samsung</td></tr>
     <tr><td>5</td><td>Blackberry</td></tr>
 </table>
+
+**TIP:** Inspect the HTML for the table above. It will show you what HTML to use!
 
 Explain why this is probably a better way to generate the table this way rather than repeated copies of the table rows:
 ```
