@@ -1,9 +1,9 @@
 --- 
-title: "Invoice3" 
+title: "Invoice2_1" 
 published: true 
-morea_id: experience-Invoice3_1
+morea_id: experience-Invoice2_1
 morea_type: experience 
-morea_summary: "Invoice3: Use a loop to generate am invoice for products"
+morea_summary: "Invoice2_1: Use a loop to generate am invoice for products"
 morea_sort_order: 3 
 morea_labels:
  - "WOD"
