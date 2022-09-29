@@ -7,8 +7,8 @@ morea_summary: "Build a Simple Product Selection Application"
 morea_sort_order: 3 
 morea_labels:
  - Assignment
-morea_start_date: "2022-03-11"
-morea_end_date: "2022-03-29"
+morea_start_date: "2022-10-19"
+morea_end_date: "2022-11-02"
 ---
  
 
@@ -148,12 +148,13 @@ For the cell phone example, we might change the display to allow for customer in
 
 See [Server-side Processing Lab Ex. 4 for an example of multiple form inputs and processing](../115.Server-side-processing/experience-server-side-form-processing.html) or right-click on the above frame and view it's source for an example of getting and processing form data. 
 
-(5) You **must use data validation** on the **server** to ensure the customer entered valid data.  Note: if valid data is not entered, display a specific error message and direct the user to enter valid data. And you must do this validation in your Javascript code **on the server**. For this assignment you can not, for example, use a drop-down list to constrain a user to enter only integer quantities. The data must be validated _before_ it is used for the invoice. You cannot just validate the data on the client unless you can guarantee your data comes from that client. **For Assignment 1, you must enable the user to enter invalid data** A purchase is invalid if:
+(5) You **must use data validation** on the **server** to ensure the customer entered valid data.  Note: if valid data is not entered, display a specific error message and direct the user to enter valid data. And you must do this validation in your Javascript code **on the server**. You may not place any **guards** on the quantity inputs. For this assignment you can not, for example, use a drop-down list of quantities or use a `<input type=number>`  form element to constrain a user to enter only integer quantities. The data must be validated _before_ it is used for the invoice. You cannot just validate the data on the client unless you can guarantee your data comes from that client. **For Assignment 1, you must enable the user to enter invalid data** The grader will check for validation on the server by inputting invalid values in your quantity text boxes, so you must allow this. However, you may provide a warning notice of invalid quantities so long as it does not prevent a user from entering an invalid quantity. There are THREE things to check to validate a purchase:
 
 a. No quantities were selected (i.e. all quantities are 0)
 b. A non-negative integer is input as a quantity
 c. A quantity input for an item exceeds the quantity available for that item
 
+If the purchase is invalid, you must provide some feedback to the user as to why and enable them to correct the problem and purchase.
 
 _Example_ :
 
@@ -176,6 +177,17 @@ You **may* use code from the above examples providing that you clearly specify a
 
 **NOTE** You *may not* just copy the design in the Assignment1 examples or WODs and substitute your products/services. These do not use templates! Also the design is awful.
 
+#### Individual additional requirements:
+The following are additional requirements that will be assigned to you by the instructor or TA. Your assigned individual requirements are **not optional** and if not implemented, your assignment score will be severely penalized. You **may not copy** the implementation code from someone (or somewhere) else. You must design and write the code yourself. Copied code, referenced or not, will result in 0 for the entire assignment. If you are confused about the requirement or expectations, ask the instructor immediately. Once you submit your assignment, there are no excuses for not understanding the requirements and expectations. Code for your individual requirement **must** be generously commented. Clearly indicate in the these comments what your individual requirement is and how it is implemented. 
+
+* **IR1** Track the total quantity of each item sold. This needs to be implemented on the server when you remove sold items from the quantity available. Display total quantity sold with the product information.
+* **IR2** Check that a quantity entered is a valid. If not, change the frame for the textbox to red and display a message with what's wrong near the input e.g. "Quantity must be a number!". If the input is valid, indicate this with a message "You want:"  
+* **IR3** Check that the quantity entered does not exceed the quantity available. If it does, change the frame for the textbox to red and display a message "We don't have xx available." and reduce the input to the quantity available (replace the input). 
+* **IR4** If the purchase is invalid (see three conditions given in the instructions above), change the purchase button text from "Purchase" to text that indicates why the purchase is invaliud e.g. "Please Select Some Items to Purchase" 
+* **IR5** When diplaying the invoice, add a small icon image of the product to the line item.
+
+
+** EXTRA CREDIT ** Implement any number of additional individual requiremments. 
 
 **_Checklist:_**
 
@@ -187,13 +199,15 @@ After completing the assignment make sure that you have addressed all of the bel
 *   Employs good code formatting.
 *   Defined and used arrays and objects for your item inventory.
 *   Created tables via array data and loops.
-*   Good data validation (does not allow invalid choices, responds appropriately to invalid data). Be sure to test with invalid data.
+*   Good data validation on the **server** (does not allow invalid choices, responds appropriately to invalid data). Be sure to test with invalid data.
+*   Plain input text boxes are used to select quantities. **No guards** are put on to prevent the user from inputting invalid quantities.    
 *   Good user interface design (easy to use and intuitive)
 *   No extra files or redundant data.
 *   Correct output. No parse errors or warnings.
 *   Tested on the class server, using the itm352student account, saved in a folder with your name in the Assignment1 sub-folder
 *   Use a website HTML template to make your site look attractive and flexible. 
 *   Manages inventory. Items purchased are removed from inventory. Does not allow purchases of more than is available.  
+*   You implemented your individual requirement and clearly indicated it in the code and in your submission.
     
 
 **_ONE LAST TIME:_** You _must_ comment all of your code (you may even want to create a comment on what you are trying to do before you code). The comments are for explaining what your code is used for in the program. That way when we help you, we will know what is going on. Not only because this is required, this will also help you later on when working in group projects because it may be hard for others to understand your code. _Also remember to put your name (as the author of the code) and program description in the first part of your comments._

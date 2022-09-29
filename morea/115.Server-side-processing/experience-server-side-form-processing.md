@@ -176,7 +176,7 @@ d. Modify the response on the server to redirect back to `order_page.html` when 
 
 (**Extra Credit**) Create a micro-service to validate a quantity and respond an invoice. Have `order_page.html` fetch the invoice and display it after the purchase button is pressed. This should be done without leaving (or reloading) `order_page.html`. Hint: do not have an action for the the form or change it so that it does the fetch to the micro-service rather than POST to the server.
 
-#### Extra Credit: Processing multiple inputs 
+#### Exercise 6: Processing multiple inputs (On Your Own) 
 Let's make it possible to select quantities of a product from the shared products data. Copy `info_server_Ex5.js` and name it `info_server_EC.js`. Copy `order_page.html` and rename it `order_page_multiple.html`. 
 
 Task 1: Make `order_page_multiple.html` display inputs for all products in `product_data.json`. Replace the `<form>` element with
@@ -227,4 +227,4 @@ Task 2: Process multiple quantities of products from the submitted form. In `inf
 
 Run `info_server_EC.js` and try entering quantities for the products displayed! Do you see how things are connected through the shared data in `product_data.json`? Did you see how naming your form elements with `[]`'s puts all the form data into an array? By the way, you can use this to create objects. Just use strings rather than numbers in `[]`.
 
-**More extra credit** When there are errors, see if you can pass the data and errors back to `order_page_multiple.html` to display problems and allow the user to fix and resubmit the form. You can do this by making a copy of the products array, adding an `errors` property for each product with values the errors (if any), then generating a query string from this new array (you can use a `URLSearchParams` to conveniently create a query string from the new array).
+**extra credit** When there are errors, see if you can pass the data and errors back to `order_page_multiple.html` to display problems and allow the user to fix and resubmit the form. You can do this by making a copy of the products array, adding an `errors` property for each product with values the errors (if any), then generating a query string from this new array (you can use a `URLSearchParams` to conveniently create a query string from the new array).

@@ -61,9 +61,9 @@ Put your calculation steps and day your were born on (last step) here:
 
 a. Create a flowchart or pseudocode similar to what you saw in the lecture for an algorithm that will keep a robot moving around in a closed room with obstructions. Make sure you do not assume the robot has intelligence or any capability beyond the basic commands for movement, successful execution of movement, repeating commands, and reporting if a command was successful. You have two problems to solve:
 
-(1) the robot should never get stuck
+(1) keep the robot moving forever
 
-(2) keep the robot moving forever
+(2) the robot should never get stuck in front of a wall or block
 
 Put your chart here:
 ```
@@ -75,7 +75,7 @@ Put your chart here:
 
 b. Write out in robot commands the algorithm you specified. The robot only understands the commands forward and turn_right. If the command is successful, the command returns the boolean value you can use `while(x) { }` to repeat everything inside the `{}`’s so long as `x` is `true` and stops when `x` is `false`. You can negate a boolean value by placing a `!` in front. For example, `!true` will result in `false`. Hint: you can do this very simply using either two `while()` loops or one `while()` and one `if()` statement. *Write out* a small test to check your algorithm works. 
 
-You can *try out* your algorithm using the [RobotSim emulation](RobotSim/RobotSim.html). There is also a fancy online [robot simulation](https://scratch.mit.edu/projects/340532/) you can use if you wish. If you use this, it is suggested you modify the existing program that make a sound when the robot hits something. You may also have to deal the the edges of the room as they are not walls and the robot doesn't bounce off them! There is a condition "if on edge bounce" you can use. 
+** Extra credit** You can *try out* your algorithm using the fancy online [robot simulation](https://scratch.mit.edu/projects/340532/). If you use this, it is suggested you modify the existing program that make a sound when the robot hits something. You may also have to deal the the edges of the room as they are not walls and the robot doesn't bounce off them! There is a condition "if on edge bounce" you can use. 
 
 Put your commands or screenshot of your Scratch code here:
 ```

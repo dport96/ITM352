@@ -67,7 +67,7 @@ if (params.has('quantity_textbox')) {
 }
 ```
 
-#### Exercise 5: Page redirection and passing data (total 8 minutes)
+#### Exercise 5: Page redirection and passing data (On Your Own)
 
 It is is common that a web app will need to direct the user to a different page other than the one requested. Say that after `quantity_form` is submitted you want the user to be sent to `display_purchase.html` if the quantity input is valid or stay on the same page if it is invalid and show the errors. This can be done in various different ways as we will explore in subsequent labs.
 
@@ -76,7 +76,7 @@ In `order_page.html` in replace the `document.write()` statement with `window.lo
 Notice that this is a way you can validate data and show errors where they occur rather than make the use hit the back button.
 
 
-#### Exercise 6: POST method vs GET method
+#### Exercise 6: POST method vs GET method (On Your Own)
 a) (3 minutes) Change the form method from GET to POST. Look at the output in the terminal from the server. Explain why you see a new POST request and why it's different than the GET request. Why didn't the value from the textbox get passed? Why is there no query string"? 
 
 b) (3 minutes) Explain how a POST request must be processed. When is it advantageous to use the POST method and when is it advantageous to use the GET method?
