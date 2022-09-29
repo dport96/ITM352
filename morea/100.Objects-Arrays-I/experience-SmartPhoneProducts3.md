@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Use a loop and arrays to generate a table of Smartphone products"
 morea_sort_order: 2 
 morea_start_date: "2022-09-29"
-morea_end_date: "2022-10-06"
+morea_end_date: "2022-10-03"
 morea_labels:
  - WOD
 ---
