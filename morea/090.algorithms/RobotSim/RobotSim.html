@@ -6,12 +6,12 @@
 <p id="command_instructions">
 The application can read commands in following format (case insensitive):
     <ul>
-        <li>PLACE X,Y,F</li>
-        <li>BLOCK X,Y</li>
-        <li>MOVE</li>
-        <li>LEFT</li>
-        <li>RIGHT</li>
-        <li>REPORT</li>
+        <li>PLACE X,Y,F <i>Put robot at X,Y facing F (X: 0,1,2,3,4  Y: 0,1,2,3,4 F:north,south,east,west)</i></li>
+        <li>BLOCK X,Y <i>Put a block at X,Y</i></li>
+        <li>MOVE <i>Move robot forward one space</i></li>
+        <li>LEFT <i>Rotate robot to the left</i></li>
+        <li>RIGHT <i>Rotate robot to the right</i></li>
+        <li>REPORT <i>Give the current status of the robot</i></li>
     </ul>
 </p>
 <main>
@@ -30,7 +30,15 @@ The application can read commands in following format (case insensitive):
     </div>
     <br>
     <div id="program_instructions">
-            Put the robot code in the yellow textarea. <code>controller.move();</code> will move the robot forward. Returns <code>true</code> if robot moves. <code>controller.rotate();</code> will rotate the robot clockwise. Use <code>await sleep(200);</code> to slow down the command processing if needed. <code>if(){}</code> and <code>while(){}</code> may be used. Press the Execute button to execute the code.
+            The robot <code>controller</code> object has the following methods:
+            <ul>
+                <li>PLACE X,Y,F <code>controller.place("X,Y,F")</code></li>
+                <li>BLOCK X,Y <code>controller.block("X,Y")</code>/li>
+                <li>MOVE <code>bool controller.move() true</code>  if can move, <code>false</code> otherwise</li>  
+                <li>LEFT <code>controller.left()</code></li>
+                <li>RIGHT <code>controller.right()</code></li>
+            </ul>
+            Put the robot code in the yellow textarea. <code>controller.move();</code> will move the robot forward. Returns <code>true</code> if robot moves. <code>controller.right();</code> will rotate the robot clockwise. Use <code>await sleep(200);</code> to slow down the command processing if needed. Any Javascript may be used. <code>if(){}</code> and <code>while(){}</code> may be used. Press the Execute button to execute the code.
                 </div>
     <div>
         <canvas id="c" width="551" height="580">
@@ -73,3 +81,4 @@ alert('done!');
     }
 
 </script>
+<div>

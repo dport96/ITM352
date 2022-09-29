@@ -59,13 +59,21 @@ Put your calculation steps and day your were born on (last step) here:
 
 #### Exercise #2: Algorithmic Logic (DNF 20+ minutes)
 
-a. Create a flowchart or pseudocode similar to what you saw in the lecture for an algorithm that will keep a robot moving around in a closed room with obstructions. Make sure you do not assume the robot has intelligence or any capability beyond the basic commands for movement, successful execution of movement, repeating commands, and reporting if a command was successful. You have two problems to solve:
+a. Go to the [RobotSim emulation](RobotSim/RobotSim.html). Try the following:
+
+- Move the robot to the top of the grid. 
+- Reset the robot, move the robot to the top of the grid.
+- Write out in robot commands (in the yellow textbox) steps you used to move the robot to the top of the grid. place the robot at 0,0,north. Excecute your steps and verify the robot moves to the top of the grid and does not get stuck at the block.
+- Reset the robot and execute your steps. One more time, reset the robot and execute your steps. Explain why you were not able to always move the robot to the top of the grid.
+
+
+b. Create a flowchart or pseudocode similar to what you saw in the lecture for an algorithm that will keep a robot moving around in a closed room with obstructions. Make sure you do not assume the robot has intelligence or any capability beyond the basic commands for movement, successful execution of movement, repeating commands, and reporting if a command was successful. You have two problems to solve:
 
 (1) keep the robot moving forever
 
 (2) the robot should never get stuck in front of a wall or block
 
-Put your chart here:
+Put your chart or psudocode or code here:
 ```
 
 
@@ -73,7 +81,7 @@ Put your chart here:
 
 ```
 
-b. Write out in robot commands the algorithm you specified. The robot only understands the commands forward and turn_right. If the command is successful, the command returns the boolean value you can use `while(x) { }` to repeat everything inside the `{}`’s so long as `x` is `true` and stops when `x` is `false`. You can negate a boolean value by placing a `!` in front. For example, `!true` will result in `false`. Hint: you can do this very simply using either two `while()` loops or one `while()` and one `if()` statement. *Write out* a small test to check your algorithm works. 
+c. Write out in robot commands the algorithm you specified in (b). You can only use the `move()`, `left()` and `right()` methods to `controller`. If the `move()` command is successful, it returns a boolean value you can use. Any Javascript statment can be used. For example, `while(x) { }` can be used to repeat everything inside the `{}`’s so long as `x` is `true` and stops when `x` is `false`. You can negate a boolean value by placing a `!` in front. For example, `!true` will result in `false`. Hint: you can do this very simply using either two `while()` loops or one `while()` and one `if()` statement. Test to check your algorithm works! 
 
 ** Extra credit** You can *try out* your algorithm using the fancy online [robot simulation](https://scratch.mit.edu/projects/340532/). If you use this, it is suggested you modify the existing program that make a sound when the robot hits something. You may also have to deal the the edges of the room as they are not walls and the robot doesn't bounce off them! There is a condition "if on edge bounce" you can use. 
 
