@@ -7,8 +7,8 @@ morea_summary: "Implement a change making algorithm"
 morea_sort_order: 2
 morea_labels:
  - WOD
-morea_start_date: "2022-03-09"
-morea_end_date: "2022-03-14"
+morea_start_date: "2022-10-06"
+morea_end_date: "2022-10-11"
 ---
 
 # Write a program to make change for a given amount using the modulus operator
@@ -32,6 +32,5 @@ Suggestions:
  - Start by writing out comments outlining the steps of your algorithm. Then implement each step one at a time and test at each step
  
 If you get stuck, ask the TA or Instructor for the screencast solution.
-
 
 {% include wod-times.html Rx="<10 min" Av="15 min" Sd="20 min" DNF="20+ min" %}
