@@ -12,7 +12,7 @@ morea_readings:
 morea_experiences:
  - experience-html-forms
  - experience-intro-html-forms-processing
-# - experience-SmartPhoneProducts5
+ - experience-Store1
 # - experience-dayOfTheWeek5
 # - experience-Invoice6
 morea_assessments:
