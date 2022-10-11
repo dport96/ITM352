@@ -24,15 +24,19 @@ In this WOD you want enable the invoice to generate the table of items from an a
 
 5. Delete the extended price calculations. Replace the subtotal calculation with `var subtotal = 0`.
 
-6. At the **top** of the file, create a function with **interface** `void generate_item_rows(array product_quantities_array)`. Copy the code that produces the first row in the invoice table and copy it into this function. Put this code in a loop, `for(let i in array product_quantities_array)`, that goes through `product_quantities_array` (not `quantities`) to produce all the rows of items for the table. Add above the `document.write()` for the row, `let extended_price = product_quantities_array[i] * products[i].price` and use this where you output the extended price in the row. Below the `document.write()` add the code `subtotal += extended_price`. Be sure to change the `extended_price1` with `extended_price` and change the indices for `products` and `quantities` to `i`
+6. At the **top** of the file, define a function with **interface** *void* generate_item_rows(*array* product_quantities_array). This is the documentation of the fucntion. Do not litertally use this as code! 
+
+In this function, add a loop `for(let i in product_quantities_array)` and copy the code that produces the first row in the invoice table and paste it inside this loop. This is meant to produce all the rows of items for the table.
+
+Add above the `document.write()` for the row, `let extended_price = product_quantities_array[i] * products[i].price` and use this where you output the extended price in the row. Below the `document.write()` add the code `subtotal += extended_price`. Be sure to change the `extended_price1` with `extended_price` and change the indices for `products` and `quantities` to `i`
 
 7. Delete all the invoice rows and in its place, call this function using `quantities` as the parameter. Check that the table displays as expected. Note that your extended prices, tax, shipping, and total should work.
    
 8.  Add a conditional inside the loop of the `generate_item_rows()` function to `continue` if the product quantity is 0. This should skip printing out a row that has no quantity. Put some 0's in your `quantities` array and check that these products do not appear on the invoice.
    
-9. Copy the function `isNonNegInt()` from the Functions lab and use it in `generate_item_rows()` to check that a quantity is valid before writing the table row. If a value is invalid, have it skip the calculation and printing the table row. Test that this function performs as expected by putting various invalid quantities in `quantities`. For this, use a separate conditional statement form the one you used above.
+9.  Copy the function `isNonNegInt()` from the Functions lab and use it in `generate_item_rows()` to check that a quantity is valid before writing the table row. If a value is invalid, have it skip the calculation and printing the table row. Test that this function performs as expected by putting various invalid quantities in `quantities`. For this, use a separate conditional statement form the one you used above.
    
-10. Rather than skipping printing item rows with bad quantities, modify what is printed to output the specific errors in the quantity table cell corresponding to that product. Errors should use <div style="color:red;">red</div> text and all errors should be displayed. When there is an error, the `extended_price` should be set to `0` to avoid fouling up the subsequent invoice calculations.
+10.  Rather than skipping printing item rows with bad quantities, modify what is printed to output the specific errors in the quantity table cell corresponding to that product. Errors should use <div style="color:red;">red</div> text and all errors should be displayed. When there is an error, the `extended_price` should be set to `0` to avoid fouling up the subsequent invoice calculations.
 
 The final display of the invoice should look like Invoice2 except the item table rows have SmartPhoneProducts and displays quantity errors. For example:
 
