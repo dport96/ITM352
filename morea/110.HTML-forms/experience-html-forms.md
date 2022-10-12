@@ -80,4 +80,3 @@ Notice that this is a way you can validate data and show errors where they occur
 a) (3 minutes) Change the form method from GET to POST. Look at the output in the terminal from the server. Explain why you see a new POST request and why it's different than the GET request. Why didn't the value from the textbox get passed? Why is there no query string"? 
 
 b) (3 minutes) Explain how a POST request must be processed. When is it advantageous to use the POST method and when is it advantageous to use the GET method?
-
