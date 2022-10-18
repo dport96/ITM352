@@ -26,7 +26,7 @@ Copy code and submit your answers on Laulima
 
 
 #### Exercise #1:
-Create a Lab13 folder in your repo and a new file SimpleServer.js and copy the following into this file:
+Create a Lab12 folder in your repo and a new file SimpleServer.js and copy the following into this file:
 
 ```Javascript
 var http = require('http');
