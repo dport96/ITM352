@@ -79,7 +79,9 @@ app.use(express.static(__dirname + '/public'));
 ```
 Terminate the previously running server (with ctrl-C) and run `info_server_Ex2c.js`. Create a simple html file `hello.html` that outputs `<h1>Hello from <your name>!</h1>` and save it in the `public` directory. Use a browser with the following URL `http://localhost:8080/hello.html` and see what response you get. Try `localhost:8080/xxx` and explain what response you get. Make a copy of `hello.html` and rename it `hello.txt`. Now try `localhost:8080/hello.txt` and explain the response. Change `<your name>` to your full name in `hello.html`. Save the file and reload the page. Why didn't you have to stop and start the server to see the changes? Do you think the `app.use()` middleware must be placed at the bottom of the routing functions?
 
-d. Copy your `order_page.html` from Exercise 6 in Lab:8080/order_page.html` in your browser and submit the form. Look at the `console.log` output and the response you get and explain.
+d. Copy your `order_page.html` from the HTML Forms lab into  `public` Why do you need top put this here? Put `localhost:8080/order_page.html` in your browser and submit the form. Look at the `console.log` output and the response you get and explain what you see. Now change the action of the form to be `hello.html` with `GET` as the method. Save the file, refresh the page, then submit the form. Explain how this works it terms of a request to  the server, processing on the servers, and the response from the server. Be sure to discuss how the express.static() middelware is involved. What do you see in the address box in your browser? Did the query string come form the server or the request to the server when you submitted the form?
+
+e. In `order_page.html` change the method in the form to `POST`, save and reload the page and submit. Look at the console output from the server and explain why the `hello.html` page no longer appears. What do you see in the address box in your browser? Explain this.
 
 
 #### Exercise 3: Server Side Processing of Form Action
@@ -90,8 +92,9 @@ app.post("/process_form", function (request, response) {
    response.send(request.body); 
 });
 ```
-Now run `info_server_Ex3.js`. Try `localhost:8080/order_page.html`.
+Now run `info_server_Ex3.js`.   In `order_page.html` change the action in the form to `process_form` and make sure the method in the form is `POST`, save and try `localhost:8080/order_page.html` in a browser and submit the form. Explain why the page appears even though there is no file named `process_form` in `public`. Explain why you do not need to use `process_form.html` in the action. How does the browser know that the response from the server is content-type text/html? What if you wanted the content-type to be text/text (hint: what would happen if you added `res.type('txt')` before `res.send()` in your `process_form` route?)?
 
+**IMPORTANT NOTE**
 You will notice that the `request.body` is empty. Unfortunately Express does not decode the body of an HTTP request by default so you will need to write this yourself or add the express `urlencoded` middleware with the code below: 
 ```Javascript
 app.use(express.urlencoded({ extended: true }));
