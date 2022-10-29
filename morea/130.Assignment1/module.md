@@ -10,6 +10,7 @@ morea_readings:
 morea_experiences:
  - experience-Assignment1
  - experience-Assignment1_workshop
+ - experience-Deploying-Assignment1
  - experience-progress-essay
 morea_assessments:
 # - assessment-Assignment1
