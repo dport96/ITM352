@@ -7,7 +7,7 @@ morea_summary: "Build a Product Application with User Recognition"
 morea_sort_order: 3 
 morea_labels:
  - Assignment
-morea_start_date: "2022-11-03"
+morea_start_date: "2022-11-04"
 morea_end_date: "2022-11-16"
 ---
 # Assignment 2: Upgrading your e-Commerce Web-site  
