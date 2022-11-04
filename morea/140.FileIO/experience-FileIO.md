@@ -27,9 +27,9 @@ Create a text file using notepad (or your favorite text editor) with a few bits 
 }
 ```
 
-b) Use `require()` rather than `readFileSync()` to load and parse `user_data.json` into an object and assign it to `users_reg_data` and output this object to the console. Show how would you get the password information for a particular username.
+a) Use `require()` to load and parse `user_data.json` into an object and assign it to `users_reg_data` and output this object to the console. Use the object to get the password information for the username `kazman`.
 
-a) Write a small program that uses `readFileSync(filename, 'utf-8')` to open and read this file and assign the return value to `data` use `JSON.parse()` to convert it into an object and assign it to `users_reg_data` and output this object to the console. Explain why you might use this was to load the data rather than `require()`. Don't forget to remove the `require()` statement used in (a). Hint: what if the data is not JSON?  
+b) Write a small program that uses `readFileSync(filename, 'utf-8')` to open and read this file and assign the return value to `data` use `JSON.parse()` to convert the JSON string into an object and assign it to `users_reg_data` variable and output this object to the console. Explain why you might use this was to load the data rather than `require()`. Don't forget to remove the `require()` statement used in (a). Hint: what if the data is not JSON?  
 
 
 
