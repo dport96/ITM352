@@ -94,13 +94,13 @@ The following input fields for the registration form are required, but you can a
   _Note:_ Validating email addresses can be tricky. Even if you follow the above guidelines, it may still not be valid, so feel free to get clever and find interesting ways to ensure a truly valid address. **_Extra credit will be given for any additional checks that correctly validate the address._**
   
 *   _Password:_ 
-    *   This should have a minimum of 8 characters. 
-    *   Any characters are valid. 
+    *   This should have a minimum of 10 characters maximum of 16. 
+    *   Any characters are valid except space characters. 
     *   Passwords are CASE SENSITIVE. That is, "ABC" is different from "abc". 
   
 *   _Confirm password:_  Should make sure that it is the same as the password.
 
-*   _Full Name_ The users full name. Should only allow letters. No more than 30 characters.
+*   _Full Name_ The users full name. Should only allow letters. No more than 30 characters minimun of 2 characters.
 
 **Viewing and editing registration data** 
 
@@ -154,9 +154,15 @@ _Think about:_
 *   What if you wanted to display all the user information?
 *   Would you have to use file I/O?
 
-**Extra Credit:** Keep track of the number of users currently logged in to the site and display this number with the personalization information. For example, if user "dport" is logged in and there are 4 other users logged in, then each page should say somewhere "Welcome Dan, there are 4 users currently using this system." Whenever a user logs out, the number should decrease accordingly.
 
-_HINT:_ Store the number of users in a file. Whenever a user logs in, first read the current number of users from this file, increment it by one, then overwrite the old file with this updated value. Whenever the user goes to a new page, read this file and get the current number (do not increment and write!) When the user purchases something, logs out, or goes to a "final page", read the file, decrease the number, then write it back to the file.
+#### Individual additional requirements:
+The following are additional requirements that will be assigned to you by the instructor or TA. Your assigned individual requirements are **not optional** and if not implemented, your assignment score will be severely penalized. You **may not copy** the implementation code from someone (or somewhere) else. You must design and write the code yourself. Copied code, referenced or not, will result in 0 for the entire assignment. If you are confused about the requirement or expectations, ask the instructor immediately. Once you submit your assignment, there are no excuses for not understanding the requirements and expectations. Code for your individual requirement **must** be generously commented. Clearly indicate in the these comments what your individual requirement is and how it is implemented. 
+
+* **IR1** Store passwords encrypted. When the user registers, encrypt their password before saving the registration data to the file. When a user logs in, encrypt the password they entered and compare it with the encrypted saved password. Do not decrypt the password.
+* **IR2** Require that passwords have at least one number and one special character.
+* **IR3** When the user is registering, suggest a "strong" password that is 10 random characters inclusing numbers and special characters.  
+* **IR4** Keep track of the number of times a user loged in and the last time they logged in. When they login display this information.
+* **IR5** Keep track of the number of users currently logged in to the site and display this number with the personalization information. For example, if user "dport" is logged in and there are 4 other users logged in, then each page should say somewhere "Welcome Dan, there are 4 users currently using this system." Whenever a user logs out (for this assignment, put a logout butoon on the invoice page that removes the login indentification and send the user to the login page), the number should decrease accordingly. _HINT:_ Store this iunformation as a global array variable on the server. Whenever a user logs in or registers, add their email address (or username) to the array.  
 
 **Final steps:**
 
