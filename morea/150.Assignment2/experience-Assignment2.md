@@ -67,15 +67,15 @@ _Hints:_
 
 **Extra Credit:** Would it be better to store and access user data using a database? Explain the pros and cons of this. Using this list, what is best for this particular application and why?
 
-**Login** **Page**
+**Login Page**
 
 *   Create a simple Login page with **email address** and **password** fields as well as **submit buttons for logging in or editing registration**. Add a "register" link than when clicked will show the user a registration page. You may optionally put the login and registration on the same page.
 *   The user should only be required to login when purchasing. They should be able to view your store items without logging in first.
 *   The email address and password combination entered should be checked against the user information array that you retrieve from the saved file. When checking the email address, it should not matter what case was used. For example, email addresss itm352@hawaii.edu, ITM352@HAWAII.EDU, and ItM352@hAWaii.EdU should all be considered the same. That is, email addresss are CASE INSENSITIVE. On the other hand, passwords should be CASE SENSITIVE where "GRADER" is a different password than "grader".
 
-**Writing the script for processing the submitted login form**
+**Processing the submitted login form**
 
-*   You will have to decide whether to use a self-processing form or to process in a separate file.
+*   You will have to decide whether to use a self-processing form or to process in a separate file or on the server.
 
 _HINT:_
 
@@ -95,7 +95,7 @@ The following input fields for the registration form are required, but you can a
   
 *   _Password:_ 
     *   This should have a minimum of 10 characters maximum of 16. 
-    *   Any characters are valid except space characters. 
+    *   Any characters are valid except **space** characters. 
     *   Passwords are CASE SENSITIVE. That is, "ABC" is different from "abc". 
   
 *   _Confirm password:_  Should make sure that it is the same as the password.
@@ -117,7 +117,7 @@ Logged in users should be able to view edit their registration data. Edits must 
 
 *   If anything is invalid, then the corresponding error message(s) will be printed/ displayed and the customer will see the form again. It may be a good idea to store messages in an array. Why? So that you can use the array to display all error messages at once, instead of seeing multiple screens for each individual message. This also makes it possible to create "indicators" on the form to point out where errors are.
 
-** IMPORTANT ** As in Assignment 1 you MUST do validation on the server before you save registration data. You can also do validation or guards on the client page, but it is not enough by itself.
+** IMPORTANT ** As in Assignment 1 you MUST do validation on the server before you save registration data. You may not use guards on the client page, but it is not enough by itself.
 
 _HINTS:_
 
@@ -141,11 +141,11 @@ _Hint: Think about..._
 
 **Extra Credit:** Explain how a user could defeat your security scheme and gain access to your main application page without having to log in.
 
-(5) **Personalization**
+(5) **Personalization on the invoice page**
 
 *   After logging in from the login page, save the user's ID (e.g. email address).
 *   Each page after login should display the user's name (i.e. in the invoice).
-*   After using the application or making a purchase, the last page should say "Thank you, <user's name> for your <using this application>" and relevant other user info (e.g. shipping address for invoice).
+*   After displaying the invoice, the user should confirm the purchase and should say "Thank you, <user's name> for your purchase" and relevant other user info (e.g. shipping address for invoice) and **logout** the user. After logout, the users ID should not be known and the items purchased should no longer be kept. At this point the inventory should also be reduced by the amounts purchased. 
 
 _Think about:_
 
