@@ -14,7 +14,7 @@ morea_end_date: "2022-11-16"
 
 
 **Scenario:**   
-The marketing director of the company asks **you (and, optionally, a partner)** to upgrade the website that you had previously designed for him (you can choose one of your assignment #1 projects or start an entirely new project). He is very pleased with the original website but now wants you to personalize the website for each user. He thinks that will increase the overall appeal of the site to users. He asks that you create a registration form through which users can register their pertinent data and that you create a login form and save this in the system. He also wants the site to be more "personable" so after the user logs in, the pages should greet the user by name and thanks them by name in the invoice. He only wants registered users to be able to purchase products, so you will need get users to login or register before allowing them to purchase products but anyone should be able to view products. The Page sequence should be something like that illustrated below:  
+The marketing director of the company asks you (and, optionally, a partner) to upgrade the website that you had previously designed for him (you can choose to start from your assignment #1 projects or start an entirely new project). He is very pleased with the original website but now wants you to personalize the website for each user. He thinks that will increase the overall appeal of the site to users. He asks that you create a registration form through which users can register their pertinent data and that you create a login form and save this in the system. He also wants the site to be more "personalized" so after the user logs in, the pages should greet the user by name and thanks them by name in the invoice. He only wants registered users to be able to purchase products, so you will need get users to login or register before allowing them to purchase products but anyone should be able to view products. The Page sequence should be something like that illustrated below:  
 
 ![[data flow]](page_flow.jpeg)
 
@@ -40,7 +40,7 @@ The minor requirements for this assignment are:
 *   Carefully tested and debugged application.
 
   
-**NOTE**:   Please do not use *sessions* or *cookies* for this assignment! One purpose of this assignment is to understand the value of using these.  
+**NOTE**:   Please do not use *sessions* or *cookies* for this assignment! One purpose of this assignment is to understand the value of using these, which we will do in Assignment 3.  
 
 Some general tips:
 
