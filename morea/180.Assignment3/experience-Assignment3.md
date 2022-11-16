@@ -35,17 +35,17 @@ This assignment involves the following requirements (in addition to all requirem
 *   **Having multiple pages:** There should be at least _three (3) separate pages_ of product options with at least _six (6) items_ on each page in your main application for your user to choose from. Therefore, you may need to have several versions of your items or service (e.g. if you are selling cell phones, maybe you will offer Sprint on one page, AT&T on another, Mobi on another). 
 *   **Site navigation:** Must be able to _navigate easily_ back and forth between product pages using _navigation bar_. Must have a home page. Must be able to login/register at any point while on the site.
 *   **State:** The _user's identity, login status, and number of items in shopping cart_, needs to be maintained even when the user is not currently at the site. This information needs to be displayed on every page.  
-*   **Extra credit: Keep shopping cart between login** When the user logs in, if they had a non-empty shopping cart previously, use this shopping cart. If they have a non-empty shopping cart before logging in, ask them if they want to merge it with the previous shopping cart, use only the previous, or dump the previous cart and use only the current.
+*   **Extra credit: Keep shopping cart between logins** When the user logs in, if they had a non-empty shopping cart previously, use this shopping cart. If they have a non-empty shopping cart before logging in, ask them if they want to merge it with the previous shopping cart, use only the previous, or dump the previous cart and use only the current.
 
 #### Individual additional requirements:
 The following are additional requirements that will be assigned to you by the instructor or TA. Your assigned individual requirements are **not optional** and if not implemented, your assignment score will be severely penalized. You **may not copy** the implementation code from someone (or somewhere) else. You must design and write the code yourself. Copied code, referenced or not, will result in 0 for the entire assignment. If you are confused about the requirement or expectations, ask the instructor immediately. Once you submit your assignment, there are no excuses for not understanding the requirements and expectations. 
 
 * **IR1** Maintain last product page visited by user. When user leaves and comes back to site, they are taken automatically to the last product page visited. After login or register, they return to the last page visited. After checkout, the last page visited becomes the home page. 
-* **IR2** In addition to quantity, ome products require users to select features (e.g. shirts require the user to select a size). The features carry over to the invoice and may affect the price or shipping costs (e.g. x-large size shirt may cost more).
+* **IR2** In addition to quantity, some products require users to select features (e.g. shirts require the user to select a size). The features carry over to the invoice and may affect the price or shipping costs (e.g. x-large size shirt may cost more).
 * **IR3** Have a search feature that enables users to find products by name, type, or something in their description. Search results show up immediately on the current page and enable users to select them without leaving the current page.
 * **IR4** Have an "add to favorites" icon for each item than when clicked, toggles an indication that an item is of interest (highlights/un-highlights icon). When the user views a product page, all favored items for that user will be highlighted. In the shopping cart, favored items are listed in cart and enables user to add to the cart.
-* **IR5** Add product ratings 1-5 stars. Average rating displayed for each product. Users that purchase a product are given the opportunity to rate the products they purchased.
-* **IR6** Keep track of the last time and quantity the user purchased a product. This information is displayed when user is viewing a product. 
+* **IR5** Add product ratings: 1-5 stars. Average rating is displayed for each product. Users that purchase a product are given the opportunity to rate the products they purchased.
+* **IR6** Keep track of the last time and quantity the user purchased a product. This information is displayed when the user is viewing a product. 
 * **IR7** Keep track of how many of each product is currently in shopping carts for all users on the site. Display this information for each product when viewing the products.
 
 
@@ -54,7 +54,7 @@ The following are additional requirements that will be assigned to you by the in
 
 #### Some general tips:
 
-*   For this assignment, you will want to make use of _Sessions and Cookies_ from the class lab.
+*   For this assignment, you will need to make use of _Sessions and Cookies_ from the class lab.
 *   There are MANY online resources and examples for implementing shopping carts and you are welcome to take inspiration and use code from them. Be sure to clearly reference and document what you use! 
 *   If you need help, consult the Assignment3 code examples, past labs and WODs before asking for help. When you ask for help the more specific you can be about what you need help with the more likely you will get something helpful!
 *   You should also try searching on Google or your favorite search engine for information on the problem(s) you are having (e.g. sessions+php). As an ITM major, it is _expected_ that you are able to find information online because there won't always be an instructor or classmate around to help you.
