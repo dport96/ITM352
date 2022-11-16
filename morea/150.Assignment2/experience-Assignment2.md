@@ -161,14 +161,14 @@ The following are additional requirements that will be assigned to you by the in
 * **IR1** Store passwords encrypted. When the user registers, encrypt their password before saving the registration data to the file. When a user logs in, encrypt the password they entered and compare it with the encrypted saved password. Do not decrypt the password.
 * **IR2** Require that passwords have at least one number and one special character.
 * **IR3** When the user is registering, suggest a "strong" password that is 10 random characters inclusing numbers and special characters.  
-* **IR4** Keep track of the number of times a user loged in and the last time they logged in. When they login display this information.
-* **IR5** Keep track of the number of users currently logged in to the site and display this number with the personalization information. For example, if user "dport" is logged in and there are 4 other users logged in, then each page should say somewhere "Welcome Dan, there are 4 users currently using this system." Whenever a user logs out (for this assignment, put a logout butoon on the invoice page that removes the login indentification and send the user to the login page), the number should decrease accordingly. _HINT:_ Store this iunformation as a global array variable on the server. Whenever a user logs in or registers, add their email address (or username) to the array.  
+* **IR4** Keep track of the number of times a user logged in and the last time they logged in. When they login display this information.
+* **IR5** Keep track of the number of users currently logged in to the site and display this number with the personalization information. For example, if user "dport" is logged in and there are 4 other users logged in, then each page should say somewhere "Welcome Dan, there are 4 users currently using this system." Whenever a user logs out (for this assignment, put a logout button on the invoice page that removes the login identification and sends the user to the login page), the number should decrease accordingly. _HINT:_ Store this iunformation as a global array variable on the server. Whenever a user logs in or registers, add their email address (or username) to the array.  
 
 **Final steps:**
 
 Run and test your program before and after uploading to the class server. You must place all your files in the Assignment2 folder on the class web server, using the itm352student account, in a sub-folder called <Lastname\_team\_member1>\_<Lastname\_team\_member2>
 
-**\*\* VERY IMPORTANT: \*\*** You must have an "index.htm" file in this folder to start your program (either HTML redirect to your login page or something equivalent). You should have the email address "itm352@hawaii.edu" with the password "grader" set in your program to enable grading of your assignment.
+**\*\* VERY IMPORTANT: \*\*** You must have an "index.html" file in this folder to start your program (either HTML redirect to your login page or something equivalent). You must have the email address "itm352@hawaii.edu" with the password "grader" set in your program to enable grading of your assignment.
 
 ** Submission: **
 See the Laulima assignment for details. 
