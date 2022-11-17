@@ -16,8 +16,7 @@ morea_end_date: "2022-12-12"
 
 ### Scenario: 
 
-The director was pleased with your past project, but she says that
- a friend of hers, who is involved in a similar project used "sessions and cookies" to secure and personalize the website for each user. She asks **you and your partner(s)** to 
+The director was pleased with your past project, but she says that a friend of hers, who is involved in a similar project used "sessions and cookies" to secure and personalize the website for each user. She asks you (and up to two partners) to 
 
 1) add a shopping cart feature to the website so that users can shop at their leisure, 
 2) enable arbitrary navigation of multiple product pages, 
