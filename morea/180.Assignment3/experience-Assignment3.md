@@ -16,16 +16,15 @@ morea_end_date: "2022-12-12"
 
 ### Scenario: 
 
-The director was pleased with your past project, but she says that a friend of hers, who is involved in a similar project used "sessions and cookies" to secure and personalize the website for each user. She asks you (and up to two partners) to 
-
+The director was pleased with your past project, but she says that a friend of hers, who is involved in a similar project used "sessions and cookies" to secure and personalize the website for each user. She asks you (and up to two partners) to: 
 1) add a shopping cart feature to the website so that users can shop at their leisure, 
 2) enable arbitrary navigation of multiple product pages, 
 3) email the user the completed invoice for each transaction, 
-4) maintain a user's state (i.e. whether they are logged in)
+4) maintain a user's state (i.e. whether they are logged in).
 
 **Warning!** _Do not simply assign tasks to each team member and assume everyone's parts will work together!_ There are many serious dependencies in the requirements for this assignment. Make sure your team is very clear on these and ensure that they are satisfied (i.e. tested).
 
-**Warning!** _Do not copy a previous students work_ There are many different requirements for this assignment which are clearly visible. Not only are previous assignments different, if you copy one, you will also be copying their problems and possibly outdated packages and use of code (for example, the body-parser middleware is now included in the Express package and does not need to be installed separately). If you use code from another source, clearly reference the source and indicate what changes you made to it. Do not copy entire files (especially someone else's server.js).
+**Warning!** _Do not copy a previous students work._ There are many different requirements for this assignment which are clearly visible. Not only are previous assignments different, if you copy one, you will also be copying their problems and possibly outdated packages and use of code (for example, the body-parser middleware is now included in the Express package and does not need to be installed separately). If you use code from another source, clearly reference the source and indicate what changes you made to it. Do not copy entire files (especially someone else's server.js).
 
 **Final Warning!** _Do not assume it is easier to work in a group!_  Groups can be a maximum of 3 people. But there are significant extra requirements if you are working in a group (see below) and there is an overhead for communication and coordination. 
 
