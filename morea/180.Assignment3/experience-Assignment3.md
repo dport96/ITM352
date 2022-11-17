@@ -98,7 +98,7 @@ The following are additional requirements that will be assigned to you by the in
     *   Hint: to send your receipt via email, use the same receipt that you print now. Create the receipt as a string rather than printing directly to the screen and then print this string then you can also use it as the message parameter for mail().
     *   Make sure you test sending email on both your local machine and the itm-vm server!
 *   Extra credit: Editing of user information:
-    *   If a user goes to the registration page and they are logged in, it should let the user view and edit their registration information (except password! this can be changed but not viewed). A new registration can be made only if the user is not logged in. _The information kept for each user is at lest: full name, password, email._
+    *   If a user goes to the registration page and they are logged in, it should let the user view and edit their registration information (except password! this can be changed but not viewed). A new registration can be made only if the user is not logged in. _The information kept for each user is at least: full name, password, email._
     *   _**Hint: You can likely modify the existing registration page to display the user's information rather than make a seperate registration edit page. Start by reading the user's information then setting the "sticky" form values to the information just read.**_
 
 **Shopping cart use-cases**
