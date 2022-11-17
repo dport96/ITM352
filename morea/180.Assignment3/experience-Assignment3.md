@@ -32,7 +32,7 @@ The director was pleased with your past project, but she says that a friend of h
 This assignment involves the following requirements (in addition to all requirements for previous assignments):
 
 *   **Temporarily storing and displaying a user's information from transactions while logged in:** users should be able to select multiple products and quantities on any product page. The selections must be stored in a "cart" where users can later view, add, or delete items from this cart and ultimately "check out" and create an invoice. Keep in mind that the cart does not necessarily need exist on its own page. For example, you may have a "conceptual cart" whose information is used to fill out the user-selected quantities on each product page as the pages are visited.
-*   Product pages will not longer automatically go to login after selecting items. Therefore _You will need to have some way to enable to user to stop shopping and "check out" the items in their cart._
+*   **Product pages will not longer automatically go to login after selecting items.** Therefore _You will need to have some way to enable to user to stop shopping and "check out" the items in their cart._
 *   **Having multiple pages:** There should be at least _three (3) separate pages_ of product options with at least _six (6) items_ on each page in your main application for your user to choose from. Therefore, you may need to have several versions of your items or service (e.g. if you are selling cell phones, maybe you will offer Sprint on one page, AT&T on another, Mobi on another). 
 *   **Site navigation:** Must be able to _navigate easily_ back and forth between product pages using _navigation bar_. Must have a home page. Must be able to login/register at any point while on the site.
 *   **State:** The _user's identity, login status, and number of items in shopping cart_, needs to be maintained even when the user is not currently at the site. This information needs to be displayed on every page.  
@@ -60,7 +60,7 @@ The following are additional requirements that will be assigned to you by the in
 *   For this assignment, you will need to make use of _Sessions and Cookies_ from the class lab.
 *   There are MANY online resources and examples for implementing shopping carts and you are welcome to take inspiration and use code from them. Be sure to clearly reference and document what you use! 
 *   If you need help, consult the Assignment3 code examples, past labs and WODs before asking for help. When you ask for help the more specific you can be about what you need help with the more likely you will get something helpful!
-*   You should also try searching on Google or your favorite search engine for information on the problem(s) you are having (e.g. sessions+php). As an ITM major, it is _expected_ that you are able to find information online because there won't always be an instructor or classmate around to help you.
+*   You should also try searching on Google or your favorite search engine for information on the problem(s) you are having (e.g. sessions+javascript). As an ITM major, it is _expected_ that you are able to find information online because there won't always be an instructor or classmate around to help you.
 *   If you have tried the above but still need some assistance, the instructor can help you with _specific_ questions. Email is probably the best way to get help since the instructor isn't always available in person at any given time and class periods are too short to address detailed problems.
 
 **_Remember to start early and finish early!!_** You know how important this is!!!
@@ -68,9 +68,9 @@ The following are additional requirements that will be assigned to you by the in
 
 **Other Requirements:**
 
-*   Fix any shortcomings in assignment #2 (all the things that should have worked in #2 should now work in #3)
+*   Fix any shortcomings in assignment #2 (all the things that should have worked in #2 must now work in #3)
 *   The site must be navigable to any page at any time. For example, the user should be able to go to product page 1 when they are on product page 3. You will likely want to enable this by adding a navigation bar. Think about what you are used to seeing on a web application. 
-*   You will need to provide a reasonable index page that "starts" the user into your site. The user should not be forced to start here, but if they don't know where to go, it starts here and enables them to go to where they might want to be. Use index.php as your home page.
+*   You will need to provide a reasonable index page that "starts" the user into your site. The user should not be forced to start here, but if they don't know where to go, it starts here and enables them to go to where they might want to be. Use index.html as your home page.
 *   Unlike Assignment 2, you must allow your user to login or register *any time* before showing an invoice, not just after or before selecting products. 
 *   Your application should be designed in a way that it is easy to add, change, remove products and product pages.
 *   _**Well-designed user interface.**_ You are expected to improve the design of your application *significantly*
