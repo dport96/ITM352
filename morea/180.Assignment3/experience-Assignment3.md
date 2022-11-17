@@ -28,6 +28,8 @@ The director was pleased with your past project, but she says that
 
 **Warning!** _Do not copy a previous students work_ There are many different requirements for this assignment which are clearly visible. Not only are previous assignments different, if you copy one, you will also be copying their problems and possibly outdated packages and use of code (for example, the body-parser middleware is now included in the Express package and does not need to be installed separately). If you use code from another source, clearly reference the source and indicate what changes you made to it. Do not copy entire files (especially someone else's server.js).
 
+**Final Warning!** _Do not assume it is easier to work in a group!_  Groups can be a maximum of 3 people. But there are significant extra requirements if you are working in a group (see below) and there is an overhead for communication and coordination. 
+
 This assignment involves the following requirements (in addition to all requirements for previous assignments):
 
 *   **Temporarily storing and displaying a user's information from transactions while logged in:** users should be able to select multiple products and quantities on any product page. The selections must be stored in a "cart" where users can later view, add, or delete items from this cart and ultimately "check out" and create an invoice. Keep in mind that the cart does not necessarily need exist on its own page. For example, you may have a "conceptual cart" whose information is used to fill out the user-selected quantities on each product page as the pages are visited.
@@ -51,6 +53,8 @@ The following are additional requirements that will be assigned to you by the in
 
 **If you are working with a partner, you must implement a different individual requirement for each partner** For example, if there are three people on the team, you must implement three of the above requirements. If a partner has been assigned the same requirement as another, you may select any of the other requirements to implement. Indicate clearly which requirements you are implementing when you submit the assignment to Laulima.
 
+#### Group requirements:
+* If you are working in a group of 2 or 3 people, you must, in additiona to all of the above requirements, implement an admin back-end.  The admin back end should allow an authorized user (an administrator) to edit, add, or delete inventory and to add, edit, or delete user accounts and user information.  Only authorized users should be able to access the admin functions, so this means you need to create a new class of users--administrators.  And one admin function should be to change someone's account from "regular" to "adminstator".
 
 #### Some general tips:
 
@@ -86,12 +90,13 @@ The following are additional requirements that will be assigned to you by the in
     *   A customer should not be able to checkout without first logging in. If a user registers, automatically log them in.
     *   A user should automatically be logged out after some reasonable period of inactivity (no less than 5 mins and no more than 30 mins). This is to avoid enabling someone to access a users account if they left their machine/phone for an extended period of time or if they are using a shared/public machine.
     *   Use sessions or cookies this time to keep the customer from doing a checkout without being logged in. It should not matter if the customer came from the login or registration page or any other page. The user should be able to login or register at any time before checking out. If they try to checkout without being logged in, redirect them to login.
+    *  All passwords should be stored encrypted.
     *  **Extra credit:** Think of the basic ways a hacker might try to gain access to the system, get user information, or crash the system so it cannot be used (denial of service attack). Add defenses against this. For example, do not allow a user to use more than a reasonable number if characters in a textbox (imagine if someone entered a million characters as their user name!). Another example is do not let users enter characters that are used for special purposes such as separators in your registration data. e.g. 'my;hacked;user;name' could cause major issues if the data format uses ';' as separators. Even worse, do you allow anyone to access the user registration data? Perhaps you put it in the document root for your static web server?
     *   **Extra credit:** Protect passwords and user ID's from being viewed by doing some kind of encryption.
 
-*   _**Sending email using JAVASCRIPT**_
+*   _**Sending email using Javascript**_
     *   You will likely want to use the nodemailer module (https://nodemailer.com/about/). You are welcome to find and use other mail functions or examples from the net. Whatever works!
-    *   When mailing from JAVASCRIPT you must specify a valid SMTP server. For computers on the UH network (like db-itm.shidler.hawaii.edu) you can always use `mail.hawaii.edu` but when your server is not running on the UH network this SMTP server will likely be blocked and your email will fail to send. It is possible to use Gmail's SMTP server (smtp.gmail.com) but it would need to use your gmail (or UH) username and password to authorize and access.
+    *   When mailing from JAVASCRIPT you must specify a valid SMTP server. For computers on the UH network (like itm-vm.shidler.hawaii.edu) you can always use `mail.hawaii.edu` but when your server is not running on the UH network this SMTP server will likely be blocked and your email will fail to send. It is possible to use Gmail's SMTP server (smtp.gmail.com) but it would need to use your gmail (or UH) username and password to authorize and access.
     *   You may also need to set the "From:" mail header. If you get a warning saying that mail could not be sent due to missing "From" header, then add it to your mail command. 
     *   Hint: to send your receipt via email, use the same receipt that you print now. Create the receipt as a string rather than printing directly to the screen and then print this string then you can also use it as the message parameter for mail().
     *   Make sure you test sending email on both your local machine and the itm-vm server!
@@ -111,7 +116,7 @@ There is no requirement in how the above are done. Just that it is possible. You
 **Check-out use-case scenario:**
 
 *   Display the contents of the cart along with the tax and total cost breakdown in an invoice page and ask the customer if they accept_before completing a transaction._
-*   If the customer accepts the terms, send them to a confirmation page (with all the user's information and the invoice) and automatically send the customer the confirmation in an email using the mail function**(see page 111 and 236 of your JAVASCRIPT textbook)**
+*   If the customer accepts the terms, send them to a confirmation page (with all the user's information and the invoice) and automatically send the customer the confirmation in an email using the mail function.
 *   Finally, destroy all variables in the session so that when the user returns, the cart is empty.
 *   **_Extra Credit: If items are not checked out (purchased) in some amount of time (you decide how long), remove the user's session and notify the user that their shopping cart has been emptied (Session Expiration)_**
 
@@ -164,4 +169,3 @@ _**Checklist:**_
 *   Update of authorship from previous assignments
 *   DID YOU TEST THAT EVERYTHING WORKS WHEN INSTALLED ON THE CLASS server?
 *   (extra credit) Timed session/cookie expiration
-*   (extra credit) Encrypt passwords
