@@ -77,9 +77,9 @@ c. (4 minutes) Now request a login. What happened to the last login time?
 #### Exercise 5: Applying cookies and session (total 15 minutes)
 Let's say your e-commerce site has multiple product pages. 
 
-a. How can you use cookies to keep a user logged when moving back and forth between pages? How could you use cookies to handle security and personalization in Assignment #2?
+a. How can you use cookies to keep a user logged when moving back and forth between pages? How could you use cookies to handle security and personalization in Assignment #3?
 
 b. How can you use sessions to handle multiple users shopping at the same time on your site?
 
-c. How can you use sessions to implement a "shopping cart" for your e-commerce site so users could move bach and forth between product pages (or even away from the sire) and still get their selections to the invoice page?
+c. How can you use sessions to implement a "shopping cart" for your e-commerce site so users could move back and forth between product pages (or even away from the site) and still get their selections to the invoice page?
 
