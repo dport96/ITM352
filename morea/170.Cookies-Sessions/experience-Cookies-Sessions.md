@@ -57,7 +57,7 @@ e. (3 minutes) Where is the session data stored? Can you think of any security i
 
 
 
-#### Exercise 3: maintaining login status with cookies (total 15 minutes)
+#### Exercise 3: maintaining login status with cookies
 
 a. (6 minutes) Add code to the post to login route that sets a cookie `username` to the username for when a succesful login occurs. Then write if-statement that checks if the cookie for `username` is defined and if so and prints out `Welcome <username>` at the top of the login page. 
 
@@ -67,14 +67,14 @@ c. (4 minutes) Now go to google.com and then request login again. Why does the `
 
 d. Explain how you could use cookies to keep a user logged and how the server could use this to give or refuse access to various requests. How could you make it keep a user automatically log out a user after 5-mins of inactivity?   
 
-#### Exercise 4: (total 11 minutes)
+#### Exercise 4: 
 
 a. (4 minutes) Modify the code you wrote in #2 to use `session.destroy()` at the bottom of use_session and re-load the page. What happened to the session id? 
 
 c. (4 minutes) Now request a login. What happened to the last login time?
 
 
-#### Exercise 5: Applying cookies and session (total 15 minutes)
+#### Exercise 5: Applying cookies and session (On your own)
 Let's say your e-commerce site has multiple product pages. 
 
 a. How can you use cookies to keep a user logged when moving back and forth between pages? How could you use cookies to handle security and personalization in Assignment #3?
