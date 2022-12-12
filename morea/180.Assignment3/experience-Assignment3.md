@@ -42,7 +42,7 @@ The following are additional requirements that will be assigned to you by the in
 
 * **IR1** Maintain last product page visited by user. When user leaves and comes back to site, they are taken automatically to the last product page visited. After login or register, they return to the last page visited. After checkout, the last page visited becomes the home page. 
 * **IR2** In addition to quantity, some products require users to select features (e.g. shirts require the user to select a size). The features carry over to the invoice and may affect the price or shipping costs (e.g. x-large size shirt may cost more).
-* **IR3** Have a search feature that enables users to find products by name, type, or something in their description. Search results show up immediately on the current page and enable users to select them without leaving the current page.
+* **IR3** Have a search feature that enables users to find products by name, type, or something in their description. Search results show up immediately on the current page and enable users to select them without leaving the current page. Here's an example of this kind of search (https://www.w3schools.com/howto/howto_js_filter_lists.asp)
 * **IR4** Have an "add to favorites" icon for each item than when clicked, toggles an indication that an item is of interest (highlights/un-highlights icon). When the user views a product page, all favored items for that user will be highlighted. In the shopping cart, favored items are listed in cart and enables user to add to the cart.
 * **IR5** Add product ratings: 1-5 stars. Average rating is displayed for each product. Users that purchase a product are given the opportunity to rate the products they purchased.
 * **IR6** Keep track of the last time and quantity the user purchased a product. This information is displayed when the user is viewing a product. 
@@ -52,7 +52,7 @@ The following are additional requirements that will be assigned to you by the in
 **If you are working with a partner, you must implement a different individual requirement for each partner** For example, if there are three people on the team, you must implement three of the above requirements. If a partner has been assigned the same requirement as another, you may select any of the other requirements to implement. Indicate clearly which requirements you are implementing when you submit the assignment to Laulima.
 
 #### Group requirements:
-* If you are working in a group of 2 or 3 people, you must, in additiona to all of the above requirements, implement an admin back-end.  The admin back end should allow an authorized user (an administrator) to edit, add, or delete inventory and to add, edit, or delete user accounts and user information.  Only authorized users should be able to access the admin functions, so this means you need to create a new class of users--administrators.  And one admin function should be to change someone's account from "regular" to "adminstator".
+* If you are working in a group of 2 or 3 people, you must, in additiona to all of the above requirements, implement an admin back-end.  The admin back end should allow an authorized user (an administrator) to edit, add, or delete inventory and to add, edit, or delete user accounts and user information.  Only authorized users should be able to access the admin functions, so this means you need to create a new class of users--administrators.  And one admin function should be to change someone's account from "regular" to "administrator".
 
 #### Some general tips:
 
