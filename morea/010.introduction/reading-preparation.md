@@ -5,7 +5,7 @@ morea_id: reading-preparation
 morea_summary: "What to know in advance of ITM 352"
 morea_type: reading
 morea_sort_order: 1
-morea_start_date: "2021-08-24T10:30"
+morea_start_date: "2023-01-10T12:00"
 morea_labels:
 ---
 

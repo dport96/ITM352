@@ -9,7 +9,7 @@ morea_readings:
  - reading-preparation
  - reading-policy-grading
  - reading-references
-# - reading-schedule
+ - reading-schedule
 morea_experiences:
  - experience-screencast-intro
 # - experience-introduce-yourself
