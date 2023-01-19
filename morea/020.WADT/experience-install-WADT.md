@@ -156,7 +156,7 @@ app.use(express.static( root ));
 app.listen(8080, () => console.log(`listening on port 8080 rootdir ${root}`));
 ```
 
-  - Make sure you are in the `Lab1` folder. Start your local http-server by typing `node ../server.js`.
+  - Make sure you are in the `Lab1` folder. If you are not, change to the directory (`cd Lab1` if you are still in the top-level directory). Start your local http-server by typing `node ../server.js`.
   - Open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and verify it is *served* rather than loaded directly into the browser (you should see `http://localhost:8080/<your Last_First name>_hello.html` rather than the file path in the browser address box)
   - Make a new directory called `static` and move your `<your Last_First name>_hello.html` file into the `static` directory.
   -  Open a browser to `http://localhost:8080/<your Last_First name>_hello.html` and explain why the server cannot `GET` the file
