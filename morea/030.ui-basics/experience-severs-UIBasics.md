@@ -85,6 +85,8 @@ Going back to your products_display.html file. Build page sections as follows:
 
 - In each section, make the name values second-level headers `<h2>`. Use find RegEx with `"name": "(.*)",` and replace with RegEx with `<h2>$1</h2>` or do this manually!
 
+Tip: If you want to learn more about using regular expressions (regEx) in VSCode you can try one of the many tutorial documents or videos you can find from Google. Here's one (https://www.youtube.com/watch?v=8HOcmKr1bw8)[https://www.youtube.com/watch?v=8HOcmKr1bw8]
+
 - In each section, put the price values in paragraphs (i.e. enclose them inside `<p></p>`). Put a `&dollar;` in front of the value inside the paragraph tags. Modify the find and replace RegEx you did previously.
 
 - For each image value, covert it to an `<img>` with the `src` attribute the value.
