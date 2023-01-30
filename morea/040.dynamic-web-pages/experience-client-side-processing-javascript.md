@@ -99,12 +99,6 @@ Here's an example of how SmartPhoneProducts1_1 (with Extra Credit) should work w
 #### Extra Credit fun!: 
 Add a slider to change the rotation speed of the animation. There are many ways to do this and you are encouraged to do what you think is easiest. Here's one way to do it by changing the internal (i.e. page scoped) stylesheet which will override the products-style.css stylesheet. It takes advantage of the onchange event when the slider value changes to update the `animation-duration:` style for `.rotate img`. Here are the steps for doing this:  
  - Add a slider form element (`<input id='speedSlider' type='range' min=".1" max="5" step=".1" style="direction: rtl;">`)
- - Add an empty style element `<style id="localstyle"></style>` to the <head> element
+ - Add an empty style element `<style id="localStyle"></style>` to the <head> element
  - Add `onchange="localStyle.innerHTML = '.rotate img {animation-duration: ' + speedSlider.value + 's;}';"` to the slider element
  - Refresh the page and try moving the slider :)
-
-
-
-
-
-
