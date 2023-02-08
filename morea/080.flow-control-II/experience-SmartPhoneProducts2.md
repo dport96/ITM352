@@ -7,8 +7,8 @@ morea_summary: "Use a loop to generate a table of Smartphone products"
 morea_sort_order: 2 
 morea_labels:
  - "WOD"
-morea_start_date: "2022-09-23"
-morea_end_date: "2022-09-30"
+morea_start_date: "2022-02-15"
+morea_end_date: "2022-02-22"
 ---
 
 # Use a loop to generate a table of Smart Phone products
