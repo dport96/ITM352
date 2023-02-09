@@ -6,7 +6,7 @@ morea_summary: "Learn about JS constants, operators, and strings."
 morea_type: reading
 morea_sort_order: 2
 morea_labels:
-morea_start_date: "2022-09-13T10:30"
+morea_start_date: "2023-02-02T12:00"
 ---
 
 

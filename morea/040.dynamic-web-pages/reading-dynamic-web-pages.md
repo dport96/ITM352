@@ -7,7 +7,7 @@ morea_type: reading
 morea_url: http://smallbusiness.chron.com/difference-between-dynamic-static-pages-69951.html
 morea_labels:
   - Short Article
-morea_start_date: "2022-09-06T10:30"
+morea_start_date: "2023-01-26T12:00"
 ---
 
 

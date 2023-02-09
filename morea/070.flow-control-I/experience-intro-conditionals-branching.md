@@ -7,7 +7,7 @@ morea_summary: "Learn about conditional expressions and if-statements screencast
 morea_sort_order: 1 
 morea_labels:
   - Screencast Lecture [22 min]
-morea_start_date: "2022-09-20T10:30"
+morea_start_date: "2023-02-07T12:00"
 ---
 # Introduction to Conditionals and Branching
 This lecture will introduce you to the basics of boolean expressions and using conditional statements to change the flow of control.

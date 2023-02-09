@@ -14,7 +14,7 @@ morea_end_date: "2022-11-16"
 
 
 **Scenario:**   
-The marketing director of the company asks **you and a partner** to upgrade the website that you had previously designed for him (you can choose one of your assignment #1 projects or start an entirely new project). He is very pleased with the original website but now wants you to personalize the website for each user. He thinks that will increase the overall appeal of the site to users. He asks that you create a registration form through which users can register their pertinent data and that you create a login form and save this in the system. He also wants the site to be more "personable" so after the user logs in, the pages should greet the user by name and thanks them by name in the invoice. He only wants registered users to be able to purchase products, so you will need get users to login or register before allowing them to purchase products but anyone should be able to view products. The Page sequence should be something like that illustrated below:  
+The marketing director of the company asks you (and, optionally, a partner) to upgrade the website that you had previously designed for him (you can choose to start from your assignment #1 projects or start an entirely new project). He is very pleased with the original website but now wants you to personalize the website for each user. He thinks that will increase the overall appeal of the site to users. He asks that you create a registration form through which users can register their pertinent data and that you create a login form and save this in the system. He also wants the site to be more "personalized" so after the user logs in, the pages should greet the user by name and thanks them by name in the invoice. He only wants registered users to be able to purchase products, so you will need get users to login or register before allowing them to purchase products but anyone should be able to view products. The Page sequence should be something like that illustrated below:  
 
 ![[data flow]](page_flow.jpeg)
 
@@ -40,7 +40,7 @@ The minor requirements for this assignment are:
 *   Carefully tested and debugged application.
 
   
-**NOTE**:   Please do not use *sessions* or *cookies* for this assignment! One purpose of this assignment is to understand the value of using these.  
+**NOTE**:   Please do not use *sessions* or *cookies* for this assignment! One purpose of this assignment is to understand the value of using these, which we will do in Assignment 3.  
 
 Some general tips:
 
@@ -67,15 +67,15 @@ _Hints:_
 
 **Extra Credit:** Would it be better to store and access user data using a database? Explain the pros and cons of this. Using this list, what is best for this particular application and why?
 
-**Login** **Page**
+**Login Page**
 
 *   Create a simple Login page with **email address** and **password** fields as well as **submit buttons for logging in or editing registration**. Add a "register" link than when clicked will show the user a registration page. You may optionally put the login and registration on the same page.
 *   The user should only be required to login when purchasing. They should be able to view your store items without logging in first.
 *   The email address and password combination entered should be checked against the user information array that you retrieve from the saved file. When checking the email address, it should not matter what case was used. For example, email addresss itm352@hawaii.edu, ITM352@HAWAII.EDU, and ItM352@hAWaii.EdU should all be considered the same. That is, email addresss are CASE INSENSITIVE. On the other hand, passwords should be CASE SENSITIVE where "GRADER" is a different password than "grader".
 
-**Writing the script for processing the submitted login form**
+**Processing the submitted login form**
 
-*   You will have to decide whether to use a self-processing form or to process in a separate file.
+*   You will have to decide whether to use a self-processing form or to process in a separate file or on the server.
 
 _HINT:_
 
@@ -95,7 +95,7 @@ The following input fields for the registration form are required, but you can a
   
 *   _Password:_ 
     *   This should have a minimum of 10 characters maximum of 16. 
-    *   Any characters are valid except space characters. 
+    *   Any characters are valid except **space** characters. 
     *   Passwords are CASE SENSITIVE. That is, "ABC" is different from "abc". 
   
 *   _Confirm password:_  Should make sure that it is the same as the password.
@@ -117,7 +117,7 @@ Logged in users should be able to view edit their registration data. Edits must 
 
 *   If anything is invalid, then the corresponding error message(s) will be printed/ displayed and the customer will see the form again. It may be a good idea to store messages in an array. Why? So that you can use the array to display all error messages at once, instead of seeing multiple screens for each individual message. This also makes it possible to create "indicators" on the form to point out where errors are.
 
-** IMPORTANT ** As in Assignment 1 you MUST do validation on the server before you save registration data. You can also do validation or guards on the client page, but it is not enough by itself.
+** IMPORTANT ** As in Assignment 1 you MUST do validation on the server before you save registration data. You may not use guards on the client page, but it is not enough by itself.
 
 _HINTS:_
 
@@ -141,11 +141,11 @@ _Hint: Think about..._
 
 **Extra Credit:** Explain how a user could defeat your security scheme and gain access to your main application page without having to log in.
 
-(5) **Personalization**
+(5) **Personalization on the invoice page**
 
 *   After logging in from the login page, save the user's ID (e.g. email address).
 *   Each page after login should display the user's name (i.e. in the invoice).
-*   After using the application or making a purchase, the last page should say "Thank you, <user's name> for your <using this application>" and relevant other user info (e.g. shipping address for invoice).
+*   After displaying the invoice, the user should confirm the purchase and should say "Thank you, <user's name> for your purchase" and relevant other user info (e.g. shipping address for invoice) and **logout** the user. After logout, the users ID should not be known and the items purchased should no longer be kept. At this point the inventory should also be reduced by the amounts purchased. 
 
 _Think about:_
 
@@ -156,19 +156,19 @@ _Think about:_
 
 
 #### Individual additional requirements:
-The following are additional requirements that will be assigned to you by the instructor or TA. Your assigned individual requirements are **not optional** and if not implemented, your assignment score will be severely penalized. You **may not copy** the implementation code from someone (or somewhere) else. You must design and write the code yourself. Copied code, referenced or not, will result in 0 for the entire assignment. If you are confused about the requirement or expectations, ask the instructor immediately. Once you submit your assignment, there are no excuses for not understanding the requirements and expectations. Code for your individual requirement **must** be generously commented. Clearly indicate in the these comments what your individual requirement is and how it is implemented. 
+The following are additional requirements that will be assigned to you by the instructor or TA. Your assigned individual requirements are **not optional** and if not implemented, your assignment score will be severely penalized. You **may not copy** the implementation code from someone (or somewhere) else. You must design and write the code yourself. Copied code, referenced or not, will result in 0 for the entire assignment. If you are confused about the requirement or expectations, ask the instructor immediately. Once you submit your assignment, there are no excuses for not understanding the requirements and expectations. Code for your individual requirement **must** be generously commented. Clearly indicate in the these comments what your individual requirement is and how it is implemented. If you are working woith a partner you must implement **all** the individual requirements.
 
 * **IR1** Store passwords encrypted. When the user registers, encrypt their password before saving the registration data to the file. When a user logs in, encrypt the password they entered and compare it with the encrypted saved password. Do not decrypt the password. You may find the `crypt()` function helpful.
 * **IR2** Require that passwords have at least one number and one special character.
 * **IR3** When the user is registering, suggest a "strong" password that is 10 random characters inclusing numbers and special characters.  
-* **IR4** Keep track of the number of times a user loged in and the last time they logged in. When they login display this information.
-* **IR5** Keep track of the number of users currently logged in to the site and display this number with the personalization information. For example, if user "dport" is logged in and there are 4 other users logged in, then each page should say somewhere "Welcome Dan, there are 4 users currently using this system." Whenever a user logs out (for this assignment, put a logout butoon on the invoice page that removes the login indentification and send the user to the login page), the number should decrease accordingly. _HINT:_ Store this iunformation as a global array variable on the server. Whenever a user logs in or registers, add their email address (or username) to the array.  
+* **IR4** Keep track of the number of times a user logged in and the last time they logged in. When they login display this information.
+* **IR5** Keep track of the number of users currently logged in to the site and display this number with the personalization information. For example, if user "dport" is logged in and there are 4 other users logged in, then each page should say somewhere "Welcome Dan, there are 4 users currently using this system." Whenever a user logs out (for this assignment, put a logout button on the invoice page that removes the login identification and sends the user to the login page), the number should decrease accordingly. _HINT:_ Store this iunformation as a global array variable on the server. Whenever a user logs in or registers, add their email address (or username) to the array.  
 
 **Final steps:**
 
 Run and test your program before and after uploading to the class server. You must place all your files in the Assignment2 folder on the class web server, using the itm352student account, in a sub-folder called <Lastname\_team\_member1>\_<Lastname\_team\_member2>
 
-**\*\* VERY IMPORTANT: \*\*** You must have an "index.htm" file in this folder to start your program (either HTML redirect to your login page or something equivalent). You should have the email address "itm352@hawaii.edu" with the password "grader" set in your program to enable grading of your assignment.
+**\*\* VERY IMPORTANT: \*\*** You must have an "index.html" file in this folder to start your program (either HTML redirect to your login page or something equivalent). You must have the email address "itm352@hawaii.edu" with the password "grader" set in your program to enable grading of your assignment.
 
 ** Submission: **
 See the Laulima assignment for details. 

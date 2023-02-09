@@ -3,12 +3,12 @@ title: "E1: UI Basics Technical Blog"
 published: true
 morea_id: experience-ui-basics-technical-essay
 morea_type: experience
-morea_summary: "Write a technical blog summarizing your experience doing the UI Basics WODs and your in-class WOD result."
+morea_summary: "Write a technical blog summarizing your experience doing the UI Basics WODs and your WOD result."
 morea_sort_order: 4
 morea_labels:
  - BLOG
-morea_start_date: "2022-09-09"
-morea_end_date: "2022-09-13"
+morea_start_date: "2023-01-27"
+morea_end_date: "2023-01-31"
 ---
 
 # E1: UI Basics Technical Essay
