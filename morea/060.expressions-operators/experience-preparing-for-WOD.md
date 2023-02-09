@@ -15,17 +15,17 @@ morea_labels:
 
 By the date and time indicated on the Schedule page, 
 write a technical essay (blog entry) that summarizes your experiences 
-reflecting on your experience in preparing for and your resulting performance on the last WOD.  
+reflecting on your experience in preparing for and your resulting performance on the last WOD. This is the WOD you should discuss in this essay.
 
-** NOTE ** Do this blog AFTER you have done the last WOD
+** NOTE ** Do this blog AFTER you have done the last WOD on the schedule due before this assignment. 
 
 Do not include the source code in your essay. Instead, address the following:
 
- 1. Provide a brief introduction to the WOD along with a link to this page for further details
+ 1. Provide a brief introduction to the WOD along with a link to the WOD page for further details
  
  2. Discuss your experiences in performing the WOD. What worked well, what did you stumble on or slowed you down.
  
- 3. Describe what you to did to prepare. What did you do similarly or differently from the WOD before this?
+ 3. Describe what you to did to prepare. What did you do similarly or differently from the WODs before this?
  
  4. Discuss what you could have done to be better prepared and what you might try differently for the next WOD.
 
