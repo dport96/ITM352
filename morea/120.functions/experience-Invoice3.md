@@ -7,8 +7,8 @@ morea_summary: "Use functions to generate an invoice of products"
 morea_sort_order: 2 
 morea_labels:
  - "WOD"
-morea_start_date: "2022-10-05"
-morea_end_date: "2022-10-11"
+morea_start_date: "2023-03-01"
+morea_end_date: "2023-03-06"
 ---
 
 # Use functions and a running total algorithm to generate an invoice
