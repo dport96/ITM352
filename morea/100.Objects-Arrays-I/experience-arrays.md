@@ -117,7 +117,8 @@ document.write(product_quantities[20]);
 ```
 
 #### Exercise 3. (8 minutes)
-a. Given your array in `product_quantities` above, use a for loop to iterate through the array, printing each element in its own row of a table. The result should look something like:
+a. Create a new file Ex3a.html and copy the array `product_quantities` you used in Exercise #1 into this file. 
+Use a for loop to iterate through the `product_quantities` array, printing each element in its own row of a table. The result should look something like:
 
 <table style="border: 1px solid black;text-align: center;">
 <tr style="border: 1px solid black;"><th style="border: 1px solid black;">Product #</th><th>Quantity</th></tr>
@@ -127,7 +128,9 @@ a. Given your array in `product_quantities` above, use a for loop to iterate thr
 <tr style="border: 1px solid black;"><td style="border: 1px solid black;">&vellip;</td><td>&vellip;</td></tr>
 </table>
 
-b. Copy the following code:
+*Hint: inspect this page source and copy the HTML that made the table as a start.*
+
+b. Make a copy of Ex3a.html and name it Ex3b.html. Add the following code:
 
 ```Javascript 
 // array of all products
@@ -141,7 +144,7 @@ products = [
  { 'name': 'large jawbreaker', 'price': 0.10 }
 ];
 ```
-Modify your program in (a) to add name, prices, and extended costs columns to the table for products objects given the `products` array.
+Modify your program to add name, prices, and extended costs columns to the table for products objects given the `products` array.
 
 Put your code or a link to the code in your repo here:
 ```
@@ -152,7 +155,7 @@ Put your code or a link to the code in your repo here:
 #### Exercise 4. Using DOM objects dynamically (On Your Own)
 Sometimes you will need to create and add DOM objects after the page is loaded. When you create a DOM object it will need to be added to the document `node` by inserting or appending (which is the same as adding it to the HTML hierarchy)
 
-a. Modify your problem in Exercise 3 to append a new row to the table when the table is clicked on. Start by putting `onclick="new_row = this.appendChild(document.createElement('tr'));` in the `<tbody>` element of the table to create and add a new row element to the table. After this, add `new_cell = new_row.appendChild(document.createElement('td'));`  to add a cell element to the new row. Use the `new_cell` reference to set the `innerHTML` of the cell to `xxx`. Check that this works by clicking the table a few times. Now use a loop to add the same number of`<td>` objects to the new row object as the first row in the table (you can get this number from the tbody object using `.rows[0].cells.length`). 
+a. Copy Ex3b.html and name it Ex4a.html. Modify your program to append a new row to the table when the table is clicked on. Start by putting `onclick="new_row = this.appendChild(document.createElement('tr'));` in the `<tbody>` element of the table to create and add a new row element to the table. After this, add `new_cell = new_row.appendChild(document.createElement('td'));`  to add a cell element to the new row. Use the `new_cell` reference to set the `innerHTML` of the cell to `xxx`. Check that this works by clicking the table a few times. Now use a loop to add the same number of`<td>` objects to the new row object as the first row in the table (you can get this number from the tbody object using `.rows[0].cells.length`).
 
 Put your code or a link to the code in your repo here:
 ```
@@ -167,7 +170,7 @@ Explain why you must work with the DOM objects rather than `document.write()` to
 
 ```
 
-b. Now add `<input type="button" value="Delete Last Row">` after the table. Write code in the `onclick` event attribute for this to delete the last row. Start by giving the tbody an id. Then use this id and `.rows.length` to get the number of rows. Use this value and the `.deleteRow()` method of the tbody object to delete the row.  
+b. Copy Ex4a.html and name it Ex4b.html. Now add `<input type="button" value="Delete Last Row">` after the table. Write code in the `onclick` event attribute for this to delete the last row. Start by giving the tbody an id `invoice_table`. Then use this id and `.rows.length` to get the number of rows. Use this value and the `.deleteRow()` method of the tbody object to delete the row.  
 
 Put your code or a link to the code in your repo here:
 ```
@@ -175,7 +178,10 @@ Put your code or a link to the code in your repo here:
 
 ```
 
-c. Above the table, Add the style `tr:hover {background-color: yellow;}` so you will see which table row is selected. If this row is clicked, have it delete this row. Change the `Delete last row` button to `Add new row` and make it add a new row when clicked.
+c. Copy Ex4b.html and name it Ex4c.html. Above the table, Add the style `tr:hover {background-color: yellow;}` so you will see which table row is selected. If this row is clicked, have it delete this row. Change the `Delete last row` button to `Add new row` and make it add a new row when clicked. Essentially you are switching the behavior for clicking a row and clicking the button. There are several ways you can implement this. You should think this through carefully and implement it bit by bit testing each change along the way. Here is a suggested way:
+- Replace the code in the onclick for the button with the code that creates a new row from the onclick in the table. Check that when the button is pressed a new row is added.
+- In the `<tr>` element, add code to onlick that tells `invoice_table` to delete the row `this.rowIndex` when the row is clicked. Check that when the row is clicked, it is removed from the table.
+- You will notice that when new rows are added, the background color does not change when you mouseover (hover) and when you click on the row it does not get removed from the table. This is because the newly added row does not have the onclick set to anything and the style applied to the table rows is only applied when HTML entities are converted into DOM objects. Since we are directly creating the tr DOM object, it does not have the onclick set or the tr style applied to it. Rather than add these manually, we can use `invoice_table.rows[1].cloneNode(true)` to make a copy of the first invoice table row DOM object which already has the onclick and style set. Modify the code in the onlick of the button to do this rather than make a new tr object. Note that you will not be using `createElement()` anymore and you will be modifying the cells (td) in the copy of the tr and no longer creating them. Don't overthink this or write (or copy) a lot of code. You will find the code for this is shorter and simpler than the code you had before.
 
 Put your code or a link to the code in your repo here:
 ```
