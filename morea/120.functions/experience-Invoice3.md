@@ -8,7 +8,7 @@ morea_sort_order: 2
 morea_labels:
  - "WOD"
 morea_start_date: "2023-03-01"
-morea_end_date: "2023-03-06"
+morea_end_date: "2023-03-07"
 ---
 
 # Use functions and a running total algorithm to generate an invoice
