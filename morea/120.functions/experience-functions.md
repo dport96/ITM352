@@ -221,8 +221,9 @@ function download(url) {
         // script to download the picture here
         console.log(`Downloading ${url} ...`);
         picture_data = "image data:XOXOXO";
+        return picture_data;
     }, 3* 1000);
-    return picture_data;
+    
 }
 
 function process(picture) {
