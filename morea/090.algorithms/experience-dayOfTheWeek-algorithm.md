@@ -8,7 +8,7 @@ morea_sort_order: 1
 morea_labels:
  - WOD
 morea_start_date: "2023-03-08"
-morea_end_date: "2023-03-14"
+morea_end_date: "2023-03-21"
 ---
 
 # Implementing an algorithm to determine the day of the week from a date
@@ -77,7 +77,9 @@ morea_end_date: "2023-03-14"
 ### Here are the specifications:
 
  - Implement the above algorithm in JS to determine the day of the week for ANY date. Start by defining variables `day` for the day a number from 1-31, `month` for the month (a String) "January", "February", etc., `year` a number 1900-2099 for the year
- - Use your birth date as a test case. 
+ - Use your birth date as a **test case**. 
+ - Implement it in a general way that works for whatever is assigned to the variables day,month,year. No hard-coding of calculations or steps as in the lab exercise.
+ - **Do not** implement it as a series of steps `step1 = ...` as in the Lab exercise.
  - Use `parseInt()` or `Math.floor()` to get the divisor and drop the remainder 
  - To handle step 1 use `if` or a *ternary operator* 
  - Make an object `monthKey` from the month-key table and use it for Step 6

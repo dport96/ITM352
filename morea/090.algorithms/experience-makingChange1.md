@@ -8,7 +8,7 @@ morea_sort_order: 2
 morea_labels:
  - WOD
 morea_start_date: "2023-03-08"
-morea_end_date: "2023-03-14"
+morea_end_date: "2023-03-21"
 ---
 
 # Write a program to make change for a given amount using the modulus operator
