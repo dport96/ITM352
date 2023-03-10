@@ -7,7 +7,7 @@ morea_summary: "Using Javascript for web services"
 morea_sort_order: 4
 morea_labels:
  - Lab Lecture
-morea_start_date: "2022-10-18"
+morea_start_date: "2023-03-23"
 ---
 # Lab objectives
 - Learn to use the Express Framework
