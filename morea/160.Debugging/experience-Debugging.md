@@ -7,7 +7,7 @@ morea_summary: "Debugging Methodology and Methods"
 morea_sort_order: 1 
 morea_labels:
  - Lab Lecture
-morea_start_date: "2022-04-05"
+morea_start_date: "2023-04-04"
 ---
 
 ### Instructions: 
