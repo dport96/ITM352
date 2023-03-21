@@ -7,20 +7,20 @@ morea_summary: "How to Deploy and Submit Your Application"
 morea_sort_order: 4
 morea_labels:
  - Instructions
-morea_start_date: "2022-10-28"
+morea_start_date: "2023-04-06"
 ---
 
-**Submit to Laulima Assignment1 in the "assignment text" text area below a link to your code and any other necessary files (e.g. images) in your personal classwork GitHub repo.**
+Submit to Laulima Assignment1 in the "assignment text" text area below a link to your code and any other necessary files (e.g. images) in your personal classwork GitHub repo.
 
-**Also, you must "deploy" a working version to the class server itm-vm.shidler.hawaii.edu/itm352student in the following folder:**
+Also, you must "deploy" a working version to the class server itm-vm.shidler.hawaii.edu/itm352student in the following folder:
 
 **Assignment1**
 
-**You will need to upload (using Cyberduck or other SFTP utility) to this location. Put all your application code in a folder named <lastname>_<firstname>_Assignment1, For example, Port_Dan_Assignment1. Inside this folder, you must have a file with the exact name "server.js" that when run with node will server your application. Your server should be set to listen on port 8080 since this is the only port we can guarantee is not blocked.** 
+You will need to upload (using Cyberduck or other SFTP utility) to this location. Put all your application code in a folder named &lt;lastname&gt;_&lt;firstname&gt;_Assignment1, For example, Port_Dan_Assignment1. Inside this folder, you must have a file with the exact name "server.js" that when run with node will server your application. Your server should be set to listen on port 8080 since this is the only port we can guarantee is not blocked.
 
-**Provide a link to your home page that starts your application when your server is running on ITM-VM . The grader will use this link to test your application.**
+Provide a link to your home page that starts your application when your server is running on ITM-VM . The grader will use this link to test your application.
 
-**Copy and paste the following template into the submission box and replace the examples with your submission info:**
+Copy and paste the following template into the submission box and replace the examples with your submission info:
 
 <table class="MsoTableGrid" style="border-collapse:collapse; border:solid windowtext 1.0pt">
 	<tbody>
