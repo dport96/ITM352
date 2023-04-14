@@ -31,6 +31,10 @@ a) Use `require()` to load and parse `user_data.json` into an object and assign 
 
 b) Write a small program that uses `readFileSync(filename, 'utf-8')` to open and read this file and assign the return value to `data` use `JSON.parse()` to convert the JSON string into an object and assign it to `users_reg_data` variable and output this object to the console. Explain why you might use this was to load the data rather than `require()`. Don't forget to remove the `require()` statement used in (a). Hint: what if the data is not JSON?  
 
+c) CRUD stands for Create, Read, Update, and Delete, which are the four basic operations that can be performed on data in a database or a computer system. These operations are fundamental to file I/O. Explain what CRUD operations are needed and where they are needed in Assignment 1.
+
+d) Discuss how ease and efficiency of CRUD operations are affected by the format of the data in a file. For the format suggested here (JSON), explain the pros and cons of this data format.
+
 
 
 #### Exercise 2: Existence and Filesize (total 6 minutes)
@@ -41,7 +45,7 @@ b) (2 minutes) Modify program in part (a) to print out the size of your user_dat
 
 #### Exercise 3: Processing a login (4 minutes)
 
-a) Add the following to your program from #3
+a) Add the following to your program from #2
 ```Javascript
 var express = require('express');
 var app = express();
@@ -77,10 +81,10 @@ a) In your program just after you define the `users_reg_data` object, add a new 
 ```Javascript
 username = 'newuser';
 users_reg_data[username] = {};
-reg_data[username].password = 'newpass';
-reg_data[username].email = 'newuser@user.com';
+users_reg_data[username].password = 'newpass';
+users_reg_data[username].email = 'newuser@user.com';
 ```
-Now write the `reg_data` object to `user_data.json` using  `JSON.stringify()` and `fs.writeFileSync()`. Note this will overwrite the previous data in the file.
+Now after this code write the `users_reg_data` object to `user_data.json` using  `JSON.stringify()` and `fs.writeFileSync()`. Note this will overwrite the previous data in the file.
 
 a) Add the following to your program in (a):
 ```Javascript
@@ -107,7 +111,7 @@ app.get("/register", function (request, response) {
  ```
 Add code to the callback of `app.post("/register")` that adds the submitted form data to `users_reg_data` then saves this updated object to `user_data.json` using `JSON.stringify()` as you did in (a). Redirect to the login page when done and test that the new user can login.
 
-c) Add code callback of `app.post("/register")` that checks if the username does not exist and that the password and repeat_password match. If both are true, then save the new user info as in (b) above. If not, redirect to the register page. Hint: Put the code you wrote in (b) inside an if-statement.
+c) Add code in `app.post("/register")` that checks if the username does not exist in `users_reg_data` (it is suggested you use `users_reg_data.hasOwnProperty(username)`) and that the password and repeat_password match. If both are true, then save the new user info as in (b) above. If not, redirect to the register page. Hint: Put the code you wrote in (b) inside an if-statement.
 
 #### Bonus Extra Credit: 
 a) Make the login form "sticky" so when they redisplay the user does not have to re-enter their information. Do this either by (1) Making the login page use data in a query string to fill the form. (2) have the server add the data to the form when the page os generated
