@@ -200,9 +200,7 @@ See the Laulima assignment for details.
 *   Correct output
 *   Application starts with index.htm or index.php file
 *   No parse errors or warnings
-If working with a partner the following are also required:
+  
+***If working with a partner the following are also required:***
 *   Allows user to view and edit their registration data
 *   Implemented all IRs 
-  
-
-* * *
