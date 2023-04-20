@@ -102,9 +102,6 @@ The following input fields for the registration form are required, but you can a
 
 *   _Full Name_ The users full name. Should only allow letters. No more than 30 characters minimun of 2 characters.
 
-**Extra Credit:**
-Logged in users should be able to view edit their registration data. Edits must be validated before being saved.
-
 **Processing the registration**
 
 *   Again, decide whether to self-process or use a separate validation page.
@@ -125,6 +122,9 @@ _HINTS:_
 * There are a lot of data validation packages such as [https://validatejs.org/](https://validatejs.org/) that can be useful if you take the time to learn about them.
 
 * A tutorial with an example of validating registration form data can be found at [https://www.w3resource.com/javascript/form/javascript-sample-registration-form-validation.php](https://www.w3resource.com/javascript/form/javascript-sample-registration-form-validation.php)
+
+**Extra Credit:**
+Logged in users should be able to view edit their registration data. Edits must be validated before being saved. Notify the user that the update was successful and allow them to go back to the products page (or redirect them there after notification).
 
 (3-4) **Security**
 
