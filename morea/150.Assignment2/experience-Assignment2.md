@@ -102,8 +102,7 @@ The following input fields for the registration form are required, but you can a
 
 *   _Full Name_ The users full name. Should only allow letters. No more than 30 characters minimun of 2 characters.
 
-**Viewing and editing registration data** 
-
+**Extra Credit:**
 Logged in users should be able to view edit their registration data. Edits must be validated before being saved.
 
 **Processing the registration**
@@ -193,7 +192,6 @@ See the Laulima assignment for details.
 *   Redirects ONLY when registration was successful, not when registration failed
 *   email address registration check is case insensitive
 *   Password check is case sensitive
-*   Allows user to view and edit their registration data
 *   Covered all new requirements (login, registration, persistent data, personalization, security)
 *   Good user interface design – errors are descriptive and appear at error location, appropriate and pleasing GUI, appropriate use of HTML tables, uses CSS
 *   Modularization, things are organized into functions and separate files
@@ -202,6 +200,9 @@ See the Laulima assignment for details.
 *   Correct output
 *   Application starts with index.htm or index.php file
 *   No parse errors or warnings
+If working with a partner the following are also required:
+*   Allows user to view and edit their registration data
+*   Implemented all IRs 
   
 
 * * *
