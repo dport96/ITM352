@@ -12,6 +12,8 @@ morea_start_date: "2023-04-20"
 
 ### Instructions: 
 **YOU MUST SUBMIT YOUR ANSWERS TO THE EXERCISES ON THE LAULIMA ASSIGNMENT FOR THIS LAB**
+An introduction to cookies and sessions can be found at [ITM352_Cookies_Sessions.ppt](ITM352_Cookies_Sessions.ppt).
+
 
 #### Exercise 1: Cookie basics
 
