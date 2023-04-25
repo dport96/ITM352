@@ -102,10 +102,6 @@ The following input fields for the registration form are required, but you can a
 
 *   _Full Name_ The users full name. Should only allow letters. No more than 30 characters minimun of 2 characters.
 
-**Viewing and editing registration data** 
-
-Logged in users should be able to view edit their registration data. Edits must be validated before being saved.
-
 **Processing the registration**
 
 *   Again, decide whether to self-process or use a separate validation page.
@@ -126,6 +122,9 @@ _HINTS:_
 * There are a lot of data validation packages such as [https://validatejs.org/](https://validatejs.org/) that can be useful if you take the time to learn about them.
 
 * A tutorial with an example of validating registration form data can be found at [https://www.w3resource.com/javascript/form/javascript-sample-registration-form-validation.php](https://www.w3resource.com/javascript/form/javascript-sample-registration-form-validation.php)
+
+**Extra Credit:**
+Logged in users should be able to view edit their registration data. Edits must be validated before being saved. Notify the user that the update was successful and allow them to go back to the products page (or redirect them there after notification).
 
 (3-4) **Security**
 
@@ -158,7 +157,7 @@ _Think about:_
 #### Individual additional requirements:
 The following are additional requirements that will be assigned to you by the instructor or TA. Your assigned individual requirements are **not optional** and if not implemented, your assignment score will be severely penalized. You **may not copy** the implementation code from someone (or somewhere) else. You must design and write the code yourself. Copied code, referenced or not, will result in 0 for the entire assignment. If you are confused about the requirement or expectations, ask the instructor immediately. Once you submit your assignment, there are no excuses for not understanding the requirements and expectations. Code for your individual requirement **must** be generously commented. Clearly indicate in the these comments what your individual requirement is and how it is implemented. If you are working woith a partner you must implement **all** the individual requirements.
 
-* **IR1** Store passwords encrypted. When the user registers, encrypt their password before saving the registration data to the file. When a user logs in, encrypt the password they entered and compare it with the encrypted saved password. Do not decrypt the password. You may find the `crypt()` function helpful.
+* **IR1** Store passwords encrypted. When the user registers, encrypt their password before saving the registration data to the file. When a user logs in, encrypt the password they entered and compare it with the encrypted saved password. Do not decrypt the password. You may find the `crypto` library useful.
 * **IR2** Require that passwords have at least one number and one special character.
 * **IR3** When the user is registering, suggest a "strong" password that is 10 random characters inclusing numbers and special characters.  
 * **IR4** Keep track of the number of times a user logged in and the last time they logged in. When they login display this information.
@@ -193,7 +192,6 @@ See the Laulima assignment for details.
 *   Redirects ONLY when registration was successful, not when registration failed
 *   email address registration check is case insensitive
 *   Password check is case sensitive
-*   Allows user to view and edit their registration data
 *   Covered all new requirements (login, registration, persistent data, personalization, security)
 *   Good user interface design – errors are descriptive and appear at error location, appropriate and pleasing GUI, appropriate use of HTML tables, uses CSS
 *   Modularization, things are organized into functions and separate files
@@ -203,5 +201,6 @@ See the Laulima assignment for details.
 *   Application starts with index.htm or index.php file
 *   No parse errors or warnings
   
-
-* * *
+***If working with a partner the following are also required:***
+*   Allows user to view and edit their registration data
+*   Implemented all IRs 
