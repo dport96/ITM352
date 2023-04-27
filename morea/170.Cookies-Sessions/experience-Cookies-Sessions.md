@@ -73,11 +73,13 @@ d. Explain how you could use cookies to keep a user logged and how the server co
 
 a. (4 minutes) Modify the code you wrote in #2 to use `session.destroy()` at the bottom of use_session and re-load the page. What happened to the session id? 
 
-c. (4 minutes) Now request a login. What happened to the last login time?
+b. (4 minutes) Now request a login. What happened to the last login time?
+
+c. Rather than destroy the session, have the last login time "reset". Check that this works and the session remains. Explain why you mught do this rather than destroying the session.
 
 
-#### Exercise 5: Applying cookies and session (On your own)
-Let's say your e-commerce site has multiple product pages. 
+#### Exercise 5: Applying cookies and session (On your own, useful for the Assignment 3 Checkpoint)
+Let's say your e-commerce site has multiple product pages.  
 
 a. How can you use cookies to keep a user logged when moving back and forth between pages? How could you use cookies to handle security and personalization in Assignment #3?
 
