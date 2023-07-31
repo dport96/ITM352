@@ -7,7 +7,7 @@ morea_summary: "Learn About Processing Arrays and Multi-dimensional"
 morea_sort_order: 2
 morea_labels:
  - "Lab"
-morea_start_date: "2018-10-04"
+morea_start_date: "2019-05-16T00:00"
 ---
 
 # Watch the screencast before class!

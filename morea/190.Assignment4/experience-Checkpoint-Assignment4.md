@@ -7,7 +7,7 @@ morea_summary: "Progress check for Assignment 4"
 morea_sort_order: 3 
 morea_labels:
  - BLOG Entry
-morea_start_date: "2019-12-11T23:55"
+morea_start_date: "2020-07-22T23:55"
 ---
 
 ### Create a BLOG entry and answer the following:

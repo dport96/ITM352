@@ -7,7 +7,7 @@ morea_summary: "Develop a web page using Chrome Developer Tools."
 morea_sort_order: 5
 morea_labels:
  - Trial WOD
-morea_start_date: "2017-01-20"
+morea_start_date: "2017-09-01T00:00"
 ---
 
 For this WOD, you will split the one page, three column "History of Browsers" web page from BrowserHistory3 into four separate web pages: a front page with three browser icons which link to three other pages containing the history of those three browsers.

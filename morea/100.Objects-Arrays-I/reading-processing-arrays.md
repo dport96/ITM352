@@ -8,7 +8,7 @@ morea_sort_order: 3
 morea_labels:
  - Screencast 
  - 47 min
-morea_start_date: "2018-03-06T12:00"
+morea_start_date: "2018-10-16T12:00"
 ---
 
 # Watch the screencast before class!

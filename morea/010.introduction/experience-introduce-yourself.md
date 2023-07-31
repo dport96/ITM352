@@ -5,7 +5,7 @@ morea_id: experience-introduce-yourself
 morea_type: experience 
 morea_summary: "Post a message to the class discussion list about yourself"
 morea_sort_order: 1 
-morea_start_date: "2020-08-26T10:30"
+morea_start_date: "2021-04-07T10:30"
 morea_labels: 
 - BLOG
 ---

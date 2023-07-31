@@ -7,7 +7,7 @@ morea_type: reading
 morea_sort_order: 2
 morea_labels:
  - Reference
-morea_start_date: "2018-10-04T12:00"
+morea_start_date: "2019-05-16T12:00"
 ---
 
 # Functions that operate on ararys

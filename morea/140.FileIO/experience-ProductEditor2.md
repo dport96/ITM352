@@ -7,7 +7,7 @@ morea_summary: "Build a simple delete product information editor"
 morea_sort_order: 1 
 morea_labels:
  - "WOD"
-morea_start_date: "2016-04-07"
+morea_start_date: "2016-11-17T00:00"
 ---
 
 # Add delete product capability

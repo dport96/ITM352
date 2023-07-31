@@ -7,8 +7,8 @@ morea_summary: "Select from a table of Smartphone products and display order"
 morea_sort_order: 3 
 morea_labels:
  - WOD
-morea_start_date: "2023-03-22"
-morea_end_date: "2023-03-28"
+morea_start_date: "2023-11-01T00:00"
+morea_end_date: "2023-11-07T00:00"
 ---
 
 # Use HTML forms to select quantities from a table of Smart Phone products and display order

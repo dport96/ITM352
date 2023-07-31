@@ -7,7 +7,7 @@ morea_summary: "Using Javascript to process HTML forms"
 morea_sort_order: 4
 morea_labels:
  - Lab Lecture
-morea_start_date: "2023-03-09"
+morea_start_date: "2023-10-19T00:00"
 ---
 
 

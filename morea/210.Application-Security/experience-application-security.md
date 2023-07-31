@@ -7,7 +7,7 @@ morea_summary: "Security issues in web-applications"
 morea_sort_order: 1 
 morea_labels:
  - Lab Lecture
-morea_start_date: "2018-12-04"
+morea_start_date: "2019-07-16T00:00"
 ---
 
 ### Instructions: 

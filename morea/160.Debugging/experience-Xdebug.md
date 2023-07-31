@@ -7,7 +7,7 @@ morea_summary: "Using XDebug and VS Code"
 morea_sort_order: 1 
 morea_labels:
  - Tool Check
-morea_start_date: "2018-10-09T12:00"
+morea_start_date: "2019-05-21T12:00"
 ---
 
 ### Check that XDebug works in NetBeans

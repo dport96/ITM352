@@ -7,7 +7,7 @@ morea_type: reading
 morea_sort_order: 2
 morea_labels:
 - References
-morea_start_date: "2023-04-20T12:00"
+morea_start_date: "2023-11-30T12:00"
 ---
 # Review the following references:
  1. [Tutorials Point Cookies tutorial](https://www.tutorialspoint.com/expressjs/expressjs_cookies.htm)

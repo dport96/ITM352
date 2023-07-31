@@ -7,7 +7,7 @@ morea_type: reading
 morea_sort_order: 1
 morea_labels:
  - Short Articles
-morea_start_date: "2023-02-07T12:00"
+morea_start_date: "2023-09-19T12:00"
 ---
 
 # Read following the short tutorials before class:

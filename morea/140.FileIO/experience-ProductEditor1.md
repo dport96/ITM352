@@ -7,8 +7,8 @@ morea_summary: "Build a simple product information editor"
 morea_sort_order: 1 
 morea_labels:
  - "WOD"
-morea_start_date: "2018-10-31"
-morea_end_date: "2018-11-06"
+morea_start_date: "2019-06-12T00:00"
+morea_end_date: "2019-06-18T00:00"
 ---
 
 # Load and edit product data from a table of Smart Phone products

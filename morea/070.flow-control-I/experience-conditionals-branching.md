@@ -7,7 +7,7 @@ morea_summary: "Learn about conditional expressions and if-statements"
 morea_sort_order: 1 
 morea_labels:
  - "Lecture Lab"
-morea_start_date: "2023-02-07"
+morea_start_date: "2023-09-19T00:00"
 ---
 # Lab objectives
 - Know what conditional expressions are

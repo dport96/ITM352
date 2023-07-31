@@ -7,7 +7,7 @@ morea_summary: "Learn about HTML form elements and processing with Javascript"
 morea_sort_order: 1 
 morea_labels:
   - Screencast Lecture [50 min]
-morea_start_date: "2023-03-09T12:00"
+morea_start_date: "2023-10-19T12:00"
 ---
 # Simple Objects and Arrays
 This lecture will introduce you to HTML form elements and processing with Javascript.

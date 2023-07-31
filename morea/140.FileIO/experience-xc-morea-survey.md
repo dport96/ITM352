@@ -3,7 +3,7 @@ title: "XC: Take Morea survey"
 published: true
 morea_id: experience-xc-morea-survey
 morea_type: experience
-morea_start_date: "2015-11-06T23:59"
+morea_start_date: "2016-06-17T23:59"
 morea_summary: "Get extra credit for completing a brief survey about this website"
 morea_sort_order: 1
 morea_labels:
