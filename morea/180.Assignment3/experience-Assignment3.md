@@ -8,7 +8,7 @@ morea_sort_order: 3
 morea_labels:
  - Assignment
 morea_start_date: "2023-12-01T00:00"
-morea_end_date: "2023-12-23T00:00"
+morea_end_date: "2023-12-15T00:00"
 ---
 
 # Assignment 3: Adding Sessions to your e-Commerce Web-site
