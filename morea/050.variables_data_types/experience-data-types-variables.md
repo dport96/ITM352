@@ -45,7 +45,7 @@ undefined
 null
 ```
 
-Can you name one data type that is not in the above?
+Can you name **two** data types not in the above? Hint: it's not `function`
 ```
 
 ```
