@@ -85,6 +85,12 @@ This assignment must be completed by the *first week of class*. To submit and re
 {% assign semester = "Fall " %}
 {% endif %}
 {% assign year = "now" | date: "%Y" %}
+<script>
+
+members_div.innerHTML += '{{ semester | append: year | append: " Students:&quot;" }}';
+
+</script>
+
 
 Insert a new line at the **end** of the appropriate section (e.g. &quot;{{ semester | append: year | append: " Students:&quot;" }} ) to include your own url that points to your portfolio. Be sure to start the new line with a `-` and then a space. Take care not change any other lines. If there are no lines in your section, you are the first! If there is no appropriate section, you can add it (just use the same format at the other sections).
 
