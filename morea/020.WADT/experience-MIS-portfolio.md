@@ -87,7 +87,7 @@ This assignment must be completed by the *first week of class*. To submit and re
 {% assign year = "now" | date: "%Y" %}
 <script>
 
-members_div.innerHTML += '{{ semester | append: year | append: " Students:&quot;" }}';
+members_div.innerHTML += '<br># Students here:<br>&quot;{{ semester | append: year | append: " Students:&quot;" }}';
 
 </script>
 
