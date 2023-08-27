@@ -62,19 +62,6 @@ This assignment must be completed by the *first week of class*. To submit and re
 <code>
 <div id="members_div" class="s">xxx</div>
 </code></pre></div></div>
-<script>
-  function getPosition(string, subString, index) {
-  return string.split(subString, index).join(subString).length;
-}
-  async function getMembers() { 
-    const url1 = 'https://raw.githubusercontent.com/dport96/mis-portfolios/master/_data/members.yml'
-    const response = await fetch(url1);
-    const data = await response.text();
-    let i = getPosition(data,"-",10)
-    members_div.innerHTML = data.substring(0,i-1).replace(/\n/g, "<br />");
-  }
-  getMembers();
-</script>
 
 {% assign month =  "now" | date: "%-m" | times: 1 %}
 {% if month <= 5 %}
@@ -85,12 +72,21 @@ This assignment must be completed by the *first week of class*. To submit and re
 {% assign semester = "Fall " %}
 {% endif %}
 {% assign year = "now" | date: "%Y" %}
+
 <script>
-
-members_div.innerHTML += '<br># Students here:<br>&quot;{{ semester | append: year | append: " Students:&quot;" }}';
-
+  function getPosition(string, subString, index) {
+  return string.split(subString, index).join(subString).length;
+}
+  async function getMembers() { 
+    const url1 = 'https://raw.githubusercontent.com/dport96/mis-portfolios/master/_data/members.yml'
+    const response = await fetch(url1);
+    const data = await response.text();
+    let i = getPosition(data,"-",10)
+    members_div.innerHTML = data.substring(0,i-1).replace(/\n/g, "<br />");
+    members_div.innerHTML += '<br># Students here:<br>&quot;{{ semester | append: year | append: " Students:&quot;" }}';
+  }
+  getMembers();
 </script>
-
 
 Insert a new line at the **end** of the appropriate section (e.g. &quot;{{ semester | append: year | append: " Students:&quot;" }} ) to include your own url that points to your portfolio. Be sure to start the new line with a `-` and then a space. Take care not change any other lines. If there are no lines in your section, you are the first! If there is no appropriate section, you can add it (just use the same format at the other sections).
 
