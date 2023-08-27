@@ -84,7 +84,7 @@ This assignment must be completed by the *first week of class*. To submit and re
     const srchStre = "# Students here";
     let i = data.indexOf(srchStre) + srchStre.length + 1;
     members_div.innerHTML = data.substring(0,i-1).replace(/\n/g, "<br />");
-    members_div.innerHTML += '<br>&quot;{{ semester | append: year | append: " Students:&quot;" }}';
+    members_div.innerHTML += '<br>&quot;{{ semester | append: year | append: " Students:&quot;" }}<br><mark>PUT YOUR PORTFOLIO URL HERE</MARK>'<br>   - student.github.io;
   }
   getMembers();
 </script>
