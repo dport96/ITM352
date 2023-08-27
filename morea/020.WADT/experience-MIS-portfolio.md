@@ -57,6 +57,12 @@ This assignment must be completed by the *first week of class*. To submit and re
 **A.** Go to [https://github.com/dport96/mis-portfolios](https://github.com/dport96/mis-portfolios).
 
 **B.** Scroll down to the folder named _data and click on it. Then scroll to the file "members.yml". Click on that file name to display its contents. Click on the pencil button on the top right of the screen to bring up a browser-based editor with the contents of the file. The top section will look like this:
+<style>
+  code mark {
+    background-color: yellow;
+    font-weight: bold;
+  }
+</style>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight">
 <code>
