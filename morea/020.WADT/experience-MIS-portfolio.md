@@ -81,7 +81,8 @@ This assignment must be completed by the *first week of class*. To submit and re
     const url1 = 'https://raw.githubusercontent.com/dport96/mis-portfolios/master/_data/members.yml'
     const response = await fetch(url1);
     const data = await response.text();
-    let i = getPosition(data,"-",10)
+    const srchStre = "# Students here";
+    let i = data.indexOf(srchStre) + srchStre.length + 1;
     members_div.innerHTML = data.substring(0,i-1).replace(/\n/g, "<br />");
     members_div.innerHTML += '<br># Students here:<br>&quot;{{ semester | append: year | append: " Students:&quot;" }}';
   }
