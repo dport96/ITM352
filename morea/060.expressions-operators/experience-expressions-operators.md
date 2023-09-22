@@ -92,7 +92,7 @@ d) Now use the `++` operator on `hit_span.innerHTML` and `spin_span.innerHTML`. 
 ```
 
 #### Exercise #4:     Assignment operators 
-
+In `SmartPhoneProducts1_3`:
 
 a. Use the `+=` assignment operator on `hit_span.innerHTML` to increase the hits by 2 whenever there is an `onclick`. Explain why this doesn't work and show how to fix it:
 ```
@@ -115,20 +115,21 @@ a)  Write a Javascript statement that assigns the expression `hits_span.innerHTM
 ```
 
 #### Exercise 6: Formatting floats 
-
-Use the `toFixed()` method for a `Number` to format the `hits`/`spins` for `hit_spin_span` to 2 decimal points. You can use this on the expression directly and do not need to create a new variable. Explain why the result is a `String` and put your code here:
+In `SmartPhoneProducts1_3` use the `toFixed()` method for a `Number` to format the `hits`/`spins` for `hit_spin_span` to 2 decimal points. You can use this on the expression directly and do not need to create a new variable. Explain why the result is a `String` and put your code here:
 ```
 
 ```
 
 #### Exercise 7 (on your own):    String expressions 
+In `SmartPhoneProducts1_3`:
+
 a. Create variables `first_name` and `last_name` and assign your first and last name to these. Create a string expression via concatenation where your first name is **Bold** and your last name is in *italics* and both are in a <font size="200%">VERY LARGE</font> font. Use this expression where you display your name in the `<header>`. For example:
-<center>
+<div style="text-align: center">
 <span style="font-size: 600%;"> 
 <b>Dan</b><i> Port</i>'s
 </span>
 <h1>Used Smart Phone Store</h1>
-</center>
+</div>
 
 b. Use a **string template** to output a 2-column HTML table in the `<footer>` that looks like this:
 
@@ -139,7 +140,7 @@ b. Use a **string template** to output a 2-column HTML table in the `<footer>` t
     <tr><td>3.</td><td>11:15 AM</td></tr>
 </table>
 
-Start by inspect this page source and find the `<table>` above and copy the HTML table source and use `document.write()` to output this as a string template using backticks `\`` rather than quotes. 
+Start by inspecting this page source and find the `<table>` above and copy the HTML table source and use `document.write()` to output this as a string template using backticks `\`` rather than quotes. 
 
 
 In the table header for this string, replace `D.P.` with `${}` and put inside an expression that uses `[]`'s with `first_name` and `last_name` to create an expression to to display your initials ad `Your One Stop For Used Phones - <initials>'s`. Include periods after each initial and an 's after. 
