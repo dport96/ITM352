@@ -22,7 +22,7 @@ In this WOD you want enable the invoice to generate the table of items from an a
    
 4. Move the tax, shipping, and grand total calculations to just after the **last** product row is output. Leave the extended price and subtotal calculation where they are. Check that the table looks the same. 
 
-5. Delete the extended price calculations. Replace the subtotal calculation with `var subtotal = 0`.
+5. Delete the extended price calculations. Replace the subtotal calculation with `let subtotal = 0`.
 
 6. At the **top** of the file, define a function with **interface** *void* generate_item_rows(*array* product_quantities_array). This is the documentation of the fucntion. Do not litertally use this as code! 
 

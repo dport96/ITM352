@@ -69,7 +69,7 @@ alert('done!');
     }
 
     function program() {
-        var program_text = document.getElementById("program_textarea").value;
+        let program_text = document.getElementById("program_textarea").value;
         // add delays for move and rotate
         program_text = program_text.replace(/controller\.move\(\);/g, 'controller.move();await sleep(200);');
         program_text = program_text.replace(/controller\.rotate\(\);/g, 'controller.rotate();await sleep(200);');

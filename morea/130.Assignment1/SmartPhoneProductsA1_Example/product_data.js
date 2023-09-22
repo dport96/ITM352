@@ -1,5 +1,5 @@
 
-var products = 
+let products = 
 [
     {
     "brand": "HTC",

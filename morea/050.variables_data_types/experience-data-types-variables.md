@@ -55,7 +55,7 @@ How and where you declare a variable will affect 'scope' which is something we w
 
 ##### Using SmartPhoneProducts1_2
 
-a. In the `<head>` define a constant `store_name` and assign the string \<your full name\>. Load the page and explain what you get when you `typeof store_name` in the console. Explain why you get an error when you try `store_name = "xxx";`. What about `var store_name = "xxx";`? Explain why this is useful.
+a. In the `<head>` define a constant `store_name` and assign the string \<your full name\>. Load the page and explain what you get when you `typeof store_name` in the console. Explain why you get an error when you try `store_name = "xxx";`. What about `let store_name = "xxx";`? Explain why this is useful.
 ```
 
 ```

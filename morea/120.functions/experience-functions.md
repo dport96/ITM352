@@ -38,7 +38,7 @@ a. Name three functions that we have used in class thus far and give an example 
 
 3)
 
-b. For your example function (1) above, in the browser consol or using `node -i`, just type the function name and explain what output you get and why. Assign the function to the variable `xxx` and show how you would use this variable in your example for (1) rather than the function name. Why does this work and explain what the `()` operator does.
+b. For your example function (1) above, in the browser console or using `node -i`, just type the function name and explain what output you get and why. Assign the function to the variable `xxx` and show how you would use this variable in your example for (1) rather than the function name. Why does this work and explain what the `()` operator does.
 ```
 
 

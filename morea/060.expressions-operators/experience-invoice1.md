@@ -79,9 +79,9 @@ Tasks:
 1. Under the comment form above, add a single line comment `// Product Data` then underneath define varaibles for just one product:
 ```Javascript
         // Product 1
-        var item1 = 'Gillette Sensor 3 Razor';
-        var quantity1 = 2;
-        var price1 = 1.23;
+        let item1 = 'Gillette Sensor 3 Razor';
+        let quantity1 = 2;
+        let price1 = 1.23;
 ```
 Copy this and paste it 4 times. Change the variable names `item2, item3, ...` and corresponding values.
 
@@ -102,7 +102,7 @@ Option 1: Put the row template into a `document.write()` then string templates t
 Option 2: Add an `id="invoiceTable"` to the table. Remove the product row template. In its place use 
 ```Javascript
     // item row 1
-   var row = invoiceTable.insertRow();
+   let row = invoiceTable.insertRow();
    row.insertCell().innerHTML = item1; 
    row.insertCell().innerHTML = quantity1;
    row.insertCell().innerHTML = price1.toFixed(2);

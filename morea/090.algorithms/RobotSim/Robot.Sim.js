@@ -1,4 +1,4 @@
-var model = {
+let model = {
     currentRobot: null,
     init: {
         x: 0,
@@ -7,7 +7,7 @@ var model = {
     }
 };
 
-var controller = {
+let controller = {
     init: function () {
         model.currentRobot = model.init;
 
@@ -30,11 +30,11 @@ var controller = {
     /*         the following are command functions
      /* --------------------------------------------------- */
     block: function (cmd) {
-        var newPos = cmd.split(","); // get x y f from the command
+        let newPos = cmd.split(","); // get x y f from the command
         if (newPos.length < 2) {
             this.printErrors("incorrect location");
         } else {
-            var newBlockX = parseInt(newPos[0].trim()),
+            let newBlockX = parseInt(newPos[0].trim()),
                 newBlockY = parseInt(newPos[1].trim());
 
             if (canvasView.validateBound(newBlockX, "maxX")
@@ -48,11 +48,11 @@ var controller = {
         }
     },
     place: function (cmd) {
-        var newPos = cmd.split(","); // get x y f from the command
+        let newPos = cmd.split(","); // get x y f from the command
         if (newPos.length < 3) {
             this.printErrors("incorrect position / direction");
         } else {
-            var newX = parseInt(newPos[0].trim()),
+            let newX = parseInt(newPos[0].trim()),
                 newY = parseInt(newPos[1].trim()),
                 newF = newPos[2].trim().toLowerCase();
 
@@ -74,13 +74,13 @@ var controller = {
         }
     },
     move: function () {
-        var currentRobot = this.getCurrentRobot(),
+        let currentRobot = this.getCurrentRobot(),
             newRobot = {
                 x: currentRobot.x,
                 y: currentRobot.y,
                 f: currentRobot.f
             };
-        var success = false;
+        let success = false;
 
         switch (currentRobot.f) {
             case "north":
@@ -137,7 +137,7 @@ var controller = {
     rotate: function (clockwise = true) {
         this.clearOriginalRobot();
 
-        var currentRobot = this.getCurrentRobot(),
+        let currentRobot = this.getCurrentRobot(),
             originalFacing = currentRobot.f,
             originalFacingIndex = canvasView.robotFacing.indexOf(originalFacing),
             newFacingIndex,
@@ -167,7 +167,7 @@ var controller = {
         canvasView.renderRobot();
     },
     clearOriginalRobot: function () {
-        var origRobot = this.getCurrentRobot();
+        let origRobot = this.getCurrentRobot();
         canvasView.clearOriginalRobot(origRobot.x, origRobot.y); // clear the original robot first
     },
     /* --------------------------------------------------- */
@@ -185,7 +185,7 @@ var controller = {
     }
 };
 
-var inputView = {
+let inputView = {
     init: function () {
         this.commandBox = document.getElementById('command');
 
@@ -209,7 +209,7 @@ var inputView = {
 
         controller.resetContents(); // remove previous status and errors
 
-        var self = this,
+        let self = this,
             sanitizedValue = value.trim().toLocaleLowerCase(),
             sanitizedValueArray = sanitizedValue.split(' '),
             firstWordEntered = sanitizedValueArray.splice(0, 1)[0];
@@ -222,7 +222,7 @@ var inputView = {
     }
 };
 
-var canvasView = {
+let canvasView = {
     init: function () {
         this.maxX = 5; // x total
         this.maxY = 5; // y total
@@ -243,23 +243,23 @@ var canvasView = {
         this.renderControls();
     },
     renderControls: function () {
-        var self = this;
+        let self = this;
 
         this.resetButton.addEventListener('click', function () {
             controller.reset();
         });
     },
     renderCanvas: function () {
-        for (var x = 0; x < (this.maxX + 1); x++) { // draw 6 lines
-            var currentAxisX = this.xStart + x * this.squareSize;
+        for (let x = 0; x < (this.maxX + 1); x++) { // draw 6 lines
+            let currentAxisX = this.xStart + x * this.squareSize;
             this.context.moveTo(currentAxisX, this.yStart);
             this.context.lineTo(currentAxisX, this.yEnd);
 
             this.context.strokeText(x, currentAxisX + 50, this.yEnd + 20); // mark x index
         }
 
-        for (var y = 0; y < (this.maxY + 1); y++) {
-            var currentAxisY = this.yStart + y * this.squareSize;
+        for (let y = 0; y < (this.maxY + 1); y++) {
+            let currentAxisY = this.yStart + y * this.squareSize;
             this.context.moveTo(this.xStart, currentAxisY);
             this.context.lineTo(this.xEnd, currentAxisY);
 
@@ -307,16 +307,16 @@ var canvasView = {
         }
     },
     clearOriginalRobot: function (origX, origY) {
-        var axisX = origX * 100 + 51; // left most point of the current grid deduct stroke width
-        var axisY = (this.maxY - origY) * 100 - 49; // top most point of the current grid deduct stroke width
+        let axisX = origX * 100 + 51; // left most point of the current grid deduct stroke width
+        let axisY = (this.maxY - origY) * 100 - 49; // top most point of the current grid deduct stroke width
         this.context.clearRect(axisX, axisY, 98, 98);
     },
     renderRobot: function () {
-        var robot = controller.getCurrentRobot(),
+        let robot = controller.getCurrentRobot(),
             robotAxisX = (robot.x + 1) * 100, // the center of the destination grid horizontally
             robotAxisY = (this.maxY - robot.y) * 100; // the center of the destination grid vertically
 
-        var path = new Path2D();
+        let path = new Path2D();
         this.context.beginPath();
         switch (robot.f) {
             case "north":
@@ -370,13 +370,13 @@ var canvasView = {
     }
 };
 
-var reportView = {
+let reportView = {
     init: function () {
         //        this.errorMessageEle = document.getElementById("error");
         this.reportMessageEle = document.getElementById("report");
     },
     renderReport: function () {
-        var currentRobot = controller.getCurrentRobot();
+        let currentRobot = controller.getCurrentRobot();
         this.reportMessageEle.innerHTML = '<span>' + 'Axis X: ' + currentRobot.x + '</span>' +
             '<span>' + 'Axis Y: ' + currentRobot.y + '</span>' +
             '<span>' + 'Facing: ' + currentRobot.f + '</span>';

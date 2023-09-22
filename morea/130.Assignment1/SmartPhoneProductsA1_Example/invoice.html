@@ -1,7 +1,7 @@
 <script src="https://dport96.github.io/ITM352/morea/130.Assignment1/SmartPhoneProductsA1_Example/product_data.js" type="text/javascript"></script>
 <script>
   let params = (new URL(document.location)).searchParams;
-  var quantities = [];
+  let quantities = [];
   // form was submitted so process the invoice
   if (params.has('purchase_submit')) {
     for (i = 0; i < products.length; i++) {
@@ -59,8 +59,8 @@
           }
         }
         // Compute tax
-        var tax_rate = 0.0575;
-        var tax = tax_rate * subtotal;
+        let tax_rate = 0.0575;
+        let tax = tax_rate * subtotal;
 
         // Compute shipping
         if (subtotal <= 50) {
@@ -74,7 +74,7 @@
         }
 
         // Compute grand total
-        var total = subtotal + tax + shipping;
+        let total = subtotal + tax + shipping;
       </script>
       <tr>
         <td colspan="4" width="100%">&nbsp;</td>

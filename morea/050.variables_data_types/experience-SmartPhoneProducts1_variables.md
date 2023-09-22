@@ -19,25 +19,25 @@ The goal of the WOD is to use variables to eliminate hard-coding the information
 
 2. In `products_display.html` add the following variables to the `<head>` to serve as the product data:
 ```Javascript
-        var name1 = "HTC";
-        var price1 = 40.00;
-        var image1 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg";
+        let name1 = "HTC";
+        let price1 = 40.00;
+        let image1 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg";
 
-        var name2 = "Apple";
-        var price2 = 75.00;
-        var image2 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg";
+        let name2 = "Apple";
+        let price2 = 75.00;
+        let image2 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg";
 
-        var name3 = "Nokia";
-        var price3 = 35.00;
-        var image3 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Nokia.jpg";
+        let name3 = "Nokia";
+        let price3 = 35.00;
+        let image3 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Nokia.jpg";
 
-        var name4 = "Samsung";
-        var price4 = 45.00;
-        var image4 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Samsung.jpg";
+        let name4 = "Samsung";
+        let price4 = 45.00;
+        let image4 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Samsung.jpg";
 
-        var name5 = "Blackberry";
-        var price5 = 10.00;
-        var image5 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg";
+        let name5 = "Blackberry";
+        let price5 = 10.00;
+        let image5 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg";
 ```
 
 3. Find all the `<h2>` elements and replace them with `<h2><script>document.write(name1)</script></h2>`. It is suggested you find the elements using the regEx `<h2>.*</h2>`
