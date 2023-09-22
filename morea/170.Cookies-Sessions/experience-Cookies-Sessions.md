@@ -19,7 +19,7 @@ An introduction to cookies and sessions can be found at [ITM352_Cookies_Sessions
 
 a. (5 minutes) Copy the server and registration_data.json from Lab 14 and rename it ex1.js. Install the cookie-parser middleware (use npm install). Put at the top
 ```Javascript
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 ```
  Add a route to handle a GET to `set_cookie` and have it send a cookie with data `<your name>`. Create another route to handle a GET to `use_cookie` that tests if the cookie exists and responds with `Welcome to the Use Cookie page <your name>` from its information when it does. Test this. Stop the server and restart. Try requesting `use_cookie` again. Why is the name information still there?  
@@ -42,7 +42,7 @@ c. (3 minutes) Modify `set_cookie` in (a) to set a cookie that expires in 5 seco
 
 a. (5 minutes) Save a copy of ex1.js as ex2.js. Install the express-session middelware. Add the following to load the middleware:
 ```Javascript
-var session = require('express-session');
+const session = require('express-session');
 
 app.use(session({secret: "MySecretKey", resave: true, saveUninitialized: true}));
 ```

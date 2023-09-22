@@ -20,10 +20,10 @@ in your assignment but please do give a reference to what you use.
 #### This is an example server that produces a login form and when submitted check if the password for username matches. The login information is taken from `request.body` which mean it could have come form a FORM post. User data is simply stored as an object the usernames converted to lowercase as keys. This example also illustrates one way to do a case-insensitive check of the username for logging in.   
 
 {% highlight javascript %}
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
-var users_reg_data = 
+let users_reg_data = 
 {
 "dport": {"password": "portpass"},
 "kazman": {"password": "kazpass"}
@@ -61,7 +61,7 @@ app.post("/login", function (request, response) {
     response.send(`${the_username} does not exist`);
 });
 
-var listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
+let listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
 {% endhighlight %}
 
 ### Reading and writing user info to a JSON file (FileIO example1).
@@ -69,20 +69,20 @@ var listener = app.listen(8080, () => { console.log('server started listening on
 #### It will create a new user data file if one doesn't exist. If there is a userdata file, it will a new user information object so long as the username is not already registered (case insensitive). It will also check if a username was entered and if the password and password repeat entered are the same. If there are errors, it will go back to the register page and show the errors where they occur. The data file is not easily edited by humans because it is in JSON. Also all the user data must be loaded or written at once which could be slow if you have a lot of users!
 
 {% highlight javascript %}
-var express = require('express');
-var app = express();
-var fs = require('fs');
+const express = require('express');
+const app = express();
+const fs = require('fs');
 
-var errors = {}; // keep errors on server to share with registration page
+let errors = {}; // keep errors on server to share with registration page
 
 app.use(express.urlencoded({extended:true}));
 
 // user info JSON file
-var filename = "./user_info.json";
+let filename = "./user_info.json";
 
 
 if (fs.existsSync(filename)) {
-    var stats = fs.statSync(filename);
+    let stats = fs.statSync(filename);
     data = fs.readFileSync(filename, 'utf-8');
     users_reg_data = JSON.parse(data);
 } else {
@@ -138,7 +138,7 @@ app.post("/register", function (request, response) {
     }
 });
 
-var listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
+let listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
 
 {% endhighlight %}
 
@@ -149,15 +149,15 @@ var listener = app.listen(8080, () => { console.log('server started listening on
 
 ```Javascript
 const fs = require('fs');
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 // get entire file as array of lines of user info data
-var filename = "./user_info.dat";
+let filename = "./user_info.dat";
 if (fs.existsSync(filename)) {
     data = fs.readFileSync(filename, 'utf-8');
     // split data by new line
-    var lines = data.split(/\r?\n/);
+    let lines = data.split(/\r?\n/);
 
 } else {
     console.log(filename + ' does not exist!');
@@ -185,7 +185,7 @@ app.post("/login", function (request, response) {
     // Process login form POST and redirect to logged in page if ok, back to login page if not
     the_username = request.body['username'].toLowerCase();
     the_password = request.body['password'];
-    var user_info = get_user_info(the_username);
+    let user_info = get_user_info(the_username);
     console.log(user_info);
     if (typeof user_info != 'undefined') {
         if (
@@ -200,12 +200,12 @@ app.post("/login", function (request, response) {
     response.send(`${the_username} does not exist`);
 });
 
-var listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
+let listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
 
 function get_user_info(a_username) {
     // go through lines and look for username. If found, returns object with user data, otherwise returns undefined.
     // Format is assumed to be username;password;fullname
-    var user_data = undefined;
+    let user_data = undefined;
     for(i in lines) {
         let user_data_array = lines[i].split(';');
         if(user_data_array[0] == a_username) { // found it!
@@ -235,12 +235,12 @@ One problem in Assignment 2 is that you have form data in the products page that
 Here is an example of using a query string:
 ```Javascript
 const { concatSeries } = require('async');
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 app.use(express.urlencoded({extended:true}));
 
-var users_reg_data = 
+let users_reg_data = 
 {
 "dport": {"password": "portpass"},
 "kazman": {"password": "kazpass"}
@@ -303,18 +303,18 @@ app.post("/login", function (request, response) {
     response.send(`${the_username} does not exist`);
 });
 
-var listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
+let listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
 ```
 
 Here is an example of using a variable on the server. This is a very simple approach but has the problem that it does not associate the quantity form data with a particular user so it's possible that the invoice for a given user will not match with the quantity form that user posted. It could be overwritten if another quantity form is submitted before the user logs in and goes to the invoice. This problem is solved by using sessions which will be discussed in a upcoming Lab.
 
 ```Javascript
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 app.use(express.urlencoded({extended:true}));
 
-var users_reg_data = 
+let users_reg_data = 
 {
 "dport": {"password": "portpass"},
 "kazman": {"password": "kazpass"}
@@ -378,5 +378,5 @@ app.post("/login", function (request, response) {
     response.send(`${the_username} does not exist`);
 });
 
-var listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
+let listener = app.listen(8080, () => { console.log('server started listening on port ' + listener.address().port) });
 ```

@@ -144,9 +144,9 @@ For convenience and speed we will test applications on our own machine before de
   - Create a new file in VS Code, name it "server.js" and add the following code
   
 ```Javascript
-var argv = require('minimist')(process.argv.slice(2));
-var express = require('express');
-var app = express();
+const argv = require('minimist')(process.argv.slice(2));
+const express = require('express');
+const app = express();
 app.all('*', function (request, response, next) {
     console.log(request.method + ' to path ' + request.path);
     next();

@@ -78,7 +78,7 @@ Continuing with cell phone example, you would make a JSON array that holds all o
   }
 ]
 ```
- Save the JSON array in a file, say `products.json` and then load it at the top of `server.js`  using `var products_array = require(__dirname + '/product_data.json');` 
+ Save the JSON array in a file, say `products.json` and then load it at the top of `server.js`  using `const products_array = require(__dirname + '/product_data.json');` 
  
  This will load your products information into the server memory and you can use it in your client requests for validating data and sharing products information between pages.
 
@@ -96,8 +96,8 @@ Continuing with cell phone example, you would make a JSON array that holds all o
 
 Use this for a start on your `server.js` file:
 ```Javascript
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 // Routing 
 

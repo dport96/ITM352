@@ -29,7 +29,7 @@ Copy code and submit your answers on Laulima
 Create a Lab12 folder in your repo and a new file SimpleServer.js and copy the following into this file:
 
 ```Javascript
-var http = require('http');
+const http = require('http');
 
 //create a server object:
 http.createServer(function (req, res) {
@@ -59,8 +59,8 @@ d) Change `Date.now()` to `Date()`. Save the file and refresh the browser. Why d
 
 a. To do server side processing for a Web application we must set up the server to handle any request. Express makes setting up a web server for a web application easy. Install Express using `npm install express` in your terminal. Let's start things by setting up a server that will respond to any HTTP request by sending back the type of request and the URL path from the request. Put the following code in a file called `info_server_Ex2a.js`:
 ```Javascript 
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 app.all('*', function (request, response, next) {
     response.send(request.method + ' to path ' + request.path);
 });
@@ -106,7 +106,7 @@ Congratulations! You have just done server-side processing of a POST from a web 
 
 b. In `info_server_Ex3.js` delete the `response.send(request.body);` statement and replace with:
 ```Javascript
-    var q = request.body['quantity_textbox'];
+    let q = request.body['quantity_textbox'];
     if (typeof q != 'undefined') {
     response.send(`Thank you for purchasing ${q} things!`);
     } 
@@ -126,11 +126,11 @@ a. [Shared data micro-service] You often have to use the same data in multiple p
 
 After `app.all()` in `info_server_Ex4.js` put 
 ```Javascript
-var products = require(__dirname + '/product_data.json');
+const products = require(__dirname + '/product_data.json');
 
 app.get("/product_data.js", function (request, response, next) {
    response.type('.js');
-   var products_str = `var products = ${JSON.stringify(products)};`;
+   let products_str = `var products = ${JSON.stringify(products)};`;
    response.send(products_str);
 });
 ``` 
@@ -168,7 +168,7 @@ There are often times you will want to pass data from the server to a client. Un
 Make a copy of `info_server_Ex4.js` and name it `info_server_Ex5.js`. Start by copying the code in the route for `process_form` on your server that generates the receipt (including the `isNonNegInt` function) into a new file `receipt.html` and put this in the `public` directory (you may also use your invoice page for Assignment 1 or `invoice.html` from the Store1 WOD). At the top of this file load the `products` data as done in `order_page.html` and also add the code:
 ```Javascript
         let params = (new URL(document.location)).searchParams;
-        var q = params.get('quantity');
+        let q = params.get('quantity');
 ```
 This code will read the query string and place the keys and values into a URLSearchParams object (`params`) for easy access to the data in the query string. Now remove any use of `request` (you are on the client now so this is not defined) and replace all uses of `response` with `document.write` (again, you are on the client which is the receiver of a response). Remove the code that increases the `total_sold` (yup, this is a server side thing and cannot be done in the client).
 

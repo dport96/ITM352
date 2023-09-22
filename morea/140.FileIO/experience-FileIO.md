@@ -47,8 +47,8 @@ b) (2 minutes) Modify program in part (a) to print out the size of your user_dat
 
 a) Add the following to your program from #2
 ```Javascript
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 
 app.use(express.urlencoded({ extended: true }));

@@ -48,7 +48,7 @@ What is "server side" processing mean? How can this make web pages dynamic?
 Create a Lab4 folder in your repo and a new file `Ex2.js` and copy the following into this file:
 
 ```javascript
-var http = require('http');
+const http = require('http');
 
 //create a server object:
 http.createServer(function (req, res) {

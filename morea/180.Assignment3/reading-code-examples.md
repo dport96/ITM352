@@ -75,7 +75,7 @@ in your assignment but _**please do give a reference**_ to what you use.
 {% highlight javascript %}
 // This function asks the server for a "service" and converts the response to text. 
 function loadJSON(service, callback) {   
-    var xobj = new XMLHttpRequest();
+    let xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
     xobj.open('POST', service, false);
     xobj.onreadystatechange = function () {
@@ -108,7 +108,7 @@ loadJSON('get_products_data', function(response) {
      // Parsing JSON string into object
      products_data = JSON.parse(response);
 });
-var this_product_key = ''
+let this_product_key = ''
 </script>
 </head>
 <body>
@@ -129,7 +129,7 @@ var this_product_key = ''
         // get the query string
         let params = (new URL(document.location)).searchParams;
         if (params.has('products_key')) {
-            var products_key = params.get('products_key');
+            let products_key = params.get('products_key');
         } else {
             document.write('no products key in query string');
             document.stop;
@@ -149,7 +149,7 @@ var this_product_key = ''
 <script>
 
     // This function takes a string assumed to be a key in the products array above to display and select the corresponding products
-    var order_str = '';
+    let order_str = '';
     // get the particular products to display
     products = products_data[this_product_key];
     if (params.has('Submit')) {
@@ -191,7 +191,7 @@ var this_product_key = ''
     <script src="./functions.js"></script>
     <script>
         var products_data;
-        var total = 0;
+        let total = 0;
         loadJSON('get_products_data', function (response) {
             // Parsing JSON string into object
             products_data = JSON.parse(response);
@@ -207,7 +207,7 @@ var this_product_key = ''
         // get the query string
         let params = (new URL(document.location)).searchParams;
         if (params.has('products_key')) {
-            var this_product_key = params.get('products_key');
+            let this_product_key = params.get('products_key');
         } else {
             document.write('no products key in query string');
             document.stop;
@@ -219,7 +219,7 @@ var this_product_key = ''
 <script>
     cart_total.innerHTML = total;
 // This function takes a string assumed to be a key in the products array above to display and select the corresponding products
-    var order_str = '';
+    let order_str = '';
 
     order_str += `<h1>Please select what ${this_product_key} you want</h1><br>`;
     // We put the whole table in the form so that anything entered in it will get submitted
@@ -243,11 +243,11 @@ var this_product_key = ''
 
 ##### Save the following as server.js
 {% highlight javascript %}
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
-var session = require('express-session');
-var products_data = require(__dirname + '/products.json');
+const session = require('express-session');
+const products_data = require(__dirname + '/products.json');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(session({secret: "MySecretKey", resave: true, saveUninitialized: true}));
@@ -265,8 +265,8 @@ app.post("/get_products_data", function (request, response) {
 });
 
 app.get("/add_to_cart", function (request, response) {
-    var products_key = request.query['products_key']; // get the product key sent from the form post
-    var quantities = request.query['quantities'].map(Number); // Get quantities from the form post and convert strings from form post to numbers
+    let products_key = request.query['products_key']; // get the product key sent from the form post
+    let quantities = request.query['quantities'].map(Number); // Get quantities from the form post and convert strings from form post to numbers
     request.session.cart[products_key] = quantities; // store the quantities array in the session cart object with the same products_key. 
     response.redirect('./cart.html');
 });
@@ -287,8 +287,8 @@ app.listen(8080, () => console.log(`listening on port 8080`));
 {% highlight javascript %}
 app.get("/checkout", function (request, response) {
 // Generate HTML invoice string
-  var invoice_str = `Thank you for your order!<table border><th>Quantity</th><th>Item</th>`;
-  var shopping_cart = request.session.cart;
+  let invoice_str = `Thank you for your order!<table border><th>Quantity</th><th>Item</th>`;
+  let shopping_cart = request.session.cart;
   for(product_key in products_data) {
     for(i=0; i<products_data[product_key].length; i++) {
         if(typeof shopping_cart[product_key] == 'undefined') continue;
@@ -300,7 +300,7 @@ app.get("/checkout", function (request, response) {
 }
   invoice_str += '</table>';
 // Set up mail server. Only will work on UH Network due to security restrictions
-  var transporter = nodemailer.createTransport({
+  let transporter = nodemailer.createTransport({
     host: "mail.hawaii.edu",
     port: 25,
     secure: false, // use TLS
@@ -310,8 +310,8 @@ app.get("/checkout", function (request, response) {
     }
   });
 
-  var user_email = 'phoney@mt2015.com';
-  var mailOptions = {
+  let user_email = 'phoney@mt2015.com';
+  let mailOptions = {
     from: 'phoney_store@bogus.com',
     to: user_email,
     subject: 'Your phoney invoice',
