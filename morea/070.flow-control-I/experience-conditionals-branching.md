@@ -29,7 +29,7 @@ When we are done, submit work before the next class. If you cannot submit by th
  
 In this lab we will use conditional (boolean) expressions and conditional statements (if-statements) to keep score and present game information.
 
-Start by creating a `Lab6` directory in your repo and add a copy of your `SmartPhoneProducts1_3` project from Lab3 and rename it  `SmartPhoneProducts1_4`. Start your http-server and load the `products_display.html` page then open the JS console in your browser. 
+Start by creating a `Lab6` directory in your repo and add a copy of your `SmartPhoneProducts1_3` project from the previous Lab and rename it  `SmartPhoneProducts1_4`. Start your http-server and load the `products_display.html` page then open the JS console in your browser. 
 
 
 #### Exercise #1: Conditional Expressions (total 6 minutes)
@@ -73,12 +73,12 @@ c. What is the problem if you use `this.className='item'` rather than `if(this.c
 
 #### Exercise #3: if-else if (On Your Own)
 
-A product that you are selling is discounted depending on the number purchased. Try out the following “nested if-statement” code that sets the `win_span` to indicate progress towards winning:
+You want to add a progress to win indicator to `SmartPhoneProducts1_4` that sets the `win_span` to `On your way` when `hits/spins > 0` then to `Almost there!` when `hits/spins > 1/4` and finally to `You win!` when `hits/spins > 1/2` and `hits < spins`. Try out the following “nested if-statement” code that sets the `win_span` to indicate progress towards winning. Initialize a variable `progress` to `Pending...` and add the following code into the `onclick` and `onmouseover` event attributes of each `<section>`: 
 
  
 ```Javascript
 // -- Winning progress depends on hits/spins
-hits_spins_ratio = hits/spins;
+let hits_spins_ratio = hits/spins;
 if ( hits_spins_ratio > 0 ) {
     progress = 'On your way!';
     if ( hits_spins_ratio >= 0.25 ) {
@@ -95,10 +95,9 @@ else {
 }
 
 ```
+This code should replace the `over_half` code in Exercise #1. Test that you get the expected progress indications when mousing over and clicking a section. 
 
-
-
-Rewrite the above program using if-elseif-else statements to remove the nested if-statements. Hint: don’t just replace “if” statements with “if-else” in the above. You will have to move the end }’s too! Consider example hits_spins_ratio of 0, .1, .2, and .5 and make sure that the correct progress message is set for each.
+Your task for this exercise is to rewrite the above code using if-elseif-else statements to remove the nested if-statements. Hint: don’t just replace “if” statements with “if-else” in the above. You will have to move the end }’s too! Consider example hits_spins_ratio of 0, .1, .2, and .5 and make sure that the correct progress message is set for each.
 
 Paste source code here
 ```
