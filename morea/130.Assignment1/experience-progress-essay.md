@@ -8,7 +8,7 @@ morea_sort_order: 3
 morea_labels:
  - BLOG 
 morea_start_date: "2023-11-20T00:00"
-morea_end_date: "2023-11-23T00:00"
+morea_end_date: "2023-11-23T23:59"
 ---
 
 # E4: Progress in Programming Report

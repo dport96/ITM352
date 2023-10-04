@@ -8,7 +8,7 @@ morea_sort_order: 4
 morea_labels:
  - BLOG
 morea_start_date: "2023-11-30T00:00"
-morea_end_date: "2023-12-05T00:00"
+morea_end_date: "2023-12-05T23:59"
 ---
 
 # E5: Reflecting on Assignment 2 Technical Essay

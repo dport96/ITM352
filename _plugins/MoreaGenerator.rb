@@ -88,6 +88,9 @@ module Morea
         if @config['morea_domain'].end_with?("/")
           @config['morea_domain'].chop!
         end
+      end      
+      if (@config['course_sections'] == nil)
+        @config['course_sections'] = []
       end
       # Set the navbar background depending on the theme.
       if ["darkly"].include? @config['morea_theme'].to_s
@@ -166,26 +169,26 @@ module Morea
       site.config['morea_assessment_pages'] = site.config['morea_assessment_pages'].sort_by {|page| page.data['morea_sort_order']}
     end
 
-    # Prepend site.baseurl to the morea_url value of pages whose URL appears to require them
+    # Prepend site.baseurl to the morea_url value of pages whose URL is relative (i.e. starts with /morea).
+    # See https://github.com/morea-framework/morea/issues/14
+    # Note that calling the template repo "morea" makes testing this within the template way more difficult.
     def fix_morea_urls(site)
       site.config['morea_reading_pages'].each do |reading_page|
         reading_url = reading_page.data['morea_url']
-        if reading_url.match(/^\/morea/)
-          # This 'fix' is no longer needed in Morea 2.0
-          # reading_page.data['morea_url'] = site.baseurl + reading_url
+        if (reading_url.match(/^\/morea/))
+          reading_page.data['morea_url'] = site.baseurl + reading_url
         end
       end
       site.config['morea_experience_pages'].each do |experience_page|
         experience_url = experience_page.data['morea_url']
         if experience_url.match(/^\/morea/)
-          # experience_page.data['morea_url'] = site.baseurl + experience_url
+          experience_page.data['morea_url'] = site.baseurl + experience_url
         end
       end
       site.config['morea_assessment_pages'].each do |assessment_page|
         assessment_url = assessment_page.data['morea_url']
         if assessment_url.match(/^\/morea/)
-          # Not needed in Morea 2.0
-          # assessment_page.data['morea_url'] = site.baseurl + assessment_url
+          assessment_page.data['morea_url'] = site.baseurl + assessment_url
         end
       end
       site.config['morea_prerequisite_pages'].each do |prereq_page|
@@ -274,19 +277,35 @@ module Morea
           if page.data['morea_labels'] == nil
             page.data['morea_labels'] = []
           end
-          page.data['morea_labels'] << "#{(Time.parse(page.data['morea_start_date'])).strftime("%d %b %I:%M %p")}"
+          if page.data['morea_start_date'].is_a?(Hash)
+            # Add a date label for each section.
+            page.data['morea_start_date'].each do |section, date|
+              page.data['morea_labels'] << "#{section}: #{(Time.parse(date)).strftime("%d %b %I:%M %p")}"
+            end
+          else
+            # Add a single date label when there are no multiple sections for backward compatibility.
+            page.data['morea_labels'] << "#{(Time.parse(page.data['morea_start_date'])).strftime("%d %b %I:%M %p")}"
+          end
         end
       end
       site.config['morea_module_pages'].each do |page|
         if page.data['morea_start_date']
-          page.data['morea_start_date_string'] = "#{(Time.parse(page.data['morea_start_date'])).strftime("%a, %b %-d")}"
-        end
-        if page.data['morea_end_date']
-          page.data['morea_end_date_string'] = "#{(Time.parse(page.data['morea_end_date'])).strftime("%a, %b %-d")}"
+        # Collect start dates and end dates for multiple sections. 
+          if (page.data['morea_start_date'].is_a?(Hash))
+            string_array = page.data['morea_start_date'].map { |section, date| 
+              "#{section}: #{(Time.parse(date)).strftime("%a, %b %-d")}#{page.data['morea_end_date'].has_key?(section)  ? " - #{(Time.parse(page.data['morea_end_date'][section])).strftime("%a, %b %-d")}" : ""}"
+            }
+            page.data['morea_start_end_date_string'] = string_array.join("<br>")
+        # No multiple sections, so just define morea_start_end_date_string
+          else
+            page.data['morea_start_date_string'] = "#{(Time.parse(page.data['morea_start_date'])).strftime("%a, %b %-d")}"
+            if page.data['morea_end_date']
+              page.data['morea_end_date_string'] = "#{(Time.parse(page.data['morea_end_date'])).strftime("%a, %b %-d")}"
+            end
+          end
         end
       end
     end
-
 
     def print_morea_problems(site)
       site.config['morea_page_table'].each do |morea_id, morea_page|
@@ -454,13 +473,15 @@ module Morea
         end
         if !morea_page.data['morea_url']
           # When not supplied we automatically generate the relative URL to the page.
-          # Note we include the baseurl so that for readings and experiences, this link is absolute.
           # We may or may not need a / separator depending upon the underlying version of Jekyll.
           slasher = '/'
           if (morea_page.dir.end_with? '/') || (morea_page.basename.start_with? '/')
             slasher = ''
           end
-          morea_page.data['morea_url'] ="#{site.baseurl}#{morea_page.dir}#{slasher}#{morea_page.basename}.html"
+          # We will add the baseurl later in fix_morea_urls.
+          # See https://github.com/morea-framework/morea/issues/14
+          # morea_page.data['morea_url'] ="#{site.baseurl}#{morea_page.dir}#{slasher}#{morea_page.basename}.html"
+          morea_page.data['morea_url'] ="#{morea_page.dir}#{slasher}#{morea_page.basename}.html"
         end
       end
 
@@ -656,7 +677,7 @@ module Morea
       @schedule_file_path= @schedule_file_dir + '/schedule/' + @schedule_file_name
     end
 
-    # Write a file declaring a global variable called moreaEventData containing an array of calendar events.
+    # Write a file declaring a global variable called moreaEventData containing an array of calendar events. 
     # Write it directly to the _site directory in order to avoid infinite regeneration
     def write_schedule_info_file
       schedule_file_contents = 'moreaEventData = '
@@ -672,12 +693,30 @@ module Morea
       events = "["
       site.config['morea_page_table'].each do |morea_id, morea_page|
         if morea_page.data.has_key?('morea_start_date')
-          event = "\n  {title: #{morea_page.data['title'].inspect}, url: #{get_event_url(morea_page, site).inspect}, start: #{morea_page.data['morea_start_date'].inspect}"
-          if morea_page.data.has_key?('morea_end_date')
-            event += ", end: #{morea_page.data['morea_end_date'].inspect}"
+          if (morea_page.data['morea_start_date'].is_a?(Hash))
+            start_dates = morea_page.data['morea_start_date']
+            if morea_page.data.has_key?('morea_end_date')
+              end_dates = morea_page.data['morea_end_date']
+            end
+          else
+            start_dates = { "none" => morea_page.data['morea_start_date'] }
+            if morea_page.data.has_key?('morea_end_date')
+              end_dates = { "none" => morea_page.data['morea_end_date'] }
+            end
           end
-          event += "},"
-          events += event
+          # Create an event each for section in morea_start_date. The section is used to select the events to display on the calendar. 
+          start_dates.each do |section, date|
+            if !site.config['course_sections'].include?(section) && section != "none"
+              site.config['course_sections'] << section
+              puts "\e[31m-- WARNING for morea_id: #{morea_page.data['morea_id']}--\nIn morea_start_time section #{section} is not defined in course_sections in _config.yml\e[0m"
+            end
+            event = "\n  {section: \"#{section}\", title: #{morea_page.data['title'].inspect}, url: #{get_event_url(morea_page, site).inspect}, start: #{date.inspect}"
+            if !end_dates.nil? && end_dates.has_key?(section)
+              event += ", end: #{end_dates[section].inspect}"
+            end
+            event += "},"
+            events += event
+          end
         end
       end
       if (events.end_with?(","))
@@ -775,4 +814,3 @@ module Morea
     end
   end
 end
-

@@ -23,7 +23,7 @@ title: Modules
               {{ module.morea_summary | markdownify }}
               <p>
               {% for label in module.morea_labels %}
-                <span class="badge">{{ label }}</span>
+                <span class="badge bg-primary">{{ label }}</span>
               {% endfor %}
               </p>
             </div>
@@ -32,7 +32,11 @@ title: Modules
                 <span>Coming soon...</span>
               </div>
             {% else %}
-              {% if module.morea_start_date_string %}
+              {% if module.morea_start_end_date_string %}
+                <div class="card-footer text-center">
+                  {{module.morea_start_end_date_string}}
+                </div>
+              {% else if module.morea_start_date_string %}
                 <div class="card-footer text-center">
                   {{module.morea_start_date_string}} - {{module.morea_end_date_string}}
                 </div>

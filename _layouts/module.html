@@ -8,6 +8,8 @@ layout: default
   <p>{{ page.morea_page.content | markdownify }}</p>
   {% if page.morea_page.morea_start_date_string %}
     <p>Dates: {{ page.morea_page.morea_start_date_string }} - {{ page.morea_page.morea_end_date_string }}</p>
+  {% else if page.morea_page.morea_start_end_date_string %}
+  <p>Dates:<br>{{ page.morea_page.morea_start_end_date_string }}</p>
   {% endif %}
 </div>
 

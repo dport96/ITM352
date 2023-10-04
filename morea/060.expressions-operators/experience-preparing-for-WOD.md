@@ -5,7 +5,7 @@ morea_id: experience-preparing-for-WOD
 morea_type: experience
 morea_summary: "E3: essay on preparing for WODs"
 morea_start_date: "2023-09-23T00:00"
-morea_end_date: "2023-09-30T00:00"
+morea_end_date: "2023-09-30T23:59"
 morea_sort_order: 4
 morea_labels:
  - BLOG

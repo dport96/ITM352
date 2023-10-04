@@ -5,6 +5,8 @@ core.iml
 _site
 .jekyll-cache
 .DS_Store
-.history/
+.history
 *.lock
 run.sh
+.vscode
+.github

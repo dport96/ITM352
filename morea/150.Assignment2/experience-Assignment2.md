@@ -8,7 +8,7 @@ morea_sort_order: 3
 morea_labels:
  - Assignment
 morea_start_date: "2023-11-22T00:00"
-morea_end_date: "2023-11-30T00:00"
+morea_end_date: "2023-11-30T23:59"
 ---
 # Assignment 2: Upgrading your e-Commerce Web-site  
 

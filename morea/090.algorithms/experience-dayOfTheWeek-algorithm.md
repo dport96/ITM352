@@ -8,7 +8,7 @@ morea_sort_order: 1
 morea_labels:
  - WOD
 morea_start_date: "2023-10-18T00:00"
-morea_end_date: "2023-10-31T00:00"
+morea_end_date: "2023-10-31T23:59"
 ---
 
 # Implementing an algorithm to determine the day of the week from a date
