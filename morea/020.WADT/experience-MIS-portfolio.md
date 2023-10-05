@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Create a professional portfolio for yourself"
 morea_sort_order: 1 
 morea_start_date: "2023-08-25T00:00"
-morea_end_date: "2023-08-31T00:00"
+morea_end_date: "2023-08-31T23:59"
 morea_labels: 
 - Essay
 ---

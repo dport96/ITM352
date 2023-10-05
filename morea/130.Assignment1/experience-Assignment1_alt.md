@@ -8,7 +8,7 @@ morea_sort_order: 3
 morea_labels:
  - Assignment
 morea_start_date: "2022-10-21T00:00"
-morea_end_date: "2022-11-08T00:00"
+morea_end_date: "2022-11-08T23:59"
 ---
  
 

@@ -8,7 +8,7 @@ morea_sort_order: 2
 morea_labels:
  - "WOD"
 morea_start_date: "2019-05-17T00:00"
-morea_end_date: "2019-05-21T00:00"
+morea_end_date: "2019-05-21T23:59"
 ---
 
 # Use a loop and arrays to generate an invoice

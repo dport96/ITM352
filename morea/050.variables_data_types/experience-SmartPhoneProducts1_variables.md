@@ -8,7 +8,7 @@ morea_sort_order: 2
 morea_labels:
  - "WOD"
 morea_start_date: "2023-09-13T00:00"
-morea_end_date: "2023-09-19T00:00"
+morea_end_date: "2023-09-19T23:59"
 ---
 
 # Use variables to output Smart Phone products
