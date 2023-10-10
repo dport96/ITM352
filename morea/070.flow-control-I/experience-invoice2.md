@@ -63,7 +63,7 @@ For this WOD you will modify the [Invoice1](../060.expressions-operators/experie
             <td style="text-align: center;" width="54%">$22.68</td>
         </tr>
         <tr>
-            <td colspan="4" width="100%">&nbsp;</td>
+            <td colspan="4" width="100%">&nbsp;</td> 
         </tr>
         <tr>
             <td colspan="3" width="67%">Sub-total</td>
