@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | XDebug and VS Code </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/"></a></li>
+        <li class="breadcrumb-item active">XDebug and VS Code</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h3 id="check-that-xdebug-works-in-netbeans">Check that XDebug works in NetBeans</h3>
+<p>Open any project. Click on the menu item Debug -&gt; Debug Project (or use ctrl-F5 on Windows or CMD-5 on a Mac).</p>
+
+<p>Look at the bottom of the NetBeans window. If you see “netbeans-xdebug     running” then you’re ready to go. You should see a “NetBeans Connector” is debugging this tab in your browser and then in the code editor within Netbeanns the first line of code should be highlighted.</p>
+
+<p>If you do not get the above you may have to configure NetBeans or replace XAMPP with MAMP or vice versa.</p>
+
+<ol>
+  <li>Start by going to <a href="https://xdebug.org/wizard.php">https://xdebug.org/wizard.php</a> and copy and paste the output of phpinfo() into the textbox. Follow the instructions as to what xdebug file to download and where to put it. Make sure you download the xdebug dll and save it to the correct location and add the zend_extension line to the php.ini file. <span style="color:red">NOTE for Mac users!</span> If it instructions indicate you need to build XDebug (look for a lot of instructions and not a simple download this dll file) you can try the pre-build version I’ve placed in Laulima -&gt; Resources -&gt; XDebug_for_Mac</li>
+</ol>
+
+<h4 id="instructions-for-xdebug-netbeans-for-mac"><span style="color:red">instructions for XDebug NetBeans for Mac</span></h4>
+<ol>
+  <li>
+    <p>Locate your XAMPP php.ini file and open it in a text editor such as TextEdit. You may need to run this as administrator or change its file permissions. 
+It’s probably in /Applications/XAMPP/etc but you can check the output of phpinfo() to be sure</p>
+  </li>
+  <li>
+    <p>Find the line <code class="language-plaintext highlighter-rouge">output_buffering=4096</code> and change it to <code class="language-plaintext highlighter-rouge">output_buffering=Off</code>.</p>
+  </li>
+  <li>
+    <p>Put the following after the line you added to load the zend_extension dll (from above)</p>
+  </li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>xdebug]
+xdebug.default_enable<span class="o">=</span>1
+xdebug.remote_enable<span class="o">=</span>on
+xdebug.remote_handler<span class="o">=</span>dbgp
+xdebug.remote_host<span class="o">=</span>localhost
+xdebug.remote_port<span class="o">=</span>9000
+xdebug.remote_autostart<span class="o">=</span>1
+xdebug.idekey<span class="o">=</span><span class="s2">"netbeans-xdebug"</span>
+xdebug.remote_mode<span class="o">=</span>req</code></pre></figure>
+
+<ol>
+  <li>
+    <p>Restart Apache and look at the output of phpinfo(). Search for xdebug in the webpage and you should find the following:
+<img src="./xdebug_php_mac1.png" alt="zend1" /> and <img src="./xdebug_php_mac2.png" alt="zend2" /></p>
+  </li>
+  <li>
+    <p>Try the debugger in NetBeans</p>
+  </li>
+</ol>
+
+<h4 id="instructions-for-xdebug-netbeans-for-windows"><span style="color:red">instructions for XDebug NetBeans for Windows</span></h4>
+
+<ol>
+  <li>
+    <p>Locate your XAMPP php.ini file and open it in a text editor such as Notepad. 
+It’s probably in C:\XAMPP\php but you can check the output of phpinfo() to be sure. You can also use the 
+XAMPP control panel and click on the Config button then select php.ini</p>
+  </li>
+  <li>
+    <p>Add the following after the zend_extension line you added (e.g. zend_extension = C:\xampp\php\ext\php_xdebug-2.5.4-7.1-vc14.dll)</p>
+  </li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>XDebug]
+zend_extension <span class="o">=</span> <span class="s2">"C:</span><span class="se">\x</span><span class="s2">ampp</span><span class="se">\p</span><span class="s2">hp</span><span class="se">\e</span><span class="s2">xt</span><span class="se">\p</span><span class="s2">hp_xdebug.dll"</span>
+xdebug.profiler_append <span class="o">=</span> 0
+xdebug.profiler_enable <span class="o">=</span> 1
+xdebug.profiler_enable_trigger <span class="o">=</span> 0
+xdebug.profiler_output_dir <span class="o">=</span> <span class="s2">"C:</span><span class="se">\x</span><span class="s2">ampp</span><span class="se">\t</span><span class="s2">mp"</span>
+xdebug.profiler_output_name <span class="o">=</span> <span class="s2">"cachegrind.out.%t-%s"</span>
+xdebug.remote_enable <span class="o">=</span> 1
+xdebug.remote_handler <span class="o">=</span> <span class="s2">"dbgp"</span>
+xdebug.remote_host <span class="o">=</span> <span class="s2">"127.0.0.1"</span>
+xdebug.trace_output_dir <span class="o">=</span> <span class="s2">"C:</span><span class="se">\x</span><span class="s2">ampp</span><span class="se">\t</span><span class="s2">mp"</span>
+xdebug.remote_port<span class="o">=</span>9000
+xdebug.idekey<span class="o">=</span><span class="s2">"netbeans-xdebug"</span></code></pre></figure>
+
+<ol>
+  <li>
+    <p>Restart Apache and look at the output of phpinfo(). Search for xdebug in the webpage and you should find the following:
+<img src="./xdebug_php_mac1.png" alt="zend1" /> and <img src="./xdebug_php_mac2.png" alt="zend2" /></p>
+  </li>
+  <li>
+    <p>Try the debugger in NetBeans</p>
+  </li>
+</ol>
+
+<p>If you do not get the above to work you may have to configure NetBeans or replace XAMPP with MAMP or vice versa.</p>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

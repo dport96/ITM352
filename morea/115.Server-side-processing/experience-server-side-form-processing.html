@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Lab: Server Side Form Processing and Web Applications </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/server-side-processing">Server Side Processing</a></li>
+        <li class="breadcrumb-item active">Lab: Server Side Form Processing and Web Applications</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="lab-objectives">Lab objectives</h1>
+<ul>
+  <li>Learn to use the Express Framework</li>
+  <li>Understand server-side form processing</li>
+  <li>Processing form data from GET, POST, and server-side data validation</li>
+  <li>Creating and using micro-services in web applications</li>
+</ul>
+
+<h3 id="instructions">Instructions:</h3>
+<p>Open the <a href="ITM352_Web_Services.ppt">presentation slides</a>.</p>
+
+<p>We will work through these exercises and address any questions and provide examples. When asked by the instructor do the lab exercises listed. Use Javascript unless asked to do otherwise.</p>
+
+<p>Do all your code work in VSCode unless otherwise instructed. Please ask the instructor for help if you get stuck this is <strong>NOT</strong> a test.</p>
+
+<p>Copy code and submit your answers on Laulima</p>
+
+<h4 id="exercise-1">Exercise #1:</h4>
+<p>Create a Lab12 folder in your repo and a new file SimpleServer.js and copy the following into this file:</p>
+
+<pre><code class="language-Javascript">const http = require('http');
+
+//create a server object:
+http.createServer(function (req, res) {
+    console.log(req.headers); //output the request headers to the console
+    res.writeHead(200, { 'Content-Type': 'text/html' }); // set MIME type to HTML 
+    res.write(`&lt;h1&gt;The server date is: ${Date.now()}&lt;/h1&gt;`); //send a response to the client
+    res.write('&lt;h1&gt;The client date is: &lt;script&gt;document.write( Date.now() );&lt;/script&gt;&lt;/h1&gt;'); // send another response
+    res.end(); //end the response
+}).listen(8080); //the server object listens on port 8080
+
+console.log('Hello world HTTP server listening on localhost port 8080');
+</code></pre>
+
+<p>Open a terminal and run it using node.js. Open a browser and make a request to localhost:8080</p>
+
+<p>a) Why is this a “dynamic” web page? What is processed on the client and what is processed on the server? Why are the dates different even though they are obtained from the same clock (on the same machine)? What would happen if the server was run on a different machine than the browser?</p>
+
+<p>b) Does the request matter? How is the route for the HTTP request handled? Explain the the output you see in the terminal. Where does this output come form? Why doesn’t <code class="language-plaintext highlighter-rouge">console.log()</code> in the server output to the browser console? Explain what the <code class="language-plaintext highlighter-rouge">req</code> and <code class="language-plaintext highlighter-rouge">res</code> objects are and where they come from.</p>
+
+<p>c) When you do a “view source” in the browser, where did the Javascript code executed on the server go ? Why isn’t it inside a <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> tag? Can you use DOM objects on the server?</p>
+
+<p>d) Change <code class="language-plaintext highlighter-rouge">Date.now()</code> to <code class="language-plaintext highlighter-rouge">Date()</code>. Save the file and refresh the browser. Why didn’t you see the changes? Stop and restart the server. Why didn’t you see the changes? Now refresh the browser page and explain why you now see the changes.</p>
+
+<p><strong>NOTE</strong> You may wish to install and use the npm application <code class="language-plaintext highlighter-rouge">nodemon</code> to automatically restart node after changes are saved in a file.</p>
+
+<h4 id="exercise-2-a-better-server-side-for-web-applications">Exercise 2: A Better Server Side for Web Applications</h4>
+
+<p>a. To do server side processing for a Web application we must set up the server to handle any request. Express makes setting up a web server for a web application easy. Install Express using <code class="language-plaintext highlighter-rouge">npm install express</code> in your terminal. Let’s start things by setting up a server that will respond to any HTTP request by sending back the type of request and the URL path from the request. Put the following code in a file called <code class="language-plaintext highlighter-rouge">info_server_Ex2a.js</code>:</p>
+<pre><code class="language-Javascript">const express = require('express');
+const app = express();
+app.all('*', function (request, response, next) {
+    response.send(request.method + ' to path ' + request.path);
+});
+app.listen(8080, () =&gt; console.log(`listening on port 8080`)); // note the use of an anonymous function here to do a callback
+</code></pre>
+<p>In the terminal, start the server <code class="language-plaintext highlighter-rouge">node info_server_Ex2a.js</code> and then in a browser try various URLs such as <code class="language-plaintext highlighter-rouge">localhost:8080</code> and <code class="language-plaintext highlighter-rouge">localhost:8080/xxx/yyy</code>. What is the response you get and why? Explain how express generally handles an HTTP request (discuss routing via <code class="language-plaintext highlighter-rouge">app.&lt;HTTP request&gt;()</code>, middleware via <code class="language-plaintext highlighter-rouge">app.use()</code>).</p>
+
+<p>b. Add a route to match with a <code class="language-plaintext highlighter-rouge">GET</code> request to the path <code class="language-plaintext highlighter-rouge">test</code>.  Put this above the <code class="language-plaintext highlighter-rouge">app.all()</code> route. Test it with and without <code class="language-plaintext highlighter-rouge">test</code>.Explain why the <code class="language-plaintext highlighter-rouge">app.all()</code> route does not get handled anymore. Now move it below <code class="language-plaintext highlighter-rouge">app.all()</code> to and verify you get the expected response. Now add <code class="language-plaintext highlighter-rouge">next();</code> after the response in <code class="language-plaintext highlighter-rouge">app.all()</code> and explain why you get an error in the console output. Now change the <code class="language-plaintext highlighter-rouge">response.send()</code> to <code class="language-plaintext highlighter-rouge">console.log()</code> in <code class="language-plaintext highlighter-rouge">app.all()</code> and explain why this no longer throws an error. It is recommended that you put this <code class="language-plaintext highlighter-rouge">app.all()</code> code in when you are developing a web app to see what requests the server is receiving.</p>
+
+<p>c. [Using middleware] Now we will enable the server to respond to request for static files (files that are not intended to have any server-side processing) that are located in a directory called <code class="language-plaintext highlighter-rouge">public</code> (this is often called the “document root” directory). We will do this by making use of Express <code class="language-plaintext highlighter-rouge">static</code> middleware component. Make a copy of <code class="language-plaintext highlighter-rouge">info_server_Ex2a.js</code> and name it <code class="language-plaintext highlighter-rouge">info_server_Ex2c.js</code></p>
+
+<p>Before the app.listen add the following add the following:</p>
+<pre><code class="language-Javascript">app.use(express.static(__dirname + '/public'));
+</code></pre>
+<p>Terminate the previously running server (with ctrl-C) and run <code class="language-plaintext highlighter-rouge">info_server_Ex2c.js</code>. Create a simple html file <code class="language-plaintext highlighter-rouge">hello.html</code> that outputs <code class="language-plaintext highlighter-rouge">&lt;h1&gt;Hello from &lt;your name&gt;!&lt;/h1&gt;</code> and save it in the <code class="language-plaintext highlighter-rouge">public</code> directory. Use a browser with the following URL <code class="language-plaintext highlighter-rouge">http://localhost:8080/hello.html</code> and see what response you get. Try <code class="language-plaintext highlighter-rouge">localhost:8080/xxx</code> and explain what response you get. Make a copy of <code class="language-plaintext highlighter-rouge">hello.html</code> and rename it <code class="language-plaintext highlighter-rouge">hello.txt</code>. Now try <code class="language-plaintext highlighter-rouge">localhost:8080/hello.txt</code> and explain the response. Change <code class="language-plaintext highlighter-rouge">&lt;your name&gt;</code> to your full name in <code class="language-plaintext highlighter-rouge">hello.html</code>. Save the file and reload the page. Why didn’t you have to stop and start the server to see the changes? Do you think the <code class="language-plaintext highlighter-rouge">app.use()</code> middleware must be placed at the bottom of the routing functions?</p>
+
+<p>d. Copy your <code class="language-plaintext highlighter-rouge">order_page.html</code> from the HTML Forms lab into  <code class="language-plaintext highlighter-rouge">public</code> (you may also use your products order page for Assignment 1 or <code class="language-plaintext highlighter-rouge">products_display.html</code> from the Store1 WOD). Why do you need top put this here? Put <code class="language-plaintext highlighter-rouge">localhost:8080/order_page.html</code> in your browser and submit the form. Look at the <code class="language-plaintext highlighter-rouge">console.log</code> output and the response you get and explain what you see. Now change the action of the form to be <code class="language-plaintext highlighter-rouge">hello.html</code> with <code class="language-plaintext highlighter-rouge">GET</code> as the method. Save the file, refresh the page, then submit the form. Explain how this works it terms of a request to  the server, processing on the servers, and the response from the server. Be sure to discuss how the express.static() middelware is involved. What do you see in the address box in your browser? Did the query string come form the server or the request to the server when you submitted the form?</p>
+
+<p>e. In <code class="language-plaintext highlighter-rouge">order_page.html</code> change the method in the form to <code class="language-plaintext highlighter-rouge">POST</code>, save and reload the page and submit. Look at the console output from the server and explain why the <code class="language-plaintext highlighter-rouge">hello.html</code> page no longer appears. What do you see in the address box in your browser? Explain this.</p>
+
+<h4 id="exercise-3-server-side-processing-of-form-action">Exercise 3: Server Side Processing of Form Action</h4>
+
+<p>a. Make a copy of <code class="language-plaintext highlighter-rouge">info_server_Ex2c.js</code> and name it <code class="language-plaintext highlighter-rouge">info_server_Ex3.js</code> and add the following code after the <code class="language-plaintext highlighter-rouge">app.all()</code> statement (why after and not before?):</p>
+<pre><code class="language-Javascript">app.post("/process_form", function (request, response) {
+   response.send(request.body); 
+});
+</code></pre>
+<p>Now run <code class="language-plaintext highlighter-rouge">info_server_Ex3.js</code>.   In <code class="language-plaintext highlighter-rouge">order_page.html</code> change the action in the form to <code class="language-plaintext highlighter-rouge">process_form</code> and make sure the method in the form is <code class="language-plaintext highlighter-rouge">POST</code>, save and try <code class="language-plaintext highlighter-rouge">localhost:8080/order_page.html</code> in a browser and submit the form. Explain why the page appears even though there is no file named <code class="language-plaintext highlighter-rouge">process_form</code> in <code class="language-plaintext highlighter-rouge">public</code>. Explain why you do not need to use <code class="language-plaintext highlighter-rouge">process_form.html</code> in the action. How does the browser know that the response from the server is content-type text/html? What if you wanted the content-type to be text/text (hint: what would happen if you added <code class="language-plaintext highlighter-rouge">res.type('txt')</code> before <code class="language-plaintext highlighter-rouge">res.send()</code> in your <code class="language-plaintext highlighter-rouge">process_form</code> route?)?</p>
+
+<p><strong>IMPORTANT NOTE</strong>
+You will notice that the <code class="language-plaintext highlighter-rouge">request.body</code> is empty. Unfortunately Express does not decode the body of an HTTP request by default so you will need to write this yourself or add the express <code class="language-plaintext highlighter-rouge">urlencoded</code> middleware with the code below:</p>
+<pre><code class="language-Javascript">app.use(express.urlencoded({ extended: true }));
+</code></pre>
+
+<p>Now restart <code class="language-plaintext highlighter-rouge">info_server_Ex3.js</code> and try <code class="language-plaintext highlighter-rouge">localhost:8080/order_page.html</code> and verify that that you get the post data from the what you typed into the textbox after submitting the form.</p>
+
+<p>Congratulations! You have just done server-side processing of a POST from a web form.</p>
+
+<p>b. In <code class="language-plaintext highlighter-rouge">info_server_Ex3.js</code> delete the <code class="language-plaintext highlighter-rouge">response.send(request.body);</code> statement and replace with:</p>
+<pre><code class="language-Javascript">    let q = request.body['quantity_textbox'];
+    if (typeof q != 'undefined') {
+    response.send(`Thank you for purchasing ${q} things!`);
+    } 
+</code></pre>
+
+<p>Try <code class="language-plaintext highlighter-rouge">localhost:8080/order_page.html</code> with valid and invalid quantities and verify that it works as expected. How can you test that the check for <code class="language-plaintext highlighter-rouge">quantity_textbox</code> in the POST request works as expected?</p>
+
+<p>c. How could we validate the data from the POST on the server? Copy the function <code class="language-plaintext highlighter-rouge">isNonNegInt()</code> from the functions Lab (or form the Invoice3 WOD) and paste it into the top or bottom of <code class="language-plaintext highlighter-rouge">app.post()</code>. Use this function in an if-statement to check if <code class="language-plaintext highlighter-rouge">q</code> is a non-negative integer. If not, respond with <code class="language-plaintext highlighter-rouge">Error: ${q} is not a quantity. Hit the back button to fix.</code>.</p>
+
+<h4 id="exercise-4-micro-services-and-web-applications">Exercise 4: Micro-services and web applications</h4>
+<p>Often you need to do complex processing and responses on the server. A good design practice to help manage this is to separate out functionality and provide <strong>micro-services.</strong></p>
+
+<p>Make a copy of <code class="language-plaintext highlighter-rouge">info_server_Ex3.js</code> and name it <code class="language-plaintext highlighter-rouge">info_server_Ex4.js</code>.</p>
+
+<p>a. [Shared data micro-service] You often have to use the same data in multiple places. It’s always best to have one central source for shared data rather than duplicate sources, especially if this data is dynamic (changes frequently). For web applications, the common way to handle this is providing a data service on the server (sometimes called a <strong>micro-service</strong>). The data source can be a code, a file, accessing a database or more generally another server (such as a directory server). Let’s implement a basic data service for our web application that shares product information for use in a form and the processing the form. For JSON data an easy way to do this is put the JSON into a file as a variable and load it in as a module. Get the <code class="language-plaintext highlighter-rouge">products_data.js</code> file you used in <a href="../100.Objects-Arrays-I/experience-SmartPhoneProducts3.html">SmartPhoneProducts3</a> and copy it in your directory with <code class="language-plaintext highlighter-rouge">info_server_Ex4.js</code>. Change the name of this file to <code class="language-plaintext highlighter-rouge">product_data.json</code> and remove all Javascript and leave only the JSON.</p>
+
+<p>After <code class="language-plaintext highlighter-rouge">app.all()</code> in <code class="language-plaintext highlighter-rouge">info_server_Ex4.js</code> put</p>
+<pre><code class="language-Javascript">const products = require(__dirname + '/product_data.json');
+
+app.get("/product_data.js", function (request, response, next) {
+   response.type('.js');
+   let products_str = `var products = ${JSON.stringify(products)};`;
+   response.send(products_str);
+});
+</code></pre>
+
+<p>and in the function for the post route for <code class="language-plaintext highlighter-rouge">process_form</code> add to the top</p>
+<pre><code class="language-Javascript">let brand = products[0]['brand'];
+let brand_price = products[0]['price'];
+</code></pre>
+
+<p>Replace the response with <code class="language-plaintext highlighter-rouge">&lt;h2&gt;Thank you for purchasing ${q} ${brand}. Your total is \$${q * brand_price}!&lt;/h2&gt;</code> and now try out different quantities.</p>
+
+<p>In the head tag of <code class="language-plaintext highlighter-rouge">order_page.html</code> add the line <code class="language-plaintext highlighter-rouge">&lt;script src="./product_data.js"&gt;&lt;/script&gt;</code>. Note that the path does NOT include the <code class="language-plaintext highlighter-rouge">public</code> directory. Why is this? Before the form (or in the top of the form) add</p>
+<pre><code class="language-Javascript">document.write(`&lt;h3&gt;${products[0]["brand"]} at \$${products[0]["price"]}&lt;/h3&gt;`);
+</code></pre>
+<p>Reload  <code class="language-plaintext highlighter-rouge">order_page.html</code> and verify that the Apple iPhone XS product is used in both the form and response to processing that form. Now change some of the information for the 0th element in <code class="language-plaintext highlighter-rouge">product_data.json</code> and verify that both <code class="language-plaintext highlighter-rouge">order_page.html</code> and <code class="language-plaintext highlighter-rouge">info_server_Ex4.js</code> use the updated information. How would you change which product in the JSON data is being used here?</p>
+
+<p>c. [Shared dynamic data micro-service] Let's say you want to keep track of how many of each item have been purchased and display this on the <code class="language-plaintext highlighter-rouge">order_page.html</code>. Rather than create a new micro-service for this, we will use the existing <code class="language-plaintext highlighter-rouge">product_data.js</code> micro-service by noting that the <code class="language-plaintext highlighter-rouge">products</code> array variable is loaded into memory when the server starts. If it is modified, the modified array is what is provided by the <code class="language-plaintext highlighter-rouge">product_data.js</code> micro-service and not the original <code class="language-plaintext highlighter-rouge">product_data.json</code> file (why?).</p>
+
+<p>In <code class="language-plaintext highlighter-rouge">info_server_Ex4.js</code> start by adding <code class="language-plaintext highlighter-rouge">products.forEach( (prod,i) =&gt; {prod.total_sold = 0});</code> to add a <code class="language-plaintext highlighter-rouge">total_sold</code> property to each product object after the <code class="language-plaintext highlighter-rouge">products</code> is defined. Now, in the route for <code class="language-plaintext highlighter-rouge">process_form</code>, before you generate the receipt, add the quantity purchased to the <code class="language-plaintext highlighter-rouge">total_sold</code> property for that product. Make sure you cast or convert the quantity purchased to a <code class="language-plaintext highlighter-rouge">Number</code> (why?). Stop and restart your server (why?).</p>
+
+<p>Lastly, add</p>
+<pre><code class="language-Javascript">    for (i in products) {
+        document.write(`&lt;h4&gt;${products[i]["total_sold"]} ${products[i]["brand"]} have been sold!&lt;/h4&gt;`);
+    }
+</code></pre>
+<p>to <code class="language-plaintext highlighter-rouge">order_page.html</code> above the quantity textbox. Reload <code class="language-plaintext highlighter-rouge">order_page.html</code> and test that the total sold values change after every purchase.</p>
+
+<h4 id="exercise-5-passing-data-to-client-from-a-server">Exercise 5: Passing data to client from a server</h4>
+<p>There are often times you will want to pass data from the server to a client. Unfortunately, HTTP does not support “push” data from the server (at least HTTP/1 does not). That is, you cannot just send data to the client, even if you have an open connection from the server to the client. Because of this, data can only be passed from the server to the client in response to a request. There are generally two ways to do this. One way is to put the data into a query string and have the server re-direct to the page that needs the data adding this query string. Another way is to have the page <em>fetch</em> the data from a micro-service. The difference is that the first way will leave the page (the current document will be overwritten) while the second will stay on the page (the current document remains). We will try the query-string approach since it is simpler.</p>
+
+<p>Make a copy of <code class="language-plaintext highlighter-rouge">info_server_Ex4.js</code> and name it <code class="language-plaintext highlighter-rouge">info_server_Ex5.js</code>. Start by copying the code in the route for <code class="language-plaintext highlighter-rouge">process_form</code> on your server that generates the receipt (including the <code class="language-plaintext highlighter-rouge">isNonNegInt</code> function) into a new file <code class="language-plaintext highlighter-rouge">receipt.html</code> and put this in the <code class="language-plaintext highlighter-rouge">public</code> directory (you may also use your invoice page for Assignment 1 or <code class="language-plaintext highlighter-rouge">invoice.html</code> from the Store1 WOD). At the top of this file load the <code class="language-plaintext highlighter-rouge">products</code> data as done in <code class="language-plaintext highlighter-rouge">order_page.html</code> and also add the code:</p>
+<pre><code class="language-Javascript">        let params = (new URL(document.location)).searchParams;
+        let q = params.get('quantity');
+</code></pre>
+<p>This code will read the query string and place the keys and values into a URLSearchParams object (<code class="language-plaintext highlighter-rouge">params</code>) for easy access to the data in the query string. Now remove any use of <code class="language-plaintext highlighter-rouge">request</code> (you are on the client now so this is not defined) and replace all uses of <code class="language-plaintext highlighter-rouge">response</code> with <code class="language-plaintext highlighter-rouge">document.write</code> (again, you are on the client which is the receiver of a response). Remove the code that increases the <code class="language-plaintext highlighter-rouge">total_sold</code> (yup, this is a server side thing and cannot be done in the client).</p>
+
+<p>On your server, replace the <code class="language-plaintext highlighter-rouge">response.send()</code> with <code class="language-plaintext highlighter-rouge">response.redirect('receipt.html?quantity=' + q);</code>. This will tell the browser (the client) to do a GET request for the file <code class="language-plaintext highlighter-rouge">receipt.html</code> with a query string with key <code class="language-plaintext highlighter-rouge">quantity</code> and value whatever is in the variable <code class="language-plaintext highlighter-rouge">q</code> (which is the quantity purchased). Quit and restart the server, reload <code class="language-plaintext highlighter-rouge">order_page.html</code> to test.</p>
+
+<p>d. Modify the response on the server to redirect back to <code class="language-plaintext highlighter-rouge">order_page.html</code> when there is an error with the query string <code class="language-plaintext highlighter-rouge">?error=Invalid%20Quantity&amp;quantity_textbox=' + q</code>. In  <code class="language-plaintext highlighter-rouge">order_page.html</code> where you check if the query string has <code class="language-plaintext highlighter-rouge">quantity_textbox</code>, also check if the query string has key <code class="language-plaintext highlighter-rouge">error</code> and put its value in an alert panel (i.e. “Invalid Quantity”).</p>
+
+<p>(<strong>Extra Credit</strong>) Create a micro-service to validate a quantity and respond an invoice. Have <code class="language-plaintext highlighter-rouge">order_page.html</code> fetch the invoice and display it after the purchase button is pressed. This should be done without leaving (or reloading) <code class="language-plaintext highlighter-rouge">order_page.html</code>. Hint: do not have an action for the the form or change it so that it does the fetch to the micro-service rather than POST to the server.</p>
+
+<h4 id="exercise-6-processing-multiple-inputs-on-your-own">Exercise 6: Processing multiple inputs (On Your Own)</h4>
+<p>Let’s make it possible to select quantities of a product from the shared products data. Copy <code class="language-plaintext highlighter-rouge">info_server_Ex5.js</code> and name it <code class="language-plaintext highlighter-rouge">info_server_EC.js</code>. Copy <code class="language-plaintext highlighter-rouge">order_page.html</code> and rename it <code class="language-plaintext highlighter-rouge">order_page_multiple.html</code>.</p>
+
+<p>Task 1: Make <code class="language-plaintext highlighter-rouge">order_page_multiple.html</code> display inputs for all products in <code class="language-plaintext highlighter-rouge">product_data.json</code>. Replace the <code class="language-plaintext highlighter-rouge">&lt;form&gt;</code> element with</p>
+<pre><code class="language-HTML">    &lt;form name='quantity_form' action="process_form" method="POST"&gt;
+        &lt;script&gt;
+            for (i in products) {
+                document.write(`&lt;h3&gt;${products[i]["brand"]} at \$${products[i]["price"]} (${products[i]["total_sold"]} sold)&lt;/h3&gt;`);
+                document.write(`
+        &lt;label for="quantity_textbox"&gt;quantity desired:&lt;/label&gt;
+        &lt;input type="text" name="quantity_textbox[${i}]" onkeyup="checkQuantityTextbox(this);"&gt;
+        &lt;span id="quantity_textbox[${i}]_message"&gt;Enter a quantity&lt;/span&gt;
+        `);
+            }
+        &lt;/script&gt;
+        &lt;br&gt;
+        &lt;input type="submit" value='Purchase'&gt;
+    &lt;/form&gt;
+</code></pre>
+<p>Now replace the <code class="language-plaintext highlighter-rouge">checkQuantityTextbox()</code> with</p>
+<pre><code class="language-Javascript">        function checkQuantityTextbox(theTextbox) {
+            errs = isNonNegInt(theTextbox.value, true);
+            document.getElementById(theTextbox.name + '_message').innerHTML = errs.join(", ");
+        }
+</code></pre>
+<p>Run <code class="language-plaintext highlighter-rouge">info_server_EC.js</code> and request <code class="language-plaintext highlighter-rouge">order_page_multiple.html</code> and verify that all the products in <code class="language-plaintext highlighter-rouge">products.json</code> display. Test the <code class="language-plaintext highlighter-rouge">checkQuantityTextbox</code> function by trying vaid and invalid quantities. Review the changes made in the code and make sure you understand why were made and how they work!</p>
+
+<p>Task 2: Process multiple quantities of products from the submitted form. In <code class="language-plaintext highlighter-rouge">info_server_EC.js</code> replace the code in the callback function in the route for post to <code class="language-plaintext highlighter-rouge">/process_form</code> (i.e. in the <code class="language-plaintext highlighter-rouge">{}</code>’s for <code class="language-plaintext highlighter-rouge">app.post("/process_form", function (request, response)</code> with</p>
+<pre><code class="language-Javascript">    receipt = '';
+    let qtys = request.body[`quantity_textbox`];
+    for (i in qtys) {
+        q = qtys[i];
+        let brand = products[i]['brand'];
+        let brand_price = products[i]['price'];
+        if (isNonNegInt(q)) {
+            products[i]['total_sold'] += Number(q);
+            receipt += `&lt;h3&gt;Thank you for purchasing: ${q} ${brand}. Your total is \$${q * brand_price}!&lt;/h3&gt;`; // render template string
+        } else {
+            receipt += `&lt;h3&gt;&lt;font color="red"&gt;${q} is not a valid quantity for ${brand}!&lt;/font&gt;&lt;/h3&gt;`;
+        }
+    }
+    response.send(receipt);
+    response.end();
+</code></pre>
+<p><strong>Note: do not delete the isNonNegInt function definition if you put it here.</strong></p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">info_server_EC.js</code> and try entering quantities for the products displayed! Do you see how things are connected through the shared data in <code class="language-plaintext highlighter-rouge">product_data.json</code>? Did you see how naming your form elements with <code class="language-plaintext highlighter-rouge">[]</code>’s puts all the form data into an array? By the way, you can use this to create objects. Just use strings rather than numbers in <code class="language-plaintext highlighter-rouge">[]</code>.</p>
+
+<p><strong>extra credit</strong> When there are errors, see if you can pass the data and errors back to <code class="language-plaintext highlighter-rouge">order_page_multiple.html</code> to display problems and allow the user to fix and resubmit the form. You can do this by making a copy of the products array, adding an <code class="language-plaintext highlighter-rouge">errors</code> property for each product with values the errors (if any), then generating a query string from this new array (you can use a <code class="language-plaintext highlighter-rouge">URLSearchParams</code> to conveniently create a query string from the new array).</p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Lab: GitHub, VS Code, web pages, web servers, local/global servers </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/WADT">Web Application Development Tools</a></li>
+        <li class="breadcrumb-item active">Lab: GitHub, VS Code, web pages, web servers, local/global servers</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  
+<h1 id="here-are-the-presentation-slides-and-screencast-for-the-class-lecture">Here are the presentation slides and screencast for the class lecture</h1>
+
+<p>Open the <a href="ITM352_WADT.pptx">WADT presentation slides</a>.</p>
+
+<p>In class we will see examples, answer questions, and discuss what’s on for next class.</p>
+
+<h1 id="lab-objectives">Lab objectives</h1>
+<p>After completing this lab you should be set up with and understand how to make use of the web application development tools we will be using. In particular:</p>
+<ul>
+  <li>Set up a GitHub repo for your labs and assignments. Understand the use of a repository.</li>
+  <li>Understand what VS Code is and how to use it</li>
+  <li>Understand what web pages are and using VS Code to develop them</li>
+  <li>Installing a local web server for development and understanding what a local web server is and what we will use it for</li>
+  <li>Understand what a global web server is and how to use the class web server</li>
+</ul>
+
+<h1 id="instructions">Instructions</h1>
+<p>Try to do as many of the exercises as possible, in the order listed. You may skip an exercise if it is impossible to accomplish the task described (for technical reasons). If you have trouble with an exercise, contact the instructor for help – do not just skip the exercise! You may work with a partner, but each of you must submit your individual work. Work should be done electronically on this document (cut and paste as needed but be careful of incorrect characters). Anything that involves code should be tried out in VS Code before submitting (you may cut and paste directly from VS Code). Submit work before the next class. If you cannot submit by this time, try to do so as soon as possible.</p>
+
+<p>For exercises that do not ask specific questions but have you perform tasks, copy any code you created and the output as your answer to the exercise.</p>
+
+<h1 id="submission">Submission</h1>
+<p> <strong>COPY this entire page and paste it, with your answers, into the Laulima assignment submission box for this assignment</strong></p>
+
+<h3 id="1-creating-and-using-a-local-repository">1. Creating and using a local repository</h3>
+<p><strong>If you have not installed the git tools or GitHub Desktop skip this exercise. Just create a folder on your desktop called  <code class="language-plaintext highlighter-rouge">ITM352_F23_repo</code></strong></p>
+
+<ul>
+  <li>Go to GitHub.com, sign in using your github account and select your <code class="language-plaintext highlighter-rouge">hello-world</code> repo (that you created from the <a href="https://guides.github.com/activities/hello-world/">Hello World GitHub guide</a>). Go to Settings and change the repo name to <code class="language-plaintext highlighter-rouge">ITM352_F23_repo</code>. Change the README.md if you wish. Also in the Settings page, go to the “Danger Zone” and change the repo “Make private” if it is not alreday set this way. Add the instructor and TA as contributors.</li>
+  <li>Clone this repo and open it in VS Code. You can clone it in GitHub or use GitHub desktop (or any other way you wish that works).</li>
+</ul>
+
+<p><em>What is the URL for your GitHub <code class="language-plaintext highlighter-rouge">ITM352_F23_repo</code>?</em></p>
+
+<p><em>What is the path to the local <code class="language-plaintext highlighter-rouge">ITM352_F23_repo</code>?</em></p>
+
+<h3 id="2-using-vs-code-to-create-a-web-page">2. Using VS Code to create a web page</h3>
+<p>VS Code is a file editor designed to help build applications (code). Web applications are built from files with instructions that the server and browser process. Let try making a web page and viewing it in a browser.</p>
+
+<ul>
+  <li>In the repo folder, create a new folder inside called <code class="language-plaintext highlighter-rouge">Lab1</code>, create file in this folder <code class="language-plaintext highlighter-rouge">&lt;your Last_First name&gt;_hello.html</code>. Edit this file “Hello from <code class="language-plaintext highlighter-rouge">&lt;your first name&gt;</code>!”. <strong>Don’t forget to save this file after you make changes!</strong></li>
+  <li>Open a browser, navigate to the file you created or drag and drop it into the browser from a file explorer (you may find it easier to right-click on the file in VS Code and Open in Finder/Explorer).</li>
+</ul>
+
+<p><em>Explain here why you see text in the browser window. Is this a web page?</em></p>
+
+<ul>
+  <li>Edit the file to add your <strong>last name</strong> and enclose your full name between <code class="language-plaintext highlighter-rouge">&lt;b&gt;</code> tags and then enclose all the text in between <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> tags. Save a refresh your browser.</li>
+</ul>
+
+<p><em>Explain here why you do not see the code for the tags in the browser window:</em></p>
+
+<ul>
+  <li>In VS Code file manager right-click, in terminal, or in explorer/finder, change the file extension to <code class="language-plaintext highlighter-rouge">.txt</code>. In your browser window change the <code class="language-plaintext highlighter-rouge">.html</code> in the filename in the address bar to <code class="language-plaintext highlighter-rouge">.txt</code> and reload the window.</li>
+</ul>
+
+<p><em>Explain here why you <strong>do</strong> see the code for the tags in the browser window:</em></p>
+
+<ul>
+  <li>In VS Code, in front of <code class="language-plaintext highlighter-rouge">Hello</code> type <code class="language-plaintext highlighter-rouge">&lt;i</code></li>
+</ul>
+
+<p><em>Explain why you do not get the Intellisense help for HTML anymore:</em></p>
+
+<ul>
+  <li>Change the file extension back to <code class="language-plaintext highlighter-rouge">.html</code>. Find an HTML tag that will italicize text. Use this tag to italicize your entire greeting. Save and reload your browser window.</li>
+</ul>
+
+<p><em>Explain why you <strong>do</strong> get the Intellisense help for HTML now and why you <strong>do not</strong> see the html in the browser window:</em></p>
+
+<h3 id="3-using-a-terminal-or-command-line-to-access-the-operating-system">3. Using a terminal (or command line) to access the operating system</h3>
+<p>Sometimes you will need to do more specific or detailed tasks that would be difficult or inconvenient to do through a GUI. A terminal window provides a command line interface to your operating system. There are many different types of <em>shell environments</em> such as <code class="language-plaintext highlighter-rouge">sh</code>, <code class="language-plaintext highlighter-rouge">csh</code>,<code class="language-plaintext highlighter-rouge">bash</code>, <code class="language-plaintext highlighter-rouge">zsh</code>,<code class="language-plaintext highlighter-rouge">cmd</code>, <code class="language-plaintext highlighter-rouge">powershell</code> that run in a terminal. These all have similar functionality and similar commands, but they may vary in the particular command language and syntax they use. You will find it very useful to be familiar with the basic shell commands. We will explore a few basic file system commands here needed for this class. make sure you are in the <code class="language-plaintext highlighter-rouge">Lab1</code> folder.</p>
+
+<p>a) Open a terminal in VS Code (go to the Terminal menu -&gt; New Terminal). Identify what shell is being used:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>b) Try each of the commands below, copy the result you get and explain what the command does:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pwd
+
+ls
+
+mkdir newdir
+
+cd new*
+
+touch test
+
+mv test test.txt
+
+rm test.txt
+
+echo hello &gt; hello.txt
+
+cat h*.txt
+
+cd ..
+
+rm -r newdir
+
+history
+</code></pre></div></div>
+
+<p><em><strong>NOTE: if a command doesn’t work for your particular shell, look up (or guess) what the command is supposed to do and then do a Google search to find out how to do it in your shell.</strong></em></p>
+
+<p>c) Most shells support command history. What happens if you press the uparrow key? downarrow key?</p>
+
+<p>d) Most shells support file name expansion. Try <code class="language-plaintext highlighter-rouge">touch xxxx.txt</code> then <code class="language-plaintext highlighter-rouge">rm xx</code> then hit the TAB key. What happened?</p>
+
+<h3 id="4-javascript-browser-console-json">4. Javascript browser console, JSON</h3>
+<p>Most browsers will have a Javascript console. Right-click –&gt; Inspect then try the and explain the following:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1+1
+
+2/3
+
+'hello' + "there"
+
+{"a":1, "b":2}
+
+[1,2,3]
+
+console.log('hello')
+</code></pre></div></div>
+
+<h3 id="5-installing-and-using-an-http-server-as-a-local-web-server">5. Installing and using an http-server as a local web server</h3>
+<p>For convenience and speed we will test applications on our own machine before deploying to a server. Web applications that need only provide web pages to a web browser from files (sometimes called <em>static pages</em>) can use a simple web server that accesses the static page files (or documents) from a single directory (the document root). Web browsers typically communicate with web servers using the <em>HTTP protocol</em> (there are many other network communication protocols) which is why a basic web server is often called an <em>http server</em>. Node has many ready to use http server packages (such as the http-server package) that will work as a local web server without any configuration or coding. We will be learning how to build web applications that will not have just static pages. So in preparation for this, we will build our own simple http-server using the Node Express framework. You do not need to understand this framework or how the code works at this point. For now, just understand what this code does and how to use it to serve static pages.</p>
+
+<ul>
+  <li>Open a terminal in VS Code, check that you have node.js <code class="language-plaintext highlighter-rouge">node --version</code></li>
+  <li>Check that you are in your top directory in your repo and <strong>not</strong> in the <code class="language-plaintext highlighter-rouge">Lab1</code> folder. If you are in <code class="language-plaintext highlighter-rouge">Lab1</code> then <code class="language-plaintext highlighter-rouge">cd ..</code> to be in the parent folder.</li>
+  <li>Add the express package <code class="language-plaintext highlighter-rouge">npm install express</code> <em>Note for Mac users: you may need to add <code class="language-plaintext highlighter-rouge">sudo</code> to the front of this to override file permission restrictions.</em></li>
+  <li>Add the minimist package <code class="language-plaintext highlighter-rouge">npm install minimist</code> <em>Note for Mac users: you may need to add <code class="language-plaintext highlighter-rouge">sudo</code> to the front of this to override file permission restrictions.</em></li>
+  <li>Create a new file in VS Code, name it “server.js” and add the following code</li>
+</ul>
+
+<pre><code class="language-Javascript">const argv = require('minimist')(process.argv.slice(2));
+const express = require('express');
+const app = express();
+app.all('*', function (request, response, next) {
+    console.log(request.method + ' to path ' + request.path);
+    next();
+});
+let root = (typeof argv["rootdir"] != "undefined")?argv["rootdir"] : ".";
+app.use(express.static( root ));
+app.listen(8080, () =&gt; console.log(`listening on port 8080 rootdir ${root}`));
+</code></pre>
+
+<ul>
+  <li>Make sure you are in the <code class="language-plaintext highlighter-rouge">Lab1</code> folder. If you are not, change to the directory (<code class="language-plaintext highlighter-rouge">cd Lab1</code> if you are still in the top-level directory). Start your local http-server by typing <code class="language-plaintext highlighter-rouge">node ../server.js</code>.</li>
+  <li>Open a browser to <code class="language-plaintext highlighter-rouge">http://localhost:8080/&lt;your Last_First name&gt;_hello.html</code> and verify it is <em>served</em> rather than loaded directly into the browser (you should see <code class="language-plaintext highlighter-rouge">http://localhost:8080/&lt;your Last_First name&gt;_hello.html</code> rather than the file path in the browser address box)</li>
+  <li>Make a new directory called <code class="language-plaintext highlighter-rouge">static</code> and move your <code class="language-plaintext highlighter-rouge">&lt;your Last_First name&gt;_hello.html</code> file into the <code class="language-plaintext highlighter-rouge">static</code> directory.</li>
+  <li>Open a browser to <code class="language-plaintext highlighter-rouge">http://localhost:8080/&lt;your Last_First name&gt;_hello.html</code> and explain why the server cannot <code class="language-plaintext highlighter-rouge">GET</code> the file</li>
+  <li>Open a browser to <code class="language-plaintext highlighter-rouge">http://localhost:8080/static/&lt;your Last_First name&gt;_hello.html</code> and explain why the file now appears in the browser</li>
+  <li>Now hit ctrl-c in the terminal to quit your server. Start your local http-server by typing <code class="language-plaintext highlighter-rouge">node server.js --rootdir ./static</code> open a browser to <code class="language-plaintext highlighter-rouge">http://localhost:8080/&lt;your Last_First name&gt;_hello.html</code> and explain why the file now appears in the browser but you no longer need <code class="language-plaintext highlighter-rouge">static</code> in the path</li>
+  <li>Now hit ctrl-c in the terminal to quit your server. Type <code class="language-plaintext highlighter-rouge">cd ..</code> to move to the top of your repo (should be the directory above the <code class="language-plaintext highlighter-rouge">Lab1</code> directory). Start your local http-server by typing <code class="language-plaintext highlighter-rouge">node ./server.js --rootdir ./Lab1/static</code> open a browser to <code class="language-plaintext highlighter-rouge">http://localhost:8080/&lt;your Last_First name&gt;_hello.html</code> and explain why the file now appears in the browser and you do not need the <code class="language-plaintext highlighter-rouge">Lab1/static</code> in the URL path.</li>
+  <li>Now hit ctrl-c in the terminal to quit your server. Start your local http-server by typing <code class="language-plaintext highlighter-rouge">node server.js</code> open a browser to <code class="language-plaintext highlighter-rouge">http://localhost:8080/Lab1/static/&lt;your Last_First name&gt;_hello.html</code> and explain why the file now appears in the browser and you <strong>do need</strong> the <code class="language-plaintext highlighter-rouge">Lab1/static</code> in the URL path.</li>
+</ul>
+
+<p><strong>NOTE:</strong> If the server fails to run and you get a <code class="language-plaintext highlighter-rouge">port already in use</code> error you may have another process using port 8080. Try changing the port to something else like 8081 and try running again. **</p>
+
+<p><em>Go to the terminal window in VS Code and copy and paste here the output after you started http-server. Explain what this output is:</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+<p><em>Explain how the page in the browser window was loaded. Why is the URL path not the same as the filepath for the file in your Lab1 directory?</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<p><em>What would happen if you did not have  <code class="language-plaintext highlighter-rouge">&lt;your Last_First name&gt;_hello.html</code> in the <code class="language-plaintext highlighter-rouge">static</code> directory? Use this to explain why you cannot request <code class="language-plaintext highlighter-rouge">server.js</code> from a browser.</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<ul>
+  <li>Hit ctrl-c to stop http-server. Reload or refresh the page in your browser.</li>
+</ul>
+
+<p><em>Explain why you do not see the page anymore:</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<p><em>Explain here how this is different than what you did previously. Is your file now a web page?</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h3 id="6-local-vs-global-web-servers">6. Local vs Global web servers</h3>
+<p>There really is no difference between the web server such as you installed on your laptop for class and any other web server on the internet. It’s really a matter of accessibility. A local web server is accessed though the URL <code class="language-plaintext highlighter-rouge">http://localhost</code> where localhost is always set to the IP address <code class="language-plaintext highlighter-rouge">10.0.0.1</code> or <code class="language-plaintext highlighter-rouge">127.0.0.1</code> (which is also known as the “local loopback”). Anytime you try to connect to localhost you will always be connecting to your own machine. So if you set your web server’s address to be localhost it then can only be accessed from your machine regardless if it is connected to the internet (or any network). A global web server simply has it’s address set to some globally accessible IP address (and possibly an internet registered domain name).</p>
+
+<p>You should always develop your web applications locally and then “publish” them–after careful testing–to a global web server (that is if you want the outside world to be able to access it). For our class we have made available to you the global web server <a href="http://itm-vm.shidler.hawaii.edu/itm352student">http://itm-vm.shidler.hawaii.edu/itm352student</a> and this is where you should test all your applications if they are intended to be used non-locally.</p>
+
+<h4 id="testing-the-class-web-server-as-your-global-web-server">Testing the class web server as your global Web server</h4>
+
+<p>Locate the file you created to test your local web server from exercise 3 above.</p>
+
+<ol>
+  <li>Use SFTP or SSH or a file transfer tool such as <a href="https://cyberduck.io/?l=en">CyberDuck</a> to upload it to the ITM 352 student class webserver at itm-vm.shidler.hawaii.edu/itm352student/<your class="" section="">. The "htdocs" or document root folder to store your web files on the class server is actually called "public_html", but when you log in it will take you directly to this location so you won't see it. You cannot write files to this directory so you will need to go to "Section_Port" or "Section_Kazman" depending on which class section you are in. Make a note of this as you will need to add this to URL to access your file.</your></li>
+</ol>
+
+<ul>
+  <li>username is <code class="language-plaintext highlighter-rouge">&lt;ask instructor&gt;</code> with password <code class="language-plaintext highlighter-rouge">&lt;ask instructor&gt;</code> you must use port 8615  You can try this link or copy and paste it into the Server textbox <a href="sftp://itm352student@itm-vm.shidler.hawaii.edu:8615/">sftp://itm352student@itm-vm.shidler.hawaii.edu:8615/</a></li>
+</ul>
+
+<p>See <a href="http://www.hawaii.edu/askus/692">http://www.hawaii.edu/askus/692</a> for more information on SSH/sFTP</p>
+
+<ol>
+  <li>Access your web page by typing in <code class="language-plaintext highlighter-rouge">http://itm-vm.shidler.hawaii.edu/itm352student/&lt;your class section&gt;/&lt;your Last_First name&gt;_hello.html</code> For example <code class="language-plaintext highlighter-rouge">http://itm-vm.shidler.hawaii.edu/itm352student/Section_Port/Port_hello.htm</code></li>
+</ol>
+
+<p>If you are using Cyberduck here is what your open connection should look like this:</p>
+
+<p><img src="cyberduck_config.png" alt="cyberduck_config" /></p>
+
+<h4 id="answer-the-following-questions">Answer the following questions:</h4>
+
+<p><em>How do you make websites?</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<p><em>What’s the difference between a local and global webserver?</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<p><em>How do webservers, local or global, work with VS Code?</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

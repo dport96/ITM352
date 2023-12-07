@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | About HTML, CSS, and support tools </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/ui-basics">Web Page Basics</a></li>
+        <li class="breadcrumb-item active">About HTML, CSS, and support tools</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="html-and-css-resources">HTML and CSS Resources</h1>
+
+<p>I have found the following links and tools to be particularly helpful for developing basic web page design skills.</p>
+
+<p>Note: you should still click through the “Optional” links so that you know what content is available there. It may become useful to you later in the course.</p>
+
+<h3 id="required-reading-and-viewing">Required Reading and Viewing</h3>
+<hr />
+<p><strong>Do not skip <mark>any</mark> of the material below. The class labs and WOD assignments will assume you are familiar with the items below!</strong></p>
+
+<h4 id="learning-html-and-css">Learning HTML and CSS</h4>
+
+<ul>
+  <li><a href="http://www.htmldog.com/guides/html/beginner/">HTMLDog’s HTML5 Beginner Tutorial</a>.  Focus for now on the Beginner Tutorial (except forms) and the Intermediate tutorial (just span/div, Meta).</li>
+  <li><a href="http://www.htmldog.com/guides/css/beginner/">HTMLDog’s CSS Beginner Tutorial</a></li>
+</ul>
+
+<h4 id="markdown">Markdown</h4>
+<ul>
+  <li><a href="https://guides.github.com/features/mastering-markdown/">Mastering Markdown</a></li>
+</ul>
+
+<h4 id="google-web-fonts">Google Web Fonts</h4>
+
+<ul>
+  <li><a href="https://developers.google.com/fonts/docs/getting_started">Getting started with Google Web Fonts</a></li>
+</ul>
+
+<h4 id="css-colors">CSS Colors</h4>
+
+<ul>
+  <li><a href="http://www.crockford.com/wrrrld/color.html">CSS Color Names</a></li>
+  <li><a href="http://www.colors.commutercreative.com/grid/">CSS Color Grid</a></li>
+</ul>
+
+<h4 id="chrome-developer-tools">Chrome Developer Tools</h4>
+
+<ul>
+  <li><a href="http://www.youtube.com/watch?v=z1TkfcC53G0">Chrome Developer Tools Video Tutorial</a></li>
+</ul>
+
+<hr />
+
+<h3 id="optional-but-useful">Optional, but useful:</h3>
+<p><br /></p>
+<h4 id="wysiwyg-html-editor">WYSIWYG HTML Editor</h4>
+<p>You may wish to get an HTML editor to help speed up creating web pages. This is a free editor that actually works pretty well:</p>
+<ul>
+  <li><a href="http://www.bluegriffon.org/">BlueGriffon</a></li>
+</ul>
+
+<p><br /><br /></p>
+<h4 id="additional-resources-for-the-ambitious">Additional resources for the ambitious:</h4>
+<ul>
+  <li><a href="https://www.smashingmagazine.com/wp-content/uploads/images/html5-cheat-sheet/html5-cheat-sheet.pdf">HTML5 Cheat Sheet (pdf)</a></li>
+  <li><a href="https://www.smashingmagazine.com/wp-content/uploads/images/css3-cheat-sheet/css3-cheat-sheet.pdf">CSS3 Cheat Sheet (pdf)</a></li>
+  <li><a href="http://www.youtube.com/watch?v=FQKvro1Wz-E">Another Chrome Developer Tools Video Tutorial</a></li>
+  <li><a href="http://www.youtube.com/watch?v=nOEw9iiopwI">12 Tricks for Chrome Developer Tools Users</a></li>
+  <li><a href="https://netbeans.org/kb/docs/webclient/html5-gettingstarted.html">VS Code Getting Started with HTML5 Applications</a>. Go here if you want more in-depth use of VS Code or are having trouble with the Chrome extension</li>
+  <li><a href="http://www.w3.org/Style/Examples/011/firstcss">Starting with HTML and CSS</a></li>
+  <li><a href="http://www.w3.org/community/webed/wiki/CSS/Training">CSS/Training self-study course</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started">Getting Started with CSS</a></li>
+  <li><a href="https://support.zendesk.com/hc/en-us/articles/203664426-Help-Center-CSS-cookbook">The CSS Help Desk Cookbook</a></li>
+  <li><a href="https://makeawebsitehub.com/the-html-5-mega-cheat-sheet/">HTML5 mega cheet sheet (HTML)</a></li>
+  <li><a href="http://hellohappy.org/beautiful-web-type/">Showcase of best type faces from Google Fonts</a></li>
+  <li><a href="http://www.mrmcguire.com/10-useful-google-font-combinations-for-your-next-site/">10 useful Google Font combinations</a></li>
+  <li><a href="http://www.onextrapixel.com/2013/03/11/10-great-font-combinations-from-google-web-fonts/">10 more great font combinations</a></li>
+  <li><a href="http://www.insquaremedia.com/blog/15-web-design-stuff/50-our-favourite-google-font-combinations">Our favourite font combinations</a></li>
+  <li><a href="http://font-combinator.com/">Font Combinator (if you want to roll your own combination)</a></li>
+</ul>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

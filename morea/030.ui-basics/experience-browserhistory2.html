@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | BrowserHistory2 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/ui-basics">Web Page Basics</a></li>
+        <li class="breadcrumb-item active">BrowserHistory2</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="get-ready-for-the-browserhistory2-wod">Get ready for the BrowserHistory2 WOD:</h1>
+
+<p>Prior to starting this WOD, you should have studied the CSS tutorial and the Google Web Fonts links in the Resources section. Open  VS Code to your repo directory, start http-server, create a directory in <code class="language-plaintext highlighter-rouge">WODs</code> called <code class="language-plaintext highlighter-rouge">BrowserHistory2</code></p>
+
+<h2 id="instructions">Instructions</h2>
+
+<ol>
+  <li>Start your timer.</li>
+  <li>Copy the index.html file from BrowserHistory1 into this project.</li>
+  <li>Create a second file called “style.css” in this project which will contain all CSS styles for this project.</li>
+  <li>Link style.css in your index.html file so that your CSS styles will be applied to the HTML in index.html.</li>
+  <li>Now create definitions in your style.css file and references in your index.html to improve the presentation of your page as follows:
+    <ul>
+      <li>The font for all headings should be Oswald.</li>
+      <li>The font for non-heading text should be Open Sans.</li>
+      <li>The font color should be DarkBlue.</li>
+      <li>The top and bottom margins should be 10 px.</li>
+      <li>The left and right margins should be 50 px.</li>
+      <li>The text width should be 950px.</li>
+      <li>The background color should be Ivory.</li>
+      <li>The logos should be inline with the text.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>The following image shows what it should look like (click to see full size):</p>
+
+<div class="center-block">
+  <div class="img-responsive">
+    <a href="http://ics314f13.files.wordpress.com/2013/08/browserhistory22.png"><img alt="picture" width="400px" src="http://ics314f13.files.wordpress.com/2013/08/browserhistory22.png" /></a>
+  </div>
+</div>
+
+<p>When finished, stop your timer, and record how many minutes it took you to complete the WOD.</p>
+
+<style>
+#wod-times .label-success {
+    background-color: #3cb521
+}
+
+#wod-times .label-info {
+    background-color: #3399f3
+}
+
+#wod-times .label-warning {
+    background-color: #d47500
+}
+
+#wod-times .label-danger {
+    background-color: #cd0200
+}
+</style>
+
+<p><span class="h4" id="wod-times">
+  <span style="padding: 2px" class="label label-success">Rx: &lt;10 min</span>
+  <span style="padding: 2px" class="label label-info">Av: 10-15 min</span>
+  <span style="padding: 2px" class="label label-warning">Sd: 15-20 min</span>
+  <span style="padding: 2px" class="label label-danger">DNF: 20+ min</span>
+</span></p>
+
+<h2 id="demonstration">Demonstration</h2>
+
+<p>Once you’ve finished doing the WOD a single time, watch Prof. Johnson do it 
+<a href="https://youtu.be/8u4VrPKGON4">HERE</a></p>
+
+<h2 id="standard-wod-caveats">Standard WOD Caveats</h2>
+
+<p>You’ll learn significantly less from watching me solve the
+WOD if you haven’t attempted the WOD yourself first.</p>
+
+<p>While it’s an achievement to finish the WOD no matter how long it takes, you
+might experience “diminishing returns” if you work longer than the DNF
+time. Thus, it might be strategic to stop working at the DNF time and watch
+my solution.</p>
+
+<p>After watching my solution, I recommend that you repeat the WOD if you
+have not achieved at least Av performance. If so, be sure to:</p>
+
+<ul>
+  <li>Delete your old project so you cannot refer to it;</li>
+  <li>Don’t look at my screencast while you WOD; and</li>
+  <li>Reset your timer.</li>
+</ul>
+
+<p>Feel free to keep trying until you make Rx if that’s of interest to you.</p>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

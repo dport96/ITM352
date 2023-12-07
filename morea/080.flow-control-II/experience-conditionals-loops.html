@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Lab: Loops </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/flow-control-II">Conditional Expressions and Looping</a></li>
+        <li class="breadcrumb-item active">Lab: Loops</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="lab-objectives">Lab objectives</h1>
+<ul>
+  <li>Understand how to conditionally repeatedly execute statements</li>
+  <li>Know how to break a loop, skip to the top of a loop, or terminate the program</li>
+  <li>Understand the different forms of loops, how they are equivalent, and which form to use</li>
+</ul>
+
+<h1 id="instructions">Instructions</h1>
+<p>Try to do as many of the exercises as possible, in the order listed. You may skip an exercise if it is impossible to accomplish the task described (for technical reasons). If you have trouble with an exercise, contact the instructor for help – do not just skip the exercise! You may work with a partner, but each of you must submit your individual work. Work should be done electronically on this document (cut and paste as needed but be careful of incorrect characters). Anything that involves code should be tried out in VS Code before submitting (you may cut and paste directly from VS Code). Submit work before the next class. If you cannot submit by this time, try to do so as soon as possible.</p>
+
+<p>You may wish to open the <a href="ITM352_flow_control_II.pptx">presentation slides</a> for convenience of viewing and copy-paste. When asked by the instructor do the lab exercises indicated. If you get done early, feel free to go on. If you are not done before the instructor indicates the next exercise, raise your hand and explain where you are at. Later parts often depend on completing previous parts so do not let yourself get behind and expect to catch up!</p>
+
+<p>Note: Whenever you see something like &lt;Your Name&gt; and it’s not obviously an HTML tag, it means replace this with you own information as indicated inside. e.g. replace &lt;Your Name&gt; with Joe (or whatever your name is).</p>
+
+<p>For exercises that do not ask specific questions but have you perform tasks, copy any code you created and the output as your answer to the exercise. Some exercises ask for explanations. Make notes for your answer and complete these after class before submitting. Do not try to make complete answers if it keeps you from progressing!</p>
+
+<p>Do all your code work in VS Code. Copy and paste from there. Please ask the instructor for help if you get stuck this is <strong>NOT</strong> a test.</p>
+
+<h1 id="submission">Submission</h1>
+<p>When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to <a href="https://laulima.hawaii.edu">Laulima Assignments</a>. If you do not submit something to Laulima you will not get credit.</p>
+
+<h3 id="do-all-your-code-in-nodejs-unless-otherwise-specified"><em>Do all your code in Node.js unless otherwise specified</em></h3>
+
+<p>Start by creating a <code class="language-plaintext highlighter-rouge">Lab7</code> directory in your repo and create a file <code class="language-plaintext highlighter-rouge">products_data.js</code> and add the following variables:</p>
+<pre><code class="language-Javascript"> name1 = "HTC";
+ price1 = 40.00;
+ image1 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg";
+
+ name2 = "Apple";
+ price2 = 75.00;
+ image2 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg";
+
+ name3 = "Nokia";
+ price3 = 35.00;
+ image3 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Nokia.jpg";
+
+ name4 = "Samsung";
+ price4 = 45.00;
+ image4 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Samsung.jpg";
+
+ name5 = "Blackberry";
+ price5 = 10.00;
+ image5 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg";
+
+console.log("Product variables loaded...");
+</code></pre>
+<p>Save the file. Open a terminal in the same directory and try <code class="language-plaintext highlighter-rouge">node products_data.js</code> and verify that you get the output <code class="language-plaintext highlighter-rouge">Product variables loaded...</code> on the Terminal window.</p>
+
+<h4 id="exercise-1-while">Exercise 1: While</h4>
+
+<p>Create a file <code class="language-plaintext highlighter-rouge">Ex1.js</code> and add the code <code class="language-plaintext highlighter-rouge">require("./products_data.js");</code> and save the file. Use Node to execute the code in <code class="language-plaintext highlighter-rouge">Ex1.js</code> and verify that you get the output <code class="language-plaintext highlighter-rouge">Product variables loaded...</code> on the Terminal window. You will want to become familiar with Node’s <code class="language-plaintext highlighter-rouge">require</code> command as it enables you to load code and data from external files.</p>
+
+<p>a. Define a variable <code class="language-plaintext highlighter-rouge">num_products</code> equalling the number of items in <code class="language-plaintext highlighter-rouge">products_data.js</code>. Use a while loop to write a program that prints out (use <code class="language-plaintext highlighter-rouge">console.log()</code>)numbers until <code class="language-plaintext highlighter-rouge">num_products</code> is reached. You will need to use a ‘counter’ variable such as <code class="language-plaintext highlighter-rouge">number</code> and increment it, e.g. <code class="language-plaintext highlighter-rouge">number++</code>. Use a better variable name for this counter! Make sure that you initialize this counter BEFORE the loop starts! Start counting at number 1.</p>
+
+<p>Hints : you want to test that a variable <code class="language-plaintext highlighter-rouge">number</code> is NOT equal to <code class="language-plaintext highlighter-rouge">num_products</code> and keep looping while this is TRUE. You may need to add <code class="language-plaintext highlighter-rouge">1</code> to the condition. The entire program should be around 5 lines of code.</p>
+
+<p>Paste source code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<p>b. Make a string template and use the expression <code class="language-plaintext highlighter-rouge">eval('name' + number)</code> to output the product name variables e.g. <code class="language-plaintext highlighter-rouge">name1</code>. Now add the <code class="language-plaintext highlighter-rouge">number</code> in front with a <code class="language-plaintext highlighter-rouge">.</code> after. After the loop, have it output <code class="language-plaintext highlighter-rouge">That's all we have!</code></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<p>c. Change the first line in <code class="language-plaintext highlighter-rouge">products_data.js</code> to <code class="language-plaintext highlighter-rouge">let  name1 = "HTC";</code> and re-run <code class="language-plaintext highlighter-rouge">Ex1.js</code>. Explain what error you get and why you get it. The more general concept here is <em>Namespacing</em>. It’s a bit complicated, but when a file is imported the code is executed in its own namespace. Variables defined in one namespace are not accessible in another (except globals, which are not variables). This is to avoid possible confusion on which variables are used in particular places (e.g. if the same variable name is used in different namespaces). If you want to transfer variables from an imported module, you will need to put the data into the <code class="language-plaintext highlighter-rouge">exports</code> object. For now, you can just use globals for everything. As your code gets more complicated and you start using many imported files (“modules”), you will need to use exports. <strong>Remove the <code class="language-plaintext highlighter-rouge">var</code> in front of <code class="language-plaintext highlighter-rouge">name1</code> now.</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<p>d. Rewrite your program in (b) to exit the loop if the number is greater than half <code class="language-plaintext highlighter-rouge">num_products</code>. Why do you need to change the conditional operator?</p>
+
+<p>Hint: Take care to note that half <code class="language-plaintext highlighter-rouge">num_products</code> may not be a whole number. Counter values are whole numbers only.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<h4 id="exercise-2-break-continue-terminating-3-minutes">Exercise 2: break, continue, terminating (3 minutes)</h4>
+
+<p>a) Rewrite your program in <mark>#1a</mark> (not 1b) to <code class="language-plaintext highlighter-rouge">break</code> the loop if <code class="language-plaintext highlighter-rouge">number</code> is greater than half <code class="language-plaintext highlighter-rouge">num_products</code>. When the program exits, output the line “That’s enough!”. Make the loop continue up to <code class="language-plaintext highlighter-rouge">num_products</code> rather than half as in (c).</p>
+
+<p>Hint: Create a single if-statement to break at the specified condition.</p>
+
+<p>Paste source code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>b) Rewrite your program in #2a to skip items greater than 25% of <code class="language-plaintext highlighter-rouge">num_products</code> age up to 75% of <code class="language-plaintext highlighter-rouge">num_products</code>. When the program skips these values it should output the line “&lt;item name&gt; is sold out!”.Your output should look like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. HTC
+Apple is sold out!
+Nokia is sold out!
+4. Samsung
+5. Blackberry
+</code></pre></div></div>
+
+<p>Hint : Modify the if-statement with two boolean expressions connected by an <code class="language-plaintext highlighter-rouge">&amp;&amp;</code>. Before continuing the loop print out the skipped value message. Move the counter increment inside the while conditional and change the counter to start at 0.</p>
+
+<p>Paste source code here</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>c) Rewrite your program in #2b to stop executing the program entirely (exit the process) if <code class="language-plaintext highlighter-rouge">number</code> is greater than half. When terminating it should output the line “Don’t ask for anything else!” and you should not see “That’s all we have!”</p>
+
+<p>Hint : this will require a single if-statement to throw an error or do a <code class="language-plaintext highlighter-rouge">process.exit()</code> call.</p>
+
+<p>Paste source code here</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h4 id="exercise-3-for-loop-5-minutes">Exercise 3: for-loop (5 minutes)</h4>
+
+<p>a. Rewrite your program in #2 using a <strong>for-loop</strong> instead of a while-loop.</p>
+
+<p>Paste source code here</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<p>b. Rewrite the program from part (a) using the condition <code class="language-plaintext highlighter-rouge">eval("typeof name"+i) != 'undefined'</code> This enables you to print products for a sequence of variables <code class="language-plaintext highlighter-rouge">name1, name2, name3, ...</code>. Try adding a new product to <code class="language-plaintext highlighter-rouge">products_data.js</code> with variables <code class="language-plaintext highlighter-rouge">name6</code>,<code class="language-plaintext highlighter-rouge">price6</code>,<code class="language-plaintext highlighter-rouge">image6</code>. Did it display? Try removing the last <strong>two</strong> products. Explain the benefits of using this loop over setting the condition on <code class="language-plaintext highlighter-rouge">num_products</code>. Do you need the variable <code class="language-plaintext highlighter-rouge">num_products</code> anymore?</p>
+
+<p>Paste source code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h4 id="exercise-4-using-loops-to-repeat-code-on-your-own">Exercise 4: Using loops to repeat code (On Your Own)</h4>
+<p><strong><em>For this Exercise you will do everything in a web page.</em></strong></p>
+
+<p>The objective of this exercise is to dynamically generate a products page from the variables defined in <code class="language-plaintext highlighter-rouge">products_data.js</code>.</p>
+
+<p>a. Create a file <code class="language-plaintext highlighter-rouge">products_display.html</code> add the following to the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>:</p>
+<pre><code class="language-HTML">&lt;script src="./products_data.js"&gt;&lt;/script&gt;
+</code></pre>
+<p>Start http-server and verify that there is a <code class="language-plaintext highlighter-rouge">GET products_data.js</code> in the terminal window when <code class="language-plaintext highlighter-rouge">products_display.html</code> is loaded. Inspect the page and verify that the product data variables are defined and the <code class="language-plaintext highlighter-rouge">Product variables loaded...</code> message appears in the browser console. Explain why this message appears here and not in the terminal window:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<p>b. Make an <code class="language-plaintext highlighter-rouge">&lt;table border="1"&gt;</code> and a header row with <strong>Number</strong> and <strong>Item</strong>. Use a loop and a string template with <code class="language-plaintext highlighter-rouge">document.write()</code> to output rows of product names and product number. Your table should look like this:</p>
+<table border="1">
+    <tr><th>Number</th><th>Item</th></tr> 
+    <tr><td>1</td><td>HTC</td></tr>
+    <tr><td>2</td><td>Apple</td></tr>
+    <tr><td>3</td><td>Nokia</td></tr>
+    <tr><td>4</td><td>Samsung</td></tr>
+    <tr><td>5</td><td>Blackberry</td></tr>
+</table>
+
+<p><strong>TIP:</strong> Inspect the HTML for the table above. It will show you what HTML to use!</p>
+
+<p>Explain why this is probably a better way to generate the table this way rather than repeated copies of the table rows:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

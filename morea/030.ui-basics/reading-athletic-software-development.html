@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Athletic Software Development </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/ui-basics">Web Page Basics</a></li>
+        <li class="breadcrumb-item active">Athletic Software Development</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="an-athletic-approach-to-software-development">An athletic approach to software development</h1>
+
+<p><a href="http://www.crossfit.com/">CrossFit</a> has the concept of a “Workout of the Day”
+(<a href="http://www.crossfit.com/cf-info/faq.html#General0">WOD</a>), which is a short
+duration, high intensity set of exercises.  In this class, I adapt this
+concept to software system development education.  My hope is that by focusing on
+the speed with which you implement high quality solutions to short development
+problems, you will:</p>
+
+<ol>
+  <li>Gain fluency with your tools and technologies.</li>
+  <li>Gain the ability to focus and enter the “flow state” during software development.</li>
+  <li>Become more productive and useful in “bursty” development environments like <a href="http://startupweekend.org/">startup weekends</a> and of course your class labs and application development assignments which are always limited in time and and within distracted environments.</li>
+</ol>
+
+<p>Timing your workout is important! It enables you to <strong>tangibly measure</strong> your improvement!</p>
+
+<h2 id="rx-av-sd-dnf">Rx, Av, Sd, DNF</h2>
+
+<p>For each WOD, I provide the following timing information:</p>
+
+<ul>
+  <li>Rx (As prescribed): Finishing the WOD in Rx time indicates mastery of the material tested by the WOD.</li>
+  <li>Av (Advanced): Finishing the WOD in Av time indicates superior performance.</li>
+  <li>Sd (Standard): Finishing the WOD in Sd time indicates acceptable performance.</li>
+  <li>DNF (Did not finish): If you take longer than Sd time, then you have taken an unusually long amount of time or were unable to complete the WOD.</li>
+</ul>
+
+<p>Here is an example:</p>
+
+<style>
+#wod-times .label-success {
+    background-color: #3cb521
+}
+
+#wod-times .label-info {
+    background-color: #3399f3
+}
+
+#wod-times .label-warning {
+    background-color: #d47500
+}
+
+#wod-times .label-danger {
+    background-color: #cd0200
+}
+</style>
+
+<p><span class="h4" id="wod-times">
+  <span style="padding: 2px" class="label label-success">Rx: &lt;8 min</span>
+  <span style="padding: 2px" class="label label-info">Av: 8-13 min</span>
+  <span style="padding: 2px" class="label label-warning">Sd: 13-18 min</span>
+  <span style="padding: 2px" class="label label-danger">DNF: 18+ min</span>
+</span></p>
+
+<p>So, in this example, completing the
+WOD in 8 minutes or less is “as prescribed”, 8 to 13 minutes is
+“Advanced”, 13 to 18 minutes is “standard”, and taking longer than 18 minutes is
+unacceptably slow.</p>
+
+<p>Note that simply stopping work at a certain time does not
+mean you achieved the associated standard: your solution must have acceptable quality as well.</p>
+
+<h2 id="practicing-with-wods">Practicing with WODs</h2>
+
+<p>For each module, I provide WODs as homework assignments,
+which you can time on your own. Before starting a WOD, I recommend you review
+and study the associated material so that you do not spend valuable seconds
+during the WOD doing “research”. For grading purposes, the criteria is that you solve the problem with acceptable quality under the DNF cut-off time. You submit a <b>screencast</b> of you performing the WOD <b>narrating</b> your solution. You record your last performance time (as indicated by the screencast) and reference to the screencast and code repository to the WOD Assignment on Laulima. This is your “WODvelope Card” and you are responsible for maintaining it accurately and keep it up to date. If you do not update this or it is inaccurate you may not receive proper credit.</p>
+
+<p><strong>Your grade does not depend upon whether you performed at Rx, Av, or Sd levels, only that you complete the WOD correctly before the DNF cutoff time.</strong></p>
+
+<p>The general procedure for a WOD is as follows:</p>
+
+<ol>
+  <li>Read the WOD instructions carefully</li>
+  <li>Prepare to do the WOD by starting a new project, copying any needed files or materials, set a timer to sound an alarm at the DNF time</li>
+  <li>Start your screencast recoerding then start a timer and perform the WOD. Some screencasting applications show you the recording time which also may be used as your timer. It is suggested you record your desktop rather than a single application as you will frequently be going back and forth from coding to checking your application in the browser or terminal.</li>
+  <li>If the DNF time has passed, stop working, stop the timer and screencast recording, delete your project and go to Step 1.</li>
+  <li>When you finish the WOD before DNF time, stop your timer and screencast and record your time.</li>
+  <li>Check your work and verify that it meets the WOD requirements. If not, delete your project and go to Step 1.</li>
+  <li>Push your WOD project files to your repo and update, upload your screencast to YouTube, and update your WOD card on Laulima (under the WOD Assignment) with your WOD results, link to the directory of your WOD files in your repo, and screencast URL on YouTube. The grader will use the information on your WODvelope in Laulima to review your repo and screencast then assign credit.</li>
+</ol>
+
+<h3 id="get-tools-for-your-workout">Get Tools For Your Workout</h3>
+
+<p>Get some form of timer to keep track of your WOD time (also to use in class). You can use anything online such as</p>
+
+<p><a href="http://www.online-stopwatch.com/">http://www.online-stopwatch.com/</a> or <a href="http://www.timeanddate.com/timer/">http://www.timeanddate.com/timer/</a> or install something 
+to your browser such as <a href="https://chrome.google.com/webstore/detail/timer/edebbhkhcaafmolanelponjjanocpacd?hl=en">https://chrome.google.com/webstore/detail/timer/edebbhkhcaafmolanelponjjanocpacd?hl=en</a></p>
+
+<p>To record your WOD screencast, you do not need special screencast software. For Mac you have several free options:</p>
+<ul>
+  <li>
+    <h5 id="quicktime-player-this-comes-installed-with-osx-so-just-look-for-it-in-your-applications">Quicktime Player (this comes installed with OSX so just look for it in your Applications)</h5>
+  </li>
+  <li><a href="https://obsproject.com/">OBS Studio</a></li>
+  <li><a href="https://monosnap.com/welcome">Monosnap</a></li>
+  <li><a href="https://www.apowersoft.com/mac-os-screen-recorder">Apowersoft</a></li>
+  <li><a href="https://www.videolan.org/vlc/index.html">VideoLAN</a></li>
+</ul>
+
+<p>For Windows, you can try:</p>
+<ul>
+  <li><a href="https://www.pcmag.com/how-to/how-to-capture-video-clips-in-windows-10">Windows 10’s built-in Game bar</a></li>
+  <li><a href="https://atomisystems.com/activepresenter/">ActivePresenter</a></li>
+  <li><a href="https://obsproject.com/">OBS Studio</a></li>
+  <li><a href="https://www.flashbackrecorder.com/express/">Flashback Express</a></li>
+  <li><a href="https://www.videolan.org/vlc/index.html">VideoLAN</a></li>
+</ul>
+
+<p>Notes:</p>
+<ul>
+  <li>
+    <p>You may repeat the WOD as many times as you wish get under DNF. If you do you get under DNF before the WOD is due you should submit whatever you have done and record your result as DNF.</p>
+  </li>
+  <li>
+    <p>If you get stuck, for “WODs” there will usually be a screencast demonstrating a solution. You are not required to perform the WOD exactly as indicated in the screencast. You are encouraged to watch the screencast to the point that you are unstuck and then try the WOD. Do not watch the screencast before attempting the WOD at least once! The WODs are designed to build your skill and you this will slow your progress. Non-WODs do not come with screencast solutions.</p>
+  </li>
+  <li>
+    <p>Do not simply copy the code from the screencast! You will get very little out of the WOD by doing this. It will take much longer than you think, you will make a lot of mistakes, and you will not improve your development skill. Only your screencast copying skill will improve. You have been warned!</p>
+  </li>
+  <li>
+    <p>Below is an example of how to record your WOD progress on a WODvelope. You can copy this and submit this card to Laulima to ensure you get credit for all your WODs.</p>
+  </li>
+</ul>
+
+<table border="1" style="border:2.0px solid black">
+	<thead>
+		<tr>
+			<td style="border-color:black; border-style:solid; border-width:1.0px">
+			<p style="text-align:center"><strong>WOD</strong></p>
+			</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px">
+			<p style="text-align:center"><strong>(Rx, Av, Sd, DNF)</strong></p>
+			</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px">
+			<p style="text-align:center"><strong># Attempts</strong></p>
+			</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px"><strong><span style="background-color:#f1c40f">Screencast URL</span></strong></td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px">
+			<p style="text-align:center"><strong>Repo URL</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-color:black; border-style:solid; border-width:1.0px">
+			<p style="text-align:center">BrowserHistory1</p>
+			</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">Rx</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">3</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center"><a href="https://youtu.be/TDsEUNk3WwA">https://youtu.be/TDsEUNk3WwA</a></td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center"><a href="https://github.com/dport96/ITM352_F19_repo/tree/master/WODs/BrowserHistory1">https://github.com/dport96/ITM352_F19_repo/tree/master/WODs/BrowserHistory1</a></td>
+		</tr>
+		<tr>
+			<td style="border-color:black; border-style:solid; border-width:1.0px">
+			<p style="text-align:center">BrowserHistory2</p>
+			</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-color:black; border-style:solid; border-width:1.0px">
+			<p style="text-align:center">BrowserHistory3</p>
+			</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+			<td style="border-color:black; border-style:solid; border-width:1.0px; text-align:center">&nbsp;</td>
+		</tr>
+	</thead>
+</table>
+
+<ul>
+  <li>FINAL NOTE! 
+WODs are a valuable tool for rapidly building your skill and confidence. It’s up to you to use them to your advantage. You easily cheat, take shortcuts, etc. and get away with it. We will not be monitoring or policing this. But if you do cheat, you only cheat yourself out of improving your skill and confidence. As will exercise, you will not get the joy and satisfaction of true accomplishment that you get from an honest effort and seeing your own growth and improvement.</li>
+</ul>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

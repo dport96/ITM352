@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Individual WOD: BrowserHistory5 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/"></a></li>
+        <li class="breadcrumb-item active">Individual WOD: BrowserHistory5</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <p>For this WOD, you will split the one page, three column “History of Browsers” web page into 
+five separate web pages:</p>
+
+<ol>
+  <li>An index.html front page with an introduction title using Edwardian Script ITC font (this is NOT a Google font). This page 
+should allow the user to click on the page to move to the table of contents page (page 2)
+<br /><img src="BroweserHistory5-front.png" alt="BroweserHistory5-front" /> 
+<br /></li>
+  <li>A table of contents page with links to three chapter pages containing the history of the three browsers.
+<br /><img src="BrowserHistor5-contents.png" alt="BrowserHistor5-contents.png" /> 
+<br /></li>
+  <li>Three pages containing the history of the three browsers. An example page (firefox.html) will look like this:
+<br /><img src="BrowserHistory5-Firefox.png" alt="BrowserHistory5-Firefox.png" /></li>
+</ol>
+
+<p>Here are the specifications:</p>
+
+<ul>
+  <li>Create a VS Code project called “BrowserHistory5”</li>
+  <li>Copy index.html and style.css from BrowserHistory3 into this project.</li>
+  <li>Create new files contents.html, intro.html, ie.html, firefox.html, chrome.html and copy index.html into it. A good way to do this is by selecting index.html and copy to pasteboard (Ctrl+C or Cmd+C or use the menu) then select the site root and paste (Ctrl+V or Ctrl+V) and repeat this 5 times. Then select and rename these files.</li>
+  <li>In index.html delete everything in the &lt;body&gt; except the &lt;h1&gt; tag. Give this tag the class “fancy” and place <br />’s in between the words. Add a link to contents.html with the text “(click here to open)”. In the &lt;body&gt; tag set the attribute style=”margin-top: 200px”</li>
+  <li>In contents.html remove everything but the navbar &lt;div&gt; and &lt;h1&gt;. Change the &lt;h1&gt; to say “Contents” and add the attributes style=”margin-top: 100px”;” class=”fancy” to this &lt;h1&gt;. Now modify the &lt;li&gt;’s to href the browser history files (e.g. ie.html) and add the Charper labels. Add the attribute style=”margin-left: 25%; margin-right: 25%;” to the intro &lt;li&gt;</li>
+  <li>Start with ie.html and delete everything but the &lt;div&gt; for the ie history. Add the following at the top of the &lt;div&gt;
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>          &lt;a class="left" href="contents.html"&gt;prev&lt;/a&gt;
+          &lt;a class="right" href="firefox.html"&gt;next&lt;/a&gt;
+          &lt;p&gt;
+          &lt;img src="http://upload.wikimedia.org/wikipedia/en/1/10/Internet_Explorer_7_Logo.png" width="100px" height="100px"&gt;
+          &lt;/p&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>Change the &lt;h2&gt; to <code class="language-plaintext highlighter-rouge">&lt;h2 class="chapter"&gt;Chapter 1: Internet Explorer&lt;/h2&gt;</code></li>
+  <li>Title the page “A history of internet explorer”</li>
+  <li>
+    <p>Repeat the above for the other history pages. Take care to set the prev and next links to the appropriate pages.</p>
+  </li>
+  <li>In style.css add
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>background-image: url('https://dport96.github.io/ITM352/morea/030.ui-basics/page.gif');
+background-repeat: no-repeat;
+</code></pre></div>    </div>
+    <p>to the body style. Change the color to black and set the margin to <code class="language-plaintext highlighter-rouge">40px 320px 200px 250px;</code>. The width should be 475px; add <code class="language-plaintext highlighter-rouge">line-height: 175%;</code></p>
+  </li>
+  <li>Change the img style to <code class="language-plaintext highlighter-rouge">float: center; margin: 0px 0px 10px 150px;</code></li>
+  <li>Change the li style from inline to block</li>
+  <li>Change the ul style to
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  list-style-type: none;
+  padding: 0;
+  line-height: 350%;
+  font-size: 30px;
+  font-weight: bold;
+</code></pre></div>    </div>
+  </li>
+  <li>Add the following class styles</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>h1.fancy {
+    font-family: Edwardian Script ITC; 
+    font-size: 50pt; 
+    text-align: center;
+    line-height: 135%;
+}
+
+h2.chapter {
+    font-size: 30pt;
+    text-align: center;
+}
+
+a.left {
+    float: left;
+    font-weight: bold;
+}
+
+a.right {
+    float: right;
+    font-weight: bold;
+}
+</code></pre></div></div>
+
+<style>
+#wod-times .label-success {
+    background-color: #3cb521
+}
+
+#wod-times .label-info {
+    background-color: #3399f3
+}
+
+#wod-times .label-warning {
+    background-color: #d47500
+}
+
+#wod-times .label-danger {
+    background-color: #cd0200
+}
+</style>
+
+<p><span class="h4" id="wod-times">
+  <span style="padding: 2px" class="label label-success">Rx: &lt;15 min</span>
+  <span style="padding: 2px" class="label label-info">Av: 20 min</span>
+  <span style="padding: 2px" class="label label-warning">Sd: 30 min</span>
+  <span style="padding: 2px" class="label label-danger">DNF: 30+ min</span>
+</span></p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

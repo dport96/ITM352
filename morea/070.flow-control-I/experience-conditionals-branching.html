@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Lab: Conditionals and Branching </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/flow-control-I">Conditional Expressions and Branching</a></li>
+        <li class="breadcrumb-item active">Lab: Conditionals and Branching</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="lab-objectives">Lab objectives</h1>
+<ul>
+  <li>Know what conditional expressions are</li>
+  <li>Understand how to conditionally execute statements</li>
+</ul>
+
+<h1 id="instructions">Instructions</h1>
+<p>Try to do as many of the exercises as possible, in the order listed. You may skip an exercise if it is impossible to accomplish the task described (for technical reasons). If you have trouble with an exercise, contact the instructor for help – do not just skip the exercise! You may work with a partner, but each of you must submit your individual work. Work should be done electronically on this document (cut and paste as needed but be careful of incorrect characters). Anything that involves code should be tried out in VS Code before submitting (you may cut and paste directly from VS Code). Submit work before the next class. If you cannot submit by this time, try to do so as soon as possible.</p>
+
+<p>You may wish to open the <a href="ITM352_flow_control_I.pptx">presentation slides</a> for convenience of viewing and copy-paste. When asked by the instructor do the lab exercises indicated. If you get done early, feel free to go on. If you are not done before the instructor indicates the next exercise, raise your hand and explain where you are at. Later parts often depend on completing previous parts so do not let yourself get behind and expect to catch up!</p>
+
+<p>Note: Whenever you see something like &lt;Your Name&gt; and it’s not obviously an HTML tag, it means replace this with you own information as indicated inside. e.g. replace &lt;Your Name&gt; with Joe (or whatever your name is).</p>
+
+<p>For exercises that do not ask specific questions but have you perform tasks, copy any code you created and the output as your answer to the exercise. Some exercises ask for explanations. Make notes for your answer and complete these after class before submitting. Do not try to make complete answers if it keeps you from progressing!</p>
+
+<p>Do all your code work in VS Code. Copy and paste from there. Please ask the instructor for help if you get stuck this is <strong>NOT</strong> a test.</p>
+
+<h1 id="submission">Submission</h1>
+<p>When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to <a href="https://laulima.hawaii.edu">Laulima Assignments</a>. If you do not submit something to Laulima you will not get credit.</p>
+
+<p>In this lab we will use conditional (boolean) expressions and conditional statements (if-statements) to keep score and present game information.</p>
+
+<p>Start by creating a <code class="language-plaintext highlighter-rouge">Lab6</code> directory in your repo and add a copy of your <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_3</code> project from the previous Lab and rename it  <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_4</code>. Start your http-server and load the <code class="language-plaintext highlighter-rouge">products_display.html</code> page then open the JS console in your browser.</p>
+
+<h4 id="exercise-1conditional-expressions-total-6-minutes">Exercise #1: Conditional Expressions (total 6 minutes)</h4>
+<p>Add the following spans to the Hits and Spins <code class="language-plaintext highlighter-rouge">&lt;p&gt;</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You win:&lt;span id="win_span"&gt;pending...&lt;/span&gt;
+</code></pre></div></div>
+
+<p>a) Write a Javascript statement that sets the <code class="language-plaintext highlighter-rouge">innerHTML</code> of the <code class="language-plaintext highlighter-rouge">win_span</code> whenever <code class="language-plaintext highlighter-rouge">spins</code>  is less than <strong>twice</strong> the <code class="language-plaintext highlighter-rouge">hits</code> and <code class="language-plaintext highlighter-rouge">false</code> otherwise. Do you need to convert the value of the expression to a <code class="language-plaintext highlighter-rouge">String</code>? Reload the page and try clicking and mouseover the images. Put your new code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>b. Modify the expression so that it is <code class="language-plaintext highlighter-rouge">false</code> unless <code class="language-plaintext highlighter-rouge">hits</code> is less than <code class="language-plaintext highlighter-rouge">spins</code> (use the <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> operator). New code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>c. Declare a varible <code class="language-plaintext highlighter-rouge">over_half</code> and initialize it with <code class="language-plaintext highlighter-rouge">false</code>. Use an assignment operator expression that sets <code class="language-plaintext highlighter-rouge">over_half</code> to <code class="language-plaintext highlighter-rouge">true</code> once the <code class="language-plaintext highlighter-rouge">hits</code> and <code class="language-plaintext highlighter-rouge">spins</code> conditions are met as in (b) above and it never changes to <code class="language-plaintext highlighter-rouge">false</code> after (this is called a “flag” variable). Use <code class="language-plaintext highlighter-rouge">over_half</code> for the <code class="language-plaintext highlighter-rouge">innerHTML</code> of the <code class="language-plaintext highlighter-rouge">win_span</code>. New code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h4 id="exercise-2-if-statements-total-10-minutes">Exercise #2: if statements (total 10 minutes)</h4>
+
+<p>a. Write an if-statement that will only increment <code class="language-plaintext highlighter-rouge">spins</code> and set the image spinning <code class="language-plaintext highlighter-rouge">onmouseover</code> only when the image is not already spinning. This is to avoid additional spin counts when mousing over an already spinning image. You know the image is spinning if <code class="language-plaintext highlighter-rouge">className</code> has <code class="language-plaintext highlighter-rouge">rotate</code> in it. New code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>b. Now write an if-else statement that will only increment <code class="language-plaintext highlighter-rouge">hits</code> and stop the image spinning <code class="language-plaintext highlighter-rouge">onclick</code> only when the image is already spinning. If the image is not spinning when <code class="language-plaintext highlighter-rouge">onclick</code> set it spinning. Explain why the else is needed for this. Code and explanation here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>c. What is the problem if you use <code class="language-plaintext highlighter-rouge">this.className='item'</code> rather than <code class="language-plaintext highlighter-rouge">if(this.className=='item')</code> in exercise (a) above?</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h4 id="exercise-3-if-else-if-on-your-own">Exercise #3: if-else if (On Your Own)</h4>
+
+<p>You want to add a progress to win indicator to <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_4</code> that sets the <code class="language-plaintext highlighter-rouge">win_span</code> to <code class="language-plaintext highlighter-rouge">On your way</code> when <code class="language-plaintext highlighter-rouge">hits/spins &gt; 0</code> then to <code class="language-plaintext highlighter-rouge">Almost there!</code> when <code class="language-plaintext highlighter-rouge">hits/spins &gt; 1/4</code> and finally to <code class="language-plaintext highlighter-rouge">You win!</code> when <code class="language-plaintext highlighter-rouge">hits/spins &gt; 1/2</code> and <code class="language-plaintext highlighter-rouge">hits &lt; spins</code>. Try out the following “nested if-statement” code that sets the <code class="language-plaintext highlighter-rouge">win_span</code> to indicate progress towards winning. Initialize a variable <code class="language-plaintext highlighter-rouge">progress</code> to <code class="language-plaintext highlighter-rouge">Pending...</code> and add the following code into the <code class="language-plaintext highlighter-rouge">onclick</code> and <code class="language-plaintext highlighter-rouge">onmouseover</code> event attributes of each <code class="language-plaintext highlighter-rouge">&lt;section&gt;</code>:</p>
+
+<p> </p>
+<pre><code class="language-Javascript">// -- Winning progress depends on hits/spins
+let hits_spins_ratio = hits/spins;
+if ( hits_spins_ratio &gt; 0 ) {
+    progress = 'On your way!';
+    if ( hits_spins_ratio &gt;= 0.25 ) {
+        progress = 'Almost there!';
+        if ( hits_spins_ratio &gt;= 0.5 ) {
+            if( hits &lt; spins) { 
+                progress = 'You win!';
+            }
+        }
+    }
+}
+else {
+    progress = 'Get going!' ;
+}
+
+</code></pre>
+<p>This code should replace the <code class="language-plaintext highlighter-rouge">over_half</code> code in Exercise #1. Test that you get the expected progress indications when mousing over and clicking a section.</p>
+
+<p>Your task for this exercise is to rewrite the above code using if-elseif-else statements to remove the nested if-statements. Hint: don’t just replace “if” statements with “if-else” in the above. You will have to move the end }’s too! Consider example hits_spins_ratio of 0, .1, .2, and .5 and make sure that the correct progress message is set for each.</p>
+
+<p>Paste source code here</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+</code></pre></div></div>
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>Extra Credit:</p>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">switch</code> statement that switches on the value of a variable called month.  The value of month will be a string containing the name of the month, e.g. “January”, “February”, etc.  Use the switch statement to set the value of the variable num_days, which should contain the correct number of days in the month.  Make sure that your switch contains a “default” branch, in case the value of month is not set correctly.  Output an error in the default branch and set the value of month to -1 (i.e., a value that indicates that an error has occurred).</p>
+
+<p>Paste source code here</p>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

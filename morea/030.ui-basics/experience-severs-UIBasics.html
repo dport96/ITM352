@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Lab: Web Pages and Web Server Basics </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/ui-basics">Web Page Basics</a></li>
+        <li class="breadcrumb-item active">Lab: Web Pages and Web Server Basics</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="lab-objectives">Lab objectives</h1>
+<ul>
+  <li>Understand how web pages are requested from a server</li>
+  <li>Understand how web page requests are handled by server and the role of files and document root</li>
+  <li>Understand how web pages are constructed in a browser from HTML, CSS, and the DOM</li>
+  <li>Understand HTTP and web server - browser communication</li>
+</ul>
+
+<h1 id="instructions">Instructions</h1>
+<p>Try to do as many of the exercises as possible, in the order listed. You may skip an exercise if it is impossible to accomplish the task described (for technical reasons). If you have trouble with an exercise, contact the instructor for help – do not just skip the exercise! You may work with a partner, but each of you must submit your individual work. Work should be done electronically on this document (cut and paste as needed but be careful of incorrect characters). Anything that involves code should be tried out in VS Code before submitting (you may cut and paste directly from VS Code). Submit work before the next class. If you cannot submit by this time, try to do so as soon as possible.</p>
+
+<p>You may wish to open the <a href="Web UI Basics.pptx">presentation slides</a> for convenence of viewing and copy-paste. When asked by the instructor do the lab exercises indicated. If you get done early, feel free to go on. If you are not done before the instructor indicates the next exercise, raise your hand and explain where you are at. Later parts often depend on completing previous parts so do not let yourself get behind and expect to catch up!</p>
+
+<p>Note: Whenever you see something like <Your Name=""> and it's not obviously an HTML tag, it means replace this with you own information as indicated inside. e.g. replace <Your Name=""> with Joe (or whatever your name is).</Your></Your></p>
+
+<p>For exercises that do not ask specific questions but have you perform tasks, copy any code you created and the output as your answer to the exercise. Some exercises ask for explanations. Make notes for your answer and complete these after class before submitting. Do not try to make complete answers if it keeps you from progressing!</p>
+
+<p>Do all your code work in VS Code. Copy and paste from there. Please ask the instructor for help if you get stuck this is <strong>NOT</strong> a test.</p>
+
+<h1 id="submission">Submission</h1>
+<p>When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to [Laulima Assignment Lab://laulima.hawaii.edu). If you do not submit something to Laulima you will not get credit.</p>
+
+<h4 id="exercise-1-http-and-client-server-communication">Exercise #1: HTTP and client-server communication</h4>
+<p>Task 1: Open your workspace in VS Code and create a folder <code class="language-plaintext highlighter-rouge">Lab2</code>. In this folder, create an empty file name it <code class="language-plaintext highlighter-rouge">hello-world.text</code> then copy the following code into it:</p>
+<pre><code class="language-HTML">&lt;h1&gt;Hello World!&lt;/h1&gt;
+</code></pre>
+<p>Task 2: Open a terminal in the <code class="language-plaintext highlighter-rouge">Lab2</code> directory (or <code class="language-plaintext highlighter-rouge">cd</code> to this directory) and start an http-server (that one you installed in Lab 1) <code class="language-plaintext highlighter-rouge">node ../server.js</code> Remember that if you do not specify <code class="language-plaintext highlighter-rouge">--rootdir</code> then it will default to <code class="language-plaintext highlighter-rouge">.</code> means the “web server document root will be in the current directory”.</p>
+
+<p>Task 3: Open a browser and make a request to <code class="language-plaintext highlighter-rouge">localhost</code> port <code class="language-plaintext highlighter-rouge">8080</code> with the <code class="language-plaintext highlighter-rouge">HTTP</code> protocol and no path. What do you see and where did this come from? Now copy and paste the console output (IN VS Code) here. Explain what this is and where it came from.</p>
+
+<p>Task 4: Now click on <code class="language-plaintext highlighter-rouge">hello-world.text</code> or type <code class="language-plaintext highlighter-rouge">http://localhost:8080/hello-world.text</code>. Explain what this is and where this came from. Is this HTML? Explain why or why not. Again, look at the console output and explain.</p>
+
+<p>Task 5: Exit your http-server process (by hitting ctrl-c usually). Refresh your webpage or retype your request. Explain why the page does not load. Now change the file extension from <code class="language-plaintext highlighter-rouge">.text</code> to <code class="language-plaintext highlighter-rouge">.html</code>.</p>
+
+<p>Go to the terminal re-run your http-server and refresh the web-page. Why do you <strong>not</strong> see the HTML code and now the page renders as you expected?</p>
+
+<p>Task 6: Exit your http-server process again. Make sure it has stopped and you are at the command prompt!</p>
+
+<h4 id="exercise-2-http-server-as-a-web-page-file-server">Exercise #2: HTTP-Server as a web page file server</h4>
+<p>Task 1: In your terminal <code class="language-plaintext highlighter-rouge">cd</code> to the parent directory of Lab2. Start an http-server and make <code class="language-plaintext highlighter-rouge">Lab2</code> be the root directory.</p>
+
+<p>Task 2: Create a sub-directory in Lab2 <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1</code> and create an empty file in it called <code class="language-plaintext highlighter-rouge">store.html</code>. In the file use the <a href="https://code.visualstudio.com/docs/editor/emmet">Emmet “doc” abbreviation</a> to add an HTML document boilerplate. Now change the file name to <code class="language-plaintext highlighter-rouge">store.text</code></p>
+
+<p>Taks 3. Add a title <code class="language-plaintext highlighter-rouge">Smartphone Store Home</code> and a top-level heading in the body <code class="language-plaintext highlighter-rouge">&lt;your name&gt; Used Smart Phone Store</code>. Go to the URL <code class="language-plaintext highlighter-rouge">localhost:8080/SmartPhoneProducts1/store.text</code> to view the page. What did you see in the console output? What do you see in the browsers address bar? Explain this! Why is the web page not rendering? (i.e. the HTML is shown, not the web page it is supposed to create). Change the filename extension from .text to .html, page-back, refresh the page , click the renamed link and check that the web page looks as expected. Explain this.</p>
+
+<p>Task 4. Create a new file in SmartPhoneProducts1 “products_display.html”, add an HTML document boilerplate (EMMET doc), title it “Smartphone Products”, add a top-level heading “<your name=""> Used Smart Phone Store".</your></p>
+
+<p>Task 5. In your browser, page-back and type in the URL needed to get products_display.html. Note the GET request in the console output and the address in the browser address box. Check that the page displays as expected.</p>
+
+<h4 id="exercise-3-a-simple-home-page-for-a-web-application">Exercise #3: A simple home page for a web application</h4>
+
+<p>Task 1. Rename store.html to “index.html”, type <code class="language-plaintext highlighter-rouge">localhost:8080/SmartPhoneProducts1/</code> into the address bar of your browser. Explain what happened and why this is expected and useful.</p>
+
+<p>Task 2: Create a folder “Images” in your SmartPhoneProducts1 folder and right-click on the following image and “save image as” into this new folder:</p>
+
+<p><img src="phone_globe.jpg" height="25%" width="25%" /></p>
+
+<p>Task 3: Display this image with <code class="language-plaintext highlighter-rouge">height="50%" width="50%"</code> after the top-level heading.</p>
+
+<p>Task 4: Add a hyperlink to the products_display.html page for this image. Add another top-level heading after this link “Click the image to enter store!”</p>
+
+<p>Task 5: Add CSS to the HEAD element that styles the BODY element with <code class="language-plaintext highlighter-rouge">text-align: center</code> and <code class="language-plaintext highlighter-rouge">background: red</code></p>
+
+<p><strong>Note:</strong> You may find it more convenient to use an auto-refresh server such as live-server, fast-live-reload, or reload. Install this now if you wish.</p>
+
+<h4 id="exercise-4-on-your-own-a-simple-products-display-page">Exercise #4 (On Your Own): A simple products display page</h4>
+
+<p>Going back to your products_display.html file. Build page sections as follows:</p>
+
+<ul>
+  <li>
+    <p>Get the JSON data at <a href="products_info.json">products_info.json</a> and covert each list item into an HTML section by replacing all the <code class="language-plaintext highlighter-rouge">{</code> with <code class="language-plaintext highlighter-rouge">&lt;section class="item"&gt;</code> and replace all the <code class="language-plaintext highlighter-rouge">},</code> with <code class="language-plaintext highlighter-rouge">&lt;/section&gt;</code></p>
+  </li>
+  <li>
+    <p>Replace the <code class="language-plaintext highlighter-rouge">[</code> JSON list delimiters with <code class="language-plaintext highlighter-rouge">&lt;div&gt;&lt;main&gt;</code> and <code class="language-plaintext highlighter-rouge">]</code> with <code class="language-plaintext highlighter-rouge">&lt;/main&gt;&lt;/div&gt;</code> (do this manually!)</p>
+  </li>
+  <li>
+    <p>In each section, make the name values second-level headers <code class="language-plaintext highlighter-rouge">&lt;h2&gt;</code>. Use find RegEx with <code class="language-plaintext highlighter-rouge">"name": "(.*)",</code> and replace with RegEx with <code class="language-plaintext highlighter-rouge">&lt;h2&gt;$1&lt;/h2&gt;</code> or do this manually!</p>
+  </li>
+</ul>
+
+<p>Tip: If you want to learn more about using regular expressions (regEx) in VSCode you can try one of the many tutorial documents or videos you can find from Google. Here’s one (https://www.youtube.com/watch?v=8HOcmKr1bw8)[https://www.youtube.com/watch?v=8HOcmKr1bw8]</p>
+
+<ul>
+  <li>
+    <p>In each section, put the price values in paragraphs (i.e. enclose them inside <code class="language-plaintext highlighter-rouge">&lt;p&gt;&lt;/p&gt;</code>). Put a <code class="language-plaintext highlighter-rouge">&amp;dollar;</code> in front of the value inside the paragraph tags. Modify the find and replace RegEx you did previously.</p>
+  </li>
+  <li>
+    <p>For each image value, covert it to an <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> with the <code class="language-plaintext highlighter-rouge">src</code> attribute the value.</p>
+  </li>
+  <li>
+    <p>Add a header element above the div with a top-level header “Used Smartphone Store”</p>
+  </li>
+  <li>
+    <p>Similarly add a footer below the div with a top-level header “Your One Stop Phone Shop”</p>
+  </li>
+  <li>
+    <p>Create a style sheet “products-style.css” and link it in the HEAD. Reload the page and open Chrome dev tool (Inspect the page), click on sources, double click products-style.css. Edit directly in the Chrome tool editor (if you are not using Chrome you can edit in VS Code and reload the file as needed):</p>
+    <ul>
+      <li>Style the body element <code class="language-plaintext highlighter-rouge">width: 800px; margin: 0 auto;</code></li>
+      <li>Size the img elements for the item class  200px by 200px</li>
+      <li>Align the text for h1,h2 elements to center</li>
+      <li>Style the main element:
+        <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">display</span><span class="o">:</span> <span class="nt">flex</span><span class="o">;</span>
+<span class="nt">flex-flow</span><span class="o">:</span> <span class="nt">row</span> <span class="nt">wrap</span><span class="o">;</span>
+<span class="nt">justify-content</span><span class="o">:</span> <span class="nt">space-around</span><span class="o">;</span>
+</code></pre></div>        </div>
+        <p>add the image phone_globe.jpg as a background with no-repeat center. Change the color for text in this element so the text shows up well with this background image.</p>
+      </li>
+      <li>Style the div children of body:
+        <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">border</span><span class="o">:</span> <span class="err">5</span><span class="nt">px</span> <span class="nt">solid</span> <span class="nt">black</span><span class="o">;</span>
+<span class="nt">display</span><span class="o">:</span> <span class="nt">flex</span><span class="o">;</span>
+</code></pre></div>        </div>
+      </li>
+      <li>Organize your CSS by adding comments and moving the CSS into the following sections:
+        <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* General */</span>  
+<span class="o">...</span>
+<span class="c">/* Typography */</span>  
+<span class="o">...</span>
+<span class="c">/* block styling */</span>  
+<span class="o">...</span>
+<span class="c">/* Form styling */</span>  
+<span class="o">...</span>
+<span class="c">/* Styling the products display */</span> 
+<span class="o">...</span> 
+</code></pre></div>        </div>
+        <p>The <code class="language-plaintext highlighter-rouge">...</code> is where you put your CSS rules. Don’t add the dots!</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Here’s an example of what the products display page should look like when you’re done (you can inspect page source):</p>
+
+<iframe src="products_display.html" style="height:210px;width:210px;" scrolling="no" frameborder="0"></iframe>
+
+<h4 id="extra-stuff">Extra stuff:</h4>
+
+<p>In your index.html add the following to STYLE element in the HEAD</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="nt">img</span> <span class="p">{</span>
+            <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#ddd</span><span class="p">;</span>
+            <span class="c">/* Gray border */</span>
+            <span class="nl">border-radius</span><span class="p">:</span> <span class="m">4px</span><span class="p">;</span>
+            <span class="c">/* Rounded border */</span>
+            <span class="nl">padding</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+            <span class="c">/* Some padding */</span>
+            <span class="nl">width</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
+            <span class="c">/* Set a small width */</span>
+        <span class="p">}</span>
+
+        <span class="c">/* Add a hover effect (blue shadow) */</span>
+        <span class="nt">img</span><span class="nd">:hover</span> <span class="p">{</span>
+            <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">5px</span> <span class="m">1px</span> <span class="no">black</span><span class="p">;</span>
+        <span class="p">}</span>
+</code></pre></div></div>
+<h4 id="extra-credit">Extra credit!</h4>
+<p>Create a more elegant and useful products display. Here’s an example (click to enlarge):</p>
+
+<p><a href="SmartPhoneProducts1-elegant-display.png">
+<img src="SmartPhoneProducts1-elegant-display.png" alt="SmartPhoneProducts1-elegant-display" height="25%" width="25%" />
+</a></p>
+
+<p>There are many online tools and references that may be helpful in creating web pages by hand. Here are some to try out:</p>
+
+<p><a href="https://html-css-js.com/html/">HTML WYSIWYG editor</a></p>
+
+<p><a href="https://htmlcheatsheet.com/css/">CSS cheatsheet and generator tool</a></p>
+
+<p><a href="https://html-online.com">HTML goodies</a></p>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

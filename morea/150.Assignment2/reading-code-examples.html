@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Assignment 2 Code Examples </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/Assignment2">Assignment 2</a></li>
+        <li class="breadcrumb-item active">Assignment 2 Code Examples</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="some-examples-useful-for-assignment-2">Some examples useful for Assignment 2.</h1>
+<p>You can copy and paste the code in to VS Code to try these. You are welcome to use this code
+in your assignment but please do give a reference to what you use.</p>
+
+<h3 id="a-simple-login-processing-example">A simple login processing example.</h3>
+
+<h4 id="this-is-an-example-server-that-produces-a-login-form-and-when-submitted-check-if-the-password-for-username-matches-the-login-information-is-taken-from-requestbody-which-mean-it-could-have-come-form-a-form-post-user-data-is-simply-stored-as-an-object-the-usernames-converted-to-lowercase-as-keys-this-example-also-illustrates-one-way-to-do-a-case-insensitive-check-of-the-username-for-logging-in">This is an example server that produces a login form and when submitted check if the password for username matches. The login information is taken from <code class="language-plaintext highlighter-rouge">request.body</code> which mean it could have come form a FORM post. User data is simply stored as an object the usernames converted to lowercase as keys. This example also illustrates one way to do a case-insensitive check of the username for logging in.</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="kd">let</span> <span class="nx">users_reg_data</span> <span class="o">=</span> 
+<span class="p">{</span>
+<span class="dl">"</span><span class="s2">dport</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">portpass</span><span class="dl">"</span><span class="p">},</span>
+<span class="dl">"</span><span class="s2">kazman</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kazpass</span><span class="dl">"</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span><span class="na">extended</span><span class="p">:</span><span class="kc">true</span><span class="p">}));</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/login</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="c1">// Give a simple login form</span>
+<span class="nx">str</span> <span class="o">=</span> <span class="s2">`
+&lt;body&gt;
+&lt;form action="" method="POST"&gt;
+&lt;input type="text" name="username" size="40" placeholder="enter username" &gt;&lt;br /&gt;
+&lt;input type="password" name="password" size="40" placeholder="enter password"&gt;&lt;br /&gt;
+&lt;input type="submit" value="Submit" id="submit"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+    `</span><span class="p">;</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">/login</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Process login form POST and redirect to logged in page if ok, back to login page if not</span>
+    <span class="nx">the_username</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="dl">'</span><span class="s1">username</span><span class="dl">'</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+    <span class="nx">the_password</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="dl">'</span><span class="s1">password</span><span class="dl">'</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">users_reg_data</span><span class="p">[</span><span class="nx">the_username</span><span class="p">]</span> <span class="o">!=</span> <span class="dl">'</span><span class="s1">undefined</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">users_reg_data</span><span class="p">[</span><span class="nx">the_username</span><span class="p">].</span><span class="nx">password</span> <span class="o">==</span> <span class="nx">the_password</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">response</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">`User </span><span class="p">${</span><span class="nx">the_username</span><span class="p">}</span><span class="s2"> is logged in`</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">response</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">`Wrong password!`</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">the_username</span><span class="p">}</span><span class="s2"> does not exist`</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="kd">let</span> <span class="nx">listener</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">server started listening on port </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">listener</span><span class="p">.</span><span class="nx">address</span><span class="p">().</span><span class="nx">port</span><span class="p">)</span> <span class="p">});</span></code></pre></figure>
+
+<h3 id="reading-and-writing-user-info-to-a-json-file-fileio-example1">Reading and writing user info to a JSON file (FileIO example1).</h3>
+
+<h4 id="it-will-create-a-new-user-data-file-if-one-doesnt-exist-if-there-is-a-userdata-file-it-will-a-new-user-information-object-so-long-as-the-username-is-not-already-registered-case-insensitive-it-will-also-check-if-a-username-was-entered-and-if-the-password-and-password-repeat-entered-are-the-same-if-there-are-errors-it-will-go-back-to-the-register-page-and-show-the-errors-where-they-occur-the-data-file-is-not-easily-edited-by-humans-because-it-is-in-json-also-all-the-user-data-must-be-loaded-or-written-at-once-which-could-be-slow-if-you-have-a-lot-of-users">It will create a new user data file if one doesn’t exist. If there is a userdata file, it will a new user information object so long as the username is not already registered (case insensitive). It will also check if a username was entered and if the password and password repeat entered are the same. If there are errors, it will go back to the register page and show the errors where they occur. The data file is not easily edited by humans because it is in JSON. Also all the user data must be loaded or written at once which could be slow if you have a lot of users!</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">errors</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// keep errors on server to share with registration page</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span><span class="na">extended</span><span class="p">:</span><span class="kc">true</span><span class="p">}));</span>
+
+<span class="c1">// user info JSON file</span>
+<span class="kd">let</span> <span class="nx">filename</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">./user_info.json</span><span class="dl">"</span><span class="p">;</span>
+
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="nx">filename</span><span class="p">))</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">stats</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">statSync</span><span class="p">(</span><span class="nx">filename</span><span class="p">);</span>
+    <span class="nx">data</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utf-8</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">users_reg_data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filename</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> does not exist!</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">users_reg_data</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/register</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// Give a simple register form</span>
+        <span class="nx">str</span> <span class="o">=</span> <span class="s2">`
+&lt;body&gt;
+&lt;form action="" method="POST"&gt;
+&lt;input type="text" name="username" size="40" placeholder="enter username" &gt; 
+</span><span class="p">${</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">errors</span><span class="p">[</span><span class="dl">'</span><span class="s1">no_username</span><span class="dl">'</span><span class="p">]</span> <span class="o">!=</span> <span class="dl">'</span><span class="s1">undefined</span><span class="dl">'</span><span class="p">)?</span><span class="nx">errors</span><span class="p">[</span><span class="dl">'</span><span class="s1">no_username</span><span class="dl">'</span><span class="p">]:</span><span class="dl">''</span><span class="p">}</span><span class="s2">
+</span><span class="p">${</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">errors</span><span class="p">[</span><span class="dl">'</span><span class="s1">username_taken</span><span class="dl">'</span><span class="p">]</span> <span class="o">!=</span> <span class="dl">'</span><span class="s1">undefined</span><span class="dl">'</span><span class="p">)?</span><span class="nx">errors</span><span class="p">[</span><span class="dl">'</span><span class="s1">username_taken</span><span class="dl">'</span><span class="p">]:</span><span class="dl">''</span><span class="p">}</span><span class="s2">
+&lt;br /&gt;
+&lt;input type="password" name="password" size="40" placeholder="enter password"&gt;&lt;br /&gt;
+&lt;input type="password" name="repeat_password" size="40" placeholder="enter password again"&gt;
+</span><span class="p">${</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">errors</span><span class="p">[</span><span class="dl">'</span><span class="s1">password_mismatch</span><span class="dl">'</span><span class="p">]</span> <span class="o">!=</span> <span class="dl">'</span><span class="s1">undefined</span><span class="dl">'</span><span class="p">)?</span><span class="nx">errors</span><span class="p">[</span><span class="dl">'</span><span class="s1">password_mismatch</span><span class="dl">'</span><span class="p">]:</span><span class="dl">''</span><span class="p">}</span><span class="s2">
+&lt;br /&gt;
+&lt;input type="email" name="email" size="40" placeholder="enter email"&gt;&lt;br /&gt;
+&lt;input type="submit" value="Submit" id="submit"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+    `</span><span class="p">;</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+    
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">/register</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// process a simple register form</span>
+    <span class="nx">username</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">username</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+
+    <span class="c1">// check is username taken</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">users_reg_data</span><span class="p">[</span><span class="nx">username</span><span class="p">]</span> <span class="o">!=</span> <span class="dl">'</span><span class="s1">undefined</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">errors</span><span class="p">[</span><span class="dl">'</span><span class="s1">username_taken</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">`Hey! </span><span class="p">${</span><span class="nx">username</span><span class="p">}</span><span class="s2"> is already registered!`</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span> <span class="o">!=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">repeat_password</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">errors</span><span class="p">[</span><span class="dl">'</span><span class="s1">password_mismatch</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">`Repeat password not the same as password!`</span><span class="p">;</span>
+    <span class="p">}</span> 
+    <span class="k">if</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">username</span> <span class="o">==</span> <span class="dl">''</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">errors</span><span class="p">[</span><span class="dl">'</span><span class="s1">no_username</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">`You need to select a username!`</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">errors</span><span class="p">).</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">users_reg_data</span><span class="p">[</span><span class="nx">username</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>
+        <span class="nx">users_reg_data</span><span class="p">[</span><span class="nx">username</span><span class="p">].</span><span class="nx">password</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">;</span>
+        <span class="nx">users_reg_data</span><span class="p">[</span><span class="nx">username</span><span class="p">].</span><span class="nx">email</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">;</span>
+        <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">users_reg_data</span><span class="p">));</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Saved: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">users_reg_data</span><span class="p">);</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">username</span><span class="p">}</span><span class="s2"> has been registered.`</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="dl">"</span><span class="s2">./register</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">let</span> <span class="nx">listener</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">server started listening on port </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">listener</span><span class="p">.</span><span class="nx">address</span><span class="p">().</span><span class="nx">port</span><span class="p">)</span> <span class="p">});</span></code></pre></figure>
+
+<h3 id="reading-and-writing-user-info-to-a-file-using-flat-files-fileio-example2">Reading and writing user info to a file using flat files (FileIO example2).</h3>
+
+<h4 id="this-is-pretty-much-the-same-as-fileio-example-as-above-except-the-file-format-is-simple-and-easily-editable-by-humans-it-defines-a-function-get_user_info-which-returns-a-user-info-object-if-found-in-the-file-undefined-if-not-in-the-file-its-done-line-by-line-and-quits-when-username-is-found-this-is-more-efficient-for-large-data-files">This is pretty much the same as FileIO example as above except the file format is simple and easily editable by humans. It defines a function get_user_info() which returns a user info object if found in the file, undefined if not in the file. It’s done line by line and quits when username is found. This is more efficient for large data files.</h4>
+
+<pre><code class="language-Javascript">const fs = require('fs');
+const express = require('express');
+const app = express();
+
+// get entire file as array of lines of user info data
+let filename = "./user_info.dat";
+if (fs.existsSync(filename)) {
+    data = fs.readFileSync(filename, 'utf-8');
+    // split data by new line
+    let lines = data.split(/\r?\n/);
+
+} else {
+    console.log(filename + ' does not exist!');
+    const lines = [];
+}
+
+app.use(express.urlencoded({extended:true}));
+
+app.get("/login", function (request, response) {
+
+// Give a simple login form
+str = `
+&lt;body&gt;
+&lt;form action="" method="POST"&gt;
+&lt;input type="text" name="username" size="40" placeholder="enter username" &gt;&lt;br /&gt;
+&lt;input type="password" name="password" size="40" placeholder="enter password"&gt;&lt;br /&gt;
+&lt;input type="submit" value="Submit" id="submit"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+    `;
+response.send(str);
+});
+
+app.post("/login", function (request, response) {
+    // Process login form POST and redirect to logged in page if ok, back to login page if not
+    the_username = request.body['username'].toLowerCase();
+    the_password = request.body['password'];
+    let user_info = get_user_info(the_username);
+    console.log(user_info);
+    if (typeof user_info != 'undefined') {
+        if (
+            
+            user_info.password == the_password) {
+            response.send(`User ${the_username} is logged in`);
+        } else {
+            response.send(`Wrong password!`);
+        }
+        return;
+    }
+    response.send(`${the_username} does not exist`);
+});
+
+let listener = app.listen(8080, () =&gt; { console.log('server started listening on port ' + listener.address().port) });
+
+function get_user_info(a_username) {
+    // go through lines and look for username. If found, returns object with user data, otherwise returns undefined.
+    // Format is assumed to be username;password;fullname
+    let user_data = undefined;
+    for(i in lines) {
+        let user_data_array = lines[i].split(';');
+        if(user_data_array[0] == a_username) { // found it!
+            user_data = {'password': user_data_array[1], 'name': user_data_array[2]};
+            break; 
+        }
+    }
+    return user_data;
+}
+</code></pre>
+
+<h5 id="here-is-a-sample-registration-data-that-might-be-created-with-the-above-functions-you-can-also-edit-or-create-this-kind-of-file-easily-in-excel-or-a-simple-text-editor">Here is a sample registration data that might be created with the above functions. You can also edit or create this kind of file easily in Excel or a simple text editor.</h5>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">dport;dppass;Dan Port
+itm352;graderpass;ITM352 Grader
+psud;ppass;Perfect Student</code></pre></figure>
+
+<h3 id="putting-errors-from-the-server-on-the-client">Putting errors from the server on the client</h3>
+<p>As you might expect, the advice is always to think through carefully what you want, try to do something as simple as possible first to get tt started, test that, then make expand on it. So actually there are three general ways to handle displaying errors on the page. One is just sending the data back (as you already had) and have the page (client) re-do the validations and put the errors in when you re-input the data into the form (i.e. making it sticky). Second is to have the server send back the errors in addition to the data from the server (as you are doing now) and then put the errors in when you re-input the data into the form (so when you are making an input sticky you just add the error if there is one for it). Third, is you generate the page entirely on the server and as you do this you just add the errors when as the page is generated (this is much easier than it sounds). See the <strong>Reading and writing user info to a JSON file (FileIO example1)</strong>
+above for an example of this.</p>
+
+<h3 id="passing-transient-data-through-login-or-registration-pages-to-invoice">Passing transient data through login or registration pages to invoice</h3>
+<p>One problem in Assignment 2 is that you have form data in the products page that needs to be held until you get to the invoice page while you post form data from login or registration. There are two methods for passing transient data from one page to another. The first is to keep the data in a query string and pass the query string from one page to another. The second is to hold the data on the server until it’s needed.</p>
+
+<p>Here is an example of using a query string:</p>
+<pre><code class="language-Javascript">const { concatSeries } = require('async');
+const express = require('express');
+const app = express();
+
+app.use(express.urlencoded({extended:true}));
+
+let users_reg_data = 
+{
+"dport": {"password": "portpass"},
+"kazman": {"password": "kazpass"}
+};
+
+app.get("/invoice", function (request, response) {
+    // Give a simple invoice using query string data
+    response.send(`You want ${request.query['quantity']} items`);
+    });
+
+app.get("/select_quantity", function (request, response) {
+
+    // Give a simple quantity form
+    str = `
+    &lt;body&gt;
+    &lt;form action="" method="POST"&gt;
+    &lt;input type="text" name="quantity" size="40" placeholder="enter quantity desired" &gt;&lt;br /&gt;
+    &lt;input type="submit" value="Submit" id="submit"&gt;
+    &lt;/form&gt;
+    &lt;/body&gt;
+        `;
+    response.send(str);
+    });
+
+app.post("/select_quantity", function (request, response) {
+    // Redirect to login page with form data in query string
+    let params = new URLSearchParams(request.body);
+    response.redirect('./login?'+ params.toString());
+});
+
+app.get("/login", function (request, response) {
+    console.log(request.params.toString());
+// Give a simple login form
+let params = new URLSearchParams(request.query);
+str = `
+&lt;body&gt;
+&lt;form action="?${params.toString()}" method="POST"&gt;
+&lt;input type="text" name="username" size="40" placeholder="enter username" &gt;&lt;br /&gt;
+&lt;input type="password" name="password" size="40" placeholder="enter password"&gt;&lt;br /&gt;
+&lt;input type="submit" value="Submit" id="submit"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+    `;
+response.send(str);
+});
+
+app.post("/login", function (request, response) {
+    let params = new URLSearchParams(request.query);
+    // Process login form POST and redirect to logged in page if ok, back to login page if not
+    the_username = request.body['username'].toLowerCase();
+    the_password = request.body['password'];
+    if (typeof users_reg_data[the_username] != 'undefined') {
+        if (users_reg_data[the_username].password == the_password) {
+            response.redirect('./invoice?'+ params.toString());
+        } else {
+            response.send(`Wrong password!`);
+        }
+        return;
+    }
+    response.send(`${the_username} does not exist`);
+});
+
+let listener = app.listen(8080, () =&gt; { console.log('server started listening on port ' + listener.address().port) });
+</code></pre>
+
+<p>Here is an example of using a variable on the server. This is a very simple approach but has the problem that it does not associate the quantity form data with a particular user so it’s possible that the invoice for a given user will not match with the quantity form that user posted. It could be overwritten if another quantity form is submitted before the user logs in and goes to the invoice. This problem is solved by using sessions which will be discussed in a upcoming Lab.</p>
+
+<pre><code class="language-Javascript">const express = require('express');
+const app = express();
+
+app.use(express.urlencoded({extended:true}));
+
+let users_reg_data = 
+{
+"dport": {"password": "portpass"},
+"kazman": {"password": "kazpass"}
+};
+
+var quantity_form_data;
+
+app.get("/invoice", function (request, response) {
+    // Give a simple invoice using query string data
+    console.log(request);
+    response.send(`You want ${quantity_form_data['quantity']} items`);
+    });
+
+app.get("/select_quantity", function (request, response) {
+
+    // Give a simple quantity form
+    str = `
+    &lt;body&gt;
+    &lt;form action="" method="POST"&gt;
+    &lt;input type="text" name="quantity" size="40" placeholder="enter quantity desired" &gt;&lt;br /&gt;
+    &lt;input type="submit" value="Submit" id="submit"&gt;
+    &lt;/form&gt;
+    &lt;/body&gt;
+        `;
+    response.send(str);
+    });
+
+app.post("/select_quantity", function (request, response) {
+    // Redirect to login page with form data in query string
+    quantity_form_data = request.body;
+    response.redirect('./login');
+});
+
+app.get("/login", function (request, response) {
+
+// Give a simple login form
+str = `
+&lt;body&gt;
+&lt;form action="?${request.query}" method="POST"&gt;
+&lt;input type="text" name="username" size="40" placeholder="enter username" &gt;&lt;br /&gt;
+&lt;input type="password" name="password" size="40" placeholder="enter password"&gt;&lt;br /&gt;
+&lt;input type="submit" value="Submit" id="submit"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+    `;
+response.send(str);
+});
+
+app.post("/login", function (request, response) {
+    // Process login form POST and redirect to logged in page if ok, back to login page if not
+    the_username = request.body['username'].toLowerCase();
+    the_password = request.body['password'];
+    if (typeof users_reg_data[the_username] != 'undefined') {
+        if (users_reg_data[the_username].password == the_password) {
+            response.redirect('./invoice');
+        } else {
+            response.send(`Wrong password!`);
+        }
+        return;
+    }
+    response.send(`${the_username} does not exist`);
+});
+
+let listener = app.listen(8080, () =&gt; { console.log('server started listening on port ' + listener.address().port) });
+</code></pre>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

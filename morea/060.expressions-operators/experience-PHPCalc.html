@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | JAVASCRIPTCalc </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/"></a></li>
+        <li class="breadcrumb-item active">JAVASCRIPTCalc</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h3 id="javascriptcalc">JAVASCRIPTCalc</h3>
+
+<p>For this WOD you will create a simple “running calculator”
+You <strong>must</strong> use expressions and variables to compute the various needed values dynamically. 
+That is, do not “hard code” the computations. You should be able to change
+the variable values and the calculator will compute the correct values. Each step uses the result from the previous step.</p>
+
+<ol>
+  <li>
+    <p>Define two variables X and Y to store two
+different numbers.</p>
+  </li>
+  <li>
+    <p>Compute X+Y then output the sum to the screen. Save the result in a <strong>new variable.</strong></p>
+  </li>
+  <li>
+    <p>Square the result above (multiply the result by itself), then output to the to the screen.</p>
+  </li>
+  <li>
+    <p>Divide the result above by X + Y then output to the
+screen.</p>
+  </li>
+  <li>
+    <p>Get the decimal part of above (subtract the integer of the result) and then output the decimal part to the screen.</p>
+  </li>
+</ol>
+
+<h4 id="specifications">Specifications</h4>
+
+<ul>
+  <li>
+    <p><strong>Output statements</strong> explaining what the computation is doing. For “1 + 2 = 3” for each result.</p>
+  </li>
+  <li>
+    <p>All values should be printed with <strong>6 decimal places</strong>.</p>
+  </li>
+  <li>
+    <p>Put the statements in a table with header “JAVASCRIPTCalc”</p>
+  </li>
+</ul>
+
+<p>An example output is:</p>
+
+<table style="border-collapse: inherit; width: 514px;" border="0" bordercolor="BLACK" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td align="center" width="43%" colspan="5">
+                        <b>
+                            JAVASCRIPT Calc
+                        </b>
+                    </td>
+                </tr>
+                <tr><td>1.230000</td><td>+</td><td>4.560000</td><td>=</td><td>5.790000</td></tr><tr><td>5.790000</td><td>x</td><td>5.790000</td><td>=</td><td>33.524100</td></tr><tr><td>33.524100</td><td>/</td><td>5.790000</td><td>=</td><td>5.790000</td></tr><tr><td>5.790000</td><td>-</td><td>5.000000</td><td>=</td><td>0.790000</td></tr> 
+
+            </tbody>
+</table>
+
+<h4 id="hints">HINTS:</h4>
+<ul>
+  <li>Do <strong>not</strong> start with Invoice1 WOD which is somewhat similar but you likely won’t get much reuse from this code because you will need to delete most of it. Might be best to start fresh!</li>
+  <li><strong>copy the HTML from the example table given in this WOD</strong> and just replace the hard coded values with the expressions. Start by view “page source” for this page and copy the example output HTML table. This will provide a template to start with and guide in what you need to do. Remove all the table rows except the header and the first row.</li>
+  <li>Use printf() to format and print each row in the table. A format of %.6f will give 6 decimal points of a float. Use this printf() to output an entire table row by inside the table HTML <code class="language-plaintext highlighter-rouge">&lt;?php printf(); ?&gt;</code>. Use the HTML for the first table row to create a general format for the printf() and do the computations in the function arguments.  For example <code class="language-plaintext highlighter-rouge">printf('&lt;tr&gt;&lt;td&gt;%.6f&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%.6f&lt;/td&gt;&lt;td&gt;=&lt;/td&gt;&lt;td&gt;%.6f&lt;/td&gt;&lt;/tr&gt;', $result, '+', $y, $result += $y);</code></li>
+  <li>Since you will be writing a lot of simple variations on this code, once you get it working for the first row you should copy it for every row you need to output and then modify it.</li>
+  <li>Use the example output to test your program (i.e. set X = 1.23 and Y = 4.56)</li>
+  <li>Use the same “holder” variable to store the result of each computation so you can use the result in a subsequent computation without having to re-calculate. e.g. <code class="language-plaintext highlighter-rouge">$result = $result - $x;</code> where $result was computed in a previous step.</li>
+</ul>
+
+<style>
+#wod-times .label-success {
+    background-color: #3cb521
+}
+
+#wod-times .label-info {
+    background-color: #3399f3
+}
+
+#wod-times .label-warning {
+    background-color: #d47500
+}
+
+#wod-times .label-danger {
+    background-color: #cd0200
+}
+</style>
+
+<p><span class="h4" id="wod-times">
+  <span style="padding: 2px" class="label label-success">Rx: &lt;10 min</span>
+  <span style="padding: 2px" class="label label-info">Av: 10-15 min</span>
+  <span style="padding: 2px" class="label label-warning">Sd: 20 min</span>
+  <span style="padding: 2px" class="label label-danger">DNF: 20+ min</span>
+</span></p>
+
+<p>If you get stuck please ask the instructor for help.</p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

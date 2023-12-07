@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Lab: Data Types and Variables </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/variables-data-types">Variables and Data Types</a></li>
+        <li class="breadcrumb-item active">Lab: Data Types and Variables</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="lab-objectives">Lab objectives</h1>
+<ul>
+  <li>Understand data is managed and the role of data types</li>
+  <li>Understand how to declare and initialize a variable</li>
+  <li>Understand how to use variables is simple expressions</li>
+</ul>
+
+<h1 id="instructions">Instructions</h1>
+<p>Try to do as many of the exercises as possible, in the order listed. You may skip an exercise if it is impossible to accomplish the task described (for technical reasons). If you have trouble with an exercise, contact the instructor for help – do not just skip the exercise! You may work with a partner, but each of you must submit your individual work. Work should be done electronically on this document (cut and paste as needed but be careful of incorrect characters). Anything that involves code should be tried out in VS Code before submitting (you may cut and paste directly from VS Code). Submit work before the next class. If you cannot submit by this time, try to do so as soon as possible.</p>
+
+<p>You may wish to open the <a href="ITM352_data_types_variables.ppt">presentation slides</a> for convenience of viewing and copy-paste. When asked by the instructor, do the lab exercises indicated. If you get done early, feel free to go on. If you are not done before the instructor indicates the next exercise, raise your hand and explain where you are at. Later parts often depend on completing previous parts so do not let yourself get behind and expect to catch up!</p>
+
+<p>Note: Whenever you see something like &lt;Your Name&gt; and it’s not obviously an HTML tag, it means replace this with you own information as indicated inside. e.g. replace &lt;Your Name&gt; with Joe (or whatever your name is).</p>
+
+<p>For exercises that do not ask specific questions but have you perform tasks, copy any code you created and the output as your answer to the exercise. Some exercises ask for explanations. Make notes for your answer and complete these after class before submitting. Do not try to make complete answers if it keeps you from progressing!</p>
+
+<p>Do all your code work in VS Code. Copy and paste from there. Please ask the instructor for help if you get stuck this is <strong>NOT</strong> a test.</p>
+
+<h1 id="submission">Submission</h1>
+<p>When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to [Laulima Assignment Lab://laulima.hawaii.edu). If you do not submit something to Laulima you will not get credit.</p>
+
+<p>In this lab we will use data types and variables to customize the game and present scoring information.</p>
+
+<p>Start by creating a <code class="language-plaintext highlighter-rouge">Lab4</code> directory in your repo and add a copy of your <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_1</code> project from Lab3 and rename it  <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_2</code>. Start your http-server and load the <code class="language-plaintext highlighter-rouge">products_display.html</code> page then open the JS console in your browser.</p>
+
+<h4 id="exercise-1-data-types">Exercise 1: Data types</h4>
+<p>For each kind of data presented state what data type it is and an example of using it in <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_2</code>. Note that in the console everything will automatically be put into <code class="language-plaintext highlighter-rouge">console.log()</code> to output, so you can just type the expression in the console.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Jenny"
+25
+25.5
+true
+[10,0,2,0,0]
+{ "phone type": "iPhone", price: 123.45 }
+undefined
+null
+</code></pre></div></div>
+
+<p>Can you name <strong>two</strong> data types not in the above? Hint: it’s not <code class="language-plaintext highlighter-rouge">function</code></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h4 id="exercise-2-variables">Exercise 2: Variables</h4>
+<p>How and where you declare a variable will affect ‘scope’ which is something we will explore in more detail later. For now we are interested mostly in when you can use a variable.</p>
+
+<h5 id="using-smartphoneproducts1_2">Using SmartPhoneProducts1_2</h5>
+
+<p>a. In the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> define a constant <code class="language-plaintext highlighter-rouge">store_name</code> and assign the string &lt;your full name&gt;. Load the page and explain what you get when you <code class="language-plaintext highlighter-rouge">typeof store_name</code> in the console. Explain why you get an error when you try <code class="language-plaintext highlighter-rouge">store_name = "xxx";</code>. What about <code class="language-plaintext highlighter-rouge">let store_name = "xxx";</code>? Explain why this is useful.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>b. Define variable <code class="language-plaintext highlighter-rouge">hits</code> using <code class="language-plaintext highlighter-rouge">var</code>, and <code class="language-plaintext highlighter-rouge">spins</code> without it and initialize them with positive integers where <code class="language-plaintext highlighter-rouge">hits &lt; spins</code>. Reload the page and use the console to report the variables are set to the expected values data types. Try to <code class="language-plaintext highlighter-rouge">delete</code> these variables and explain why you cannot delete <code class="language-plaintext highlighter-rouge">hits</code> but you can delete <code class="language-plaintext highlighter-rouge">spins</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>c. In the console compute <code class="language-plaintext highlighter-rouge">hits</code>/<code class="language-plaintext highlighter-rouge">spins</code> and report what data type this is:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>d. In the console, assign the boolean <code class="language-plaintext highlighter-rouge">true</code> to the variable <code class="language-plaintext highlighter-rouge">is_game_over</code> and use <code class="language-plaintext highlighter-rouge">typeof</code> to explain why this is different than assigning <code class="language-plaintext highlighter-rouge">"true"</code> to <code class="language-plaintext highlighter-rouge">is_game_over</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h4 id="exercise-3-on-your-own-using-variables-for-output-in-an-html-page">Exercise 3 (on your own): Using variables for output in an HTML page</h4>
+
+<h5 id="using-smartphoneproducts1_2-1">Using SmartPhoneProducts1_2</h5>
+
+<p>a. Use the <code class="language-plaintext highlighter-rouge">store_name</code> <strong>constant</strong> you defined in Exercise 2 and <code class="language-plaintext highlighter-rouge">document.write(store_name)</code> to display your name in the <code class="language-plaintext highlighter-rouge">&lt;header&gt;</code>. For example if <code class="language-plaintext highlighter-rouge">const store_name = "Rick Kazman;"</code> the header will display:</p>
+
+<font style="font-family:times;font-weight: bold; font-size=32px;">Rick Kazman's Used Smart Phone Store</font>
+<p><br /></p>
+
+<p>Experiment 1: Reload the page and explain how this dynamically changes the page. Note: you may need to “force reload” the page if caching is enabled.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<p>Experiment 2: Change the declaration of <code class="language-plaintext highlighter-rouge">store_name</code> from <code class="language-plaintext highlighter-rouge">const</code> to <code class="language-plaintext highlighter-rouge">var</code> and reload the page. Now in the console, assign <code class="language-plaintext highlighter-rouge">xxx</code> to the <code class="language-plaintext highlighter-rouge">store_name</code> variable. Explain why this did not change the name on the page.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Experiment 3: Move the declaration and assignment of <code class="language-plaintext highlighter-rouge">store_name</code> from the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> to the <strong>bottom</strong> of the file and reload the page. Explain why your name does not appear in the header anymore:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Experiment 4: Move the <strong>assignment</strong> of <code class="language-plaintext highlighter-rouge">store_name</code> back to the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> but leave the <strong>declaration</strong> <code class="language-plaintext highlighter-rouge">var store_name;</code> at the bottom. Reload the page and in the console type <code class="language-plaintext highlighter-rouge">window.store_name</code>. Explain why your name now appears and why <code class="language-plaintext highlighter-rouge">store_name</code> is a global variable:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Experiment 5: Now use <code class="language-plaintext highlighter-rouge">document.write(store_name)</code> to display your name in the <code class="language-plaintext highlighter-rouge">&lt;footer&gt;</code>. For example</p>
+
+<font style="font-family:times;font-weight: bold; font-size=32px;">Your One Stop For Used Phones - Rick Kazman's</font>
+<p><br /></p>
+
+<p>Explain why it’s better to define the variable <code class="language-plaintext highlighter-rouge">store_name</code> and use <code class="language-plaintext highlighter-rouge">document.write()</code> to write it into the document rather than ‘hard code’ the name (in two places) directly into the document:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>b. At the <strong>bottom</strong> of the file, define variables <code class="language-plaintext highlighter-rouge">hits</code>, <code class="language-plaintext highlighter-rouge">spins</code> and initialize them with <code class="language-plaintext highlighter-rouge">0</code> and <code class="language-plaintext highlighter-rouge">1</code> respectively. Reload the page and use the console to report the variables are set to the expected values and data types:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Experiment 1: In your <code class="language-plaintext highlighter-rouge">&lt;header&gt;</code> after the <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> title add</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p style="text-align: center; font-weight: bold;"&gt;
+Hits:&lt;span id="hits_span"&gt;0&lt;/span&gt;
+Spins:&lt;span id="spins_span"&gt;0&lt;/span&gt;
+&lt;/p&gt;
+</code></pre></div></div>
+<p>Reload the page and in the <strong>console</strong> type <code class="language-plaintext highlighter-rouge">hits_span.innerHTML = hits; spins_span.innerHTML = spins;</code> and verify you see the expected changes to the page. This code assigns hits and spins variables to the <code class="language-plaintext highlighter-rouge">innerHTML</code> property of the <code class="language-plaintext highlighter-rouge">hits_span</code> and <code class="language-plaintext highlighter-rouge">spins_span</code> DOM objects. Now add this assignment code to the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>. Reload the page, look at the console and explain the errors you see and why the page did not change:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Experiment 2: Now move the assignment code from the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> to just <strong>below</strong> the variable assignments you have at at the <strong>bottom</strong> of the file. Reload the page and explain why the hits and spins show in the <code class="language-plaintext highlighter-rouge">&lt;span&gt;</code>’s as desired and why you had to put the assignments <strong>below</strong> the variable declarations:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Experiment 3: Now <strong>delete</strong> the assignments and replace the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> tag (near the top of the file) with <code class="language-plaintext highlighter-rouge">&lt;body onload="hits_span.innerHTML = hits; spins_span.innerHTML = spins;"&gt;</code>. Explain why this works even though the assignments are <strong>above</strong> the variable declarations (Hint: <code class="language-plaintext highlighter-rouge">onload</code> is an event that occurs after the page is rendered from the HTML):</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Experiment 4: Lastly, move the assignment of the <code class="language-plaintext highlighter-rouge">innerHTML</code> for <code class="language-plaintext highlighter-rouge">hits_span</code> to be executed in the <code class="language-plaintext highlighter-rouge">onclick</code> event attribute and similarly for the <code class="language-plaintext highlighter-rouge">spins_span</code> for the <code class="language-plaintext highlighter-rouge">onmouseover</code> event attribute for all the <code class="language-plaintext highlighter-rouge">&lt;sections&gt;</code> Reload the page and try clicking and mouseover the images. In the console, try setting different values of <code class="language-plaintext highlighter-rouge">hits</code> and <code class="language-plaintext highlighter-rouge">spins</code> and try clicking and mouseover the images (do not reload the page!). Put an example of the <code class="language-plaintext highlighter-rouge">onclick</code> and <code class="language-plaintext highlighter-rouge">onmouseover</code> code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

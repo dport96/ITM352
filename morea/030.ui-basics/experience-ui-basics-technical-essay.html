@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | E1: UI Basics Technical Blog </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/ui-basics">Web Page Basics</a></li>
+        <li class="breadcrumb-item active">E1: UI Basics Technical Blog</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="e1-ui-basics-technical-essay">E1: UI Basics Technical Essay</h1>
+
+<p>After you complete all three BrowserHistory WODs at least once, write a technical essay on your personal MIS Portfolio blog (Essays) that summarizes your experience developing them and using the Athletic Approach.</p>
+
+<p>Do not include the source code in your essay. Instead, provide a brief introduction to each assignment then discuss your experiences with <strong>each</strong> WOD.</p>
+
+<p>For each WOD that you finished, describe how long it took to finish and what you learned (about HTML, CSS, VS Code, LiveReload, or Chrome Developer Tools).   For each WOD that you DNF’d, explain what happened and what you learned to improve.  If you did a WOD multiple times, report the times of all of your attempts and what you learned by doing them more than once. Make sure your writing is “for you and your classmates”, not “for the instructor”. Details are important! Give specific advice on what works and what to avoid or is not helpful. For example, here a a very common bit of advice students have shared to help others:</p>
+
+<blockquote>
+  <p><em>I had no idea how to start BrowserHistory1, so I watched the screencast solution first, stoping and starting the video to copy the code line by line. After about an hour and a half I finally had somethning working, but I didn’t really get it and I wouldn’t be able to do it on my own without the screencast and certainly not within DNF time. I found this frustrating because it was very slow and I made a lot of mistakes because I didn’t understand what the code I was copying did and why it was needed. So I deleted my screencast copy of BrowserHistory1, started a timer, and tried to do it on my own. When I got stuck, I went to the screencast to find a place like where I got stuck, rewatched that segement until I understood what my problem was and an idea on how to fix it. I stopped the video then went back to the WOD (timer still running) and then manged to continue. When I got stuck again, I went back to the screencast to get unstuck. I went way over DNF time but I Eventually I finished the WOD in about 45 min, but I felt I understood how to do it now. I deleted this new version, re-started the timer, and did it again. This next time I only had to go to the screencast once and I completed it in 37 mins. Feeling confident, I deleted the project again, re-started the timer and re-did the WOD in 17 min! It felt great to be able to do this without looking at the screencast and I really feel my skills had improved and was ready to try BrowserHistory2 without copying the screencast first.</em></p>
+
+  <p><em>My advice is that watching the screencast first and just copying the code there is a waste of your time. You should try the WOD first (with the timer even knowing that you will probably DNF). If you get stuck, think about what you are stuck on then go to the screencast to a place that seems to talk about this (I admit that eventually I just did a Google search or went back to the lab or readings for help). Once you complete the WOD even over DNF time, you should try it again and see if you can improve your time. Even if it’s still over DNF, keeping track of your time shows you what progress you made. Delete the project so you are not tempted to copy code from it when you re-do the WOD!</em></p>
+</blockquote>
+
+<p>Submit to Laulima a link to your finished essay (in your portfolio) indicating that it is done and you want to receive credit for it.</p>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

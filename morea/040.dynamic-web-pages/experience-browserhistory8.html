@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Individual WOD: BrowserHistory8 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/"></a></li>
+        <li class="breadcrumb-item active">Individual WOD: BrowserHistory8</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <p>For this WOD, you will modify BrowserHistory6.
+When the user clicks a button, it displays the corresponding browser in the area below the image rather than relocating to a new page.</p>
+
+<p>Here’s what the page should look like and behave interacting with the user:</p>
+
+<p><img src="BrowserHistory8.gif" alt="browserhistory8" /></p>
+
+<p>Here are the specifications:</p>
+
+<ul>
+  <li>Copy BrowserHistory6 files to the new project (in VS Code you can select the files and use “copy project” then rename the copy BrowserHistory8)</li>
+  <li>Set the id for the <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code> with the Introduction text to <code class="language-plaintext highlighter-rouge">historyDiv</code></li>
+  <li>Copy the divs from each of the history files into index.html. Be sure you copy only the div with the history HTML and nothing else (hint: Your can collapse the entire div into a single line to copy by pressing the minus sign to the right of the line number of the open div tag).  Give them id’s <code class="language-plaintext highlighter-rouge">ieDiv</code>, <code class="language-plaintext highlighter-rouge">firefoxDiv</code>, <code class="language-plaintext highlighter-rouge">chromeDiv</code> and set the style for each to <code class="language-plaintext highlighter-rouge">display: none</code></li>
+  <li>Change the onclick event for each button to set the innerHTML of <code class="language-plaintext highlighter-rouge">historyDiv</code> to the innerHTML of the respective history div for that button. For example, the Internet Explorer button would have <code class="language-plaintext highlighter-rouge">onclick="historyDiv.innerHTML = ieDiv.innerHTML"</code></li>
+  <li>Delete the ie.html, firefox.html, and chrome.html files</li>
+</ul>
+
+<p>HINT: This is <strong>MUCH</strong> easier than it sounds. <em>Do not over do it!</em> If your code is getting complex you are probably not doing the right thing!</p>
+
+<p>HINT2: Take everything one step and a time and test each step. Think about what is the same and what is different. Copy things that are nearly the same when they work and change the places they are different.</p>
+
+<style>
+#wod-times .label-success {
+    background-color: #3cb521
+}
+
+#wod-times .label-info {
+    background-color: #3399f3
+}
+
+#wod-times .label-warning {
+    background-color: #d47500
+}
+
+#wod-times .label-danger {
+    background-color: #cd0200
+}
+</style>
+
+<p><span class="h4" id="wod-times">
+  <span style="padding: 2px" class="label label-success">Rx: &lt;6 min</span>
+  <span style="padding: 2px" class="label label-info">Av: 9 min</span>
+  <span style="padding: 2px" class="label label-warning">Sd: 12 min</span>
+  <span style="padding: 2px" class="label label-danger">DNF: 12+ min</span>
+</span></p>
+
+<p>If you get stuck please ask the instructor for help. You are not expected to be able to do this WOD without any help.</p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

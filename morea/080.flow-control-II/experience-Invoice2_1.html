@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Invoice2_1 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/"></a></li>
+        <li class="breadcrumb-item active">Invoice2_1</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="use-a-loop-to-generate-an-invoice">Use a loop to generate an invoice</h1>
+
+<p>This WOD is very similar to <a href="experience-SmartPhoneProducts2.html">SmartPhoneProducts2</a> but just a little more complex due to having to perform calculations inside a loop.</p>
+
+<ol>
+  <li>
+    <p>Start by copying <a href="../080.flow-control-I/experience-invoice2.html">Invoice2</a> into a new JAVASCRIPT project. Check that the invoice displays as expected.</p>
+  </li>
+  <li>
+    <p>Your product data variables should have names with numbers at the end like <code class="language-plaintext highlighter-rouge">$item1, $quantity1, $price1</code> and similarly for the other products. If not, rename the variables now.</p>
+  </li>
+  <li>
+    <p>Write a loop to generate the table using the variables defined above. You will need to create the identifiers for the variables using a string and a counter inside the loop as per the <a href="reading-var-var.html">variable variables</a> reading. Hint: delete all the code that prints the product rows in the table except one. Put this this inside a loop and change the variables used in this row to variable-variables that you create from the loop variable.</p>
+  </li>
+</ol>
+
+<p>Your final invoice display should look <strong>identical</strong> to Invoice2.</p>
+<ol>
+  <li>Now do the same as (3) to perform the calculations used in the table. This needs to be done <em>before or while</em> the table is generated!</li>
+</ol>
+
+<p>HINT: It’s easiest (for now) to create TWO separate loops. One loop to compute the extended prices and subtotal. The other loop to print the rows of the table. Both these loops will have the <strong>same</strong> conditions! If you know how to do this is one loop while the table is generated then do this instead.</p>
+
+<p>HINT2: To calculate the subtotal, rather than do this after the loop exits, compute it <strong>inside</strong> the loop as a “running subtotal” (as in the <a href="https://dport96.github.io/ITM352/morea/060.expressions-operators/experience-runningTotal.html">RunningTotal WOD</a>) just after you compute an extended price. That is, just add the current extended price to the current subtotal: <code class="language-plaintext highlighter-rouge">$subtotal = $subtotal + $extended_price</code>. Don’t make this harder than it is! All that you are doing is “putting values in a bag” to sum them up. For example <code class="language-plaintext highlighter-rouge">$x = $a1+$a2+$a3</code> is the same as <code class="language-plaintext highlighter-rouge">$x=0; for($i=1; $i&lt;=3; $i++) {$a_ident = 'a'.$i; $x = $x + $$a_ident; }</code></p>
+
+<p>Be sure to initialize <code class="language-plaintext highlighter-rouge">$subtotal = 0</code> <strong>above</strong> the loop otherwise you will be using a <code class="language-plaintext highlighter-rouge">$subtotal</code> at first with no value set (and get a variable not defined warning) or if you put it inside the loop you will reset it to 0 each time the loop runs (bad!).</p>
+
+<style>
+#wod-times .label-success {
+    background-color: #3cb521
+}
+
+#wod-times .label-info {
+    background-color: #3399f3
+}
+
+#wod-times .label-warning {
+    background-color: #d47500
+}
+
+#wod-times .label-danger {
+    background-color: #cd0200
+}
+</style>
+
+<p><span class="h4" id="wod-times">
+  <span style="padding: 2px" class="label label-success">Rx: &lt;10 min</span>
+  <span style="padding: 2px" class="label label-info">Av: 15-20 min</span>
+  <span style="padding: 2px" class="label label-warning">Sd: 25 min</span>
+  <span style="padding: 2px" class="label label-danger">DNF: 35+ min</span>
+</span></p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

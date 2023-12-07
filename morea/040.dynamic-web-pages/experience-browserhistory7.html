@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Individual WOD: BrowserHistory7 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/"></a></li>
+        <li class="breadcrumb-item active">Individual WOD: BrowserHistory7</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <p>For this WOD, you will modify BrowserHistory6 to use a select box.
+When the user selects an option, it displays the corresponding browser icon in the area below the select box. When the image is clicked it loads the corresponding history page. One of the options should be “Select a browser” (the default) and if the user selects this option the text “Select a browser icon to view. Click image to see history.” will appear in the image box.</p>
+
+<p>Here’s what the page should look like and behave interacting with the user:</p>
+
+<p><img src="browserhistory7.gif" alt="browserhistory7" /></p>
+
+<p>Here are the specifications:</p>
+
+<ul>
+  <li>Create a VS Code project called “BrowserHistory7”</li>
+  <li>Copy BrowserHistory6 files to the new project (in VS Code you can select the files and use “copy project” then rename the copy BrowserHistory7)</li>
+  <li>Convert the <code class="language-plaintext highlighter-rouge">&lt;input type=button&gt;</code> tags to <code class="language-plaintext highlighter-rouge">&lt;option&gt;</code> tags and enclose them with <code class="language-plaintext highlighter-rouge">&lt;select&gt;  &lt;/select&gt;</code></li>
+  <li>Each <code class="language-plaintext highlighter-rouge">&lt;option&gt;</code> should set it’s value to the html needed for the browser selected to display the icon and link it to the corresponding history page. This should be an anchor tag with href set to the history file and an img tag with src set to the browser icon source (all this information will be in the original button html). Basicly you remove the input tags and javascript, add option tags which values that have anchor tags and the innerHTML (img tags) from the buttons.</li>
+  <li>In the select tag use an onchange event to set the innerHTML attribute for the imgbox div element to <code class="language-plaintext highlighter-rouge">this.value</code>  (“this” is an id that always refers to the current element). The code looks like this: <code class="language-plaintext highlighter-rouge">&lt;select onchange="imgbox.innerHTML=this.value"&gt;</code></li>
+  <li>Add an option at the top with label “Select a browser” and value=”Select a browser icon to view. Click image to see history. “</li>
+  <li>Replace the text in the imgbox div with “Select a browser icon to view. Click image to see history.”</li>
+  <li>Float the select box margin-right 70px and margin-left 70px (put in attributes for select in CSS file or use inline style)</li>
+</ul>
+
+<p>HINT: This is <strong>MUCH</strong> easier than it sounds. <em>Do not over do it!</em> If your code is getting complex you are probably not doing the right thing!</p>
+
+<p>HINT2: Take everything one step and a time and test each step. Think about what is the same and what is different. Copy things that are nearly the same when they work and change the places they are different.</p>
+
+<style>
+#wod-times .label-success {
+    background-color: #3cb521
+}
+
+#wod-times .label-info {
+    background-color: #3399f3
+}
+
+#wod-times .label-warning {
+    background-color: #d47500
+}
+
+#wod-times .label-danger {
+    background-color: #cd0200
+}
+</style>
+
+<p><span class="h4" id="wod-times">
+  <span style="padding: 2px" class="label label-success">Rx: &lt;10 min</span>
+  <span style="padding: 2px" class="label label-info">Av: 15 min</span>
+  <span style="padding: 2px" class="label label-warning">Sd: 20 min</span>
+  <span style="padding: 2px" class="label label-danger">DNF: 20 min</span>
+</span></p>
+
+<p>If you get stuck please ask the instructor for help. You are not expected to be able to do this WOD without any help.</p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Lab: Cookies and Sessions </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/Cookies-Sessions">Cookies and Sessions</a></li>
+        <li class="breadcrumb-item active">Lab: Cookies and Sessions</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h3 id="instructions">Instructions:</h3>
+<p><strong>YOU MUST SUBMIT YOUR ANSWERS TO THE EXERCISES ON THE LAULIMA ASSIGNMENT FOR THIS LAB</strong>
+An introduction to cookies and sessions can be found at <a href="ITM352_Cookies_Sessions.ppt">ITM352_Cookies_Sessions.ppt</a>.</p>
+
+<h4 id="exercise-1-cookie-basics">Exercise 1: Cookie basics</h4>
+
+<p>a. (5 minutes) Copy the server and registration_data.json from Lab 14 and rename it ex1.js. Install the cookie-parser middleware (use npm install). Put at the top</p>
+<pre><code class="language-Javascript">const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+</code></pre>
+<p>Add a route to handle a GET to <code class="language-plaintext highlighter-rouge">set_cookie</code> and have it send a cookie with data <code class="language-plaintext highlighter-rouge">&lt;your name&gt;</code>. Create another route to handle a GET to <code class="language-plaintext highlighter-rouge">use_cookie</code> that tests if the cookie exists and responds with <code class="language-plaintext highlighter-rouge">Welcome to the Use Cookie page &lt;your name&gt;</code> from its information when it does. Test this. Stop the server and restart. Try requesting <code class="language-plaintext highlighter-rouge">use_cookie</code> again. Why is the name information still there?</p>
+
+<p>b. (3 minutes) In the browser console use the following javascript:</p>
+
+<p>alert(“cookie is: “ + document.cookie);</p>
+
+<p>Is the cookie data be stored on the client or server? How did it get there? Is it secure from tampering? </p>
+
+<p>c. (3 minutes) Modify <code class="language-plaintext highlighter-rouge">set_cookie</code> in (a) to set a cookie that expires in 5 seconds after it is used. Request <code class="language-plaintext highlighter-rouge">set_cookie</code> then <code class="language-plaintext highlighter-rouge">use_cookie</code>. Wait five seconds, then request <code class="language-plaintext highlighter-rouge">use_cookie</code> again. What happens?</p>
+
+<h4 id="exercise-2-session-basics">Exercise 2: Session basics</h4>
+
+<p>a. (5 minutes) Save a copy of ex1.js as ex2.js. Install the express-session middelware. Add the following to load the middleware:</p>
+<pre><code class="language-Javascript">const session = require('express-session');
+
+app.use(session({secret: "MySecretKey", resave: true, saveUninitialized: true}));
+</code></pre>
+<p>Write a route to GET <code class="language-plaintext highlighter-rouge">use_session</code> that prints out <code class="language-plaintext highlighter-rouge">welcome, your session ID is &lt;sess id&gt;</code> where <code class="language-plaintext highlighter-rouge">&lt;sess id&gt;</code> is the value of <code class="language-plaintext highlighter-rouge">session.id</code> in the request object. What is this and where did the <code class="language-plaintext highlighter-rouge">session</code> object come from?</p>
+
+<p>b. (3 minutes) Look at a neighbor’s output for part (a). Is it the same or different? Explain this!</p>
+
+<p>c. (3 minutes) Request <code class="language-plaintext highlighter-rouge">use_session</code> again. Did you get the same output as in (a)? If you go to google.com then request <code class="language-plaintext highlighter-rouge">use_session</code> again do you get the same output? What if you quit the browser and restart? Explain why or why not it should be the same. If you used another browser would you get the same output? If you cleared cookies in your current browser what would happen?</p>
+
+<p>d. (5 minutes) Modify the GET to login route to display the last time a user logged in. When a user logs in successfully, update it to the current time. If it’s a user’s first visit, make the current time <code class="language-plaintext highlighter-rouge">first visit!</code>. Try refreshing the page a few times then logging in again.</p>
+
+<p>e. (3 minutes) Where is the session data stored? Can you think of any security issues with this? If you re-start your server, what happens to the session data? What might be a better place to store session data?</p>
+
+<h4 id="exercise-3-maintaining-login-status-with-cookies">Exercise 3: maintaining login status with cookies</h4>
+
+<p>a. (6 minutes) Add code to the post to login route that sets a cookie <code class="language-plaintext highlighter-rouge">username</code> to the username for when a succesful login occurs. Then write if-statement that checks if the cookie for <code class="language-plaintext highlighter-rouge">username</code> is defined and if so and prints out <code class="language-plaintext highlighter-rouge">Welcome &lt;username&gt;</code> at the top of the login page.</p>
+
+<p>b. (5 minutes) Try typing in different usernames. Does the welcome change? Why or why not?</p>
+
+<p>c. (4 minutes) Now go to google.com and then request login again. Why does the <code class="language-plaintext highlighter-rouge">Welcome &lt;username&gt;</code> message stay around even when there was no posting of the form?</p>
+
+<p>d. Explain how you could use cookies to keep a user logged and how the server could use this to give or refuse access to various requests. How could you make it keep a user automatically log out a user after 5-mins of inactivity?</p>
+
+<h4 id="exercise-4">Exercise 4:</h4>
+
+<p>a. (4 minutes) Modify the code you wrote in #2 to use <code class="language-plaintext highlighter-rouge">session.destroy()</code> at the bottom of use_session and re-load the page. What happened to the session id?</p>
+
+<p>b. (4 minutes) Now request a login. What happened to the last login time?</p>
+
+<p>c. Rather than destroy the session, have the last login time “reset”. Check that this works and the session remains. Explain why you mught do this rather than destroying the session.</p>
+
+<h4 id="exercise-5-applying-cookies-and-session-on-your-own-useful-for-the-assignment-3-checkpoint">Exercise 5: Applying cookies and session (On your own, useful for the Assignment 3 Checkpoint)</h4>
+<p>Let’s say your e-commerce site has multiple product pages.</p>
+
+<p>a. How can you use cookies to keep a user logged when moving back and forth between pages? How could you use cookies to handle security and personalization in Assignment #3?</p>
+
+<p>b. How can you use sessions to handle multiple users shopping at the same time on your site?</p>
+
+<p>c. How can you use sessions to implement a “shopping cart” for your e-commerce site so users could move back and forth between product pages (or even away from the site) and still get their selections to the invoice page?</p>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Invoice2 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/flow-control-I">Conditional Expressions and Branching</a></li>
+        <li class="breadcrumb-item active">Invoice2</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <p>For this WOD you will modify the <a href="../060.expressions-operators/experience-invoice1.html">Invoice1</a> with an algorithm to determine shipping cost. Here are the the requirements:</p>
+
+<ol>
+  <li>Be sure to fix any problems from Invoice1 before continuing!</li>
+  <li>Add a new line in the receipt for shipping.</li>
+  <li>Calculate shipping based on the order; it should be based on the sub-total and use stepped shipping amounts ($2 shipping on a subtotal of up to $50, $5 shipping for an order up to $100, 5% for $100 or more). This must be a general solution that works for <strong>any</strong> set of items, not just an example invoice. No hard-coding values!</li>
+  <li>Print out the shipping charge above your total.</li>
+  <li>Calculate the total now based on subtotal, tax, and shipping.</li>
+  <li>Display the total in bold font.</li>
+</ol>
+
+<p><span style="font-weight: bold;"> </span></p>
+<p> <font face="arial"><span style="font-weight: bold;">Example output:</span>
+    </font></p>
+<table style="border-collapse: collapse; width: 514px; height: 319px;" border="2" bordercolor="#111111" cellpadding="0" cellspacing="0">
+    <tbody>
+        <tr>
+            <td align="center" width="43%"><b>Item</b></td>
+            <td width="11%"><b>quantity</b></td>
+            <td style="text-align: center;" width="13%"><b>price</b></td>
+            <td style="text-align: center;" width="54%"><b>extended price</b></td>
+        </tr>
+        <tr>
+            <td width="43%">Gillette Sensor 3 Razor</td>
+            <td align="center" width="11%">2</td>
+            <td style="text-align: center;" width="13%">$ 1.23</td>
+            <td style="text-align: center;" width="54%">$&nbsp; 2.46</td>
+        </tr>
+        <tr>
+            <td width="43%">Barbasol Shaving Cream</td>
+            <td align="center" width="11%">1</td>
+            <td style="text-align: center;" width="13%">$ 2.64</td>
+            <td style="text-align: center;" width="54%">$&nbsp; 2.64</td>
+        </tr>
+        <tr>
+            <td width="43%">Nautica Cologne</td>
+            <td align="center" width="11%">1</td>
+            <td style="text-align: center;" width="13%">$ 6.17</td>
+            <td style="text-align: center;" width="54%">$&nbsp; 6.17</td>
+        </tr>
+        <tr>
+            <td width="43%">Rubbing Alcohol </td>
+            <td align="center" width="11%">3</td>
+            <td style="text-align: center;" width="13%">$ 0.98</td>
+            <td style="text-align: center;" width="54%">$&nbsp; 2.94</td>
+        </tr>
+        <tr>
+            <td width="43%">Colgate Classic Toothbrush </td>
+            <td align="center" width="11%">12</td>
+            <td style="text-align: center;" width="13%">$ 1.89</td>
+            <td style="text-align: center;" width="54%">$22.68</td>
+        </tr>
+        <tr>
+            <td colspan="4" width="100%">&nbsp;</td> 
+        </tr>
+        <tr>
+            <td colspan="3" width="67%">Sub-total</td>
+            <td style="text-align: center;" width="54%">$36.89</td>
+        </tr>
+        <tr>
+            <td colspan="3" width="67%"> <font face="arial"> Tax @ 5.75%</font></td>
+            <td style="text-align: center;" width="54%">$&nbsp; 2.12</td>
+        </tr>
+        <tr>
+            <td colspan="3" rowspan="1" valign="top">Shipping </td>
+            <td style="text-align: center;">$&nbsp; 2.00 </td>
+        </tr>
+        <tr>
+            <td colspan="3" width="67%"><b>Total</b></td>
+            <td style="text-align: center;" width="54%"><b>$41.01</b></td>
+        </tr>
+    </tbody>
+</table>
+<p><br /></p>
+<font face="arial"><b><span style="font-weight: bold;">OUR SHIPPING POLICY
+            IS:</span>A subtotal $0 - $49.99 will be $2 shipping<br />
+        A subtotal $50 - $99.99 will be $5 shipping<br />
+        Subtotals over $100 will be charged 5% of the subtotal amount</b></font>
+<font face="arial">
+<br /><br />		
+<b>HINT</b>: Be sure to test out your code for different
+    item quantities to be sure that all of your code is working properly!</font>
+
+<h4 id="quality-check-list">Quality Check list:</h4>
+
+<ul>
+  <li>Good code comments</li>
+  <li>Shipping calculated correctly for different amounts</li>
+  <li>Total calculated correctly</li>
+  <li>All requirements for Invoice1 still met</li>
+</ul>
+
+<style>
+#wod-times .label-success {
+    background-color: #3cb521
+}
+
+#wod-times .label-info {
+    background-color: #3399f3
+}
+
+#wod-times .label-warning {
+    background-color: #d47500
+}
+
+#wod-times .label-danger {
+    background-color: #cd0200
+}
+</style>
+
+<p><span class="h4" id="wod-times">
+  <span style="padding: 2px" class="label label-success">Rx: &lt;9 min</span>
+  <span style="padding: 2px" class="label label-info">Av: 9-18 min</span>
+  <span style="padding: 2px" class="label label-warning">Sd: 18-25 min</span>
+  <span style="padding: 2px" class="label label-danger">DNF: 25+ min</span>
+</span></p>
+
+<p>If you get stuck you can watch an <a href="https://youtu.be/voV10EnWLkA">example solution screencast here</a>.</p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

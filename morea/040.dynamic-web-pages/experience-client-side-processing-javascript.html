@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Lab: Introducing Client Side Processing using Javascript </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/dynamic-web-pages">Dynamic Web Pages</a></li>
+        <li class="breadcrumb-item active">Lab: Introducing Client Side Processing using Javascript</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="lab-objectives">Lab objectives</h1>
+<ul>
+  <li>Understand DHTML and client side processing</li>
+  <li>Understand how HTML elements can be accessed using the DOM</li>
+  <li>Use javascript in a web page to dynamically change a web page</li>
+</ul>
+
+<h1 id="instructions">Instructions</h1>
+<p>Try to do as many of the exercises as possible, in the order listed. You may skip an exercise if it is impossible to accomplish the task described (for technical reasons). If you have trouble with an exercise, contact the instructor for help – do not just skip the exercise! You may work with a partner, but each of you must submit your individual work. Work should be done electronically on this document (cut and paste as needed but be careful of incorrect characters). Anything that involves code should be tried out in VS Code before submitting (you may cut and paste directly from VS Code). Submit work before the next class. If you cannot submit by this time, try to do so as soon as possible.</p>
+
+<p>You may wish to open the <a href="ITM352_client_side_processing.pptx">presentation slides</a> for convenience of viewing and copy-paste. When asked by the instructor do the lab exercises indicated. If you get done early, feel free to go on. If you are not done before the instructor indicates the next exercise, raise your hand and explain where you are at. Later parts often depend on completing previous parts so do not let yourself get behind and expect to catch up!</p>
+
+<p>Note: Whenever you see something like <Your Name=""> and it's not obviously an HTML tag, it means replace this with you own information as indicated inside. e.g. replace <Your Name=""> with Joe (or whatever your name is).</Your></Your></p>
+
+<p>For exercises that do not ask specific questions but have you perform tasks, copy any code you created and the output as your answer to the exercise. Some exercises ask for explanations. Make notes for your answer and complete these after class before submitting. Do not try to make complete answers if it keeps you from progressing!</p>
+
+<p>Do all your code work in VS Code. Copy and paste from there. Please ask the instructor for help if you get stuck this is <strong>NOT</strong> a test.</p>
+
+<h1 id="submission">Submission</h1>
+<p>When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to [Laulima Assignment Lab://laulima.hawaii.edu). If you do not submit something to Laulima you will not get credit.</p>
+
+<p><strong>COPY this entire page and paste into the Laulima assignment submission box for this assignment</strong></p>
+
+<h3 id="exercise-1">Exercise #1:</h3>
+<p>a. Open a blank webpage, inspect, then go to the Console and use <code class="language-plaintext highlighter-rouge">document.write(new Date());</code>. Explain how you could this to add the current date and time a web page using client side web page processing.</p>
+
+<p>b. Explain how you could add the current date and time a web page using server side web page processing.</p>
+
+<p>c. Explain why the date and time for (a) may be different than (b)</p>
+
+<h3 id="exercise-2">Exercise #2:</h3>
+<p>How is a static web page different than a dynamic web page? Give an example of each (explain or show code).</p>
+
+<h3 id="exercise-3">Exercise #3:</h3>
+<p>Make a directory <code class="language-plaintext highlighter-rouge">Lab3</code> in your personal 352 repo. In this directory, create a new file <code class="language-plaintext highlighter-rouge">hello.html</code> and use an EMMET boilerplate to start and add the following inside the body:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"demo"</span><span class="nt">&gt;</span>Hello World!<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+<p>Start your local server and request <code class="language-plaintext highlighter-rouge">hello.html</code>. Inspect the page and using the browser console type <code class="language-plaintext highlighter-rouge">demo</code> and see what you get. Then starting from <code class="language-plaintext highlighter-rouge">document</code> get the element by ID then the <code class="language-plaintext highlighter-rouge">innerHTML</code> property. Now change set the <code class="language-plaintext highlighter-rouge">innerHTML</code> to “Goodby World!”.</p>
+
+<p>a) What happened in the browser? Explain this.</p>
+
+<p>b) Now right-click in the page and select View Page Source. Looking at the HTML source, explain why the paragraph tag still has “Hello World!” and not “Goodby World!” in it. Hint: Think about the DOM what you are actually changing with the script code.</p>
+
+<p>c) Close the page source page and on the <code class="language-plaintext highlighter-rouge">hello.html</code> page right-click and select Inspect. Go to the Elements tab ann navigate to the paragraph element (or use the selector and click in the paragraph). Why is the value here “Goodby World!”? Hint: The Elements view is a DOM tree for the page.</p>
+
+<h3 id="exercise-4-on-your-own-smartphoneproducts1_1-whirling-dervish-image-game">Exercise #4 (on your own): SmartPhoneProducts1_1 “whirling dervish image game”</h3>
+<p>Using Javascript and the DOM, make a little image game that has the images rotate for an <code class="language-plaintext highlighter-rouge">onmouseover</code> event and stop on an <code class="language-plaintext highlighter-rouge">onclick</code> event.</p>
+
+<h4 id="task-1">Task 1:</h4>
+<p>Make a copy of SmartPhoneProducts1 and rename the directory <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_1</code>. If you don’t have a working version of SmartPhoneProducts1 you can use get a copy <a href="SmartPhoneProducts1.zip">here</a>.</p>
+
+<h4 id="task-2-add-the-following-to-the-stylesheet">Task 2: Add the following to the stylesheet</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.rotate</span> <span class="nt">img</span>
+<span class="p">{</span>
+  <span class="nl">animation</span><span class="p">:</span> <span class="n">rotation</span> <span class="m">.3s</span> <span class="n">infinite</span> <span class="n">linear</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@keyframes</span> <span class="n">rotation</span> <span class="p">{</span>
+  <span class="nt">from</span> <span class="p">{</span>
+    <span class="nl">transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">0deg</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nt">to</span> <span class="p">{</span>
+    <span class="nl">transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">359deg</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="task-3">Task 3:</h4>
+<p>Set the <code class="language-plaintext highlighter-rouge">onmouseover</code> event for the first &lt;section&gt; to change its <code class="language-plaintext highlighter-rouge">className</code> property to <code class="language-plaintext highlighter-rouge">'item rotate'</code>  (use the <code class="language-plaintext highlighter-rouge">this</code> reference to access the DOM object for <strong>this</strong> element). Save and refresh the page and test that the icon spins when the mouse moves over it. Refresh the page to stop the spin! Use find and replace to change the other &lt;section&gt; tags to match this one.</p>
+
+<h4 id="task-4">Task 4:</h4>
+<p>Now set the <code class="language-plaintext highlighter-rouge">onclick</code> event attribute for &lt;section&gt; elements to set the class to just <code class="language-plaintext highlighter-rouge">'item'</code>. Refresh the page after saving the file and move the mouse over an image to get it spinning. When you click on the image it should stop. It may be a little tricky to click the mouse and get it to stop with moving the mouse which will start it spinnign again! The game is to get everything spinng and see how quickly you can get all of them to stop by clicking on the images.</p>
+
+<p>Here’s an example of how SmartPhoneProducts1_1 (with Extra Credit) should work when you’re done:</p>
+
+<iframe src="SmartPhoneProducts1_1/products_display.html" style="height:210px;width:210px;" scrolling="no" frameborder="0"></iframe>
+
+<h4 id="extra-credit-fun">Extra Credit fun!:</h4>
+<p>Add a slider to change the rotation speed of the animation. There are many ways to do this and you are encouraged to do what you think is easiest. Here’s one way to do it by changing the internal (i.e. page scoped) stylesheet which will override the products-style.css stylesheet. It takes advantage of the onchange event when the slider value changes to update the <code class="language-plaintext highlighter-rouge">animation-duration:</code> style for <code class="language-plaintext highlighter-rouge">.rotate img</code>. Here are the steps for doing this:</p>
+<ul>
+  <li>Add a slider form element (<code class="language-plaintext highlighter-rouge">&lt;input id='speedSlider' type='range' min=".1" max="5" step=".1" style="direction: rtl;"&gt;</code>)</li>
+  <li>Add an empty style element <code class="language-plaintext highlighter-rouge">&lt;style id="localStyle"&gt;&lt;/style&gt;</code> to the &lt;head&gt; element</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">onchange="localStyle.innerHTML = '.rotate img {animation-duration: ' + speedSlider.value + 's;}';"</code> to the slider element</li>
+  <li>Refresh the page and try moving the slider :)</li>
+</ul>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

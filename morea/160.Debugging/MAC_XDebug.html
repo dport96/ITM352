@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>x</title></head><body>
+<h1 style="margin: 0px 0px 10px; padding: 0px; font-size: 1.6em; color: rgb(210, 1, 6); font-weight: normal; text-align: left; font-family: Arial,Helvetica,Verdana; font-style: normal; font-variant: normal; letter-spacing: normal; line-height: 19.8px; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);">Configuring
+PHP, Apache, MySQL, and Xdebug for PHP development in MAC OS X</h1>
+
+<p style="margin: 0px; padding: 0px 0px 10px; color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);">This
+tutorial shows you how to set up PHP on the<span class="Apple-converted-space">&nbsp;</span><a target="_blank" href="http://www.mamp.info/en/index.php" style="color: rgb(35, 86, 157); font-weight: normal; text-decoration: none;">MAMP</a><span class="Apple-converted-space">&nbsp;</span>(<b style="font-size: 1em;">M</b>acintosh,<b style="font-size: 1em;"><span class="Apple-converted-space">&nbsp;</span>A</b>pache,<span class="Apple-converted-space">&nbsp;</span><b style="font-size: 1em;">M</b>ySQL,<span class="Apple-converted-space">&nbsp;</span><b style="font-size: 1em;">P</b>HP)
+package, which includes the Apache web server, the MySQL database
+server, and the PHP engine. MAMP is intended as a PHP development
+environment for the Mac, which can work seamlessly with the NetBeans
+IDE.</p>
+
+<p style="margin: 0px; padding: 0px 0px 10px; color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);"><a target="_blank" href="http://www.xdebug.org/" style="color: rgb(35, 86, 157); font-weight: normal; text-decoration: none;">Xdebug</a><span class="Apple-converted-space">&nbsp;</span>is
+an extension for PHP that aids in providing information valuable for
+debugging PHP scripts. The NetBeans debugger works on top of the Xdebug
+extension, providing an effective debugging tool in your development
+environment.</p>
+
+<h2 style="border-bottom: 1px solid rgb(209, 209, 209); margin: 10px 0px 8px; padding: 5px 0px 2px; font-size: 1.45em; color: rgb(238, 107, 0); font-weight: normal; text-align: left; line-height: 18.27px; font-family: Arial,Helvetica,Verdana; font-style: normal; font-variant: normal; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);">Get
+and Install MAMP
+</h2>
+
+Go to http://www.mamp.info/en/downloads/ and download&nbsp; <span style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;"><span style="font-weight: bold;"></span></span>MAMP &amp; MAMP PRO<br>
+
+<br>
+
+Install the package but click
+the customize button in the Installation Type step:<br>
+
+<br>
+
+<img style="width: 476px; height: 357px;" alt="" src="MAMP_intstall.png"><br>
+
+Uncleck the MAMP PRO then click Install<br>
+
+<br>
+
+<img style="width: 467px; height: 350px;" alt="" src="MAMP_no_PRO.png"><br>
+
+<br>
+
+After installing MAMP, you will need to move your NetBeans projects
+into its htdocs<br>
+
+<br>
+
+<code style="font-family: 'Courier New',monospace; font-size: 1.1em; color: black;">/Applications/MAMP/htdocs</code><br>
+
+<br>
+
+All future projects should be saved here. You may wish to unisntall
+XAMPP as you will nto be using it.<br>
+
+<br>
+
+<h2 style="border-bottom: 1px solid rgb(209, 209, 209); margin: 10px 0px 8px; padding: 5px 0px 2px; font-size: 1.45em; color: rgb(238, 107, 0); font-weight: normal; text-align: left; line-height: 18.27px; font-family: Arial,Helvetica,Verdana; font-style: normal; font-variant: normal; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);">Enabling
+Xdebug with MAMP</h2>
+
+<p style="margin: 0px; padding: 0px 0px 10px; color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);">MAMP
+contains a pre-compiled<span class="Apple-converted-space">&nbsp;</span><tt style="font-family: 'Courier New',monospace; font-size: 1.1em; color: black;">xdebug.so</tt><span class="Apple-converted-space">&nbsp;</span>file. To use this file,
+enable it in MAMP's<span class="Apple-converted-space">&nbsp;</span><tt style="font-family: 'Courier New',monospace; font-size: 1.1em; color: black;">php.ini</tt>.
+Xdebug does not work together with Zend Optimizer, so you also have to
+disable Zend Optimizer in<span class="Apple-converted-space">&nbsp;</span><tt style="font-family: 'Courier New',monospace; font-size: 1.1em; color: black;">php.ini</tt>.</p><br>
+<p style="margin: 0px; padding: 0px 0px 10px; color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);"><br>
+</p>
+<span style="font-family: Arial,Helvetica,Verdana;">You can try using <a href="./php_ini_MAMP_Mac.txt">this php.ini</a>
+file. Copy it into /Applications/MAMP/bin/php/php5.6.2/conf (either
+edit the php.ini file or save link as this in the directory).<br>
+<br>
+<br>
+</span>
+
+<p style="margin: 0px; padding: 0px 0px 10px; color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);"><strong>To
+enable Xdebug with MAMP:</strong></p>
+
+<ol style="color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);">
+
+  <li style="margin-bottom: 9px; margin-top: 0px; list-style-type: decimal; list-style-image: none; list-style-position: outside;">Open
+the<span class="Apple-converted-space">&nbsp;</span><code style="font-family: 'Courier New',monospace; font-size: 1.1em; color: black;">php.ini</code><span class="Apple-converted-space">&nbsp;</span>file in an editor. This
+file is located in:<span class="Apple-converted-space">&nbsp;</span><br>
+    <br>
+    <code style="font-family: 'Courier New',monospace; font-size: 1.1em; color: black;">/Applications/MAMP/conf/php5.x.x/php.ini</code>
+where x.x is the largest number you see in the folder (for example as
+of these instructions php5.6.2 was the largest).
+  </li>
+  <li>Locate the<span class="Apple-converted-space">&nbsp;</span><tt style="font-family: 'Courier New',monospace; font-size: 1.1em; color: black;">[xdebug]</tt><span class="Apple-converted-space">&nbsp;</span>section
+and activate Xdebug. Add this section above the
+zend_extension="/Applications/MAMP/bin/php5/lib/php/extensions/no-debug-non-zts-xxxxxxxx/xdebug.so"
+(replace<span class="Apple-converted-space">&nbsp;</span><code style="font-family: 'Courier New',monospace; font-size: 1.1em; color: black;">xxxxxxxx</code><span class="Apple-converted-space">&nbsp;</span>with the actual number).</li>
+  <li style="margin-bottom: 9px; margin-top: 0px; list-style-type: decimal; list-style-image: none; list-style-position: outside;">
+    <pre class="examplecode" style="padding: 10px; overflow: auto; font-size: 1.1em; font-family: 'Courier New',monospace; color: black; width: 680px; white-space: pre; background-color: rgb(255, 248, 228);">[xdebug]<br> <br>xdebug.default_enable=1<br> <br>xdebug.remote_enable=1<br>xdebug.remote_handler=dbgp<br>xdebug.remote_host=localhost<br>xdebug.remote_port=9000<br>xdebug.remote_autostart=1<br> <br>zend_extension="/Applications/MAMP/bin/php5/lib/php/extensions/no-debug-non-zts-xxxxxxxx/xdebug.so"</pre>
+For an explanation of these properties, see Related Settings in the<span class="Apple-converted-space">&nbsp;</span><a target="_blank" href="http://www.xdebug.org/docs/remote" style="color: rgb(35, 86, 157); font-weight: normal; text-decoration: none;">Xdebug
+Remote Debugging</a><span class="Apple-converted-space">&nbsp;</span>documentation.</li>
+  <li style="margin-bottom: 9px; margin-top: 0px; list-style-type: decimal; list-style-image: none; list-style-position: outside;">Note
+that the remote port specified for Xdebug in the previous step is:
+9000. This is the default debugger port used in NetBeans. To verify
+this, choose NetBeans &gt; Preferences from the main menu, then select
+PHP in the Options window.<span class="Apple-converted-space">&nbsp;</span><br>
+    <a name="phpOptions"></a><img src="https://netbeans.org/images_www/articles/72/php/configure-php-environment-mac/php-options68.png" alt="PHP Options window" title="The debugging port can be set in the PHP Options window" class="margin-around b-all" style="border: 1px solid rgb(173, 173, 173); margin: 10px;" width="600"><span class="Apple-converted-space">&nbsp;</span><br>
+If needed, you can change the debugger port here.</li>
+  <li style="margin-bottom: 9px; margin-top: 0px; list-style-type: decimal; list-style-image: none; list-style-position: outside;">Start
+(or restart) the MAMP Apache server.</li>
+</ol>
+
+<a name="debug" style="color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);"></a><span style="color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; display: inline ! important; float: none; background-color: rgb(255, 255, 255);"></span>
+<h2 style="border-bottom: 1px solid rgb(209, 209, 209); margin: 10px 0px 8px; padding: 5px 0px 2px; font-size: 1.45em; color: rgb(238, 107, 0); font-weight: normal; text-align: left; line-height: 18.27px; font-family: Arial,Helvetica,Verdana; font-style: normal; font-variant: normal; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);">Debugging
+PHP Projects</h2>
+
+<p style="margin: 0px; padding: 0px 0px 10px; color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);">To
+debug a PHP project in the IDE, right-click the project in the Projects
+window and choose Debug. Alternately, if the project is highlighted in
+the Projects window, you can click the Debug Project icon (<span class="Apple-converted-space">&nbsp;</span><img src="https://netbeans.org/images_www/articles/72/php/configure-php-environment-mac/debug-icon.png" alt="Debug Project icon"><span class="Apple-converted-space">&nbsp;</span>)
+in the main toolbar.</p>
+
+<p class="tips" style="margin: 0px; padding: 1px 0px 8px 34px; color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-image: url(https://netbeans.org/images_www/v6/tips_small.gif); background-color: rgb(255, 255, 255); background-position: 0% 50%; background-repeat: no-repeat;">You
+can set the debugger to suspend on the first line of code by enabling
+this option in the<span class="Apple-converted-space">&nbsp;</span><a href="https://netbeans.org/kb/docs/php/configure-php-environment-mac-os.html#phpOptions" style="color: rgb(35, 86, 157); font-weight: normal; text-decoration: none;">PHP
+Options window</a>.</p>
+
+<p style="margin: 0px; padding: 0px 0px 10px; color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);">When
+a debugger session is active, the debugger toolbar displays above the
+editor.</p>
+
+<div class="indent" style="padding-left: 20px; color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);"><img src="https://netbeans.org/images_www/articles/72/php/configure-php-environment-mac/debugger-toolbar.png" alt="Debugger toolbar" title="The debugger toolbar in a suspended state" class="margin-around" style="margin: 10px;"></div>
+
+<p style="margin: 0px; padding: 0px 0px 10px; color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);">You
+can also verify that a PHP debugging session is active by opening the
+Sessions window. Choose Window &gt; Debugging &gt; Sessions from the
+main menu.</p>
+
+<div class="indent" style="padding-left: 20px; color: rgb(51, 51, 51); font-family: Arial,Helvetica,Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.8px; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255);"><img src="https://netbeans.org/images_www/articles/72/php/configure-php-environment-mac/debugger-sessions-win.png" alt="Debugger toolbar" title="The Sessions window indicates that an Xdebug debugger session is active" class="margin-around" style="margin: 10px;"></div>
+
+</body></html>

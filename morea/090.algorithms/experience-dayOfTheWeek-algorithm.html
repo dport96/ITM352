@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | DayOfTheWeek1 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/algorithms">Algorithms</a></li>
+        <li class="breadcrumb-item active">DayOfTheWeek1</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="implementing-an-algorithm-to-determine-the-day-of-the-week-from-a-date">Implementing an algorithm to determine the day of the week from a date</h1>
+
+<p>The following is a flowchart of Tomohiho's “doomsday” algorithm to determine a day of the week:</p>
+<p><img src="Tomohiho_algorithm.png" alt="" style="max-width: 100%;max-height: 100%;" height="600px" width="700px" /></p>
+<style type="text/css">
+	table.tableizer-table {
+		font-size: 12px;
+		border: 1px solid #CCC; 
+		font-family: Arial, Helvetica, sans-serif;
+	} 
+	.tableizer-table td {
+		padding: 4px;
+		margin: 3px;
+		border: 1px solid #CCC;
+	}
+	.tableizer-table th {
+		background-color: #104E8B; 
+		color: #FFF;
+		font-weight: bold;
+	}
+    .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    }
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+</style>
+
+<div class="row">
+<div class="column">
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th>Month</th><th>month-key</th></tr></thead><tbody>
+ <tr><td>January</td><td>0</td></tr>
+ <tr><td>February</td><td>3</td></tr>
+ <tr><td>March</td><td>2</td></tr>
+ <tr><td>April</td><td>5</td></tr>
+ <tr><td>May</td><td>0</td></tr>
+ <tr><td>June</td><td>3</td></tr>
+ <tr><td>July</td><td>5</td></tr>
+ <tr><td>August</td><td>1</td></tr>
+ <tr><td>September</td><td>4</td></tr>
+ <tr><td>October</td><td>6</td></tr>
+ <tr><td>November</td><td>2</td></tr>
+ <tr><td>December</td><td>4</td></tr>
+</tbody></table>
+</div>
+<div class="column">
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th>day</th><th>day number</th></tr></thead><tbody>
+ <tr><td>Sunday</td><td>0</td></tr>
+ <tr><td>Monday</td><td>1</td></tr>
+ <tr><td>Tuesday</td><td>2</td></tr>
+ <tr><td>Wednesday</td><td>3</td></tr>
+ <tr><td>Thursday</td><td>4</td></tr>
+ <tr><td>Friday</td><td>5</td></tr>
+ <tr><td>Saturday</td><td>6</td></tr>
+</tbody></table>
+</div>
+</div>
+
+<h3 id="here-are-the-specifications">Here are the specifications:</h3>
+
+<ul>
+  <li>Implement the above algorithm in JS to determine the day of the week for ANY date. Start by defining variables <code class="language-plaintext highlighter-rouge">day</code> for the day a number from 1-31, <code class="language-plaintext highlighter-rouge">month</code> for the month (a String) “January”, “February”, etc., <code class="language-plaintext highlighter-rouge">year</code> a number 1900-2099 for the year</li>
+  <li>Use your birth date as a <strong>test case</strong>.</li>
+  <li>Implement it in a general way that works for whatever is assigned to the variables day,month,year. No hard-coding of calculations or steps as in the lab exercise.</li>
+  <li><strong>Do not</strong> implement it as a series of variable steps <code class="language-plaintext highlighter-rouge">step1 = ...</code> as in the Lab exercise. Each step need not be a line of code. You can combine steps to get the same result. For example, steps 2 through 5 can be done in a single line of code. Note that you do not need variables for the steps unless the result of that step is used in multiple other steps (so step1 may be useful to have as a varoable). <strong>HINT:</strong> This program can be written in 8 lines of code using only 2 variables for calculations!</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">parseInt()</code> or <code class="language-plaintext highlighter-rouge">Math.floor()</code> to get the divisor and drop the remainder</li>
+  <li>To handle step 1 use <code class="language-plaintext highlighter-rouge">if</code> or a <em>ternary operator</em></li>
+  <li>Make an object <code class="language-plaintext highlighter-rouge">monthKey</code> from the month-key table and use it for Step 6</li>
+  <li>Use the modulus operator <code class="language-plaintext highlighter-rouge">%</code> to get the remainder in Step 7</li>
+  <li>Make an array of days of the week strings to convert Step 7 into the day as per the day number table</li>
+  <li>Output the date and and the day of week to the console.</li>
+</ul>
+
+<style>
+#wod-times .label-success {
+    background-color: #3cb521
+}
+
+#wod-times .label-info {
+    background-color: #3399f3
+}
+
+#wod-times .label-warning {
+    background-color: #d47500
+}
+
+#wod-times .label-danger {
+    background-color: #cd0200
+}
+</style>
+
+<p><span class="h4" id="wod-times">
+  <span style="padding: 2px" class="label label-success">Rx: &lt;15 min</span>
+  <span style="padding: 2px" class="label label-info">Av: 15-20 min</span>
+  <span style="padding: 2px" class="label label-warning">Sd: 20-25 min</span>
+  <span style="padding: 2px" class="label label-danger">DNF: 25+ min</span>
+</span></p>
+
+<h3 id="extra-credit-make-it-a-web-app">Extra credit! Make it a web app!</h3>
+<ul>
+  <li>Create a new file <code class="language-plaintext highlighter-rouge">dow.html</code> and use EMMET <code class="language-plaintext highlighter-rouge">!</code> to set up the document.</li>
+  <li>Put the following in the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code>
+    <pre><code class="language-HTML"> Month:&lt;input id=month_id type="text"&gt;
+ Day:&lt;input id=day_id type="text"&gt;
+ Year:&lt;input id=year_id type="text"&gt;
+ &amp;nbsp; &lt;span id=dow_span&gt;&lt;/span&gt;
+ &lt;br&gt;
+ &lt;input type="button" value="Find day of week"&gt;
+</code></pre>
+  </li>
+  <li>
+    <p>Add an <code class="language-plaintext highlighter-rouge">onclick</code> event attribute to the <code class="language-plaintext highlighter-rouge">&lt;button&gt;</code> and copy your dayoftheweek code as the value (a lot of code!). You will have to change some of the quotes inside your code to not conflict with the quotes for the <code class="language-plaintext highlighter-rouge">onclick</code> event attribute.</p>
+  </li>
+  <li>
+    <p>Assign the <code class="language-plaintext highlighter-rouge">day</code>, <code class="language-plaintext highlighter-rouge">month</code>, <code class="language-plaintext highlighter-rouge">year</code> the <code class="language-plaintext highlighter-rouge">value</code> attribute of the respective textboxes (use <code class="language-plaintext highlighter-rouge">day_id</code>, <code class="language-plaintext highlighter-rouge">month_id</code>, <code class="language-plaintext highlighter-rouge">year_id</code>). For day and year you will need to <code class="language-plaintext highlighter-rouge">parseInt</code> to convert these strings to integers.</p>
+  </li>
+  <li>Move the <code class="language-plaintext highlighter-rouge">monthKey</code> variable to the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> and replace the Month textbox with
+    <pre><code class="language-Javascript">  Month:&lt;select id='month_id'&gt;
+  &lt;script&gt;
+      for(month in monthKey) {
+          document.write(`&lt;option&gt;${month}&lt;/option&gt;`);
+      }
+  &lt;/script&gt;
+  &lt;/select&gt;
+</code></pre>
+    <p>This last bit of code generates a select box of months using the <code class="language-plaintext highlighter-rouge">monthKey</code> object.</p>
+  </li>
+  <li>Set the innerHTML of <code class="language-plaintext highlighter-rouge">dow_span</code> to the date and and the day of the week you had output to the console.</li>
+</ul>
+
+<style>
+#wod-times .label-success {
+    background-color: #3cb521
+}
+
+#wod-times .label-info {
+    background-color: #3399f3
+}
+
+#wod-times .label-warning {
+    background-color: #d47500
+}
+
+#wod-times .label-danger {
+    background-color: #cd0200
+}
+</style>
+
+<p><span class="h4" id="wod-times">
+  <span style="padding: 2px" class="label label-success">Rx: &lt;22 min</span>
+  <span style="padding: 2px" class="label label-info">Av: 22-30 min</span>
+  <span style="padding: 2px" class="label label-warning">Sd: 30-35 min</span>
+  <span style="padding: 2px" class="label label-danger">DNF: 35+ min</span>
+</span></p>
+
+<p>If you get stuck you can ask the instructor or TA for a screencast solution.</p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

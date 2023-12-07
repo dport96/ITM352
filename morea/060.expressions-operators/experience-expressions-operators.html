@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Lab: Expressions and Operators </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/expressions-operators">Expressions and Operators</a></li>
+        <li class="breadcrumb-item active">Lab: Expressions and Operators</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="lab-objectives">Lab objectives</h1>
+<ul>
+  <li>Know what expressions are and how they are evaluated in JS</li>
+  <li>Understand operations and precedence</li>
+</ul>
+
+<h1 id="instructions">Instructions</h1>
+<p>Try to do as many of the exercises as possible, in the order listed. You may skip an exercise if it is impossible to accomplish the task described (for technical reasons). If you have trouble with an exercise, contact the instructor for help – do not just skip the exercise! You may work with a partner, but each of you must submit your individual work. Work should be done electronically on this document (cut and paste as needed but be careful of incorrect characters). Anything that involves code should be tried out in VS Code before submitting (you may cut and paste directly from VS Code). Submit work before the next class. If you cannot submit by this time, try to do so as soon as possible.</p>
+
+<p>You may wish to open the <a href="ITM352_expressions_operators.pptx">presentation slides</a> for convenience of viewing and copy-paste. When asked by the instructor do the lab exercises indicated. If you get done early, feel free to go on. If you are not done before the instructor indicates the next exercise, raise your hand and explain where you are at. Later parts often depend on completing previous parts so do not let yourself get behind and expect to catch up!</p>
+
+<p>Note: Whenever you see something like &lt;Your Name&gt; and it’s not obviously an HTML tag, it means replace this with you own information as indicated inside. e.g. replace &lt;Your Name&gt; with Joe (or whatever your name is).</p>
+
+<p>For exercises that do not ask specific questions but have you perform tasks, copy any code you created and the output as your answer to the exercise. Some exercises ask for explanations. Make notes for your answer and complete these after class before submitting. Do not try to make complete answers if it keeps you from progressing!</p>
+
+<p>Do all your code work in VS Code. Copy and paste from there. Please ask the instructor for help if you get stuck this is <strong>NOT</strong> a test.</p>
+
+<h1 id="submission">Submission</h1>
+<p>When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to [Laulima Assignment Lab://laulima.hawaii.edu). If you do not submit something to Laulima you will not get credit.</p>
+
+<p>In this lab we will use expressions to keep score and present game information.</p>
+
+<p>Start by creating a <code class="language-plaintext highlighter-rouge">Lab5</code> directory in your repo and add a copy of your <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_2</code> project from Lab4 and rename it  <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_3</code>. Start your http-server and load the <code class="language-plaintext highlighter-rouge">products_display.html</code> page then open the JS console in your browser.</p>
+
+<h4 id="exercise-1-precedence">Exercise 1: Precedence</h4>
+<p>Declare and initialize the following variables:</p>
+
+<p>age =  &lt;your age&gt;</p>
+
+<p>fav_num = &lt;your favorite number&gt;</p>
+
+<p>day_of_birth = &lt;calendar day of your birthday&gt;</p>
+
+<p>month_of_birth = &lt;calendar month of your birthday&gt;</p>
+
+<p>a.     Write a program that will output the results for the following two expressions:</p>
+<pre><code class="language-Javascript">age + fav_num / day_of_birth * month_of_birth
+
+(age + fav_num) / day_of_birth * month_of_birth
+</code></pre>
+
+<p>b. Explain why you get different values for the two expressions even they are nearly identical.</p>
+
+<h4 id="exercise-2-implicit-and-explicit-type-castingdnf--3-minutes">Exercise #2:     Implicit and Explicit Type Casting DNF &gt; 3 minutes)</h4>
+
+<p>a) Use the console to inspect the expression <code class="language-plaintext highlighter-rouge">1.2 + "34" + 01067 * true</code> and explain the steps in the evaluation of this expression that lead to the value 1.234567. What data type is this expression?</p>
+
+<p>b) In the expression  <code class="language-plaintext highlighter-rouge">1.2 + "34" + 01067 * true</code>  explicitly cast the <code class="language-plaintext highlighter-rouge">"34"</code> to a number and also re-cast another value to fix the warning (if you got one). Explain why the expression now evaluates to <code class="language-plaintext highlighter-rouge">602.2</code>. Did you get a warning? If so, explain why or why not.</p>
+
+<h4 id="exercise-3-autoincrement-and-autodecrement-unary-operators-and-precidence">Exercise #3:     Autoincrement and Autodecrement, unary operators and precidence</h4>
+
+<p>In <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_3</code> let’s count the number of clicks (hits) and mouseovers (spins) and display these counts on the page:</p>
+
+<p>a) Write a Javascript expressions that increases the <code class="language-plaintext highlighter-rouge">hits</code> and <code class="language-plaintext highlighter-rouge">spins</code> by one and add these to the <code class="language-plaintext highlighter-rouge">onclick</code> and <code class="language-plaintext highlighter-rouge">onmouseover</code> event attributes. Put these in the place so that the <code class="language-plaintext highlighter-rouge">hit_span</code> and <code class="language-plaintext highlighter-rouge">spin_span</code> update with the new values. Initialize <code class="language-plaintext highlighter-rouge">hits</code> and <code class="language-plaintext highlighter-rouge">spins</code> to 0. Reload the page and try clicking and mouseover the images.</p>
+
+<p>Put your new code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>b) Modify the above to use the <code class="language-plaintext highlighter-rouge">++</code> operator. Try using it before and after and explain why you get the same results:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>c) Now use the <code class="language-plaintext highlighter-rouge">++</code> operator directly in the assignments of <code class="language-plaintext highlighter-rouge">hits</code> and <code class="language-plaintext highlighter-rouge">spins</code> to the <code class="language-plaintext highlighter-rouge">innerHTML</code> of <code class="language-plaintext highlighter-rouge">hit_span</code> and <code class="language-plaintext highlighter-rouge">spin_span</code>. Try both pre-increment and post-increment and explain the difference and which one is probably desired:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>(note: the best thing to do in this exercise is to first try things and then explain the results)</p>
+
+<p>d) Now use the <code class="language-plaintext highlighter-rouge">++</code> operator on <code class="language-plaintext highlighter-rouge">hit_span.innerHTML</code> and <code class="language-plaintext highlighter-rouge">spin_span.innerHTML</code>. Does it matter if you pre- vs post-increment? Explain why this works and one benefit of this approach:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h4 id="exercise-4-assignment-operators">Exercise #4:     Assignment operators</h4>
+<p>In <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_3</code>:</p>
+
+<p>a. Use the <code class="language-plaintext highlighter-rouge">+=</code> assignment operator on <code class="language-plaintext highlighter-rouge">hit_span.innerHTML</code> to increase the hits by 2 whenever there is an <code class="language-plaintext highlighter-rouge">onclick</code>. Explain why this doesn’t work and show how to fix it:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+<p>Revert your code to use the variables <code class="language-plaintext highlighter-rouge">hits</code> and <code class="language-plaintext highlighter-rouge">spins</code> to keep track of the clicks and mouseovers.</p>
+
+<h4 id="exercise-5-assigning-variables-with-expressions">Exercise 5:    Assigning variables with expressions</h4>
+
+<p>Add the following paragraph after the the Hits and Spins spans:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;Hit/Spin:&lt;span id="hit_spin_span"&gt;0&lt;/span&gt;&lt;/p&gt;
+</code></pre></div></div>
+
+<p>a)  Write a Javascript statement that assigns the expression <code class="language-plaintext highlighter-rouge">hits_span.innerHTML/spins_span.innerHTML</code> to the <code class="language-plaintext highlighter-rouge">innerHTML</code> of the <code class="language-plaintext highlighter-rouge">hit_spin_span</code> whenever <code class="language-plaintext highlighter-rouge">&lt;section&gt;</code> is clicked or mouseover. Should you explicitly cast things to <code class="language-plaintext highlighter-rouge">Number</code> data? Would it be better to use the variables <code class="language-plaintext highlighter-rouge">hits</code> and <code class="language-plaintext highlighter-rouge">spins</code>? Reload the page and try clicking and mouseover the <code class="language-plaintext highlighter-rouge">&lt;sections&gt;</code> Put your new code here and explain what the data types are and discuss the questions:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h4 id="exercise-6-formatting-floats">Exercise 6: Formatting floats</h4>
+<p>In <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_3</code> use the <code class="language-plaintext highlighter-rouge">toFixed()</code> method for a <code class="language-plaintext highlighter-rouge">Number</code> to format the <code class="language-plaintext highlighter-rouge">hits</code>/<code class="language-plaintext highlighter-rouge">spins</code> for <code class="language-plaintext highlighter-rouge">hit_spin_span</code> to 2 decimal points. You can use this on the expression directly and do not need to create a new variable. Explain why the result is a <code class="language-plaintext highlighter-rouge">String</code> and put your code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h4 id="exercise-7-on-your-own-string-expressions">Exercise 7 (on your own):    String expressions</h4>
+<p>In <code class="language-plaintext highlighter-rouge">SmartPhoneProducts1_3</code>:</p>
+
+<p>a. Create variables <code class="language-plaintext highlighter-rouge">first_name</code> and <code class="language-plaintext highlighter-rouge">last_name</code> and assign your first and last name to these. Create a string expression via concatenation where your first name is <strong>Bold</strong> and your last name is in <em>italics</em> and both are in a <font size="200%">VERY LARGE</font> font. Use this expression where you display your name in the <code class="language-plaintext highlighter-rouge">&lt;header&gt;</code>. For example:</p>
+<div style="text-align: center">
+<span style="font-size: 600%;"> 
+<b>Dan</b><i> Port</i>'s
+</span>
+<h1>Used Smart Phone Store</h1>
+</div>
+
+<p>b. Use a <strong>string template</strong> to output a 2-column HTML table in the <code class="language-plaintext highlighter-rouge">&lt;footer&gt;</code> that looks like this:</p>
+
+<table border="1" style="margin-left: auto; margin-right: auto; text-align: center;">
+    <tr><th colspan="2"><h1>Your One Stop For Used Phones - D.P.'s</h1></th></tr>
+    <tr><td>1.</td><td><br />Copyright @ Dan Port</td></tr>
+    <tr><td>2.</td><td>2021</td></tr>
+    <tr><td>3.</td><td>11:15 AM</td></tr>
+</table>
+
+<p>Start by inspecting this page source and find the <code class="language-plaintext highlighter-rouge">&lt;table&gt;</code> above and copy the HTML table source and use <code class="language-plaintext highlighter-rouge">document.write()</code> to output this as a string template using backticks <code class="language-plaintext highlighter-rouge">\</code>` rather than quotes.</p>
+
+<p>In the table header for this string, replace <code class="language-plaintext highlighter-rouge">D.P.</code> with <code class="language-plaintext highlighter-rouge">${}</code> and put inside an expression that uses <code class="language-plaintext highlighter-rouge">[]</code>’s with <code class="language-plaintext highlighter-rouge">first_name</code> and <code class="language-plaintext highlighter-rouge">last_name</code> to create an expression to to display your initials ad <code class="language-plaintext highlighter-rouge">Your One Stop For Used Phones - &lt;initials&gt;'s</code>. Include periods after each initial and an ‘s after.</p>
+
+<p>In the the first table row, replace <code class="language-plaintext highlighter-rouge">Dan Port</code> with a string template expression gives <code class="language-plaintext highlighter-rouge">&lt;first_name&gt; &lt;last_name&gt;</code>  (don’t forget the space between the strings!).  Above the <code class="language-plaintext highlighter-rouge">document.write()</code> add a variable <code class="language-plaintext highlighter-rouge">line=1</code>, then in the the first table row, replace <code class="language-plaintext highlighter-rouge">1.</code> with a string template expression to indicate the current line number and increments <code class="language-plaintext highlighter-rouge">line</code>. Replace the line numbers in the other table rows with a string template expression to indicate the current line number and increment after.</p>
+
+<p>Above the <code class="language-plaintext highlighter-rouge">document.write()</code> add a variable <code class="language-plaintext highlighter-rouge">now = new Date()</code>. The <code class="language-plaintext highlighter-rouge">now</code> variable will contain a <code class="language-plaintext highlighter-rouge">Date object</code> with the current date and time from the clock for where the javascript code is running (which for this exercise is a browser on your machine). Note that <code class="language-plaintext highlighter-rouge">Date</code> objects are “static” and <code class="language-plaintext highlighter-rouge">now</code> only gives the time when the assignment is made. It is not a “running clock”. Look up a reference to the <code class="language-plaintext highlighter-rouge">Date</code> object (e.g. look at W3 Schools) to find methods that would return the year and hours and minutes from the date stored in <code class="language-plaintext highlighter-rouge">now</code>. Use this in a string template in the second table row to replace <code class="language-plaintext highlighter-rouge">2021</code> with the current year.</p>
+
+<p>On the third table row, replace <code class="language-plaintext highlighter-rouge">11:15 AM</code> with a string template expression using the appropiate methods to get the current hours and minutes from <code class="language-plaintext highlighter-rouge">now</code> (a <code class="language-plaintext highlighter-rouge">Date</code> object). For the hours, use the expression <code class="language-plaintext highlighter-rouge">(hours + 11) % 12 + 1</code> to convert 24-hour time to 12-hour time. To get the AM/PM, use the <em>ternary expression</em> <code class="language-plaintext highlighter-rouge">(hours &lt; 12)?'AM':'PM'</code>. Before you use this expression, test that this expression gives AM for hours &lt; 12 and PM for hours &gt; 12. Be careful to note that the ternary operator <code class="language-plaintext highlighter-rouge">?</code> has <em>lower</em> precedence than the <code class="language-plaintext highlighter-rouge">+</code> operator which may cause the expression not to evaluate to what you expect. Put your string template code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

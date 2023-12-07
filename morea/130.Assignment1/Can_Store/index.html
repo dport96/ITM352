@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>The Can Store</title>
+  <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
+  <link href="can-style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <style>
+    body {
+      transform: scale(.25);
+      transform-origin: 0 0;
+    }
+  </style>
+  <script src="can-script.js"></script>
+  <script>
+
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>The Can Store</h1>
+  </header>
+  <div>
+    <aside>
+      <form>
+        <div>
+          <label for="category">Choose a category:</label>
+          <select id="category">
+            <option selected>All</option>
+            <option>Vegetables</option>
+            <option>Meat</option>
+            <option>Soup</option>
+          </select>
+        </div>
+        <div>
+          <label for="searchTerm">Enter search term:</label>
+          <input type="text" id="searchTerm" placeholder="e.g. beans">
+        </div>
+        <div>
+          <button>Filter results</button>
+        </div>
+        <div>
+          <input type="button" value="Purchase!" onclick="selection_form.submit();">
+        </div>
+        <div id="invoice_div"></div>
+      </form>
+    </aside>
+    <form name="selection_form" action="" method="GET">
+      <main>
+      </main>
+      <input type="hidden" name="purchase_submit" value="true">
+    </form>
+  </div>
+  <script>
+    if (typeof GET['purchase_submit'] == 'undefined') {
+      initialize();
+    } 
+  </script>
+</body>
+
+</html>

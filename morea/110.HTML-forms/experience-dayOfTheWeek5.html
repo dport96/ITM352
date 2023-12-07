@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | DayOfTheWeek5 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/"></a></li>
+        <li class="breadcrumb-item active">DayOfTheWeek5</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="use-html-form-to-input-date-for-computing-the-day-of-the-week">Use HTML form to input date for computing the day of the week</h1>
+
+<ol>
+  <li>
+    <p>Start by copying the <a href="../100.Arrays-I/experience-dayOfTheWeek4.html">dayOfTheWeek4</a> into a new JAVASCRIPT project DayOfTheWeek5. Check that the day of the week computation works properly.</p>
+  </li>
+  <li>
+    <p>Add an if-statement that executes the day of the week algorithm only if the $_GET array is not empty.</p>
+  </li>
+  <li>
+    <p>Change <code class="language-plaintext highlighter-rouge">$day, $month, $year</code> variables to assign values from $_GET. e.g <code class="language-plaintext highlighter-rouge">$month = $_GET['month'];</code>. Check that your code accepts inputs from a query string by add the query string <code class="language-plaintext highlighter-rouge">?month=March&amp;day=21&amp;year=2018</code> to the your project URL. The day is a Wednesday</p>
+  </li>
+  <li>
+    <p>Add a self-processing form using the GET method with text inputs for month, day, year and a submit button. Like this:</p>
+  </li>
+</ol>
+
+<form action="&lt;?php echo $_SERVER['JAVASCRIPT_SELF'] ?&gt;" method="GET">
+	Month: <input type="text" name="month" />
+	<br />
+	Day: <input type="text" name="day" />
+	<br />
+	Year: <input type="text" name="year" />
+	<br />
+	<input type="submit" value="Get the day!" />
+</form>
+<p><br />
+<strong>SPEED TIP: Get the page source for the above example form and copy it into your project!</strong></p>
+
+<ol>
+  <li>Test your web app!</li>
+</ol>
+
+<p>The resulting day of the week should be identical to what you get with DayOfTheWeek4.</p>
+
+<p><strong>ADVICE</strong>
+You do not need to change the code much. Just replace the $day, $month, $year variable values with what you get from the form. If you are changing any more of the existing code (other than adding new code) you are doing something wrong!</p>
+
+<style>
+#wod-times .label-success {
+    background-color: #3cb521
+}
+
+#wod-times .label-info {
+    background-color: #3399f3
+}
+
+#wod-times .label-warning {
+    background-color: #d47500
+}
+
+#wod-times .label-danger {
+    background-color: #cd0200
+}
+</style>
+
+<p><span class="h4" id="wod-times">
+  <span style="padding: 2px" class="label label-success">Rx: &lt;5 min</span>
+  <span style="padding: 2px" class="label label-info">Av: 5-10 min</span>
+  <span style="padding: 2px" class="label label-warning">Sd: 10-15 min</span>
+  <span style="padding: 2px" class="label label-danger">DNF: 15+ min</span>
+</span></p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

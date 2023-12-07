@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Lab: HTML Forms and Javascript </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/html-forms">HTML Forms</a></li>
+        <li class="breadcrumb-item active">Lab: HTML Forms and Javascript</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h3 id="instructions">Instructions:</h3>
+<p>Open the <a href="ITM352_Forms.ppt">presentation slides</a>.</p>
+
+<p>We will work through these exercises and address any questions and provide examples. When asked by the instructor do the lab exercises listed. Use Javascript unless asked to do otherwise.</p>
+
+<p>Do all your code work in VSCode unless otherwise instructed. Please ask the instructor for help if you get stuck this is <strong>NOT</strong> a test.</p>
+
+<p>Copy code and submit your answers on Laulima</p>
+
+<h4 id="exercise-1-using-form-elements-3-minutes">Exercise 1: Using Form Elements (3 minutes)</h4>
+
+<p>a. Create a file called <code class="language-plaintext highlighter-rouge">order_page.html</code> in the current directory and add textbox with label “quantity desired:”. Add a <code class="language-plaintext highlighter-rouge">&lt;span id='qty_textbox_message'&gt;Enter a quantity&lt;/span&gt;</code> after the textbox. Use the <code class="language-plaintext highlighter-rouge">onkeyup</code> attribute to to set the <code class="language-plaintext highlighter-rouge">innerHTML</code> for the span to the value of the textbox when when something is typed in the textbox. Use the <code class="language-plaintext highlighter-rouge">this</code> object reference of the textbox object to access its <code class="language-plaintext highlighter-rouge">value</code> property.</p>
+
+<p>b. Add <code class="language-plaintext highlighter-rouge">id="quantity_textbox"</code> to the textbox. Create a function <code class="language-plaintext highlighter-rouge">checkQuantityTextbox</code> and move the code you used in (a) to this function. Check that it works the same.</p>
+
+<p>c. Add the function <code class="language-plaintext highlighter-rouge">isNonNegInt</code> from Lab11 and use it to check what is input into the textbox and display errors in the span if there are errors.</p>
+
+<p>d. There is small logical error in the <code class="language-plaintext highlighter-rouge">isNonNegInt</code> function. When the value is not a number, does it make sense to also say it’s not an integer? add code to fix this!</p>
+
+<h4 id="exercise-2-simple-processing-of-user-input-3-minutes">Exercise 2: Simple Processing of User Input (3 minutes)</h4>
+
+<p>a. In <code class="language-plaintext highlighter-rouge">order_page.html</code> add a button element with value <code class="language-plaintext highlighter-rouge">Purchase</code> that when pressed displays a new page <code class="language-plaintext highlighter-rouge">Thank for you for ordering xxxx things!</code> where <code class="language-plaintext highlighter-rouge">xxxx</code> is whatever was in the textbox. If you use <code class="language-plaintext highlighter-rouge">document.write()</code> after the page is loaded it will replace the current page rather than adding to it (since it will not know where to add to the page). This is one way to create a new page without loading anything from the server. Another way that does not create a new page (maybe preserving CSS styling and layout) is to replace the innerHTML of the page body <code class="language-plaintext highlighter-rouge">document.body.innerHTML = 'xxx'</code>.  Define a function <code class="language-plaintext highlighter-rouge">displayPurchase()</code> to make this new or updated page and use it as the value for the <code class="language-plaintext highlighter-rouge">onclick</code> attribute of the button.</p>
+
+<p>b. Make use of the <code class="language-plaintext highlighter-rouge">isNonNegInt</code> function to only display the new page if a non-negative quantity was entered (validate the input). If there are errors, it should stay on the current page and allow the user to make corrections.</p>
+
+<h4 id="exercise-3-passing-data-using-form-submit-5-minutes">Exercise 3: Passing data using form submit (5 minutes)</h4>
+<p>a. Add a <code class="language-plaintext highlighter-rouge">&lt;form&gt;</code> element with <code class="language-plaintext highlighter-rouge">name="quantity_form" action="display_purchase.html" method="GET"</code> and change the input to a <strong>submit button</strong> and remove the <code class="language-plaintext highlighter-rouge">onclick</code> attribute. Change the <code class="language-plaintext highlighter-rouge">id</code> to a <code class="language-plaintext highlighter-rouge">name</code> attribute for the textbox.</p>
+
+<p>Create the file <code class="language-plaintext highlighter-rouge">display_purchase.html</code>. When the form is submitted, the data for the textbox will be in the query string when <code class="language-plaintext highlighter-rouge">display_purchase.html</code> is requested (from the form action). You can get the query string from the current document with <code class="language-plaintext highlighter-rouge">document.location.search</code>.  Put at the top of the file:</p>
+<pre><code class="language-Javascript">let params = (new URL(document.location)).searchParams;
+</code></pre>
+<p>which will put the query string parameters into a <code class="language-plaintext highlighter-rouge">URLSearchParams</code> object which you can use <code class="language-plaintext highlighter-rouge">params.get("quantity_textbox")</code> to get the query string value for <code class="language-plaintext highlighter-rouge">quantity_textbox</code> and <code class="language-plaintext highlighter-rouge">params.has("quantity_textbox")</code> will return a boolean <code class="language-plaintext highlighter-rouge">true</code> if the query string has key <code class="language-plaintext highlighter-rouge">quantity_textbox</code> and use this in an if-statement to output <code class="language-plaintext highlighter-rouge">Thank for you for ordering xxx things!</code> only if the query string has key <code class="language-plaintext highlighter-rouge">quantity_textbox</code>.</p>
+
+<p>Look at the output in the terminal from the server. Explain why you see a new GET request and why it’s different than the original page request. Explain where the query string in the request comes from.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>b. Now add the <code class="language-plaintext highlighter-rouge">isNonNegInt</code> function to <code class="language-plaintext highlighter-rouge">display_purchase.html</code>. If the data is invalid (not a non-negative integer) then have it output <code class="language-plaintext highlighter-rouge">Invalid quantity. Press the back button and try again.</code></p>
+
+<h4 id="exercise-4-self-processing-form-total-8-minutes">Exercise 4: Self-processing form (total 8 minutes)</h4>
+
+<p>a. It is not ideal to have the user hit the back button when there is an error. It’s better to display the error on the page it occurred. Modify <code class="language-plaintext highlighter-rouge">order_page.html</code> to be self-processing by changing the form action to <code class="language-plaintext highlighter-rouge">""</code>. Copy the code in <code class="language-plaintext highlighter-rouge">display_purchase.html</code> that uses the query string to output the purchase.</p>
+
+<p>Try out valid and invalid values. Note that unlike before, this write adds to the page rather than replacing it since the page is reloaded when the form is submitted. You can use <code class="language-plaintext highlighter-rouge">window.stop()</code> at the point you wish to stop the page from loading.</p>
+
+<p>b. When there is an invalid entry why does value in the textbox vanish? To make the textbox “sticky” when there is an invalid quantity submitted you can get the previous value of the textbox from the query string and set the value if the textbox to it anytime <em>after</em> the textbox is loaded (or after the page is loaded). If you do not, the textbox object will not have been defined and you will get an error accessing it. Add the following code after the textbox is defined:</p>
+<pre><code class="language-Javascript">if (params.has('quantity_textbox')) {
+    quantity_form["quantity_textbox"].value = params.get('quantity_textbox');
+    checkQuantityTextbox(quantity_form["quantity_textbox"]);
+}
+</code></pre>
+
+<h4 id="exercise-5-page-redirection-and-passing-data-on-your-own">Exercise 5: Page redirection and passing data (On Your Own)</h4>
+
+<p>It is is common that a web app will need to direct the user to a different page other than the one requested. Say that after <code class="language-plaintext highlighter-rouge">quantity_form</code> is submitted you want the user to be sent to <code class="language-plaintext highlighter-rouge">display_purchase.html</code> if the quantity input is valid or stay on the same page if it is invalid and show the errors. This can be done in various different ways as we will explore in subsequent labs.</p>
+
+<p>In <code class="language-plaintext highlighter-rouge">order_page.html</code> in replace the <code class="language-plaintext highlighter-rouge">document.write()</code> statement with <code class="language-plaintext highlighter-rouge">window.location.href = "display_purchase.html" + document.location.search;</code> and remove the <code class="language-plaintext highlighter-rouge">window.stop</code> statement.</p>
+
+<p>Notice that this is a way you can validate data and show errors where they occur rather than make the use hit the back button.</p>
+
+<h4 id="exercise-6-post-method-vs-get-method-on-your-own">Exercise 6: POST method vs GET method (On Your Own)</h4>
+<p>a) (3 minutes) Change the form method from GET to POST. Look at the output in the terminal from the server. Explain why you see a new POST request and why it’s different than the GET request. Why didn’t the value from the textbox get passed? Why is there no query string”?</p>
+
+<p>b) (3 minutes) Explain how a POST request must be processed. When is it advantageous to use the POST method and when is it advantageous to use the GET method?</p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

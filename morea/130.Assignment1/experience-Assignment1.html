@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Assignment 1 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/Assignment1">Assignment 1</a></li>
+        <li class="breadcrumb-item active">Assignment 1</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h3 id="assignment-1-creating-an-e-commerce-web-site">Assignment 1: Creating an e-Commerce Web-site</h3>
+
+<h4 id="scenario">Scenario:</h4>
+<p>The marketing director of a company selling «<em>you choose the product</em>&gt;&gt; approaches you to help her design an e-commerce website for his company. She asks you to design a website that will display <em>at least</em> <em>5 different products or services</em> to the user, from which they can choose <em>multiple quantities</em> of any combination of the products or services. She asks you to perform a check to make sure that the user has entered <em>valid quantities</em> and to then calculate the sales total, including tax and shipping/handling costs.</p>
+
+<p>After completing this assignment, you should have learned the following:</p>
+
+<ul>
+  <li>Inventing and implementing a complete information system</li>
+  <li>Building a reasonable user interface</li>
+  <li>Processing user input and generating responses on a server</li>
+  <li>Using the service as a dynamic information service</li>
+  <li>Interpreting and following development requirements</li>
+</ul>
+
+<p><strong>Note:</strong> You will not need to provide the actual products/services. However, you should build your application as if it will be used for this!</p>
+
+<p><em>The main requirements for this assignment are the following:</em></p>
+
+<ul>
+  <li>Use arrays (of objects) to display items and quantities available in a table.</li>
+  <li>Use forms to process information on a server. </li>
+  <li>Allow users to select and process multiple products/services.</li>
+</ul>
+
+<p><strong>Getting Started:</strong> You can either choose to create a project on your own that meets the above requirements or you can follow the step-by-step guide below to help you create the project.</p>
+
+<p><em><strong>VERY IMPORTANT:</strong></em> <em>You must comment all of your code!</em>  You may even want to create a comment on what you are trying to do before you code. The comments are for explaining what your code is used for in the program. This way when we help you, we will know what is going on. Not only because this is required, it will also help you later on when working in group projects. It may be hard for others to understand your code without clear, detailed comments. <em>Also remember to include your name (as author), date, and a brief description of what the code does at the top of the file.</em></p>
+
+<p><strong>Part (A)</strong></p>
+
+<p>(0) Create a directory for your application. You <em>MUST</em> name it <code class="language-plaintext highlighter-rouge">&lt;your lastname&gt;_&lt;your firstname&gt;_Assignment1</code>. This is needed for when you deploy your application on the ITM-VM server.</p>
+
+<p>(1) Make a JSON object for each of your products and include the relevant details for the product such as <code class="language-plaintext highlighter-rouge">name, price, description</code>, etc. You must include a <code class="language-plaintext highlighter-rouge">quantity_available</code> attribute to each product.  You will need to identify each item you are offering by a unique name or number.  </p>
+
+<p>_ Example_ :</p>
+
+<p>If you were selling cell phones, for each phone you would make an array containing all that particular product’s information such as name/”model” number, maker (e.g. Huawei, Samsung, Apple), description, “price”, “image”, etc. Such as</p>
+
+<pre><code class="language-JSON">{  
+  "model":"Apple iPhone XS",  
+  "price": 990.00,  
+  "image": 'AppleXS.jpg',
+  "quantity_available": 4
+} 
+</code></pre>
+
+<p>(2) Then you should make a “master” products array to hold all of the products you created in step (1).  In other words, you will create an array of objects.</p>
+
+<p><em>Example</em> :</p>
+
+<p>Continuing with cell phone example, you would make a JSON array that holds all of the individual cell phone objects.</p>
+<pre><code class="language-JSON">[
+  {  
+  "model":"Apple iPhone XS",  
+  "price": 990.00,  
+  "image": 'AppleXS.jpg',
+  "quantity_available": 4
+  },
+  {  
+  "model":"Samsung Galaxy",  
+  "price": 240.00,  
+  "image": 'Samsung_Galaxy.jpg',
+  "quantity_available": 5
+  }
+]
+</code></pre>
+<p>Save the JSON array in a file, say <code class="language-plaintext highlighter-rouge">products.json</code> and then load it at the top of <code class="language-plaintext highlighter-rouge">server.js</code>  using <code class="language-plaintext highlighter-rouge">const products_array = require(__dirname + '/product_data.json');</code></p>
+
+<p>This will load your products information into the server memory and you can use it in your client requests for validating data and sharing products information between pages.</p>
+
+<p>In the client pages, you will get the product information dynamically with a<code class="language-plaintext highlighter-rouge">GET</code> request for <code class="language-plaintext highlighter-rouge">products.js</code> from the server with the following:</p>
+
+<pre><code class="language-HTML">&lt;script src="./product_data.js" type="text/javascript"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>After this server request, the product information will be in the variable <code class="language-plaintext highlighter-rouge">products_array</code>.</p>
+
+<p>As in the labs, you can then loop through it with either <code class="language-plaintext highlighter-rouge">for()</code>, <code class="language-plaintext highlighter-rouge">while()</code>, or <code class="language-plaintext highlighter-rouge">.foreach()</code> to display the information about the items in a table.</p>
+
+<p>(3) Create a server to serve your application. This includes serving your products data (in whatever manner you choose), display products page, validating purchase data, and providing an invoice for a purchase. Your server <em>MUST</em> be named <code class="language-plaintext highlighter-rouge">server.js</code>. This is needed for when you deploy your application on the ITM-VM server.</p>
+
+<p>Use this for a start on your <code class="language-plaintext highlighter-rouge">server.js</code> file:</p>
+<pre><code class="language-Javascript">const express = require('express');
+const app = express();
+
+// Routing 
+
+// monitor all requests
+app.all('*', function (request, response, next) {
+   console.log(request.method + ' to ' + request.path);
+   next();
+});
+
+// process purchase request (validate quantities, check quantity available)
+&lt;** your code here ***&gt;
+
+// route all other GET requests to files in public 
+app.use(express.static(__dirname + '/public'));
+
+// start server
+app.listen(8080, () =&gt; console.log(`listening on port 8080`));
+</code></pre>
+
+<p>Note: this means that all of your HTML files must live in a folder called “public” in your assignment directory.</p>
+
+<p><em>Example</em> :</p>
+
+<p>The cell phone display may look something like this (you should always include “image”s of each product but you do not need to have any product filtering as is shown here):</p>
+
+<iframe src="SmartPhoneProducts3/products_display.html" style="height:375px;width:320px;" scrolling="no" frameborder="0"></iframe>
+
+<p>See <a href="../100.Objects-Arrays-I/experience-SmartPhoneProducts3.html">SmartPhoneProducts3</a> or right-click on the above frame and view it’s source for an example of generating a page from a JSON array of product data.</p>
+
+<p>See <a href="../115.Server-side-processing/experience-server-side-form-processing.html">Server-side Processing Lab Exercise 3c</a> for an example.</p>
+
+<p><strong>Part (B)</strong></p>
+
+<p>(1) Create an HTML form to ask customers which items they wish to purchase and use the POST method with action <code class="language-plaintext highlighter-rouge">./purchase</code> to request that the server process the form data.   </p>
+
+<p>(2) The form displayed will allow customers to select the item that they want and the quantity they want in an <code class="language-plaintext highlighter-rouge">&lt;input type="text"&gt;</code> with no HTML validations or other client side data guards or validation. You will also need a submit button on this form.</p>
+
+<p>(3) Displaying the information for each item (e.g. model, price, image, quantity available). The quantity available must be dynamic and reflect the current inventory of the items available. This information must come from the server.</p>
+
+<p>(4) <strong>The form must be submitted to the server as a POST.</strong> While it is possible, and maybe even convenient to use a GET, for this assignment, you must process the form data on the server though a POST request to <code class="language-plaintext highlighter-rouge">./purchase</code>.</p>
+
+<p><em>Example</em> :</p>
+
+<p>For the cell phone example, we might change the display to allow for customer input as shown below:</p>
+
+<iframe src="SmartPhoneProductsA1_Example/products_display.html" style="height:375px;width:320px;" scrolling="no" frameborder="0"></iframe>
+
+<p>See <a href="../115.Server-side-processing/experience-server-side-form-processing.html">Server-side Processing Lab Ex. 4 for an example of multiple form inputs and processing</a> or right-click on the above frame and view it’s source for an example of getting and processing form data.</p>
+
+<p>(5) You <strong>must use data validation</strong> on the <strong>server</strong> to ensure the customer entered valid data.  Note: if valid data is not entered, display a specific error message and direct the user to enter valid data. And you must do this validation in your Javascript code <strong>on the server</strong>. You may not place any <strong>guards</strong> on the quantity inputs. For this assignment you can not, for example, use a drop-down list of quantities or use a <code class="language-plaintext highlighter-rouge">&lt;input type=number&gt;</code>  form element to constrain a user to enter only integer quantities. The data must be validated <em>before</em> it is used for the invoice. You cannot just validate the data on the client unless you can guarantee your data comes from that client. <strong>For Assignment 1, you must enable the user to enter invalid data</strong> The grader will check for validation on the server by inputting invalid values in your quantity text boxes, so you must allow this. However, you may provide a warning notice of invalid quantities so long as it does not prevent a user from entering an invalid quantity. There are THREE things to check to validate a purchase:</p>
+
+<p>a. No quantities were selected (i.e. all quantities are 0)
+b. A non-negative integer is input as a quantity
+c. A quantity input for an item exceeds the quantity available for that item</p>
+
+<p>If the purchase is invalid, you must provide some feedback to the user as to why and enable them to correct the problem and purchase.</p>
+
+<p><em>Example</em> :</p>
+
+<p>For the cell phone example, you should make sure that the customer entered valid quantities in the quantity boxes for each item # (1 to 5) or anything at all. If the customer entered -2.3 for item #1, you might display “Please input a non-negative integer” and enable the customer to re-enter number.</p>
+
+<p>(6) Once you have ensured the customer has entered valid data on the server, you then update the inventory (quantity available) for the items purchased and display the purchase information in an invoice. Don’t forget to include tax and shipping if necessary. But specify that the tax and/or shipping are unique to the order (don’t just use a fixed shipping cost for any purchase). All output should be properly formatted (e.g. if there was a dollar amount such as $125.39 it should have two decimal points and a dollar sign).</p>
+
+<p><em>Example</em> :</p>
+
+<iframe src="SmartPhoneProductsA1_Example/invoice.html?quantity0=2&amp;quantity1=&amp;quantity2=33&amp;quantity3=-3&amp;quantity4=33&amp;purchase_submit=Purchase%21" style="height:375px;width:320px;" scrolling="no" frameborder="0"></iframe>
+
+<p>See <a href="../100.Objects-Arrays-I/experience-SmartPhoneProducts3.html">SmartPhoneProducts3t</a> for an example of processing an invoice from an array of products and quantities or right-click on the above frame and view it’s source for an example. You do not have to generate the invoice exactly in this way. You may generate the invoice page on the server (either directly or from a template), or generate it on the client (but you still must collect and validate the form POST data on the server).</p>
+
+<p><strong>IMPORTANT NOTE</strong>
+You <strong>may</strong> use code from the above examples providing that you clearly specify a reference as code comments in the places where the code is used in your application. You <em>must</em> not use the same design for the interface and you do not want to copy the design for processing the form as it will <em>not</em> meet the requirements for this assignment. If you use code without providing a clear reference from any source, including from generative AI (ChatGPT) or code provided in class examples and labs, your assignment score will be severely penalized. Code copied needs to be fully documented (commented) and carefully adapted to the context for your application. Watch out for copying code that does not do anything, repeats something already done, or is not actually used (zombie code). If you copy the Assignment1 examples and just change the data and the images you will receive 0 points for the assignment.</p>
+
+<p>(7) You are required to have a “good” user interface design. When you have a fully functional store (products page and invoice), choose a site template and re-design your website. It is suggested you use a <a href="https://www.w3schools.com/w3css/w3css_templates.asp">W3 Schools template</a>, however you may use any template you wish (such as <a href="https://www.w3schools.com/bootstrap/bootstrap_templates.asp">Bootstrap Templates</a>).</p>
+
+<p><strong>NOTE</strong> You <em>may not</em> just copy the design in the Assignment1 examples or WODs and substitute your products/services. These do not use templates! The user interface design is purposely awful. Be careful of copying a design from the web. There are many truly dreadful designs! For example, <a href="http://techzonics.com/">http://techzonics.com/</a> is something you would not want to copy.</p>
+
+<h4 id="individual-additional-requirements">Individual additional requirements:</h4>
+<p>The following are additional requirements that will be assigned to you by the instructor or TA. Your assigned individual requirements are <strong>not optional</strong> and if not implemented, your assignment score will be severely penalized. You <strong>may not copy</strong> the implementation code from someone (or somewhere) else. You must design and write the code yourself. Copied code, referenced or not, will result in 0 for the entire assignment. If you are confused about the requirement or expectations, ask the instructor immediately. Once you submit your assignment, there are no excuses for not understanding the requirements and expectations. Code for your individual requirement <strong>must</strong> be generously commented. <strong>Clearly</strong> indicate in the these comments what your individual requirement is, the <strong>scenarios</strong> it is meant to address (why the requirement is needed), and how it is implemented.</p>
+
+<ul>
+  <li><strong>IR1</strong> Track the total quantity of each item sold. This needs to be implemented on the server when you remove sold items from the quantity available. Display total quantity sold with the product information. Extra credit: have this dynamically update on the client when there are any purchases processed on the server (from other users).</li>
+  <li><strong>IR2</strong> Check that a quantity entered is valid (see three conditions given in the instructions above). If not, change the frame for the textbox to red and display a message with what’s wrong near the input e.g. “Quantity must be a number!”. If the input is valid, indicate this with a message “You want:”. Do not add a guard or HTML validation that would prevent the user from entering an invalid quantity. You do not need to do this on the server. But consider the quantity available when there are multiple users purchasing.</li>
+  <li><strong>IR3</strong> Check that the quantity entered does not exceed the quantity available as currently available on the server. If it does, change the frame for the textbox to red and display a message “We don’t have xx available.” and reduce the input to the quantity available (replace the input). The primary intent of this requirement is to let the user know that the amount they wanted when they try to purchase was no longer available if another user purchased before them. This means you must do this in a response from the server since it is the only place that has the current number available (consider the quantity available when there are multiple users purchasing). You do not need to do this on the server in response to a purchase, but this is probably the more straightforward way. If you only check the quantity available on the current page when the user enters it in the textbox, it will not prevent the quantity being unavailable on the server due to another users purchase. Extra credit: check if the quantity is available on the server and update the quantity available as the user enters the quantity in the textbox. That is, not in response to a purchase.</li>
+  <li><strong>IR4</strong> If the purchase is invalid (see three conditions given in the instructions above), change the purchase button text from “Purchase” to text that indicates why the purchase is invalid e.g. “Please Select Some Items to Purchase”. Do not disable the button or add a guard that prevents the user form purchasing.</li>
+  <li><strong>IR5</strong> When displaying the invoice, add a small icon image of the product to the line item. If the user hovers over the icon, have a popup window appear with a product description.</li>
+</ul>
+
+<p><strong>HINT</strong> The IR’s are not intended to be difficult or require a lot of code. They are intended to demonstrate your understanding of how your application works and has been implemented. Do think about what scenario’s the requirement is intended to address (e.g. Inform the user that the quantity they want is no longer available). Do not overthink this! Keep it simple and straightforward as possible. Do not try to do the extra credit (if there is one specified) until after you implement the basic requirement. The extra credit can be <strong>very</strong> difficult!</p>
+
+<p>** EXTRA CREDIT ** Implement any number of additional individual requirements.</p>
+
+<p><strong><em>Checklist:</em></strong></p>
+
+<p>After completing the assignment make sure that you have addressed all of the below. Note: Having all of these does not guarantee an ‘A’ but you <em>must</em> have them.</p>
+
+<ul>
+  <li>Meets all functional requirements (displays products, allows user to select product, allows user to select quantities, displays invoice with sensible tax and shipping charges along with totals, uses server to share products data and validate purchase data)</li>
+  <li>Commented–get in the habit now!  Put author’s name and program description as comments in files. Credit given to original author when using “borrowed” code.</li>
+  <li>Used descriptive file names and meaningful variable names.</li>
+  <li>Employs good code formatting.</li>
+  <li>Defined and used arrays and objects for your item inventory.</li>
+  <li>Created tables via array data and loops.</li>
+  <li>Good data validation on the <strong>server</strong> (does not allow invalid choices, responds appropriately to invalid data). Be sure to test with invalid data.</li>
+  <li>Plain input text boxes are used to select quantities. <strong>No guards</strong> are put on to prevent the user from inputting invalid quantities (this includes the IR’s).</li>
+  <li>Good user interface design (easy to use and intuitive)</li>
+  <li>No extra files or redundant data.</li>
+  <li>Correct output. No parse errors or warnings.</li>
+  <li>Tested on the class server, using the itm352student account, saved in a folder with your name in the Assignment1 sub-folder</li>
+  <li>Use a website HTML template to make your site look attractive and flexible.</li>
+  <li>Manages inventory. Items purchased are removed from inventory. Does not allow purchases of more than is available.</li>
+  <li>You implemented your individual requirement and clearly indicated it in the code and in your submission.</li>
+</ul>
+
+<p><strong><em>ONE LAST TIME:</em></strong> You <em>must</em> comment all of your code (you may even want to create a comment on what you are trying to do before you code). The comments are for explaining what your code is used for in the program. That way when we help you, we will know what is going on. Not only because this is required, this will also help you later on when working in group projects because it may be hard for others to understand your code. <em>Also remember to put your name (as the author of the code) and program description in the first part of your comments.</em></p>
+
+<p><strong>Submission:</strong><br />
+See the Assignment 1 instructions on Laulima. Note that you will need to make your code available and deploy it on ITM-VM for the grader.</p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

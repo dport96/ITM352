@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Lab: Algorithms and Program Logic </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/algorithms">Algorithms</a></li>
+        <li class="breadcrumb-item active">Lab: Algorithms and Program Logic</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="lab-objectives">Lab objectives</h1>
+<ul>
+  <li>Understand how to think about computing problems</li>
+  <li>Know what an algorithm is and their use in programming</li>
+  <li>Experience implementing amd constructing algorithms</li>
+  <li>Understand the logical requirements for an algorithm</li>
+</ul>
+
+<h1 id="instructions">Instructions</h1>
+<p>Try to do as many of the exercises as possible, in the order listed. You may skip an exercise if it is impossible to accomplish the task described (for technical reasons). If you have trouble with an exercise, contact the instructor for help – do not just skip the exercise! You may work with a partner, but each of you must submit your individual work. Work should be done electronically on this document (cut and paste as needed but be careful of incorrect characters). Anything that involves code should be tried out in VS Code before submitting (you may cut and paste directly from VS Code). Submit work before the next class. If you cannot submit by this time, try to do so as soon as possible.</p>
+
+<p>You may wish to open the <a href="ITM352_algorithms.ppt">presentation slides</a> for convenience of viewing and copy-paste. When asked by the instructor do the lab exercises indicated. If you get done early, feel free to go on. If you are not done before the instructor indicates the next exercise, raise your hand and explain where you are at. Later parts often depend on completing previous parts so do not let yourself get behind and expect to catch up!</p>
+
+<p>Note: Whenever you see something like &lt;Your Name&gt; and it’s not obviously an HTML tag, it means replace this with you own information as indicated inside. e.g. replace &lt;Your Name&gt; with Joe (or whatever your name is).</p>
+
+<p>For exercises that do not ask specific questions but have you perform tasks, copy any code you created and the output as your answer to the exercise. Some exercises ask for explanations. Make notes for your answer and complete these after class before submitting. Do not try to make complete answers if it keeps you from progressing!</p>
+
+<p>Do all your code work in VS Code. Copy and paste from there. Please ask the instructor for help if you get stuck this is <strong>NOT</strong> a test.</p>
+
+<h1 id="submission">Submission</h1>
+<p>When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to <a href="https://laulima.hawaii.edu">Laulima Assignments</a>. If you do not submit something to Laulima you will not get credit.</p>
+
+<h4 id="exercise-1--algorithms-dnf-30-minutes">Exercise 1:  Algorithms (DNF 30+ minutes)</h4>
+<p>Let’s try seeing an algorithm from the computer’s perspective to get a better idea of the challenge of programming to solve a problem. The following is a “flowchart” that describes an algorithm to determine a day of the week from a date with year between 1000-9999. You likely will not immediately see how this process will result in solving the problem!</p>
+
+<p><img src="day-of-week-flowchart.jpg" alt="" style="max-width: 100%;max-height: 100%;" height="700px" width="800px" /></p>
+
+<div>
+<img src="mod-7-calendartable.jpg" alt="" style="max-width: 100%;max-height: 100%;" />
+<img src="Leap Year Flowchart.png" alt="" style="max-width: 100%;max-height: 100%;" height="200px" width="200px" />
+<img src="keysToDays.png" alt="" style="max-width: 100%;max-height: 100%;" height="150px" width="150px" />
+</div>
+
+<p>a. (6 minutes) Implement the above algorithm using expressions and operators to determine the day of the week you were born on and list that day here. Implement each step and the calculations you used as a series of variables $step1, $step2, etc. Use <code class="language-plaintext highlighter-rouge">node -i</code> to perform the calculations and print out the results you need along the way. For example, using the date 8/3/2013 in the flowchart you might perform the following steps in node:</p>
+
+<pre><code class="language-Javascript">step1=13;
+step2=parseInt(step1/4);
+step3 = step2 + step1;
+step4 = 2; // Not Jan, so look at month before on table
+step6 = step4 + step3;
+... 
+</code></pre>
+
+<p>Hint: <code class="language-plaintext highlighter-rouge">parseInt()</code> will take a float and drop the decimal part which would be dropping the remainder of division. Alternatively you can use <code class="language-plaintext highlighter-rouge">Math.floor()</code> to round-down to the nearest integer value. You can get the remainder and forget the quotient after dividing by using the modulus operator <code class="language-plaintext highlighter-rouge">%</code>.</p>
+
+<p>Put your calculation steps and day your were born on (last step) here:</p>
+
+<h4 id="exercise-2-algorithmic-logic-dnf-20-minutes">Exercise #2: Algorithmic Logic (DNF 20+ minutes)</h4>
+
+<p>a. Go to the <a href="RobotSim/RobotSim.html">RobotSim emulation</a>. Try the following:</p>
+
+<ul>
+  <li>Move the robot to the top of the grid.</li>
+  <li>Reset the robot, move the robot to the top of the grid.</li>
+  <li>Write out in robot commands (in the yellow textbox) steps you used to move the robot to the top of the grid. place the robot at 0,0,north. Excecute your steps and verify the robot moves to the top of the grid and does not get stuck at the block.</li>
+  <li>Reset the robot and execute your steps. One more time, reset the robot and execute your steps. Explain why you were not able to always move the robot to the top of the grid.</li>
+</ul>
+
+<p>b. Create a flowchart or pseudocode similar to what you saw in the lecture for an algorithm that will keep a robot moving around in a closed room with obstructions. Make sure you do not assume the robot has intelligence or any capability beyond the basic commands for movement, successful execution of movement, repeating commands, and reporting if a command was successful. You have two problems to solve:</p>
+
+<p>(1) keep the robot moving forever</p>
+
+<p>(2) the robot should never get stuck in front of a wall or block</p>
+
+<p>Put your chart or psudocode or code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<p>c. Write out in robot commands the algorithm you specified in (b). You can only use the <code class="language-plaintext highlighter-rouge">move()</code>, <code class="language-plaintext highlighter-rouge">left()</code> and <code class="language-plaintext highlighter-rouge">right()</code> methods to <code class="language-plaintext highlighter-rouge">controller</code>. If the <code class="language-plaintext highlighter-rouge">move()</code> command is successful, it returns a boolean value you can use. Any Javascript statment can be used. For example, <code class="language-plaintext highlighter-rouge">while(x) { }</code> can be used to repeat everything inside the <code class="language-plaintext highlighter-rouge">{}</code>’s so long as <code class="language-plaintext highlighter-rouge">x</code> is <code class="language-plaintext highlighter-rouge">true</code> and stops when <code class="language-plaintext highlighter-rouge">x</code> is <code class="language-plaintext highlighter-rouge">false</code>. You can negate a boolean value by placing a <code class="language-plaintext highlighter-rouge">!</code> in front. For example, <code class="language-plaintext highlighter-rouge">!true</code> will result in <code class="language-plaintext highlighter-rouge">false</code>. Hint: you can do this very simply using either two <code class="language-plaintext highlighter-rouge">while()</code> loops or one <code class="language-plaintext highlighter-rouge">while()</code> and one <code class="language-plaintext highlighter-rouge">if()</code> statement. Test to check your algorithm works!</p>
+
+<p>** Extra credit** You can <em>try out</em> your algorithm using the fancy online <a href="https://scratch.mit.edu/projects/340532/">robot simulation</a>. If you use this, it is suggested you modify the existing program that make a sound when the robot hits something. You may also have to deal the the edges of the room as they are not walls and the robot doesn’t bounce off them! There is a condition “if on edge bounce” you can use.</p>
+
+<p>Put your commands or screenshot of your Scratch code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<p>c) Even though your algorithm solves the problems (1) and (2), there are conditions that can cause <em>*undesirable results</em>. Can you think of what some of these might be and how you might deal with them? Hint: consider that the algorithm does not solve the problem of moving around the <em>entire</em> room.</p>
+
+<h4 id="exercise-3-program-logic-and-problem-solving-dnf-8-minutes">Exercise #3: Program Logic and Problem Solving (DNF 8+ minutes)</h4>
+<p>Try the following code in your browser. Replace the contents of <code class="language-plaintext highlighter-rouge">firstname</code> and <code class="language-plaintext highlighter-rouge">lastname</code> with your name:</p>
+
+<pre><code class="language-HTML">&lt;span id="firstname"&gt;Rick&lt;/span&gt;, &lt;span id="lastname"&gt;Port&lt;/span&gt;
+&lt;br&gt;
+&lt;input type="button" value="Swap" 
+    onclick="
+    firstname.innerHTML = lastname.innerHTML;
+    lastname.innerHTML = firstname.innerHTML;
+    "&gt;
+</code></pre>
+
+<p>The above algorithm tries to swap the HTML inside the <code class="language-plaintext highlighter-rouge">firstname</code> and <code class="language-plaintext highlighter-rouge">lastname</code> span elements when the button is pressed. It will <strong>not</strong> work!</p>
+
+<p>Explain what’s wrong with the above algorithm and fix it. <strong>Hint:</strong> it does not require more than a few new lines of code and no conditional statements (if- and loops). Put your new code and explanation here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<h4 id="extra-credit-exercise">Extra Credit Exercise:</h4>
+<p>Design an algorithm that algorithm that will get the robot to move around the entire room. It’s doesn’t have to do the efficiently (like in using the fewest moves). Implement your algorithm in the Robot Emulator as in Exercise 2d. Hint: think or a pattern that would cover the entire room and how you can get the robot to implement this pattern. Think carefully about what it means to turn 4 times but not in the same place.</p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

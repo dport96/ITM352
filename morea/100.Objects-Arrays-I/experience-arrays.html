@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Lab: Object and Arrays I </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/objects">Collections: Objects and Arrays</a></li>
+        <li class="breadcrumb-item active">Lab: Object and Arrays I</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="instructions">Instructions</h1>
+<p>Try to do as many of the exercises as possible, in the order listed. You may skip an exercise if it is impossible to accomplish the task described (for technical reasons). If you have trouble with an exercise, contact the instructor for help – do not just skip the exercise! You may work with a partner, but each of you must submit your individual work. Work should be done electronically on this document (cut and paste as needed but be careful of incorrect characters). Anything that involves code should be tried out in VS Code before submitting (you may cut and paste directly from VS Code). Submit work before the next class. If you cannot submit by this time, try to do so as soon as possible.</p>
+
+<p>You may wish to open the <a href="ITM352_Objects_Arrays.ppt">presentation slides</a> for convenience of viewing and copy-paste. When asked by the instructor do the lab exercises indicated. If you get done early, feel free to go on. If you are not done before the instructor indicates the next exercise, raise your hand and explain where you are at. Later parts often depend on completing previous parts so do not let yourself get behind and expect to catch up!</p>
+
+<p>Note: Whenever you see something like &lt;Your Name&gt; and it’s not obviously an HTML tag, it means replace this with you own information as indicated inside. e.g. replace &lt;Your Name&gt; with Joe (or whatever your name is).</p>
+
+<p>For exercises that do not ask specific questions but have you perform tasks, copy any code you created and the output as your answer to the exercise. Some exercises ask for explanations. Make notes for your answer and complete these after class before submitting. Do not try to make complete answers if it keeps you from progressing!</p>
+
+<p>Do all your code work in VS Code. Copy and paste from there. Please ask the instructor for help if you get stuck; this is <strong>NOT</strong> a test.</p>
+
+<h1 id="submission">Submission</h1>
+<p>When we are done, submit work before the next class. If you cannot submit by this time, try to do so as soon as possible after class. Copy this lab with your answers and paste your into the Laulima assignment submission box to <a href="https://laulima.hawaii.edu">Laulima Assignments</a>. If you do not submit something to Laulima you will not get credit.</p>
+
+<h4 id="exercise-1-total-10-minutes">Exercise 1. (total 10 minutes)</h4>
+<p>a. (5 minutes) Make a copy of the <a href="../../morea/060.expressions-operators/experience-invoice1.html">Invoice1 WOD</a>. In the area where you define the product variables, create a Javascript object called <code class="language-plaintext highlighter-rouge">product1</code> with attributes appropriate for the information that is used to display the invoice for the first product listed in the invoice. Set the properties for this product e.g. set productName to iPhone 7, set price to $47.95 etc. Put your <code class="language-plaintext highlighter-rouge">product1</code> object code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<p>b. Where ever you used variables for the product represented by <code class="language-plaintext highlighter-rouge">product1</code>, replace them with the corresponding object property. e.g. <code class="language-plaintext highlighter-rouge">price1</code> may be <code class="language-plaintext highlighter-rouge">product1.price</code> or <code class="language-plaintext highlighter-rouge">product['price']</code>. You will need to make changes in the calculations and in the place the table is displayed. Put your code changes here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<p>c. (2 minutes) Show how you would change the quantity property in the <code class="language-plaintext highlighter-rouge">product1</code> object to 0. Add this after the object definition and check that the invoice changes as expected. Put your new invoice output here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<p>d. (2 minutes) Show how you would add a new property to <code class="language-plaintext highlighter-rouge">product1</code> called <code class="language-plaintext highlighter-rouge">SKU#</code> with value <code class="language-plaintext highlighter-rouge">1234</code>. Put your example code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<p>e. (2 minutes) Show how you would remove the <code class="language-plaintext highlighter-rouge">SKU#</code> property from <code class="language-plaintext highlighter-rouge">product1</code>. Put your example code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<h4 id="exercise-2-total-14-minutes">Exercise 2. (total 14 minutes)</h4>
+<p>a. (3 minutes) Declare a simple indexed array called <code class="language-plaintext highlighter-rouge">product_quantities</code> of quantities for the products listed in Invoice1 and put it above the product variable definitions. Put your array code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<p>b. (3 minutes) Given the array specified in 1a above, use it to assign the quantity values for all the products rather than directly in the quantity variables and quantity property for <code class="language-plaintext highlighter-rouge">product1</code>. Put your code changed here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<p>c. (2 minutes) Show how you would print out the size (i.e. number of elements) of the array in 1a. Put your code example here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<p>d. (1 minute) Add a new element (another product quantity) to the end of <code class="language-plaintext highlighter-rouge">product_quantities</code>. Put your code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<p>e. (1 minute) Show how you would delete the just added element in <code class="language-plaintext highlighter-rouge">product_quantities</code>. Put your code here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+
+</code></pre></div></div>
+
+<p>f. (1 minute) Given your array in <code class="language-plaintext highlighter-rouge">product_quantities</code> above, explain what is wrong with the statement, and what the statement will, in fact, print:</p>
+
+<pre><code class="language-Javascript">document.write(product_quantities[20]);
+</code></pre>
+
+<h4 id="exercise-3-8-minutes">Exercise 3. (8 minutes)</h4>
+<p>a. Create a new file Ex3a.html and copy the array <code class="language-plaintext highlighter-rouge">product_quantities</code> you used in Exercise #1 into this file. 
+Use a for loop to iterate through the <code class="language-plaintext highlighter-rouge">product_quantities</code> array, printing each element in its own row of a table. The result should look something like:</p>
+
+<table style="border: 1px solid black;text-align: center;">
+<tr style="border: 1px solid black;"><th style="border: 1px solid black;">Product #</th><th>Quantity</th></tr>
+<tr style="border: 1px solid black;"><td style="border: 1px solid black;">1</td><td>0</td></tr>
+<tr style="border: 1px solid black;"><td style="border: 1px solid black;">2</td><td>4</td></tr>
+<tr style="border: 1px solid black;"><td style="border: 1px solid black;">3</td><td>2</td></tr>
+<tr style="border: 1px solid black;"><td style="border: 1px solid black;">&vellip;</td><td>&vellip;</td></tr>
+</table>
+
+<p><em>Hint: inspect this page source and copy the HTML that made the table as a start.</em></p>
+
+<p>b. Make a copy of Ex3a.html and name it Ex3b.html. Add the following code:</p>
+
+<pre><code class="language-Javascript">// array of all products
+// corresponds to product_quantities array
+// product_quantities[i] is the quantity for products[i]
+products = [
+ { 'name': 'small gumball', 'price': 0.02 },
+ { 'name': 'medium gumball', 'price': 0.05 },
+ { 'name': 'large gumball', 'price': 0.07 },
+ { 'name': 'small jawbreaker', 'price': 0.06 },
+ { 'name': 'large jawbreaker', 'price': 0.10 }
+];
+</code></pre>
+<p>Modify your program to add name, prices, and extended costs columns to the table for products objects given the <code class="language-plaintext highlighter-rouge">products</code> array.</p>
+
+<p>Put your code or a link to the code in your repo here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<h4 id="exercise-4-using-dom-objects-dynamically-on-your-own">Exercise 4. Using DOM objects dynamically (On Your Own)</h4>
+<p>Sometimes you will need to create and add DOM objects after the page is loaded. When you create a DOM object it will need to be added to the document <code class="language-plaintext highlighter-rouge">node</code> by inserting or appending (which is the same as adding it to the HTML hierarchy)</p>
+
+<p>a. Copy Ex3b.html and name it Ex4a.html. Modify your program to append a new row to the table when the table is clicked on. Start by putting <code class="language-plaintext highlighter-rouge">onclick="new_row = this.appendChild(document.createElement('tr'));"</code> in the <code class="language-plaintext highlighter-rouge">&lt;tbody&gt;</code> element of the table to create and add a new row element to the table. After this, add <code class="language-plaintext highlighter-rouge">new_cell = new_row.appendChild(document.createElement('td'));</code>  to add a cell element to the new row. Use the <code class="language-plaintext highlighter-rouge">new_cell</code> reference to set the <code class="language-plaintext highlighter-rouge">innerHTML</code> of the cell to <code class="language-plaintext highlighter-rouge">xxx</code>. Check that this works by clicking the table a few times. Now use a loop to add the same number of<code class="language-plaintext highlighter-rouge">&lt;td&gt;</code> objects to the new row object as the first row in the table. If you are in the tbody element, you can get the the number of cells in the first row of the table using <code class="language-plaintext highlighter-rouge">this.rows[0].cells.length</code>.</p>
+
+<p>Put your code or a link to the code in your repo here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<p>Explain why you must work with the DOM objects rather than <code class="language-plaintext highlighter-rouge">document.write()</code> to change the page after it has been loaded:
+<em>Hint: The page is the <code class="language-plaintext highlighter-rouge">document</code> DOM object which is a kind of a collection (like an array) of DOM objects. When the HTML is loaded, the HTML entities become DOM objects that are added to <code class="language-plaintext highlighter-rouge">document</code>.</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<p>b. Copy Ex4a.html and name it Ex4b.html. Now add <code class="language-plaintext highlighter-rouge">&lt;input type="button" value="Delete Last Row"&gt;</code> after the table. Write code in the <code class="language-plaintext highlighter-rouge">onclick</code> event attribute for this to delete the last row. Start by giving the tbody an id <code class="language-plaintext highlighter-rouge">invoice_table</code>. Then use this id and <code class="language-plaintext highlighter-rouge">.rows.length</code> to get the number of rows. Use this value and the <code class="language-plaintext highlighter-rouge">.deleteRow()</code> method of the tbody object to delete the row.</p>
+
+<p>Put your code or a link to the code in your repo here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<p>c. Copy Ex4b.html and name it Ex4c.html. Above the table, Add the style <code class="language-plaintext highlighter-rouge">tr:hover {background-color: yellow;}</code> so you will see which table row is selected. If this row is clicked, have it delete this row. Change the <code class="language-plaintext highlighter-rouge">Delete last row</code> button to <code class="language-plaintext highlighter-rouge">Add new row</code> and make it add a new row when clicked. Essentially you are switching the behavior for clicking a row and clicking the button. There are several ways you can implement this. You should think this through carefully and implement it bit by bit testing each change along the way. Here is a suggested way:</p>
+<ul>
+  <li>Replace the code in the onclick for the button with the code that creates a new row from the onclick in the table. Check that when the button is pressed a new row is added.</li>
+  <li>In the <code class="language-plaintext highlighter-rouge">&lt;tr&gt;</code> element, add code to onlick that tells <code class="language-plaintext highlighter-rouge">invoice_table</code> to delete the row <code class="language-plaintext highlighter-rouge">this.rowIndex</code> when the row is clicked. Check that when the row is clicked, it is removed from the table.</li>
+  <li>You will notice that when new rows are added, the background color does not change when you mouseover (hover) and when you click on the row it does not get removed from the table. This is because the newly added row does not have the onclick set to anything and the style applied to the table rows is only applied when HTML entities are converted into DOM objects. Since we are directly creating the tr DOM object, it does not have the onclick set or the tr style applied to it. Rather than add these manually, we can use <code class="language-plaintext highlighter-rouge">invoice_table.rows[1].cloneNode(true)</code> to make a copy of the first invoice table row DOM object which already has the onclick and style set. Modify the code in the onlick of the button to do this rather than make a new tr object. Note that you will not be using <code class="language-plaintext highlighter-rouge">createElement()</code> anymore and you will be modifying the cells (td) in the copy of the tr and no longer creating them. Don’t overthink this or write (or copy) a lot of code. You will find the code for this is shorter and simpler than the code you had before.</li>
+</ul>
+
+<p>Put your code or a link to the code in your repo here:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<h4 id="extra-credit-exercise">EXTRA CREDIT EXERCISE:</h4>
+<p>a. Create 3x3 indexed array <code class="language-plaintext highlighter-rouge">TicTacToe</code> (an array with 3 arrays as values where each array has 3 elements) with “X” or “O” in each of the 9 elements. Now print out an HTML table that displays the contents of TicTacToe. You must use two “for” loops. One loop to index the rows and another inside this loop to index the columns. The final product should look like:</p>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+</style>
+
+<table class="tg">
+  <tr>
+    <th class="tg-baqh">x</th>
+    <th class="tg-baqh">o</th>
+    <th class="tg-baqh">x</th>
+  </tr>
+  <tr>
+    <td class="tg-baqh">o</td>
+    <td class="tg-baqh">x</td>
+    <td class="tg-baqh">o</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">x</td>
+    <td class="tg-baqh">o</td>
+    <td class="tg-baqh">o</td>
+  </tr>
+</table>
+
+<p>b. Now initialize the array cells with the <code class="language-plaintext highlighter-rouge">-</code> string. Add the following styles</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    td:hover {
+        background-color: chartreuse;
+    }
+    td {
+        height:25px;width:20px;text-align:center;cursor:cell;
+    }
+</code></pre></div></div>
+<p>Add a <code class="language-plaintext highlighter-rouge">div</code> under the table with <code class="language-plaintext highlighter-rouge">id=status_div</code> and the innerHTML <code class="language-plaintext highlighter-rouge">X goes first</code>. Define an array <code class="language-plaintext highlighter-rouge">marks =["X","O"]</code> and a variable <code class="language-plaintext highlighter-rouge">move_num = 0</code>. In the <code class="language-plaintext highlighter-rouge">onclick</code> for each <code class="language-plaintext highlighter-rouge">&lt;td&gt;</code> add code that first checks that <code class="language-plaintext highlighter-rouge">this.innerHTML</code> is <code class="language-plaintext highlighter-rouge">-</code>. If so, set <code class="language-plaintext highlighter-rouge">this.innerHTML</code> to <code class="language-plaintext highlighter-rouge">marks[move_num%2]</code>. Set <code class="language-plaintext highlighter-rouge">status_div.innerHTML = marks[(++move_num)%2] + ' goes'</code>. Have fun playing Tic Tac Toe!</p>
+
+<p>c. (HARD!) When you set the mark in the table cell, also set the <code class="language-plaintext highlighter-rouge">TicTacToe</code> array for the element at the current row and column to <code class="language-plaintext highlighter-rouge">marks[move_num%2]</code> to keep track of what is in the cells. You can “flatten” the <code class="language-plaintext highlighter-rouge">TicTacToe</code> array into a strting using <code class="language-plaintext highlighter-rouge">board_str = TicTacToe.map(e =&gt; e.join('')).join('')</code>. Now define a regular expression <code class="language-plaintext highlighter-rouge">const re = /^(?:(?:...){0,2}([OX])\1\1|.{0,2}([OX])..\2..\2|([OX])...\3...\3|..([OX]).\4.\4)/g</code> which will match if there is a win in <code class="language-plaintext highlighter-rouge">board_str</code> (i.e. three in a row of either X or O). You can use <code class="language-plaintext highlighter-rouge">win = re.exec(str)</code> to check for a match. If there is no match, <code class="language-plaintext highlighter-rouge">win</code> will be <code class="language-plaintext highlighter-rouge">null</code>. If there is a match, <code class="language-plaintext highlighter-rouge">win</code> will be an array with the matching string in the first element and if it matched with “X” or “O” in one of the other elements. Use this and an if-else to determine if the game was won or a draw (use <code class="language-plaintext highlighter-rouge">(move_num + 1) === 9</code> or <code class="language-plaintext highlighter-rouge">board_str.includes('-')===false</code> to determine that all moves have been made). If no win or draw, display who’s move it is as you did in (b).</p>
+
+<p>d. (SUPER HARD!!) Make the computer play “O” by modifying the <code class="language-plaintext highlighter-rouge">onclick</code> so that after a move is made with “X”, you algorithmically determine the best place to put an “O” and put it there (in the array and in the table). To find the best move you can implement for following strategy:</p>
+
+<p>i. 	Loop through the <code class="language-plaintext highlighter-rouge">TicTacToe</code> array and check if there is an open square that will be a win for O, if so, move there. If not, try step (ii).</p>
+
+<p>ii. Check if there is an open square that would block a win for O in the next turn. You can do this b looping through the <code class="language-plaintext highlighter-rouge">TicTacToe</code> array and for each empty cell add an “O” and check if it’s a win for O. If so, move X there. If not, try step (iii).</p>
+
+<p>iii. 	If no winning or blocking move is found, prioritize a move to an open square in this order - center, corners, edges. You can represent this as an array of indices for the <code class="language-plaintext highlighter-rouge">TicTacToe</code> array <code class="language-plaintext highlighter-rouge">moveOrder = [[1,0], [0,0], [0,2], [2,0], [2,1], [0,1], [1,0], [1,2], [2,1]];</code> loop through this array and stop for the first empty square with an index in <code class="language-plaintext highlighter-rouge">moveOrder</code> and put X at that index.</p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

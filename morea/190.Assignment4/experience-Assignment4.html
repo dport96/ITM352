@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Assignment 4 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/"></a></li>
+        <li class="breadcrumb-item active">Assignment 4</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="assignment-4">Assignment 4</h1>
+
+<h3 id="description">Description:</h3>
+<p>For this assignment, you will choose your own teams of size 1-3. Your team will work together to build an entirely <em><strong>unique</strong></em>, new web application. It may be an e-service, e-commerce site, game, or whatever you wish to build so long as it is interactive. It should not resemble any other web applications designed by other teams or previous ITM352 classes. This should not be a previous bunch of assignments sloppily pieced together. You are encouraged to find a real client for your project – perhaps a friend, relative, or neighbor who needs some website application development done for their business, hobby, or charitable organization.</p>
+
+<p>First, discuss the concept of your e-service website, whether it be a music store, a clothing store, an acupuncture service, a site to support a church group, or something else, with your team members. Then sketch a design of the website. The requirements are “vague” for this assignment:</p>
+
+<ol>
+  <li>Site must be original (cannot be something from a previous 352 class. You may “recycle” a previous assignment concept so long as it was not a copy of someone else’s 352 project)</li>
+  <li>The site should be “realistic” in that one could easily see how this site might actually be used as a web-application.</li>
+  <li>The site should be something you are proud to have built. It is a reflection of what you have learned in this class. This should include non-programming aspects such as design considerations, development concepts (e.g. prototyping), and project management. At minimum your application must make non-trivial use of</li>
+</ol>
+
+<ul>
+  <li>Sessions/Cookies</li>
+  <li>File I/O</li>
+  <li>Multi-dimensional arrays</li>
+  <li>Form processing and validation of entries</li>
+  <li>CSS/HTML5</li>
+  <li>Custom functions</li>
+  <li>Loops/Conditionals</li>
+  <li>Multiple dynamically created and interactive web pages</li>
+</ul>
+
+<p>You are not limited to features from previous assignments. You are ENCOURAGED and EXPECTED to add other features. For example, keeping preferences for users and customized pages for users, administration functions (e.g. to add/delete/modify inventory, add/delete users, etc.), shopping cart, special pages for blogs, boards, wikis, etc. Create whatever makes sense for your own particular site.</p>
+
+<p>You are also not limited to technologies and techniques from previous assignments. You are ENCOURAGED and EXPECTED to make use of things we did not discuss much in class such as JAVASCRIPT framworks like JQuery, and React, databases, encryption of data, etc.</p>
+
+<p>You will upload your web application to the class webserver so make sure you test everything and that everything functions properly well in advance of the due date. Again, you will need to create a server for your application with the name server.js in order to deploy it on the class server.</p>
+
+<p>Please treat this project as though you are a <em>professional consulting organization</em>. Write and document your code as though you were delivering it to a paying client.</p>
+
+<h3 id="deliverables">Deliverables:</h3>
+<ul>
+  <li>Fully functioning web application deployed on the class web server</li>
+  <li>Code fpr your web app in your repo</li>
+  <li>All assigned “checkpoints” in your MIS portfolio</li>
+  <li>An Assignment 4 final essay</li>
+  <li>5 min screencast demo of your app posted to YouTube and linked to an Assignment 4 essay in your MIS portfolio</li>
+  <li>All team members will be required to fill out a project report and peer evaluation form (submitted to Laulima Assignment 4 no more than 1 day after submitting your project). Your grade will be adjusted, if necessary, to reflect your evaluations about your project.</li>
+</ul>
+
+<h3 id="grading">Grading:</h3>
+<p>The points for the project are broken down as follows:</p>
+
+<ul>
+  <li>Software Design/User Interface Prototype (from screencast presentation, essay, team assessment): 20%</li>
+  <li>Software Quality (design, usability, correctness, completeness): 80%</li>
+</ul>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

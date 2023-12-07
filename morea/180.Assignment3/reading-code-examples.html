@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Assignment 3 Code Examples </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/Assignment3">Assignment 3</a></li>
+        <li class="breadcrumb-item active">Assignment 3 Code Examples</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="three-examples-useful-for-assignment-3">Three examples useful for Assignment 3.</h1>
+<p>You can copy and paste the code in to VSCode to try these. You are welcome to use this code
+in your assignment but <em><strong>please do give a reference</strong></em> to what you use.</p>
+
+<h3 id="example-1-a-simple-multi-page-products-navigation-and-display">Example 1: A simple multi-page products navigation and display.</h3>
+
+<h4 id="note-that-this-example-does-not-require-a-custom-server-unlike-your-assignment-3-much-of-the-code-will-be-simpler-and-easier-to-do-on-the-server-just-be-aware-that-you-cannot-copy-this-code-into-your-server-the-ideas-are-the-same-but-it-will-be-implemented-a-bit-differently">Note that this example does not require a custom server (unlike your Assignment 3). Much of the code will be simpler and easier to do on the server. Just be aware that you cannot copy this code into your server. The ideas are the same but it will be implemented a bit differently.</h4>
+
+<h4 id="the-first-thing-is-to-organize-up-the-data-in-an-easy-to-use-format-here-we-have-an-object-with-properties-ie-keys-are-the-product-types-that-indicate-a-group-of-related-products-each-product-type-key-has-a-value-that-is-an-array-of-product-objects-that-hold-the-information-about-a-particular-product-instead-of-an-array-we-could-have-used-an-object-if-we-had-unique-names-or-ids-for-the-products-this-would-be-helpful-if-we-ever-have-to-look-up-an-particular-product-with-an-array-you-would-have-to-search-though-it-with-an-object-you-would-need-only-see-if-the-unique-key-for-the-product-exists-in-the-object">The first thing is to organize up the data in an easy to use format. Here we have an object with properties (i.e. “keys”) are the product types that indicate a group of related products. Each product type key has a value that is an array of product objects that hold the information about a particular product. Instead of an array we could have used an object if we had unique names or id’s for the products. This would be helpful if we ever have to “look up” an particular product. With an array you would have to search though it. With an object you would need only see if the unique key for the product exists in the object.</h4>
+
+<h4 id="save-each-of-the-items-below-in-a-file-named-at-the-top">Save each of the items below in a file named at the top:</h4>
+
+<h5 id="save-as-productsjson">save as products.json</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w"> 
+    </span><span class="nl">"gumballs"</span><span class="p">:[</span><span class="w"> 
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"small gumball"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"med gumball"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"large gumball"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"jawbreakers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"small jawbreaker"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.10</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"med jawbreaker"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.15</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"large jawbreaker"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.35</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"peanut butter cups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"small peanut butter cup"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.50</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"med peanut butter cup"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.60</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"large peanut butter cup"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<h4 id="this-code-will-load-the-json-file-of-products-data-from-the-server-and-make-it-available-in-a-web-page-you-may-recall-that-we-couldnt-just-load-the-file-as-a-src-to-a-script-tag-we-had-to-save-the-data-as-javascript-code-this-is-a-better-way-to-handle-sharing-data-between-the-client-and-server-you-could-also-generate-the-json-on-the-server-rather-than-have-it-hand-over-the-file">This code will load the JSON file of products data from the server and make it available in a web page. You may recall that we couldn’t just load the file as a src to a script tag. We had to save the data as javascript code. This is a better way to handle sharing data between the client and server. You could also generate the JSON on the server rather than have it hand over the file.</h4>
+
+<h5 id="save-as-functionsjs">save as functions.js</h5>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// This function asks the server for a "service" and converts the response to text. </span>
+<span class="kd">function</span> <span class="nx">loadJSON</span><span class="p">(</span><span class="nx">service</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>   
+    <span class="kd">let</span> <span class="nx">xobj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+    <span class="nx">xobj</span><span class="p">.</span><span class="nx">overrideMimeType</span><span class="p">(</span><span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">xobj</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span> <span class="nx">service</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="nx">xobj</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">xobj</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nx">xobj</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">200</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode</span>
+            <span class="nx">callback</span><span class="p">(</span><span class="nx">xobj</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+          <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="nx">xobj</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>  
+ <span class="p">}</span>
+
+<span class="c1">// This function makes a navigation bar from a products_data object</span>
+
+<span class="kd">function</span> <span class="nx">nav_bar</span><span class="p">(</span><span class="nx">this_product_key</span><span class="p">,</span> <span class="nx">products_data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// This makes a navigation bar to other product pages</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">products_key</span> <span class="k">in</span> <span class="nx">products_data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">products_key</span> <span class="o">==</span> <span class="nx">this_product_key</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">`&lt;a href='./display_products.html?products_key=</span><span class="p">${</span><span class="nx">products_key</span><span class="p">}</span><span class="s2">'&gt;</span><span class="p">${</span><span class="nx">products_key</span><span class="p">}</span><span class="s2">&lt;a&gt;&amp;nbsp&amp;nbsp&amp;nbsp;`</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h5 id="save-as-indexhtml">save as index.html</h5>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./functions.js"</span><span class="nt">&gt;&lt;/script&gt;</span> 
+<span class="nt">&lt;script&gt;</span>
+<span class="kd">var</span> <span class="nx">products_data</span><span class="p">;</span>
+<span class="nx">loadJSON</span><span class="p">(</span><span class="dl">'</span><span class="s1">get_products_data</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+     <span class="c1">// Parsing JSON string into object</span>
+     <span class="nx">products_data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="kd">let</span> <span class="nx">this_product_key</span> <span class="o">=</span> <span class="dl">''</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    Go to: <span class="nt">&lt;br&gt;</span>
+<span class="nt">&lt;script&gt;</span> <span class="nx">nav_bar</span><span class="p">(</span><span class="nx">this_product_key</span><span class="p">,</span> <span class="nx">products_data</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+<h4 id="below-will-display-a-product-page-based-on-the-product_key-in-the-query-string-the-product_key-must-match-a-key-in-productsjson-for-the-products-to-display-this-is-mostly-to-automatically-create-the-links-on-the-indexhtml-page-there-is-also-a-navigation-bar-that-automatically-creates-the-page-links-from-the-productsjson-keys">Below will display a product page based on the product_key in the query string. The product_key must match a key in products.json for the products to display (this is mostly to automatically create the links on the index.html page). There is also a navigation bar that automatically creates the page links from the products.json keys.</h4>
+
+<h5 id="save-as-display_productshtml">save as display_products.html</h5>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./functions.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+
+        <span class="c1">// get the query string</span>
+        <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">)).</span><span class="nx">searchParams</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="dl">'</span><span class="s1">products_key</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">products_key</span> <span class="o">=</span> <span class="nx">params</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">products_key</span><span class="dl">'</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">'</span><span class="s1">no products key in query string</span><span class="dl">'</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">stop</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">var</span> <span class="nx">products_data</span><span class="p">;</span>
+        <span class="nx">loadJSON</span><span class="p">(</span><span class="dl">'</span><span class="s1">get_products_data</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Parsing JSON string into object</span>
+            <span class="nx">products_data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;center&gt;</span>
+    <span class="nt">&lt;script&gt;</span> <span class="nx">nav_bar</span><span class="p">(</span><span class="nx">products_key</span><span class="p">,</span> <span class="nx">products_data</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/center&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+
+    <span class="c1">// This function takes a string assumed to be a key in the products array above to display and select the corresponding products</span>
+    <span class="kd">let</span> <span class="nx">order_str</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+    <span class="c1">// get the particular products to display</span>
+    <span class="nx">products</span> <span class="o">=</span> <span class="nx">products_data</span><span class="p">[</span><span class="nx">this_product_key</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="dl">'</span><span class="s1">Submit</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// grab the quantities from the query string</span>
+        <span class="nx">order_str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Your order is:&lt;br&gt;</span><span class="dl">'</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">products</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">order_str</span> <span class="o">+=</span> <span class="s2">`You want </span><span class="p">${</span><span class="nx">params</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">`quantities[</span><span class="p">${</span><span class="nx">i</span><span class="p">}</span><span class="s2">]`</span><span class="p">)}</span><span class="s2"> of </span><span class="p">${</span><span class="nx">products</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">]}</span><span class="s2">&lt;br&gt;`</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">order_str</span> <span class="o">+=</span> <span class="s2">`&lt;h1&gt;Please select what </span><span class="p">${</span><span class="nx">products_key</span><span class="p">}</span><span class="s2"> you want&lt;/h1&gt;&lt;br&gt;`</span><span class="p">;</span>
+        <span class="c1">// We put the whole table in the form so that anything entered in it will get submitted</span>
+        <span class="nx">order_str</span> <span class="o">+=</span> <span class="s2">`
+            &lt;FORM action="" method="GET"&gt;
+            &lt;INPUT TYPE="HIDDEN" NAME="products_key" VALUE="</span><span class="p">${</span><span class="nx">products_key</span><span class="p">}</span><span class="s2">"&gt;
+                &lt;TABLE BORDER&gt;
+                    &lt;TR&gt;&lt;TD&gt;&lt;B&gt;&lt;BIG&gt;Description&lt;/TD&gt;&lt;TD&gt;&lt;B&gt;&lt;BIG&gt;Price&lt;/TD&gt;&lt;TD&gt;&lt;B&gt;&lt;BIG&gt;Quantity Desired&lt;/TD&gt;&lt;/TR&gt;`</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">products</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">order_str</span> <span class="o">+=</span> <span class="s2">`&lt;TR&gt;&lt;TD&gt;</span><span class="p">${</span><span class="nx">products</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">]}</span><span class="s2">&lt;/TD&gt;&lt;TD&gt;</span><span class="p">${</span><span class="nx">products</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="dl">'</span><span class="s1">price</span><span class="dl">'</span><span class="p">]}</span><span class="s2">&lt;/TD&gt;&lt;TD&gt;
+                &lt;INPUT TYPE="TEXT"  name="quantities[</span><span class="p">${</span><span class="nx">i</span><span class="p">}</span><span class="s2">]"&gt;&lt;/TD&gt;&lt;/TR&gt;`</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">order_str</span> <span class="o">+=</span> <span class="s2">`&lt;/TABLE&gt;&lt;br&gt;
+&lt;INPUT TYPE="SUBMIT"  name="Submit" value="Select"&gt;
+&lt;/FORM&gt;`</span><span class="p">;</span>
+    <span class="p">}</span> <span class="c1">// this closes the else for the form and table display</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">order_str</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span></code></pre></figure>
+
+<h3 id="example-2-a-simple-shopping-cart-example">Example 2: A simple shopping cart example.</h3>
+
+<h4 id="because-the-quantities-are-always-taken-from-the-session-ie-the-cart-this-is-also-an-example-of-using-a-session-to-make-a-form-sticky">Because the quantities are always taken from the session (i.e. the ‘cart’), this is also an example of using a session to make a form sticky.</h4>
+<div class="center-block">
+  <div class="img-responsive">
+    <a href="shopping_cart_session.png"><img alt="picture" width="400px" src="shopping_cart_session.png" /></a>
+  </div>
+</div>
+
+<h5 id="save-this-as-display_productshtml">Save this as display_products.html</h5>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./functions.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="kd">var</span> <span class="nx">products_data</span><span class="p">;</span>
+        <span class="kd">let</span> <span class="nx">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="nx">loadJSON</span><span class="p">(</span><span class="dl">'</span><span class="s1">get_products_data</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Parsing JSON string into object</span>
+            <span class="nx">products_data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+        <span class="p">});</span>
+        <span class="nx">loadJSON</span><span class="p">(</span><span class="dl">'</span><span class="s1">get_cart</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Parsing JSON string into object</span>
+            <span class="nx">shopping_cart</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+            <span class="k">for</span> <span class="p">(</span><span class="nx">pk</span> <span class="k">in</span> <span class="nx">shopping_cart</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">total</span> <span class="o">+=</span> <span class="nx">shopping_cart</span><span class="p">[</span><span class="nx">pk</span><span class="p">].</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="c1">// get the query string</span>
+        <span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">)).</span><span class="nx">searchParams</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="dl">'</span><span class="s1">products_key</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">this_product_key</span> <span class="o">=</span> <span class="nx">params</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">products_key</span><span class="dl">'</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">'</span><span class="s1">no products key in query string</span><span class="dl">'</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">stop</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">nav_bar</span><span class="p">(</span><span class="nx">this_product_key</span><span class="p">,</span> <span class="nx">products_data</span><span class="p">);</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;h2&gt;</span>You have <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"cart_total"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/span&gt;</span> items in your shopping cart<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="nx">cart_total</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">total</span><span class="p">;</span>
+<span class="c1">// This function takes a string assumed to be a key in the products array above to display and select the corresponding products</span>
+    <span class="kd">let</span> <span class="nx">order_str</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+
+    <span class="nx">order_str</span> <span class="o">+=</span> <span class="s2">`&lt;h1&gt;Please select what </span><span class="p">${</span><span class="nx">this_product_key</span><span class="p">}</span><span class="s2"> you want&lt;/h1&gt;&lt;br&gt;`</span><span class="p">;</span>
+    <span class="c1">// We put the whole table in the form so that anything entered in it will get submitted</span>
+    <span class="nx">order_str</span> <span class="o">+=</span> <span class="s2">`&lt;FORM action="/add_to_cart" method="GET"&gt;
+                &lt;INPUT TYPE="HIDDEN" NAME="products_key" VALUE="</span><span class="p">${</span><span class="nx">this_product_key</span><span class="p">}</span><span class="s2">"&gt;
+                    &lt;TABLE BORDER&gt;
+                        &lt;TR&gt;&lt;TD&gt;&lt;B&gt;&lt;BIG&gt;Description&lt;/TD&gt;&lt;TD&gt;&lt;B&gt;&lt;BIG&gt;Price&lt;/TD&gt;&lt;TD&gt;&lt;B&gt;&lt;BIG&gt;Quantity Desired&lt;/TD&gt;&lt;/TR&gt;`</span><span class="p">;</span>
+    <span class="nx">products</span> <span class="o">=</span> <span class="nx">products_data</span><span class="p">[</span><span class="nx">this_product_key</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">products</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">order_str</span> <span class="o">+=</span> <span class="s2">`&lt;TR&gt;&lt;TD&gt;</span><span class="p">${</span><span class="nx">products</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">]}</span><span class="s2">&lt;/TD&gt;&lt;TD&gt;</span><span class="p">${</span><span class="nx">products</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="dl">'</span><span class="s1">price</span><span class="dl">'</span><span class="p">]}</span><span class="s2">&lt;/TD&gt;&lt;TD&gt;
+                    &lt;INPUT TYPE="TEXT"  name="quantities[</span><span class="p">${</span><span class="nx">i</span><span class="p">}</span><span class="s2">]" value="</span><span class="p">${(</span><span class="k">typeof</span> <span class="nx">shopping_cart</span><span class="p">[</span><span class="nx">this_product_key</span><span class="p">]</span><span class="o">!=</span><span class="dl">'</span><span class="s1">undefined</span><span class="dl">'</span><span class="p">)?</span><span class="nx">shopping_cart</span><span class="p">[</span><span class="nx">products_key</span><span class="p">][</span><span class="nx">i</span><span class="p">]:</span><span class="mi">0</span><span class="p">}</span><span class="s2">"&gt;&lt;/TD&gt;&lt;/TR&gt;`</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">order_str</span> <span class="o">+=</span> <span class="s2">`&lt;/TABLE&gt;&lt;br&gt;
+    &lt;INPUT TYPE="SUBMIT"  name="Submit" value="Select"&gt;
+    &lt;/FORM&gt;`</span><span class="p">;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">order_str</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span></code></pre></figure>
+
+<h4 id="we-add-a-server-to-handle-the-sessions-to-keep-track-of-different-users-data-when-they-go-from-page-to-page-we-also-use-the-server-to-provide-microservices-to-give-product-info-and-session-data">We add a server to handle the sessions to keep track of different users data when they go from page to page. We also use the server to provide “microservices” to give product info and session data.</h4>
+
+<h5 id="save-the-following-as-serverjs">Save the following as server.js</h5>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">session</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express-session</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">products_data</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/products.json</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="na">extended</span><span class="p">:</span> <span class="kc">true</span> <span class="p">}));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">session</span><span class="p">({</span><span class="na">secret</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MySecretKey</span><span class="dl">"</span><span class="p">,</span> <span class="na">resave</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">saveUninitialized</span><span class="p">:</span> <span class="kc">true</span><span class="p">}));</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="dl">'</span><span class="s1">*</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Got a </span><span class="p">${</span><span class="nx">request</span><span class="p">.</span><span class="nx">method</span><span class="p">}</span><span class="s2"> to path </span><span class="p">${</span><span class="nx">request</span><span class="p">.</span><span class="nx">path</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="c1">// need to initialize an object to store the cart in the session. We do it when there is any request so that we don't have to check it exists</span>
+    <span class="c1">// anytime it's used</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">cart</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">undefined</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span> <span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">cart</span> <span class="o">=</span> <span class="p">{};</span> <span class="p">}</span> 
+    <span class="nx">next</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">/get_products_data</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">products_data</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/add_to_cart</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">products_key</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">query</span><span class="p">[</span><span class="dl">'</span><span class="s1">products_key</span><span class="dl">'</span><span class="p">];</span> <span class="c1">// get the product key sent from the form post</span>
+    <span class="kd">let</span> <span class="nx">quantities</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">query</span><span class="p">[</span><span class="dl">'</span><span class="s1">quantities</span><span class="dl">'</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nb">Number</span><span class="p">);</span> <span class="c1">// Get quantities from the form post and convert strings from form post to numbers</span>
+    <span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">cart</span><span class="p">[</span><span class="nx">products_key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">quantities</span><span class="p">;</span> <span class="c1">// store the quantities array in the session cart object with the same products_key. </span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="dl">'</span><span class="s1">./cart.html</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/get_cart</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">cart</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kd">static</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/public</span><span class="dl">'</span><span class="p">));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`listening on port 8080`</span><span class="p">));</span></code></pre></figure>
+
+<h3 id="example-3-creating-an-invoice-to-both-print-and-email-also-example-of-node-mailer-component-example">Example 3: Creating an invoice to both print and email (also example of node mailer component) example</h3>
+
+<h5 id="add-the-following-to-the-serverjs-file-from-previous-example-you-may-wish-to-add-a-checkout-button-or-link-to-this-route-in-the-carthtml-page">Add the following to the server.js file from previous example. You may wish to add a “checkout” button or link to this route in the cart.html page.</h5>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/checkout</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// Generate HTML invoice string</span>
+  <span class="kd">let</span> <span class="nx">invoice_str</span> <span class="o">=</span> <span class="s2">`Thank you for your order!&lt;table border&gt;&lt;th&gt;Quantity&lt;/th&gt;&lt;th&gt;Item&lt;/th&gt;`</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">shopping_cart</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">cart</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="nx">product_key</span> <span class="k">in</span> <span class="nx">products_data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">products_data</span><span class="p">[</span><span class="nx">product_key</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">shopping_cart</span><span class="p">[</span><span class="nx">product_key</span><span class="p">]</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">undefined</span><span class="dl">'</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+        <span class="nx">qty</span> <span class="o">=</span> <span class="nx">shopping_cart</span><span class="p">[</span><span class="nx">product_key</span><span class="p">][</span><span class="nx">i</span><span class="p">];</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">qty</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">invoice_str</span> <span class="o">+=</span> <span class="s2">`&lt;tr&gt;&lt;td&gt;</span><span class="p">${</span><span class="nx">qty</span><span class="p">}</span><span class="s2">&lt;/td&gt;&lt;td&gt;</span><span class="p">${</span><span class="nx">products_data</span><span class="p">[</span><span class="nx">product_key</span><span class="p">][</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span><span class="p">}</span><span class="s2">&lt;/td&gt;&lt;tr&gt;`</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+  <span class="nx">invoice_str</span> <span class="o">+=</span> <span class="dl">'</span><span class="s1">&lt;/table&gt;</span><span class="dl">'</span><span class="p">;</span>
+<span class="c1">// Set up mail server. Only will work on UH Network due to security restrictions</span>
+  <span class="kd">let</span> <span class="nx">transporter</span> <span class="o">=</span> <span class="nx">nodemailer</span><span class="p">.</span><span class="nx">createTransport</span><span class="p">({</span>
+    <span class="na">host</span><span class="p">:</span> <span class="dl">"</span><span class="s2">mail.hawaii.edu</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">port</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+    <span class="na">secure</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// use TLS</span>
+    <span class="na">tls</span><span class="p">:</span> <span class="p">{</span>
+      <span class="c1">// do not fail on invalid certs</span>
+      <span class="na">rejectUnauthorized</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="kd">let</span> <span class="nx">user_email</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">phoney@mt2015.com</span><span class="dl">'</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">mailOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">from</span><span class="p">:</span> <span class="dl">'</span><span class="s1">phoney_store@bogus.com</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">to</span><span class="p">:</span> <span class="nx">user_email</span><span class="p">,</span>
+    <span class="na">subject</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Your phoney invoice</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">html</span><span class="p">:</span> <span class="nx">invoice_str</span>
+  <span class="p">};</span>
+
+  <span class="nx">transporter</span><span class="p">.</span><span class="nx">sendMail</span><span class="p">(</span><span class="nx">mailOptions</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">info</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">invoice_str</span> <span class="o">+=</span> <span class="dl">'</span><span class="s1">&lt;br&gt;There was an error and your invoice could not be emailed :(</span><span class="dl">'</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">invoice_str</span> <span class="o">+=</span> <span class="s2">`&lt;br&gt;Your invoice was mailed to </span><span class="p">${</span><span class="nx">user_email</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">invoice_str</span><span class="p">);</span>
+  <span class="p">});</span>
+ 
+<span class="p">});</span></code></pre></figure>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

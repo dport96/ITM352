@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> ITM 352 | Store1 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/ITM352/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/ITM352/css/style.css">
+  <link rel="stylesheet" href="/ITM352/css/syntax.css">
+  <link rel="shortcut icon" href="/ITM352/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/ITM352/index.html"> ITM 352 </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/experiences/">Experiences</a></li>
+        
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/ITM352/schedule/">Schedule</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/ITM352/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/ITM352/modules/html-forms">HTML Forms</a></li>
+        <li class="breadcrumb-item active">Store1</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="use-html-forms-to-select-quantities-from-a-table-of-smart-phone-products-and-display-order">Use HTML forms to select quantities from a table of Smart Phone products and display order</h1>
+
+<ol>
+  <li>
+    <p>Start by creating a <code class="language-plaintext highlighter-rouge">Store1</code> project directory and copying all the files in <a href="../100.Objects-Arrays-I/experience-SmartPhoneProducts3.html">SmartPhoneProducts3</a> and <a href="../120.functions/experience-Invoice3.html">Invoice3</a> in this project directory. Check that <code class="language-plaintext highlighter-rouge">products_display.html</code> and <code class="language-plaintext highlighter-rouge">Invoice.html</code> display as expected.</p>
+  </li>
+  <li>
+    <p>In  <code class="language-plaintext highlighter-rouge">products_display.html</code> add textboxes with names quantity0, quantity1, quantity2, quantity3, quantity4 corresponding to the index of the product array in <code class="language-plaintext highlighter-rouge">products</code>. Also add labels “Quantity Desired” for these textboxes with id’s quantity0_label, quantity1_label, quantity2_label, quantity3_label, quantity4_label. You can do this by adding the HTML into the <code class="language-plaintext highlighter-rouge">document.write()</code> you have inside the loop. You may need to add some CSS to position the textbox and label properly in the <code class="language-plaintext highlighter-rouge">&lt;section&gt;</code></p>
+  </li>
+  <li>
+    <p>Add a submit button in the <code class="language-plaintext highlighter-rouge">&lt;footer&gt;</code> with value “Purchase”</p>
+  </li>
+  <li>
+    <p>Put the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> inside a form with action <code class="language-plaintext highlighter-rouge">./invoice.html</code> using the <code class="language-plaintext highlighter-rouge">GET</code> method
+The resulting page should look something like this:
+<img src="Store1_display.PNG" alt="Store1_display.PNG" />
+<br /></p>
+  </li>
+  <li>
+    <p>In <code class="language-plaintext highlighter-rouge">invoice.html</code> get the query string parameters using <code class="language-plaintext highlighter-rouge">params = (new URL(document.location)).searchParams</code>. Use a loop and <code class="language-plaintext highlighter-rouge">params.get()</code> to generate the <code class="language-plaintext highlighter-rouge">quantities</code> array.</p>
+  </li>
+  <li>
+    <p>Test that you can select quantities and the invoice appears with the selected quantities (and errors) when you click the Purchase button. The resulting page should look like this:
+<br />
+<img src="Store1_invoice.PNG" alt="Store1_invoice.PNG" />
+<br /></p>
+  </li>
+</ol>
+
+<style>
+#wod-times .label-success {
+    background-color: #3cb521
+}
+
+#wod-times .label-info {
+    background-color: #3399f3
+}
+
+#wod-times .label-warning {
+    background-color: #d47500
+}
+
+#wod-times .label-danger {
+    background-color: #cd0200
+}
+</style>
+
+<p><span class="h4" id="wod-times">
+  <span style="padding: 2px" class="label label-success">Rx: &lt;20 min</span>
+  <span style="padding: 2px" class="label label-info">Av: 20-30 min</span>
+  <span style="padding: 2px" class="label label-warning">Sd: 30-40 min</span>
+  <span style="padding: 2px" class="label label-danger">DNF: 40+ min</span>
+</span></p>
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/ITM352/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    <p>Dan Port | Information Technology Management | University of Hawaii, Manoa <br />
+dport@hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-12-06 16:10:13 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      19 modules
+      
+      | 19 outcomes
+      
+      
+      | 42 readings
+      
+      
+      | 86 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>
