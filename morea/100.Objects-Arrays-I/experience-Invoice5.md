@@ -7,8 +7,8 @@ morea_summary: "Use a loop and multi-dimensional array to generate an invoice of
 morea_sort_order: 2 
 morea_labels:
  - "WOD"
-morea_start_date: "2019-05-17T00:00"
-morea_end_date: "2019-05-21T23:59"
+morea_start_date: "2019-10-04T00:00"
+morea_end_date: "2019-10-08T23:59"
 ---
 
 # Use a loop and arrays to generate an invoice

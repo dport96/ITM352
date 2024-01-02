@@ -7,8 +7,8 @@ morea_summary: "A WOD using JS expressions to generate a sales receipt."
 morea_sort_order: 2
 morea_labels:
  - Practce WOD 
-morea_start_date: "2023-09-15T00:00"
-morea_end_date: "2023-09-26T23:59"
+morea_start_date: "2024-02-02T00:00"
+morea_end_date: "2024-02-13T23:59"
 ---
 
 For this WOD you will create a sales receipt for a sale that contains **at least five different products** (with prices of your choosing). You **must** use expressions and variables to compute the various needed values dynamically. That is, do not "hard code" the computations. You should be able to change the variable values and the sales receipt will compute the correct values.  

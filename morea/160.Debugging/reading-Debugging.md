@@ -7,7 +7,7 @@ morea_type: reading
 morea_sort_order: 3
 morea_labels:
 - Tutorial
-morea_start_date: "2023-11-14T12:00"
+morea_start_date: "2024-04-02T12:00"
 ---
 
 ## Go through the following tutorials:

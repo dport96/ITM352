@@ -7,7 +7,7 @@ morea_summary: "SQL Database in JAVASCRIPT with SQLite"
 morea_sort_order: 1 
 morea_labels:
  - Lab Lecture
-morea_start_date: "2019-07-09T00:00"
+morea_start_date: "2019-11-26T00:00"
 ---
 
 ## Instructions: 

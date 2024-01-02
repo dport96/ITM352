@@ -5,7 +5,7 @@ morea_id: reading-policy-grading
 morea_summary: "Course policy and how grades for this class will be determined"
 morea_type: reading
 morea_sort_order: 1
-morea_start_date: "2023-08-22T12:00"
+morea_start_date: "2024-01-09T12:00"
 ---
 
 ## Grading

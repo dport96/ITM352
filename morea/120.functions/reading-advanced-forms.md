@@ -9,7 +9,7 @@ morea_labels:
  - Short article
  - Screencast 
  - 1 hr 35 min
-morea_start_date: "2019-05-30T12:00"
+morea_start_date: "2019-10-17T12:00"
 ---
 # Read the following short reference:
 

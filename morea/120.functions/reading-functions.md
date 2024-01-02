@@ -8,7 +8,7 @@ morea_sort_order: 2
 morea_labels:
  - Short tutorial
  - Screencast 
-morea_start_date: "2023-10-10T12:00"
+morea_start_date: "2024-02-27T12:00"
 ---
 # Read the short tutorials in the following:
 

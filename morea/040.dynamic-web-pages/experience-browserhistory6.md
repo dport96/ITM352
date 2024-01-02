@@ -7,8 +7,8 @@ morea_summary: "A WOD using client side processing with JavaScript to show off t
 morea_sort_order: 3
 morea_labels:
  - WOD
-morea_start_date: "2023-09-08T00:00"
-morea_end_date: "2023-09-14T23:59"
+morea_start_date: "2024-01-26T00:00"
+morea_end_date: "2024-02-01T23:59"
 ---
 
 For this WOD, you will start with BrowserHistory3 and split the one page, three column "History of Browsers" web page into four separate web pages: a front page with the Introduction and three buttons which link to three other pages containing the history of those three browsers.

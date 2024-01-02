@@ -7,7 +7,7 @@ morea_type: experience
 morea_sort_order: 1
 morea_labels:
   - Screencast Lecture [49 min]
-morea_start_date: "2023-09-14T12:00"
+morea_start_date: "2024-02-01T12:00"
 ---
 
 # Introducing Expressions and Operators

@@ -6,7 +6,7 @@ morea_summary: "Examples of using Javascript to post-process a webpage."
 morea_type: experience
 morea_url: 
 morea_sort_order: 5
-morea_start_date: "2023-09-07T00:00"
+morea_start_date: "2024-01-25T00:00"
 morea_labels:
  - In Class Lab
 ---

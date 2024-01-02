@@ -1,0 +1,43 @@
+Topics
+------
+
+1.  Architecture of the Internet
+    -   Networking basics
+    -   HTTP protocol
+    -   Servers and clients
+    -   Static file hosting
+2.  Coding tools
+    -   The command line
+    -   Source control
+    -   Integrated Development Environments (IDE)
+3.  HTML & CSS
+    -   Web page structure
+    -   Accessibility (concurrently throughout the course)
+    -   Styling basics
+    -   Design patterns
+    -   Hypermedia
+    -   Communication skills (concurrently throughout the course)
+4.  Javascript
+    -   Programming control structures
+        1.  Variables
+        2.  Looping
+        3.  Conditionals
+        4.  Functions
+    -   Interacting with the web
+        -   Manipulating the Document Object Model (DOM)
+        -   Fetching data
+        -   Data structures
+        -   Manipulating data
+        -   Storing data
+            -   IndexedDB
+            -   localStorage
+5.  Advanced topics
+    -   Classes
+    -   Functional programming
+    -   Object oriented programming
+6.  Progressive enhancement
+    -   Web components
+    -   Custom elements
+7.  Creative coding/game design
+    -   P5.js (game design library)
+    -   State management

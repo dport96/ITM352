@@ -7,8 +7,8 @@ morea_summary: "Build a sophisticated original web application"
 morea_sort_order: 3 
 morea_labels:
  - Assignment
-morea_start_date: "2020-07-14T00:00"
-morea_end_date: "2020-07-26T23:59"
+morea_start_date: "2020-12-01T00:00"
+morea_end_date: "2020-12-13T23:59"
 ---
 
 # Assignment 4

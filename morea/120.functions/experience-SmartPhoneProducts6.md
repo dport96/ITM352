@@ -7,8 +7,8 @@ morea_summary: "Using HTML form arrays"
 morea_sort_order: 3 
 morea_labels:
  - WOD
-morea_start_date: "2019-05-29T00:00"
-morea_end_date: "2019-05-31T23:59"
+morea_start_date: "2019-10-16T00:00"
+morea_end_date: "2019-10-18T23:59"
 ---
 
 # Use a function to display an HTML form to select quantities from a table of Smart Phone products and also to display order

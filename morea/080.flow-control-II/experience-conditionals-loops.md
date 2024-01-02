@@ -7,7 +7,7 @@ morea_summary: "Learn about conditional expressions and loop statements"
 morea_sort_order: 1 
 morea_labels:
  - "Lecture Lab"
-morea_start_date: "2023-09-26T00:00"
+morea_start_date: "2024-02-13T00:00"
 ---
 # Lab objectives
 - Understand how to conditionally repeatedly execute statements

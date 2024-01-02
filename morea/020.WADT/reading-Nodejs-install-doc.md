@@ -5,7 +5,7 @@ morea_id: reading-Nodejs-install-doc
 morea_summary: "Introduces the Node.js® JavaScript runtime"
 morea_type: reading
 morea_sort_order: 4
-morea_start_date: "2023-08-24T12:00"
+morea_start_date: "2024-01-11T12:00"
 ---
 
 # About

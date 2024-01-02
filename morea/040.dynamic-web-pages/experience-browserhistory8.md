@@ -7,7 +7,7 @@ morea_summary: "A WOD using client side processing with JavaScript to show off t
 morea_sort_order: 4
 morea_labels:
  - WOD
-morea_start_date: "2018-09-14T00:00"
+morea_start_date: "2019-02-01T00:00"
 ---
 
 

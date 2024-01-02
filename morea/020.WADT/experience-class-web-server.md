@@ -5,7 +5,7 @@ morea_id: experience-class-www
 morea_type: experience
 morea_summary: "Practice publishing simple www site locally and globally"
 morea_sort_order: 1
-morea_start_date: "2023-08-24T00:00"
+morea_start_date: "2024-01-11T00:00"
 morea_labels:
  - In Class Lab
 ---

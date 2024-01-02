@@ -7,7 +7,7 @@ morea_summary: "Learn About Algorithms and Program Logic"
 morea_sort_order: 1 
 morea_labels:
  - "Lecture Lab"
-morea_start_date: "2023-10-17T00:00"
+morea_start_date: "2024-03-05T00:00"
 ---
 # Lab objectives
 - Understand how to think about computing problems 

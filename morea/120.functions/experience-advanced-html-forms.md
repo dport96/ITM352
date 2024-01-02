@@ -7,7 +7,7 @@ morea_summary: "HTTP fundamentals, using functions to process form data, HTML fo
 morea_sort_order: 4
 morea_labels:
  - Lab
-morea_start_date: "2019-05-30T00:00"
+morea_start_date: "2019-10-17T00:00"
 ---
 
 

@@ -7,7 +7,7 @@ morea_summary: "How to Deploy and Submit Your Application"
 morea_sort_order: 4
 morea_labels:
  - Instructions
-morea_start_date: "2023-11-16T00:00"
+morea_start_date: "2024-04-04T00:00"
 ---
 
 Submit to Laulima Assignment1 in the "assignment text" text area below a link to your code and any other necessary files (e.g. images) in your personal classwork GitHub repo.

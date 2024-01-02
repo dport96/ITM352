@@ -7,7 +7,7 @@ morea_summary: "Check your understanding of algorithms."
 morea_sort_order: 1
 morea_labels:
  - Practice
-morea_start_date: "2018-09-26T12:00"
+morea_start_date: "2019-02-13T12:00"
 ---
 
 # Create a simple algorithm to check your understanding.
