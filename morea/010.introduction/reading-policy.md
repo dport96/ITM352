@@ -42,7 +42,9 @@ between 70-79%. Depending upon the way the grading actually works out, I
 reserve the right to adjust the percentages downward (so, for example, it may
 turn out that 88% could be enough for an A), but I will never adjust the
 percentages upward. Thus, it is possible for everyone in the class to receive
-an A if everyone in the class earns at least 90% of all points.
+an A if everyone in the class earns at least 90% of all points. +/- grades are not 
+given in ITM 352. Please don't ask. However, extraordinary peformance will be 
+given A+ at the instructors descretion.
 
 ## Submitting Your Work
 Unless specified otherwise, all assignment submissions, quizzes, etc. **must**
