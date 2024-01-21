@@ -34,7 +34,7 @@ Locate the html file you created to test your local web server
 
   1. Use SFTP or SSH or a file transfer tool such as [CyberDuck](https://cyberduck.io/?l=en) to upload it to the ITM 352 student class webserver at itm-vm.shidler.hawaii.edu/itm352student/<your class section>. The "htdocs" folder to store your web files is actually called public_html, but when you log in it will take you directly to this location so you won't see it. You cannot write file to this directory so you will need to go to Port_section1 or Kazman_section2 depending on which class section you are in. Make a note of this as you will need to add this to URL to access your file.
     
-   - username is itm352student with password !student! you must use port 8615  (sftp://itm352student@itm-vm.shidler.hawaii.edu:8615/)
+   - username is itm352student with password *(instructor will tell you in class)* you **must** use port 8615  (sftp://itm352student@itm-vm.shidler.hawaii.edu:8615/)
 
    See [http://www.hawaii.edu/askus/692](http://www.hawaii.edu/askus/692) for more information on SSH/sFTP 
    
