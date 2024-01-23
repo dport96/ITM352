@@ -16,9 +16,13 @@
 }
 </style>
 
-<span class="h4" id="wod-times">
-  <span style="padding: 2px" class="label label-success">Rx: {{ include.Rx }}</span>
-  <span style="padding: 2px" class="label label-info">Av: {{ include.Av }}</span>
-  <span style="padding: 2px" class="label label-warning">Sd: {{ include.Sd }}</span>
-  <span style="padding: 2px" class="label label-danger">DNF: {{ include.DNF}}</span>
+<script src="{{ site.baseurl }}/js/WODwidget.js"></script>
+
+<span class="h4">
+  <span style="padding: 2px" class="badge bg-success">Rx: {{ include.Rx }}</span>
+  <span style="padding: 2px" class="badge bg-info">Av: {{ include.Av }}</span>
+  <span style="padding: 2px" class="badge bg-warning">Sd: {{ include.Sd }}</span>
+  <span style="padding: 2px" class="badge bg-danger">DNF: {{ include.DNF}}</span>
 </span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button onclick="startCountdownTimer('Rx: {{ include.Rx }} Av: {{ include.Av }} Sd: {{ include.Sd }} DNF: {{ include.DNF}}', new Date(),'{{ site.baseurl }}')" style="font-size: 15px;">Start WOD Timer</button>
