@@ -85,7 +85,7 @@ Going back to your products_display.html file. Build page sections as follows:
 
 - In each section, make the name values second-level headers `<h2>`. Use find RegEx with `"name": "(.*)",` and replace with RegEx with `<h2>$1</h2>` or do this manually!
 
-Tip: If you want to learn more about using regular expressions (regEx) in VSCode you can try one of the many tutorial documents or videos you can find from Google. Here's one (https://www.youtube.com/watch?v=8HOcmKr1bw8)[https://www.youtube.com/watch?v=8HOcmKr1bw8]
+Tip: If you want to learn more about using regular expressions (regEx) in VSCode you can try one of the many tutorial documents or videos you can find from Google. Here's one [Intro to Regular Expressions](https://www.youtube.com/watch?v=8HOcmKr1bw8)[https://www.youtube.com/watch?v=8HOcmKr1bw8]
 
 - In each section, put the price values in paragraphs (i.e. enclose them inside `<p></p>`). Put a `&dollar;` in front of the value inside the paragraph tags. Modify the find and replace RegEx you did previously.
 
@@ -127,7 +127,7 @@ add the image phone_globe.jpg as a background with no-repeat center. Change the 
 ```
 The `...` is where you put your CSS rules. Don't add the dots!
 
-Here's an example of what the products display page should look like when you're done (you can inspect page source):
+Here's an example of what the products display page **should look like** when you're done (you can inspect page source if you need a hint on what to do):
 
 <iframe src="products_display.html" style="height:210px;width:210px;" scrolling="no" frameBorder="0"></iframe>   
 
