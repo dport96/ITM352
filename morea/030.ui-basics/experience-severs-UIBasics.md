@@ -18,9 +18,9 @@ morea_labels:
 # Instructions
 Try to do as many of the exercises as possible, in the order listed. You may skip an exercise if it is impossible to accomplish the task described (for technical reasons). If you have trouble with an exercise, contact the instructor for help – do not just skip the exercise! You may work with a partner, but each of you must submit your individual work. Work should be done electronically on this document (cut and paste as needed but be careful of incorrect characters). Anything that involves code should be tried out in VS Code before submitting (you may cut and paste directly from VS Code). Submit work before the next class. If you cannot submit by this time, try to do so as soon as possible.
 
-You may wish to open the [presentation slides](Web UI Basics.pptx) for convenence of viewing and copy-paste. When asked by the instructor do the lab exercises indicated. If you get done early, feel free to go on. If you are not done before the instructor indicates the next exercise, raise your hand and explain where you are at. Later parts often depend on completing previous parts so do not let yourself get behind and expect to catch up!
+You may wish to open the [presentation slides](Web UI Basics.pptx) for convenience of viewing and copy-paste. When asked by the instructor do the lab exercises indicated. If you get done early, feel free to go on. If you are not done before the instructor indicates the next exercise, raise your hand and explain where you are at. Later parts often depend on completing previous parts so do not let yourself get behind and expect to catch up!
 
-Note: Whenever you see something like <Your Name> and it's not obviously an HTML tag, it means replace this with you own information as indicated inside. e.g. replace <Your Name> with Joe (or whatever your name is).
+Note: Whenever you see something like `<Your Name>` and it's not obviously an HTML tag, it means replace this with you own information as indicated inside. e.g. replace `<Your Name>` with Joe (or whatever your name is).
 
 For exercises that do not ask specific questions but have you perform tasks, copy any code you created and the output as your answer to the exercise. Some exercises ask for explanations. Make notes for your answer and complete these after class before submitting. Do not try to make complete answers if it keeps you from progressing!
 
@@ -55,7 +55,7 @@ Task 2: Create a sub-directory in Lab2 `SmartPhoneProducts1` and create an empty
 
 Taks 3. Add a title `Smartphone Store Home` and a top-level heading in the body `<your name> Used Smart Phone Store`. Go to the URL `localhost:8080/SmartPhoneProducts1/store.text` to view the page. What did you see in the console output? What do you see in the browsers address bar? Explain this! Why is the web page not rendering? (i.e. the HTML is shown, not the web page it is supposed to create). Change the filename extension from .text to .html, page-back, refresh the page , click the renamed link and check that the web page looks as expected. Explain this. 
 
-Task 4. Create a new file in SmartPhoneProducts1 "products_display.html", add an HTML document boilerplate (EMMET doc), title it "Smartphone Products", add a top-level heading "<your name> Used Smart Phone Store". 
+Task 4. Create a new file in SmartPhoneProducts1 "products_display.html", add an HTML document boilerplate (EMMET doc), title it "Smartphone Products", add a top-level heading `<your name> Used Smart Phone Store`. 
 
 Task 5. In your browser, page-back and type in the URL needed to get products_display.html. Note the GET request in the console output and the address in the browser address box. Check that the page displays as expected. 
 
@@ -91,11 +91,11 @@ Tip: If you want to learn more about using regular expressions (regEx) in VSCode
 
 - For each image value, covert it to an `<img>` with the `src` attribute the value.
 
-- Add a header element above the div with a top-level header "Used Smartphone Store"
+- Add a header element above the div and put the "Used Smartphone Store" h1 inside. 
 
 - Similarly add a footer below the div with a top-level header "Your One Stop Phone Shop"
 
-- Create a style sheet "products-style.css" and link it in the HEAD. Reload the page and open Chrome dev tool (Inspect the page), click on sources, double click products-style.css. Edit directly in the Chrome tool editor (if you are not using Chrome you can edit in VS Code and reload the file as needed):
+- Create a style sheet `products-style.css` and link it in the HEAD. Reload the page and open Chrome dev tool (Inspect the page), click on sources, double click products-style.css. Edit directly in the Chrome tool editor (if you are not using Chrome you can edit in VS Code and reload the file as needed):
      - Style the body element `width: 800px; margin: 0 auto;`
      - Size the img elements for the item class  200px by 200px
      - Align the text for h1,h2 elements to center
