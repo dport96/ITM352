@@ -153,7 +153,7 @@ app.all('*', function (request, response, next) {
 });
 let root = (typeof argv["rootdir"] != "undefined")?argv["rootdir"] : ".";
 app.use(express.static( root ));
-app.listen(8080, () => console.log(`listening on port 8080 rootdir ${root}`));
+let server = app.listen(8080, () => console.log(`listening on ${server.address().address} port ${server.address().port} rootdir ${root}`));
 ```
 
   - Make sure you are in the `Lab1` folder. If you are not, change to the directory (`cd Lab1` if you are still in the top-level directory). Start your local http-server by typing `node ../server.js`.
