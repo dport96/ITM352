@@ -16,10 +16,8 @@ The presentation slides can be found here:
 [Introducing Data Types and Variables](ITM352_data_types_variables.ppt)
 
 Watch the Screencast here:
-[UI Basics](https://youtu.be/SYfvej2d7yg)
+[ITM352 Data Types Vars](https://youtu.be/SYfvej2d7yg)
 
 You are encouraged to follow along with the lecture. Be sure to try all the examples you see in the lecture on VS Code **don't just sit and watch the show!**
 
 In class we will see examples, answer questions, and discuss what's on for next class. 
-
-
