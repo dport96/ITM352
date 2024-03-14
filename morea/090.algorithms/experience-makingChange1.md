@@ -29,7 +29,9 @@ Suggestions:
  - Set the amount to make change for in pennies. That is, represent $1.75 as 175 pennies
  - Think through the basic algorithm before writing any code: 
   - You want the fewest coins so you will start by finding the largest number of quarters you can give. This is the same as keeping the quotient from dividing the amount by 25 and dropping the remainder. The remainder dropped (which is just the amount % 25) will be the the new amount. For this amount repeat the previous steps except use 10 (for dimes). Then repeat again with the remainder using 5 (nickels) and then after this the remainder will  
- - Start by writing out comments outlining the steps of your algorithm. Then implement each step one at a time and test at each step
+ - Start by writing out comments outlining the steps of your algorithm. Then implement each step one at a time and test at each step. However, keep in mind that every step may not translate into a line of code. Often several steps can be handled in a single line of code.
+ - Do not write the entire program at once. Write a few lines, test, then write a few more lines, test, etc.
+==
  
 If you get stuck, ask the TA or Instructor for the screencast solution.
 

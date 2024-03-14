@@ -76,10 +76,10 @@ morea_end_date: "2024-03-19T23:59"
 
 ### Here are the specifications:
 
- - Implement the above algorithm in JS to determine the day of the week for ANY date. Start by defining variables `day` for the day a number from 1-31, `month` for the month (a String) "January", "February", etc., `year` a number 1900-2099 for the year
+ - Implement the above algorithm in JS to determine the day of the week for ANY date. Start by defining variables `day` for the day a number from 1-31, `month` for the month (a `String`) "January", "February", etc., `year` a number 1900-2099 for the year
  - Use your birth date as a **test case**. 
  - Implement it in a general way that works for whatever is assigned to the variables day,month,year. No hard-coding of calculations or steps as in the lab exercise.
- - **Do not** implement it as a series of variable steps `step1 = ...` as in the Lab exercise. Each step need not be a line of code. You can combine steps to get the same result. For example, steps 2 through 5 can be done in a single line of code. Note that you do not need variables for the steps unless the result of that step is used in multiple other steps (so step1 may be useful to have as a varoable). **HINT:** This program can be written in 8 lines of code using only 2 variables for calculations!
+ - **Do not** implement it as a series of variable steps `step1 = ...` as in the Lab exercise. Each step need not be a line of code. You can combine steps to get the same result. For example, steps 2 through 5 can be done in a single line of code. Note that you do not need variables for the steps unless the result of that step is used in multiple other steps (so step1 may be useful to have as a variable). **HINT:** This program can be written in 8 lines of code using only 2 variables for calculations!
  - Use `parseInt()` or `Math.floor()` to get the divisor and drop the remainder 
  - To handle step 1 use `if` or a *ternary operator* 
  - Make an object `monthKey` from the month-key table and use it for Step 6
