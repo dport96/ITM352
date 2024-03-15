@@ -8,7 +8,7 @@ morea_sort_order: 4
 morea_labels:
  - Workshop
  - Follow Along
-morea_start_date: "2024-03-28T00:00"
+morea_start_date: "2024-04-02T00:00"
 ---
 Before this workshop you should have started Assignment1 and have at minimum:
 

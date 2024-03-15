@@ -7,7 +7,7 @@ morea_summary: "Build a Simple Product Selection Application"
 morea_sort_order: 3 
 morea_labels:
  - Assignment
-morea_start_date: "2024-03-27T00:00"
+morea_start_date: "2024-03-29T00:00"
 morea_end_date: "2024-04-09T23:59"
 ---
  
