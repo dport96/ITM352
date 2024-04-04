@@ -42,11 +42,13 @@ _**VERY IMPORTANT:**_ _You must comment all of your code!_  You may even want to
 
 (1) Go to [https://github.com/dport96/Assignment1](https://github.com/dport96/Assignment1) and create a new Assignment1 repo by using this repo as a template:
 
-<img src="./assignment1_template.jpg" alt="Assignment1 Template" style="width: 800px;"/>
+<img src="./assignment1_template.png" alt="Assignment1 Template" style="width: 800px;"/>
 
 You *MUST* name your repo `<your lastname>_<your firstname>_Assignment1`. Make the repo private. 
 
 (2) Clone your new repo to your local machine (in the new repo you can "open in GitHub Desktop" or whatever other method you prefer to use.
+
+<img src="./assignment1_clone.png" alt="Assignment1 clone" style="width: 500px"/>
 
 (3) Open the local repo in VSCode and open the terminal in the Repo directory. Run `npm install` then test the application by running `npm start`
 
