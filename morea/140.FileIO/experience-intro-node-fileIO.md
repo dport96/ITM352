@@ -7,7 +7,7 @@ morea_type: experience
 morea_sort_order: 1
 morea_labels:
   - Screencast Lecture [35 min]
-morea_start_date: "2024-04-09T12:00"
+morea_start_date: "2024-04-11T12:00"
 ---
 
 # Introducing File I/O in Node.js
