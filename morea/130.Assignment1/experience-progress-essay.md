@@ -7,8 +7,8 @@ morea_summary: "Write a technical essay summarizing your progress in programming
 morea_sort_order: 3
 morea_labels:
  - BLOG 
-morea_start_date: "2024-04-08T00:00"
-morea_end_date: "2024-04-11T23:59"
+morea_start_date: "2024-04-12T00:00"
+morea_end_date: "2024-04-16T23:59"
 ---
 
 # E4: Progress in Programming Report
