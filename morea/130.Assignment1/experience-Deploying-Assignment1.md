@@ -9,7 +9,7 @@ morea_labels:
  - Instructions
 morea_start_date: "2024-04-04T00:00"
 ---
-When you arr done with Assignment 1 you will need to deploy it 
+When you are done with Assignment 1 you will need to deploy it 
 
 
 # How to deploy a Node application to Google Cloud
