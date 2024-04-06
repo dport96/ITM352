@@ -22,7 +22,7 @@ You will deploying your Node.js applications to GCP using their App Engine servi
 
 The first few steps involve setting up a project on GCP
 
-### 1. Sign up with Digital Ocean
+### 1. Sign up with Google Cloud
 
 First, go to [Google Cloud](https://cloud.google.com/free?utm_source=google&utm_medium=cpc&utm_campaign=na-none-all-en-dr-sitelink-all-all-trial-b-gcp-1707554&utm_content=text-ad-none-any-DEV_c-CRE_665665924786-ADGP_Hybrid+%7C+BKWS+-+MIX+%7C+Txt-Containers-Google+Cloud+Marketplace-KWID_43700077225653226-kwd-576266368948-userloc_9032759&utm_term=KW_gcp+marketplace-ST_gcp+marketplace-NET_g-&gad_source=1&gclid=CjwKCAjwtqmwBhBVEiwAL-WAYTjP2Xda9az-IF2vncJqdjHNzSqjbMTPO7KUdvQ1WVNoUc0hZbIdixoCc4EQAvD_BwE&gclsrc=aw.ds&hl=en) and click on the _**Get started for free**_ button to create an account.
 
@@ -35,11 +35,11 @@ Note: If you are unable to sign-up with your UH email account, use another gmail
 Go to the [Managed Resources](https://console.cloud.google.com/cloud-resource-manager?walkthrough_id=resource-manager--create-project&start_index=1&_ga=2.129458895.212008679.1712198867-34770965.1712197323&_gac=1.256002809.1712175763.CjwKCAjwh4-wBhB3EiwAeJsppBJ1_8WaiWeSaXi9B5G3AtDLVozS8O8XksOgnkgtGZcBmiinyh6NKxoCvI8QAvD_BwE#step_index=1) and select CREATE PROJECT:
 (see [Managing and Creating Projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects) for details on creating a new project)
 
-{% include medium-img.html url="deployment-1.png" %}
+{% include small-img.html url="deployment-1.png" %}
 
 Then fill in the project name and click on the CREATE button:
 
-{% include medium-img.html url="deployment-2.png" %}
+{% include small-img.html url="deployment-2.png" %}
 
 Make a note of the Project ID so that you will recognize it later.
 
