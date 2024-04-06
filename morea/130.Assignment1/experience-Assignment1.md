@@ -87,9 +87,11 @@ See [Server-side Processing Lab Ex. 4 for an example of multiple form inputs and
 
  Modify `server.js` to validate a purchase on these THREE conditions:
 
-a. No quantities were selected (i.e. all quantities are 0)
-b. A non-negative integer is input as a quantity
-c. A quantity input for an item exceeds the quantity available for that item
+1. No quantities were selected (i.e. all quantities are 0)
+
+2. A non-negative integer is input as a quantity
+
+3. A quantity input for an item exceeds the quantity available for that item
 
 If the purchase is invalid, you **must** provide some feedback to the user as to why and enable them to correct the problem and purchase.
 
