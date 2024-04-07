@@ -26,6 +26,8 @@ The first few steps involve setting up a project on GCP
 
 First, go to [Google Cloud](https://cloud.google.com/free?utm_source=google&utm_medium=cpc&utm_campaign=na-none-all-en-dr-sitelink-all-all-trial-b-gcp-1707554&utm_content=text-ad-none-any-DEV_c-CRE_665665924786-ADGP_Hybrid+%7C+BKWS+-+MIX+%7C+Txt-Containers-Google+Cloud+Marketplace-KWID_43700077225653226-kwd-576266368948-userloc_9032759&utm_term=KW_gcp+marketplace-ST_gcp+marketplace-NET_g-&gad_source=1&gclid=CjwKCAjwtqmwBhBVEiwAL-WAYTjP2Xda9az-IF2vncJqdjHNzSqjbMTPO7KUdvQ1WVNoUc0hZbIdixoCc4EQAvD_BwE&gclsrc=aw.ds&hl=en) and click on the _**Get started for free**_ button to create an account.
 
+{% include small-img.html url="deployment-0.png" %}
+
 You will need to supply a credit card for identification purposes. It will not be charged. If you stay within the free tier services you will not incur any charges (not even to your free $300 credit). All your work for ITM 352 will easily stay within the free tier. However, please take care not to accidentally authorize billable services!
 
 Note: If you are unable to sign-up with your UH email account, use another gmail account (if you have one) or create a new gmail account.
