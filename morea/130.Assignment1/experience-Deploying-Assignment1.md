@@ -103,4 +103,4 @@ For example:
 {% include medium-img.html url="deployment-3.png" %}
 
 
-You may want to watch the screencast on [Deploying and Submitting Assignment 1]() if you find the above instructions confusing.
+You may want to watch the screencast on [Deploying and Submitting Assignment 1](https://youtu.be/HxleBqfYgu8) if you find the above instructions confusing or problematic.
