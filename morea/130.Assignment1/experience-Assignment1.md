@@ -99,7 +99,9 @@ _Example_ :
 
 For the cell phone example, you should make sure that the customer entered valid quantities in the quantity boxes for each item # (1 to 5) or anything at all. If the customer entered -2.3 for item #1, you might display "Please input a non-negative integer" and enable the customer to re-enter number.
 
-(5) Modify `server.js` so that once you have ensured the customer has entered valid data, you then update the inventory (quantity available) for the items purchased and display the purchase information in an invoice. Don't forget to include tax and shipping if necessary. But specify that the tax and/or shipping are unique to the order (don't just use a fixed shipping cost for any purchase). All output should be properly formatted (e.g. if there was a dollar amount such as $125.39 it should have two decimal points and a dollar sign).  
+(5) Modify `server.js` in the `app.post('/process_purchase_form)` route  so that once you have ensured the customer has entered valid data, you then update the inventory (quantity available) for the items purchased. This should be done just before you redirect to the invoice (i.e. after you know there are no errors).
+ 
+Now display the purchase information in an invoice. Don't forget to include tax and shipping if necessary. But specify that the tax and/or shipping are unique to the order (don't just use a fixed shipping cost for any purchase). All output should be properly formatted (e.g. if there was a dollar amount such as $125.39 it should have two decimal points and a dollar sign).  
   
 
 _Example_ :
