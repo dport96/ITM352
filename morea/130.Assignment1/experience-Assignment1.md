@@ -85,7 +85,7 @@ See [Server-side Processing Lab Ex. 4 for an example of multiple form inputs and
 
 (4) You **must use data validation** on the **server** to ensure the customer entered valid data.  Note: if valid data is not entered, display a specific error message and direct the user to enter valid data. And you must do this validation in your Javascript code **on the server**. You may not place any **guards** on the quantity inputs. For this assignment you can not, for example, use a drop-down list of quantities or use a `<input type=number>`  form element to constrain a user to enter only integer quantities. The data must be validated _before_ it is used for the invoice. You cannot just validate the data on the client unless you can guarantee your data comes from that client. **For Assignment 1, you must enable the user to enter invalid data** The grader will check for validation on the server by inputting invalid values in your quantity text boxes, so you must allow this. However, you may provide a warning notice of invalid quantities so long as it does not prevent a user from entering an invalid quantity. 
 
- Modify `server.js` to validate a purchase on these THREE conditions:
+ Modify `server.js` in the `app.post('/process_purchase_form)` route to validate a purchase on these THREE conditions:
 
 1. No quantities were selected (i.e. all quantities are 0)
 
