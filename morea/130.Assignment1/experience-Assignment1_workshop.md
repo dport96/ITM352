@@ -8,7 +8,7 @@ morea_sort_order: 4
 morea_labels:
  - Workshop
  - Follow Along
-morea_start_date: "2024-04-02T00:00"
+morea_start_date: "2024-04-09T00:00"
 ---
 Before this workshop you should have started Assignment1 and have at minimum:
 
@@ -17,7 +17,7 @@ Before this workshop you should have started Assignment1 and have at minimum:
 - an invoice page that uses quantities and products
 - a server.js file that sets up a static page server and displays requests received
 
-**Some advice on obtaining the above can be found in the [getting started with Assignment1 screencast](https://youtu.be/3YJsgGSL_uc).**
+**Some advice on obtaining the above can be found in the [getting started with Assignment1 screencast](https://youtu.be/xDJU6AF93A4).**
 
 Download and open the [Assignment 1 Workshop slides](A1_Workshop_ITM352.ppt).
 
@@ -28,5 +28,3 @@ This workshop will discuss architectural designs for Assignment #1 such as:
 ![architectural designs](architectures.png)
 
 Miscellaneous other useful things for Assignment #1 will also be discussed.
-
-`server.js` for the workshop is Lab 13 Exercise 5.
