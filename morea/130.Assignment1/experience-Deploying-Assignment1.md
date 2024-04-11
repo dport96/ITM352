@@ -70,7 +70,7 @@ Test that your application starts with `npm start`
 
 Download and install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install-sdk) if you haven't already done so. Choose the appropriate operating system for your environment. This SDK includes the gcloud command-line tool, which you'll use to interact with GCP.
 
-### 4. Run gcloud init
+### 5. Run gcloud init
 
 Use the following command to initialize your GCP project: `gcloud init`
 
@@ -78,7 +78,7 @@ Follow the prompts to log in, select your GCP project, and configure the default
 
 See [Setting up the Cloud SDK](https://cloud.google.com/sdk/docs/quickstart) for more information.
 
-### 4. deploy your application
+### 6. deploy your application
 
 Create an `app.yaml` file in the top-level directory and put in
 ```yaml
@@ -91,7 +91,7 @@ Now use the gcloud app deploy command to deploy your Node.js application to Goog
 
 This command uploads your application's source code to GCP, builds and packages it, and deploys it to App Engine. Follow the instructions and answer the questions when asked.
 
-## 5. View your deployed application
+## 7. View your deployed application
 After the deployment is successful, you can access your application using the following URL:
 
 `https://[YOUR_PROJECT_ID].appspot.com`
