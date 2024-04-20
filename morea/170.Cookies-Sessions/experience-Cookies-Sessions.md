@@ -7,7 +7,7 @@ morea_summary: "User data management with Cookies and Sessions"
 morea_sort_order: 1 
 morea_labels:
  - Lab Lecture
-morea_start_date: "2024-04-23T00:00"
+morea_start_date: "2024-04-25T00:00"
 ---
 
 ### Instructions: 

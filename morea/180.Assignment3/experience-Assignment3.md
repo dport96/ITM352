@@ -7,7 +7,7 @@ morea_summary: "Build an eComm site"
 morea_sort_order: 3 
 morea_labels:
  - Assignment
-morea_start_date: "2024-04-24T00:00"
+morea_start_date: "2024-04-26T00:00"
 morea_end_date: "2024-05-03T23:59"
 ---
 

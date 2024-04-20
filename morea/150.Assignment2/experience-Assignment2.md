@@ -8,7 +8,7 @@ morea_sort_order: 3
 morea_labels:
  - Assignment
 morea_start_date: "2024-04-12T23:59"
-morea_end_date: "2024-04-23T23:59"
+morea_end_date: "2024-04-25T23:59"
 ---
 # Assignment 2: Upgrading your e-Commerce Web-site  
 
@@ -59,6 +59,8 @@ Remember to start early and finish early!!
 *   For each user (new or old), create a user\_registration\_info object to hold a users registration data (name, password, email, etc.) 
 *   Store user registration information (name, password, email, etc.) in a file after each valid registration. Direct the user to an appropriate page after. The new user should be able to log in next time without re-registering.
 *   Create functions that validate user data and make use of them when validating registration data.
+
+**\*\* VERY IMPORTANT: You must have the email address "itm352@hawaii.edu" with the password "grader" set in your program to enable grading of your assignment.
 
 _Hints:_
 
@@ -155,31 +157,38 @@ _Think about:_
 
 
 #### Individual additional requirements:
-The following are additional requirements that will be assigned to you by the instructor or TA. Your assigned individual requirements are **not optional** and if not implemented, your assignment score will be severely penalized. You **may not copy** the implementation code from someone (or somewhere) else. You must design and write the code yourself. Copied code, referenced or not, will result in 0 for the entire assignment. If you are confused about the requirement or expectations, ask the instructor immediately. Once you submit your assignment, there are no excuses for not understanding the requirements and expectations. Code for your individual requirement **must** be generously commented. Clearly indicate in the these comments what your individual requirement is and how it is implemented. If you are working woith a partner you must implement **all** the individual requirements.
+The following are additional requirements that will be assigned to you by the instructor or TA. Your assigned individual requirements are **not optional** and if not implemented, your assignment score will be severely penalized. You **may not copy** the implementation code from someone (or somewhere) else. You must design and write the code yourself. Copied code, referenced or not, will result in 0 for the entire assignment. If you are confused about the requirement or expectations, ask the instructor immediately. Once you submit your assignment, there are no excuses for not understanding the requirements and expectations. Code for your individual requirement **must** be generously commented. Clearly indicate in the these comments what your individual requirement is and how it is implemented. If you are working with a partner you must implement **all** the individual requirements.
 
 * **IR1** Store passwords encrypted. When the user registers, encrypt their password before saving the registration data to the file. When a user logs in, encrypt the password they entered and compare it with the encrypted saved password. Do not decrypt the password. You may find the `crypto` library useful.
 * **IR2** Require that passwords have at least one number and one special character.
-* **IR3** When the user is registering, suggest a "strong" password that is 10 random characters inclusing numbers and special characters.  
+* **IR3** When the user is registering, suggest a "strong" password that is 10 random characters including numbers and special characters.  
 * **IR4** Keep track of the number of times a user logged in and the last time they logged in. When they login display this information.
-* **IR5** Keep track of the number of users currently logged in to the site and display this number with the personalization information. For example, if user "dport" is logged in and there are 4 other users logged in, then each page should say somewhere "Welcome Dan, there are 4 users currently using this system." Whenever a user logs out (for this assignment, put a logout button on the invoice page that removes the login identification and sends the user to the login page), the number should decrease accordingly. _HINT:_ Store this iunformation as a global array variable on the server. Whenever a user logs in or registers, add their email address (or username) to the array.  
+* **IR5** Keep track of the number of users currently logged in to the site and display this number with the personalization information. For example, if user "dport" is logged in and there are 4 other users logged in, then each page should say somewhere "Welcome Dan, there are 4 users currently using this system." Whenever a user logs out (for this assignment, put a logout button on the invoice page that removes the login identification and sends the user to the login page), the number should decrease accordingly. _HINT:_ Store this information as a global array variable on the server. Whenever a user logs in or registers, add their email address (or username) to the array.  
 
-**Final steps:**
+#### User Acceptance Testing
+(1) Copy your `Tests.txt` from Assignment1 and update the tests for Assignment2. This should include changing the existing tests (e.g. after user selects products they see the login page rather than invoice) and adding new tests (e.g. User logs in) to check that all the requirements listed above. You should have at least 9 new test scenarios. 
 
-Run and test your program before and after uploading to the class server. You must place all your files in the Assignment2 folder on the class web server, using the itm352student account, in a sub-folder called <Lastname\_team\_member1>\_<Lastname\_team\_member2>
+(2) Test your application with the scenarios you have written. Make sure to test all the requirements listed above. Document your test results in the `Tests.txt` file by adding a `Status:` entry at the end of each test indicating if the test passes, fails, or partially fails. At the end of the file, write a brief summary of your testing experience and if your application passed all the tests. Here is an example of a new tests you should have:
+```txt
+Test11
+Scenario: User login with unregistered email address
+Expected Result: User is sent back to login page and informed that there is no account for email address. Email address entered remains in textbox (sticky) but password textbox is empty. 
+Actual Result: User is sent back to login page but not informed that account does not exist, email not sticky
+Tested by: Entering xxx@yyy.zz in email textbox and clicking login submit button
+Status: Partial fail
+```
 
-**\*\* VERY IMPORTANT: \*\*** You must have an "index.html" file in this folder to start your program (either HTML redirect to your login page or something equivalent). You must have the email address "itm352@hawaii.edu" with the password "grader" set in your program to enable grading of your assignment.
+**Submission:**
+Same as Assignment1 (see [Deploying Assignment 1 Experience](experience-Deploying-Assignment1.html)). Note that you will need to make your private repo available grader and deploy your application in order to submit your assignment. See the Laulima assignment for details. 
 
-** Submission: **
-See the Laulima assignment for details. 
-
-  
 
 **_Checklist:_**
 
+*   **Complete** set of tests that indicate application meets all functional requirements. All tests "pass".
 *   Put author's name and program description as comments in files
 *   Commented
 *   Credit for use of other's code
-*   Used good file names
+*   Used good file names, variable names, route names, and function names
 *   Good code formatting
 *   Used proper/suitable variable names
 *   Proper data validation (does not allow invalid choices), does not allow bad data inputs, does not allow characters that are used as separators
@@ -194,7 +203,7 @@ See the Laulima assignment for details.
 *   Password check is case sensitive
 *   Covered all new requirements (login, registration, persistent data, personalization, security)
 *   Good user interface design – errors are descriptive and appear at error location, appropriate and pleasing GUI, appropriate use of HTML tables, uses CSS
-*   Modularization, things are organized into functions and separate files
+*   Modularization, things are organized into functions and separate files as appropriate
 *   No extra files
 *   No redundant data
 *   Correct output

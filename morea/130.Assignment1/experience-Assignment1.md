@@ -152,7 +152,7 @@ Tested by: Entering 0 in all quantity text boxes and clicking the purchase butto
 
 After completing the assignment make sure that you have addressed all of the below. Note: Having all of these does not guarantee an 'A' but you _must_ have them.
 
-*   **Test** that your application meets all functional requirements (displays products, allows user to select product, allows user to select quantities, displays invoice with sensible tax and shipping charges along with totals, uses server to share products data and validate purchase data)
+*   **Complete** set of tests that indicate application meets all functional requirements (displays products, allows user to select product, allows user to select quantities, displays invoice with sensible tax and shipping charges along with totals, uses server to share products data and validate purchase data)
 *   Commented--get in the habit now!  Put author's name and program description as comments in files. Credit given to original author when using "borrowed" code.
 *   Used descriptive file names and meaningful variable names.
 *   Employs good code formatting.
