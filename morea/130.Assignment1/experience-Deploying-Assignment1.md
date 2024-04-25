@@ -102,5 +102,7 @@ For example:
 
 {% include medium-img.html url="deployment-3.png" %}
 
+When your app is running you can view the `console.log`  output you would normally see in your terminal by issuing `gcloud app logs tail` in your terminal. This will watch the console output on GCP for your running app.
 
 You may want to watch the screencast on [Deploying and Submitting Assignment 1](https://youtu.be/HxleBqfYgu8) if you find the above instructions confusing or problematic.
+

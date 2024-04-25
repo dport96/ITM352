@@ -179,7 +179,7 @@ Status: Partial fail
 ```
 
 **Submission:**
-Same as Assignment1 (see [Deploying Assignment 1 Experience](experience-Deploying-Assignment1.html)). Note that you will need to make your private repo available grader and deploy your application in order to submit your assignment. See the Laulima assignment for details. 
+Same as Assignment1 (see [Deploying Assignment 1 Experience](../morea/130.Assignment1/experience-Deploying-Assignment1.html). Note that you will need to make your private repo available grader and deploy your application in order to submit your assignment. See the Laulima assignment for details. 
 
 
 **_Checklist:_**
