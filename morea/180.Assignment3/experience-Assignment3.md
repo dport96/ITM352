@@ -7,8 +7,6 @@ morea_summary: "Build an eComm site"
 morea_sort_order: 3 
 morea_labels:
  - Assignment
-morea_start_date:
-morea_end_date: 
 ---
 
 # Assignment 3: Adding Sessions to your e-Commerce Web-site
