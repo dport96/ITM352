@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: "Final Presentation Assignment 3"
 morea_sort_order: 3 
 morea_labels:
-morea_start_date: "2024-05-03T00:00"
+morea_start_date: 
 ---
 
 ## Team Presentation Guidelines
