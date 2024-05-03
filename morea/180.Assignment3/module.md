@@ -13,7 +13,7 @@ morea_experiences:
  - experience-Checkpoint-Assignment3
  - experience-Presentation-Assignment3
  - experience-Assignment3_retrospective
-# - experience-Assignment3_retrospective
+ - experience-class_retrospective
 morea_assessments:
 # - assessment-SmartPhoneProducts6: 
 morea_sort_order: 18
