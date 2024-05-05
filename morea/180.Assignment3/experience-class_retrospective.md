@@ -26,6 +26,26 @@ This reflective essay will not only help you articulate your learning experience
 **Assignment:**
 Write an essay that reflects on your personal learning experience in ITM 352. Your essay should explore the challenges you faced, the skills you developed, and how the pedagogical approach of the course (inverted classroom and athletic software engineering) contributed to or hindered your learning process. Additionally, reflect on the future implications of the skills acquired in this course and how you envision applying them in your professional life.
 
+To help you be more specific in your reflections, here is a list of elements in ITM 352: 
+- JSON
+- web-based platform used for version control and collaboration on software development projects (GitHub)
+- HTML
+- CSS
+- Operating system shell (Bash, Powershell, zsh)
+- Professional portfolio
+- Basic programming in Javascipt
+- DOM
+- HTTP
+- Client-Server (web application)
+- Cloud computing (Google Cloud Platform)
+- Testing
+- Deployment of systems
+- Node.js
+- WODs
+- Screencasting
+- IDEs (VSCode)
+- Web application development
+
  **Copy the outline of questions below and put your responses below them:**
 
 1.	Course Goals
