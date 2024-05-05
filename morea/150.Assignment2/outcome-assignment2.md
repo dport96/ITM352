@@ -18,5 +18,5 @@ After completing this module, you should have learned the following:
 * Enabling users to select multiple products/services
 * Providing some sort of security without using sessions
 * Creating an application with ambiguous requirements
-* Use NetBeans debugger to more efficiently find and fix problems
+* Use a debugger to more efficiently find and fix problems
 
